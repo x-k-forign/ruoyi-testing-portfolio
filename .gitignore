@@ -1,5 +1,5 @@
-# Application source repositories are maintained separately.
-/sources/
+# Source snapshots exclude nested repositories and generated/local files.
+**/.git/
 **/.local/
 **/node_modules/
 **/target/
@@ -11,6 +11,9 @@
 .env
 .env.*
 !.env.example
+!/sources/frontend/.env.development
+!/sources/frontend/.env.production
+!/sources/frontend/.env.staging
 **/application-local.yml
 **/application-local.yaml
 *.pem
@@ -21,6 +24,8 @@
 /backups/
 /raw_logs/
 *.sql
+!/sources/backend/sql/
+!/sources/backend/sql/*.sql
 *.dump
 *.bak
 *.bkp
