@@ -1,0 +1,28 @@
+2026-10-09 核验快照，验收文档提交之前
+当前HEAD：
+696c3903dc323379cf32bf8069d4f9b7707dffa2
+分支状态：
+## t2-git-practice...origin/t2-git-practice
+练习提交仅查看已有对象，不恢复到分支：
+commit 73d91f7531854c58d18972d8798fbaf0bf803768
+Author:     wx_xue <xueyoung030912@gmail.com>
+AuthorDate: Fri Oct 9 19:56:37 2026 +0800
+Commit:     wx_xue <xueyoung030912@gmail.com>
+CommitDate: Fri Oct 9 19:56:37 2026 +0800
+
+    添加Git恢复练习基线
+
+ git-practice.txt | 1 +
+ 1 file changed, 1 insertion(+)
+基线内容：
+baseline
+恢复记录：
+696c390 reset: moving to 696c3903dc323379cf32bf8069d4f9b7707dffa2
+b7cc5e7 revert: Revert "添加Git恢复练习基线"
+73d91f7 commit: 添加Git恢复练习基线
+696c390 commit: chore: 同步若依前后端源码快照及代理配置
+babc308 commit (initial): docs: 整理T1设计与T2环境及权限验证成果
+撤销后与目标树比较：
+diff exit=0
+远端分支：
+696c3903dc323379cf32bf8069d4f9b7707dffa2	refs/heads/t2-git-practice
