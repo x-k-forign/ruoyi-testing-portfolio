@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="31.5.3">
+  <diagram id="02_新用户登录" name="02  新用户登录">
+    <mxGraphModel grid="1" gridSize="10" guides="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1650" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="02  新用户登录" style="text;html=0;align=left;verticalAlign=middle;fontFamily=Microsoft YaHei;fontSize=28;fontStyle=1;fontColor=#20354D;" vertex="1" parent="1">
+          <mxGeometry x="45" y="20" width="1110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="前置：账号已准备；已确认登录配置。使用登录账号，不直接套用手机号／邮箱登录。" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Microsoft YaHei;fontSize=15;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="45" y="72" width="1110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="edge0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="s" target="input">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="input" target="capOn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="capOn" target="capok">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;exitPerimeter=1;entryX=0;entryY=0.5;entryPerimeter=1;" edge="1" parent="1" source="capOn" target="pre">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="235" y="425" />
+              <mxPoint x="235" y="795" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#B65F35;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#B65F35;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitPerimeter=1;entryX=0;entryY=0.5;entryPerimeter=1;" edge="1" parent="1" source="capok" target="capfail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="capfail" target="ce">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="capok" target="pre">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="pre" target="allowed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#B65F35;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#B65F35;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitPerimeter=1;entryX=0;entryY=0.5;entryPerimeter=1;" edge="1" parent="1" source="allowed" target="acctfail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="acctfail" target="ae">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="allowed" target="password">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="password" target="pwdok">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#B65F35;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#B65F35;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitPerimeter=1;entryX=0;entryY=0.5;entryPerimeter=1;" edge="1" parent="1" source="pwdok" target="pwdfail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="pwdfail" target="pe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="pwdok" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=0;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Microsoft YaHei;fontSize=16;fontColor=#64748B;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0.5;entryY=0;entryPerimeter=1;" edge="1" parent="1" source="success" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s" value="开始" style="rounded=1;arcSize=100;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#244B6E;strokeColor=#244B6E;fontColor=#FFFFFF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="390" y="135" width="220" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="input" value="新用户：输入账号与密码&#10;按页面配置提供验证码" style="shape=parallelogram;perimeter=parallelogramPerimeter;fixedSize=1;size=18;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#EDF7F4;strokeColor=#83B6A4;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="350" y="235" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="capOn" value="系统：验证码&#10;校验已启用？" style="rhombus;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#FFF4D8;strokeColor=#C8A35B;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="380" y="370" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="capok" value="系统：验证码&#10;正确且有效？" style="rhombus;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#FFF4D8;strokeColor=#C8A35B;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="380" y="555" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="capfail" value="系统：拒绝登录&#10;记录验证码失败" style="shape=parallelogram;perimeter=parallelogramPerimeter;fixedSize=1;size=18;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#EDF7F4;strokeColor=#83B6A4;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="835" y="575" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ce" value="本次登录结束" style="rounded=1;arcSize=100;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#244B6E;strokeColor=#244B6E;fontColor=#FFFFFF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="875" y="695" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pre" value="系统：校验输入及访问限制&#10;按账号查用户、检查状态" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#EAF2FB;strokeColor=#8FAAC7;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="350" y="755" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="allowed" value="前置及账号&#10;状态检查通过？" style="rhombus;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#FFF4D8;strokeColor=#C8A35B;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="380" y="895" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="acctfail" value="系统：拒绝登录&#10;记录对应失败原因" style="shape=parallelogram;perimeter=parallelogramPerimeter;fixedSize=1;size=18;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#EDF7F4;strokeColor=#83B6A4;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="835" y="915" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ae" value="本次登录结束" style="rounded=1;arcSize=100;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#244B6E;strokeColor=#244B6E;fontColor=#FFFFFF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="875" y="1035" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="password" value="系统：检查失败次数限制&#10;并验证当前账号密码" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#EAF2FB;strokeColor=#8FAAC7;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1075" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pwdok" value="密码校验通过？" style="rhombus;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#FFF4D8;strokeColor=#C8A35B;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="380" y="1205" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="pwdfail" value="系统：拒绝登录&#10;记录对应失败原因" style="shape=parallelogram;perimeter=parallelogramPerimeter;fixedSize=1;size=18;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#EDF7F4;strokeColor=#83B6A4;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="835" y="1225" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pe" value="本次登录结束" style="rounded=1;arcSize=100;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#244B6E;strokeColor=#244B6E;fontColor=#FFFFFF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="875" y="1345" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="success" value="系统：记录登录成功&#10;生成会话令牌" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#EAF2FB;strokeColor=#8FAAC7;fontColor=#20354D;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1370" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="end" value="登录成功，转 03" style="rounded=1;arcSize=100;whiteSpace=wrap;html=0;fontFamily=Microsoft YaHei;fontSize=17;align=center;verticalAlign=middle;spacing=10;fillColor=#244B6E;strokeColor=#244B6E;fontColor=#FFFFFF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1475" width="220" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" value="顺序依据 S08—S10、S14。验证码先校验；开启时每次尝试重新获取，具体期限和失败阈值见 Q02。&#10;所有成功／失败结果转 05 核对登录日志；异步记录不代表立即可见。前端具体提示与跳转见 Q01。" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Microsoft YaHei;fontSize=14;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1554" width="1110" height="72" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

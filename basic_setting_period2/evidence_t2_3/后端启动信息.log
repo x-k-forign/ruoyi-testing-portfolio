@@ -1,0 +1,23 @@
+14:59:57.930 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,18] - HV000001: Hibernate Validator 9.1.0.Final
+14:59:58.001 [main] INFO  c.r.RuoYiApplication - [logStarting,54] - Starting RuoYiApplication using Java 17.0.10 with PID 22484 (E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend\ruoyi-admin\target\ruoyi-admin.jar started by wx_xue in E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend)
+14:59:58.003 [main] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,658] - The following 1 profile is active: "druid"
+15:00:01.568 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-127.0.0.1-8080"]
+15:00:01.573 [main] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+15:00:01.573 [main] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
+15:00:04.618 [main] INFO  c.a.d.p.DruidDataSource - [init,865] - {dataSource-1} inited
+15:00:08.365 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,62] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+15:00:08.366 [main] INFO  o.q.c.QuartzScheduler - [<init>,224] - Quartz Scheduler v2.5.2 created.
+15:00:08.369 [main] INFO  o.q.s.RAMJobStore - [initialize,152] - RAMJobStore initialized.
+15:00:08.372 [main] INFO  o.q.c.QuartzScheduler - [initialize,289] - Scheduler meta-data: Quartz Scheduler (v2.5.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+15:00:08.372 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2250] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@35abfeba
+15:00:09.956 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-127.0.0.1-8080"]
+15:00:09.976 [main] INFO  o.q.c.QuartzScheduler - [start,541] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+15:00:09.985 [main] INFO  c.r.RuoYiApplication - [logStarted,60] - Started RuoYiApplication in 12.554 seconds (process running for 13.881)
+15:03:06.827 [http-nio-127.0.0.1-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'

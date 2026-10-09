@@ -1,0 +1,9 @@
+10:25:01.228 [main] INFO  c.r.RuoYiApplication - [logStarting,54] - Starting RuoYiApplication using Java 17.0.10 with PID 17680 (E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend\ruoyi-admin\target\ruoyi-admin.jar started by wx_xue in E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend)
+10:25:25.337 [main] INFO  c.a.d.p.DruidDataSource - [close,2083] - {dataSource-1} closing ...
+10:25:25.347 [main] INFO  c.a.d.p.DruidDataSource - [close,2156] - {dataSource-1} closed
+10:33:28.097 [main] INFO  c.r.RuoYiApplication - [logStarting,54] - Starting RuoYiApplication using Java 17.0.10 with PID 9060 (E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend\ruoyi-admin\target\ruoyi-admin.jar started by wx_xue in E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend)
+10:33:40.974 [main] INFO  c.r.RuoYiApplication - [logStarted,60] - Started RuoYiApplication in 13.413 seconds (process running for 14.398)
+10:51:53.587 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2083] - {dataSource-1} closing ...
+10:51:53.590 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2156] - {dataSource-1} closed
+10:52:11.180 [main] INFO  c.r.RuoYiApplication - [logStarting,54] - Starting RuoYiApplication using Java 17.0.10 with PID 164 (E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend\ruoyi-admin\target\ruoyi-admin.jar started by wx_xue in E:\cpmputer_jobs\software_test_learning\Ruo_Yi\sources\backend)
+10:52:25.762 [main] INFO  c.r.RuoYiApplication - [logStarted,60] - Started RuoYiApplication in 15.107 seconds (process running for 16.102)

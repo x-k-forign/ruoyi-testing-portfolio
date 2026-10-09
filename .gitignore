@@ -1,0 +1,41 @@
+# Application source repositories are maintained separately.
+/sources/
+**/.local/
+**/node_modules/
+**/target/
+**/dist/
+**/.venv/
+**/__pycache__/
+
+# Secrets and local configuration (sanitized examples are allowed).
+.env
+.env.*
+!.env.example
+**/application-local.yml
+**/application-local.yaml
+*.pem
+*.key
+*.p12
+*.pfx
+/private/
+/backups/
+/raw_logs/
+*.sql
+*.dump
+*.bak
+*.bkp
+**/.$*
+*.log
+!/basic_setting_period2/evidence_t2_3/后端启动信息.log
+!/basic_setting_period2/evidence_t2_4/后端重启摘要.log
+
+# Editor, Office and operating-system temporary files.
+~$*
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Prompt drafts are not project deliverables.
+/*提示词*.md

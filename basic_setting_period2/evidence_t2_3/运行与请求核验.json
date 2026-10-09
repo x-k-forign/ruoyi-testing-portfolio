@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-09-30T15:13:39.9103031+08:00",
+  "listeners": [
+    {
+      "LocalAddress": "::",
+      "LocalPort": 3306,
+      "OwningProcess": 6952
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8080,
+      "OwningProcess": 22484
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 80,
+      "OwningProcess": 18932
+    }
+  ],
+  "processes": [
+    {
+      "ProcessId": 22484,
+      "Name": "java.exe",
+      "ExecutablePath": "E:\\software\\jdk-17\\jdk-17.0.10+7\\bin\\java.exe",
+      "CommandLine": "\"E:\\software\\jdk-17\\jdk-17.0.10+7\\bin\\java.exe\" -jar .\\ruoyi-admin\\target\\ruoyi-admin.jar --spring.config.additional-location=file:./.local/application-local.yml"
+    },
+    {
+      "ProcessId": 18932,
+      "Name": "node.exe",
+      "ExecutablePath": "E:\\software\\node.js\\node.exe",
+      "CommandLine": "\"node\"   \"E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\frontend\\node_modules\\.bin\\\\..\\vite\\bin\\vite.js\" --host 127.0.0.1"
+    }
+  ],
+  "request": {
+    "url": "http://127.0.0.1/dev-api/captchaImage",
+    "method": "GET",
+    "httpStatus": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "captchaEnabled": true,
+    "uuidPresent": true,
+    "imgPresent": true,
+    "source": "本次验收独立请求，不是浏览器历史请求"
+  }
+}

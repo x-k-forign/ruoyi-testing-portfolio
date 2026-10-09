@@ -1,0 +1,27 @@
+# 本地练习配置：请替换下面两处 CHANGE_ME，保留单引号。
+# 密码如果包含单引号，在 YAML 单引号字符串中写成两个单引号。
+server:
+  address: 127.0.0.1
+  port: 8080
+
+ruoyi:
+  profile: E:/cpmputer_jobs/software_test_learning/Ruo_Yi/sources/backend/.local/uploads
+
+spring:
+  profiles:
+    active: druid
+  datasource:
+    druid:
+      master:
+        url: 'jdbc:mysql://127.0.0.1:3306/ruoyi_t2_lab?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8'
+        username: ruoyi_app
+        password: 'REDACTED'
+  data:
+    redis:
+      host: 192.168.192.10
+      port: 6379
+      database: 0
+      password: 'REDACTED'
+
+logging:
+  config: file:./.local/logback-local.xml
