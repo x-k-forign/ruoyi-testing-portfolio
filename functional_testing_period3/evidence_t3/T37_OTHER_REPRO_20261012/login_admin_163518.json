@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-12T16:35:17.348473+08:00",
+  "session": "admin",
+  "user": "admin",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "previous_session_logout_code": 200,
+  "reauthentication": true,
+  "identity": {
+    "userId": 1,
+    "userName": "admin",
+    "deptId": 103,
+    "status": "0"
+  },
+  "permissions": [
+    "*:*:*"
+  ]
+}

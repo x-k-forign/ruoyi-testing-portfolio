@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-12T11:06:53.661846+08:00",
+  "http": 200,
+  "code": 500,
+  "msg": "验证码错误",
+  "token_present": false,
+  "session": "admin"
+}

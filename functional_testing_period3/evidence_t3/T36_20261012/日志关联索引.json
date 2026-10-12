@@ -1,0 +1,82 @@
+[
+  {
+    "case": "TC-G01-01",
+    "event": "normal_144603",
+    "log_kind": "login",
+    "log_id": 335,
+    "actor": "t3ai_contact_1010",
+    "event_time": "2026-10-12T14:46:03.016531+08:00",
+    "log_time": "2026-10-12 14:46:03",
+    "result": "登录成功",
+    "first_visible": 0.016
+  },
+  {
+    "case": "TC-G02-01",
+    "event": "missing_144544",
+    "log_kind": "login",
+    "log_id": 333,
+    "actor": "t36_nonexistent_1012",
+    "event_time": "2026-10-12T14:45:44.480620+08:00",
+    "log_time": "2026-10-12 14:45:44",
+    "result": "用户不存在/密码错误",
+    "first_visible": 0.031
+  },
+  {
+    "case": "TC-G02-02",
+    "event": "wrong_144531",
+    "log_kind": "login",
+    "log_id": 332,
+    "actor": "t3ai_contact_1010",
+    "event_time": "2026-10-12T14:45:31.553584+08:00",
+    "log_time": "2026-10-12 14:45:31",
+    "result": "用户不存在/密码错误",
+    "first_visible": 2.078
+  },
+  {
+    "case": "TC-G02-03",
+    "event": "badcode_144552",
+    "log_kind": "login",
+    "log_id": 334,
+    "actor": "t3ai_contact_1010",
+    "event_time": "2026-10-12T14:45:52.227236+08:00",
+    "log_time": "2026-10-12 14:45:52",
+    "result": "验证码错误",
+    "first_visible": 0.047
+  },
+  {
+    "case": "TC-G03-01",
+    "event": "create",
+    "log_kind": "operation",
+    "log_id": 224,
+    "actor": "admin",
+    "target": 140,
+    "event_time": "2026-10-12T14:46:03.639652+08:00",
+    "log_time": "2026-10-12 14:46:03",
+    "businessType": 1,
+    "first_visible": 0.063
+  },
+  {
+    "case": "TC-G03-02",
+    "event": "grant",
+    "log_kind": "operation",
+    "log_id": 225,
+    "actor": "admin",
+    "target": 140,
+    "event_time": "2026-10-12T14:46:04.338294+08:00",
+    "log_time": "2026-10-12 14:46:04",
+    "businessType": 4,
+    "first_visible": 0.062
+  },
+  {
+    "case": "TC-G03-03",
+    "event": "disable",
+    "log_kind": "operation",
+    "log_id": 226,
+    "actor": "admin",
+    "target": 140,
+    "event_time": "2026-10-12T14:46:04.747542+08:00",
+    "log_time": "2026-10-12 14:46:04",
+    "businessType": 2,
+    "first_visible": 0.047
+  }
+]

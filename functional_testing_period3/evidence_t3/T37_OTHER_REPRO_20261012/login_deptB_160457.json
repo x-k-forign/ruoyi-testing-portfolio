@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-12T16:04:57.531279+08:00",
+  "session": "deptB",
+  "user": "t35_change_1012",
+  "http": 200,
+  "code": 500,
+  "msg": "验证码错误",
+  "token_present": false
+}

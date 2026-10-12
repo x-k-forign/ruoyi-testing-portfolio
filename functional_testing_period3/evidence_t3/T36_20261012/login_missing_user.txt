@@ -1,0 +1,112 @@
+- link:
+  - /url: /
+- menubar:
+  - link:
+    - /url: /index
+    - menuitem:
+  - menuitem:
+  - menuitem:
+  - menuitem:
+  - link:
+    - /url: http://ruoyi.vip
+    - menuitem:
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "日志管理"
+  - text: /
+  - link "登录日志"
+- button "若依":
+  - text: 若依
+- link "首页":
+  - /url: /index
+- link "登录日志":
+  - /url: /system/log/logininfor
+  - text: 登录日志
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- generic: 登录地址
+- textbox "登录地址":
+  - /placeholder: 请输入登录地址
+- generic: 用户名称
+- textbox "用户名称":
+  - /placeholder: 请输入用户名称
+  - text: t36_nonexistent_1012
+- generic: 状态
+- combobox "状态"
+- generic: 登录状态
+- generic: 登录时间
+- combobox "登录时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索" [active]:
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button "删除" [disabled]:
+  - generic: 删除
+- button "清空":
+  - generic: 清空
+- button "解锁" [disabled]:
+  - generic: 解锁
+- button "导出":
+  - generic: 导出
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 访问编号 用户名称 按 用户名称 排序 地址 登录地点 操作系统 浏览器 登录状态 描述 访问时间 按 访问时间 排序":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行"
+      - columnheader "访问编号":
+        - generic: 访问编号
+      - columnheader "用户名称 按 用户名称 排序":
+        - text: 用户名称
+        - button "按 用户名称 排序"
+      - columnheader "地址":
+        - generic: 地址
+      - columnheader "登录地点":
+        - generic: 登录地点
+      - columnheader "操作系统":
+        - generic: 操作系统
+      - columnheader "浏览器":
+        - generic: 浏览器
+      - columnheader "登录状态":
+        - generic: 登录状态
+      - columnheader "描述":
+        - generic: 描述
+      - columnheader "访问时间 按 访问时间 排序":
+        - text: 访问时间
+        - button "按 访问时间 排序"
+- table:
+  - rowgroup:
+    - row "选择当前行 333 t36_nonexistent_1012 127.0.0.1 内网IP Python-urllib 3.12 失败 用户不存在/密码错误 2026-10-12 14:45:44":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "333":
+        - generic: "333"
+      - cell "t36_nonexistent_1012":
+        - generic: t36_nonexistent_1012
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "内网IP":
+        - generic: 内网IP
+      - cell
+      - cell "Python-urllib 3.12":
+        - generic: Python-urllib 3.12
+      - cell "失败":
+        - generic: 失败
+      - cell "用户不存在/密码错误":
+        - generic: 用户不存在/密码错误
+      - cell "2026-10-12 14:45:44":
+        - generic: 2026-10-12 14:45:44
+- generic: 共 1 条
+- button "上一页" [disabled]:
+- list:
+  - listitem "第 1 页": "1"
+- button "下一页" [disabled]:

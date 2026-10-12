@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-11T18:47:52.738310+08:00",
+  "settings": "config_id\tconfig_key\tconfig_value\tupdate_by\tupdate_time\r\n4\tsys.account.captchaEnabled\ttrue\tadmin\t2026-10-10 17:34:01\r\n6\tsys.login.blackIPList\t\t\tNULL\r\n",
+  "cache": "\"\"",
+  "account": "user_id\tuser_name\tstatus\tdel_flag\r\n116\tt3ai_contact_1010\t0\t0\r\n"
+}

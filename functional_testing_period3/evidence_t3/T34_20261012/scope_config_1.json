@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-12T10:36:31.240580+08:00",
+  "role": {
+    "roleId": 104,
+    "admin": false,
+    "createBy": null,
+    "createTime": "2026-10-12 10:30:01",
+    "dataScope": "1",
+    "delFlag": "0",
+    "deptCheckStrictly": true,
+    "deptIds": null,
+    "flag": false,
+    "menuCheckStrictly": false,
+    "menuIds": null,
+    "permissions": null,
+    "remark": null,
+    "roleKey": "t34_scope_1012",
+    "roleName": "T34_scope_1012",
+    "roleSort": 10,
+    "status": "0",
+    "updateBy": null,
+    "updateTime": null
+  },
+  "db": "role_id\tdata_scope\tstatus\r\n104\t1\t0\r\n"
+}

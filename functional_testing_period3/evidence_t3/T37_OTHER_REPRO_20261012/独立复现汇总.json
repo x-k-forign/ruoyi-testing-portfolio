@@ -1,0 +1,82 @@
+{
+  "batch": "T37_OTHER_REPRO_20261012",
+  "scope": "001/002/004/005独立再次复现；无修复版本",
+  "results": [
+    {
+      "bug": "BUG-T3-001",
+      "result": "再次观察到原问题，未修复",
+      "effective_attempts_this_batch": 1,
+      "occurrences_this_batch": 1,
+      "recorded_total": "2/2（首次一次＋本次一次，不表示所有条件必现）",
+      "summary": "清空保存再次被必填校验拒绝；已恢复空值及缓存，并从127.0.0.2成功登录作恢复验证。",
+      "files": [
+        "baseline.json",
+        "bug001_empty_rejected.png",
+        "bug001_empty_rejected.txt",
+        "bug001_restore.json",
+        "bug001_set.json",
+        "login_restored_163615.json",
+        "restoration.json",
+        "session_cleanup.json"
+      ]
+    },
+    {
+      "bug": "BUG-T3-002",
+      "result": "再次观察到原问题，未修复",
+      "effective_attempts_this_batch": 1,
+      "occurrences_this_batch": 1,
+      "recorded_total": "2/2（首次一次＋本次一次，不表示所有条件必现）",
+      "summary": "新增页面五位密码字段校验拒绝；普通新增接口创建144成功，五位密码登录成功；144已逻辑删除。",
+      "files": [
+        "baseline.json",
+        "bug002_create.json",
+        "bug002_ui_length.png",
+        "bug002_ui_length.txt",
+        "login_restored_163615.json",
+        "login_short_160432.json",
+        "restoration.json",
+        "session_cleanup.json"
+      ]
+    },
+    {
+      "bug": "BUG-T3-004",
+      "result": "再次观察到原问题，未修复",
+      "effective_attempts_this_batch": 1,
+      "occurrences_this_batch": 1,
+      "recorded_total": "2/2（首次一次＋本次一次，不表示所有条件必现）",
+      "summary": "调部门后旧A仍返回202当前22条，新B返回204的104/129/134；完整集合分别与最新管理员基准一致。已恢复134为202/102/正常。",
+      "files": [
+        "baseline.json",
+        "bug004_before.json",
+        "bug004_move.json",
+        "bug004_new.json",
+        "bug004_old.json",
+        "bug004_query_base.json",
+        "bug004_restore.json",
+        "login_restored_163615.json",
+        "restoration.json",
+        "session_cleanup.json",
+        "timeline.json"
+      ]
+    },
+    {
+      "bug": "BUG-T3-005",
+      "result": "再次观察到原问题，未修复",
+      "effective_attempts_this_batch": 1,
+      "occurrences_this_batch": 1,
+      "recorded_total": "2/2（首次一次＋本次一次，不表示所有条件必现）",
+      "summary": "合法新增被403拒绝；30秒每2秒查询，操作日志API和SQL均未匹配；有权限的日志读取身份能查到正常对照记录。",
+      "files": [
+        "baseline.json",
+        "bug005_denied.json",
+        "login_log_160545.json",
+        "login_query_160530.json",
+        "login_restored_163615.json",
+        "restoration.json",
+        "session_cleanup.json"
+      ]
+    }
+  ],
+  "interruption": "页面取证完成后用户误中断；恢复时原管理员会话过期，重新登录后完成恢复。未重跑既有缺陷触发。",
+  "recovery_verified": true
+}

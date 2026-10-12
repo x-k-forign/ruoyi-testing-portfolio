@@ -1,0 +1,35 @@
+{
+  "reader": "admin",
+  "kind": "login",
+  "W_LOG_seconds": 30,
+  "poll_interval_seconds": 2,
+  "filter": {
+    "userName": "t3ai_contact_1010",
+    "id_greater_than": 333,
+    "target": null
+  },
+  "checks": [
+    {
+      "at": "2026-10-12T14:45:52.357555+08:00",
+      "elapsed_seconds": 0.047,
+      "candidate_ids": [
+        334
+      ],
+      "matched_ids": [
+        334
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "infoId": 334,
+      "userName": "t3ai_contact_1010",
+      "ipaddr": "127.0.0.1",
+      "status": "1",
+      "msg": "验证码错误",
+      "loginTime": "2026-10-12 14:45:52"
+    }
+  ],
+  "first_seen_elapsed_seconds": 0.047,
+  "note": "首次查询可见时间是观测上界，不是精确入库延迟或产品SLA；证据已去除口令和令牌。"
+}

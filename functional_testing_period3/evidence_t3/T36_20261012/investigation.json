@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-12T14:47:09.845352+08:00",
+  "wrong_filter": {
+    "operName": "t36_no_such_actor",
+    "code": 200,
+    "total": 0
+  },
+  "corrected_filter": {
+    "operName": "admin",
+    "code": 200,
+    "known_ids": [
+      224
+    ],
+    "found_ids": [
+      224
+    ]
+  },
+  "login_log_permission_control": {
+    "reader": "log",
+    "code": 403,
+    "msg": "没有权限，请联系管理员授权"
+  },
+  "database_confirmation": "oper_id\toper_name\tstatus\toper_time\r\n224\tadmin\t0\t2026-10-12 14:46:03\r\n",
+  "deny_db": ""
+}

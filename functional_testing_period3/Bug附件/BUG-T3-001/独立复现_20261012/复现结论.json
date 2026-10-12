@@ -1,0 +1,18 @@
+{
+  "bug": "BUG-T3-001",
+  "result": "再次观察到原问题，未修复",
+  "effective_attempts_this_batch": 1,
+  "occurrences_this_batch": 1,
+  "recorded_total": "2/2（首次一次＋本次一次，不表示所有条件必现）",
+  "summary": "清空保存再次被必填校验拒绝；已恢复空值及缓存，并从127.0.0.2成功登录作恢复验证。",
+  "files": [
+    "baseline.json",
+    "bug001_empty_rejected.png",
+    "bug001_empty_rejected.txt",
+    "bug001_restore.json",
+    "bug001_set.json",
+    "login_restored_163615.json",
+    "restoration.json",
+    "session_cleanup.json"
+  ]
+}

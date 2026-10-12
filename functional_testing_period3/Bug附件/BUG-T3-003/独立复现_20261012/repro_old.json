@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-12T15:57:10.625195+08:00",
+  "session": "A",
+  "target": "t35_repro_old",
+  "http": 200,
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "created_ids": [
+    142
+  ],
+  "created_detail": {
+    "userId": 142,
+    "userName": "t35_repro_old",
+    "deptId": 202,
+    "roleIds": [
+      101
+    ]
+  },
+  "cleanup": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "db_after": "user_id\tuser_name\tdept_id\tdel_flag\r\n142\tt35_repro_old\t202\t2\r\n"
+}

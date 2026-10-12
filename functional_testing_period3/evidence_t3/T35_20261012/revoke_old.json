@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-12T11:07:31.554846+08:00",
+  "session": "revokeA",
+  "target": "t35_revoke_old",
+  "http": 200,
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "created_ids": [
+    136
+  ],
+  "cleanup": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "db_after": "user_id\tuser_name\tdept_id\tdel_flag\r\n136\tt35_revoke_old\t202\t2\r\n"
+}

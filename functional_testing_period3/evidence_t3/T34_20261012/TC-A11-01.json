@@ -1,0 +1,493 @@
+{
+  "at": "2026-10-12T10:37:16.870573+08:00",
+  "actor": "multi",
+  "admin_baseline": {
+    "ids": [
+      1,
+      2,
+      100,
+      101,
+      103,
+      104,
+      105,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "http": 200,
+        "total": 30,
+        "rows": [
+          {
+            "userId": 1,
+            "userName": "admin",
+            "deptId": 103,
+            "status": "0"
+          },
+          {
+            "userId": 2,
+            "userName": "ry",
+            "deptId": 105,
+            "status": "0"
+          },
+          {
+            "userId": 100,
+            "userName": "t24_user_1009",
+            "deptId": 200,
+            "status": "0"
+          },
+          {
+            "userId": 101,
+            "userName": "t25_a_query",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 103,
+            "userName": "t25_a_add",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "http": 200,
+        "total": 30,
+        "rows": [
+          {
+            "userId": 104,
+            "userName": "t25_b_query",
+            "deptId": 204,
+            "status": "0"
+          },
+          {
+            "userId": 105,
+            "userName": "t25_a_child",
+            "deptId": 203,
+            "status": "0"
+          },
+          {
+            "userId": 108,
+            "userName": "t25_a_created",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 109,
+            "userName": "t25_log",
+            "deptId": 201,
+            "status": "0"
+          },
+          {
+            "userId": 110,
+            "userName": "t3_pwd5_1010",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 3,
+        "http": 200,
+        "total": 30,
+        "rows": [
+          {
+            "userId": 111,
+            "userName": "t310100001",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 112,
+            "userName": "t3ai_p06_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 113,
+            "userName": "t3ai_p07_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 114,
+            "userName": "t3ai_p19_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 115,
+            "userName": "t3ai_p20_1010",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "http": 200,
+        "total": 30,
+        "rows": [
+          {
+            "userId": 116,
+            "userName": "t3ai_contact_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 117,
+            "userName": "a1",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 118,
+            "userName": "a11",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 119,
+            "userName": "a111111111111111111",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 120,
+            "userName": "a1111111111111111111",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 5,
+        "http": 200,
+        "total": 30,
+        "rows": [
+          {
+            "userId": 121,
+            "userName": "t3ai_lock_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 122,
+            "userName": "t3ai_stop_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 124,
+            "userName": "t3ai_dept_1010",
+            "deptId": 207,
+            "status": "0"
+          },
+          {
+            "userId": 125,
+            "userName": "t3ai_maint_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 126,
+            "userName": "t3ai_nodept_1010",
+            "deptId": null,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 6,
+        "http": 200,
+        "total": 30,
+        "rows": [
+          {
+            "userId": 127,
+            "userName": "t3ai_norole_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 128,
+            "userName": "t3ai_pwd5_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 129,
+            "userName": "t34_c_1012",
+            "deptId": 204,
+            "status": "0"
+          },
+          {
+            "userId": 130,
+            "userName": "t34_scopeuser_1012",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 131,
+            "userName": "t34_multi_1012",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "actual": {
+    "ids": [
+      101,
+      103,
+      104,
+      108,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      125,
+      127,
+      128,
+      129,
+      130,
+      131
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "http": 200,
+        "total": 23,
+        "rows": [
+          {
+            "userId": 101,
+            "userName": "t25_a_query",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 103,
+            "userName": "t25_a_add",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 104,
+            "userName": "t25_b_query",
+            "deptId": 204,
+            "status": "0"
+          },
+          {
+            "userId": 108,
+            "userName": "t25_a_created",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 110,
+            "userName": "t3_pwd5_1010",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "http": 200,
+        "total": 23,
+        "rows": [
+          {
+            "userId": 111,
+            "userName": "t310100001",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 112,
+            "userName": "t3ai_p06_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 113,
+            "userName": "t3ai_p07_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 114,
+            "userName": "t3ai_p19_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 115,
+            "userName": "t3ai_p20_1010",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 3,
+        "http": 200,
+        "total": 23,
+        "rows": [
+          {
+            "userId": 116,
+            "userName": "t3ai_contact_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 117,
+            "userName": "a1",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 118,
+            "userName": "a11",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 119,
+            "userName": "a111111111111111111",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 120,
+            "userName": "a1111111111111111111",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "http": 200,
+        "total": 23,
+        "rows": [
+          {
+            "userId": 121,
+            "userName": "t3ai_lock_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 122,
+            "userName": "t3ai_stop_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 125,
+            "userName": "t3ai_maint_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 127,
+            "userName": "t3ai_norole_1010",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 128,
+            "userName": "t3ai_pwd5_1010",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      },
+      {
+        "page": 5,
+        "http": 200,
+        "total": 23,
+        "rows": [
+          {
+            "userId": 129,
+            "userName": "t34_c_1012",
+            "deptId": 204,
+            "status": "0"
+          },
+          {
+            "userId": 130,
+            "userName": "t34_scopeuser_1012",
+            "deptId": 202,
+            "status": "0"
+          },
+          {
+            "userId": 131,
+            "userName": "t34_multi_1012",
+            "deptId": 202,
+            "status": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "expected_ids": [
+    101,
+    103,
+    104,
+    108,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    125,
+    127,
+    128,
+    129,
+    130,
+    131
+  ],
+  "missing": [],
+  "extra": [],
+  "pass": true,
+  "layer": "API all pages; UI verification separately"
+}

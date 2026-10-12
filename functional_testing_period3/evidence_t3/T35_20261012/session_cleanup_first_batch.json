@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-12T11:18:28.671258+08:00",
+  "sessions": [
+    {
+      "session": "admin",
+      "code": 200
+    },
+    {
+      "session": "revokeA",
+      "code": 200
+    },
+    {
+      "session": "deptA",
+      "code": 200
+    },
+    {
+      "session": "revokeB",
+      "code": 200
+    },
+    {
+      "session": "deptB",
+      "code": 200
+    },
+    {
+      "session": "grantA",
+      "code": 200
+    },
+    {
+      "session": "grantB",
+      "code": 200
+    },
+    {
+      "session": "otherB",
+      "code": 200
+    },
+    {
+      "session": "finalB",
+      "code": 200
+    }
+  ]
+}

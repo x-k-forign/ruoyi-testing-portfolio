@@ -1,0 +1,54 @@
+{
+  "case": "TC-L10-03",
+  "start": "2026-10-10T17:30:00.560023+08:00",
+  "end": "2026-10-10T17:30:00.993863+08:00",
+  "username": "t3ai_lock_1010",
+  "password_length": 10,
+  "mode": "correct",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "has_token": true,
+  "before": {
+    "captcha_exists": "1",
+    "captcha_pttl": "99934",
+    "fail_count": null,
+    "fail_pttl": "-2"
+  },
+  "after": {
+    "captcha_exists": "0",
+    "fail_count": null,
+    "fail_pttl": "-2"
+  },
+  "layer": "后端认证请求＋指定缓存键只读核验",
+  "identity": {
+    "http": 200,
+    "code": 200,
+    "userId": 121,
+    "userName": "t3ai_lock_1010",
+    "deptId": 202
+  },
+  "query": {
+    "http": 200,
+    "code": 200,
+    "total": 16,
+    "ids": [
+      101,
+      103,
+      108,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122
+    ]
+  }
+}

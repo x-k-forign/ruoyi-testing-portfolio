@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-12T17:00:41.039344+08:00",
+  "session": "regRestored",
+  "userName": "t38_reg_1012",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "identity": {
+    "userId": 145,
+    "userName": "t38_reg_1012",
+    "deptId": 202,
+    "status": "0"
+  },
+  "roles": [
+    "t38_reg_1012"
+  ],
+  "permissions": [
+    "system:user:list",
+    "system:user:query"
+  ]
+}

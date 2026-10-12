@@ -1,0 +1,16 @@
+{
+  "case": "PREP_PWD5",
+  "at": "2026-10-10T17:39:16.458274+08:00",
+  "actor": "t3ai_maint_1010",
+  "actorUserId": 125,
+  "target": "t3ai_pwd5_1010",
+  "deptId": 202,
+  "roleIds": [
+    101
+  ],
+  "password_length": 5,
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "layer": "普通身份真实新增请求；需数据库回查"
+}

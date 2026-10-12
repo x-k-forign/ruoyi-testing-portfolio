@@ -1,0 +1,26 @@
+[
+  {
+    "who": "admin",
+    "code": 200
+  },
+  {
+    "who": "a",
+    "code": 200
+  },
+  {
+    "who": "b",
+    "code": 200
+  },
+  {
+    "who": "c",
+    "code": 200
+  },
+  {
+    "who": "scopeuser",
+    "code": 200
+  },
+  {
+    "who": "multi",
+    "code": 200
+  }
+]

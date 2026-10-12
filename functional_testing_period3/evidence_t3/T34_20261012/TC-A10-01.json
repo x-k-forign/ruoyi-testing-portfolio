@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-12T10:30:52.415391+08:00",
+  "filter": "T34_NO_SUCH_USER_1012",
+  "actual": {
+    "ids": [],
+    "pages": [
+      {
+        "page": 1,
+        "http": 200,
+        "total": 0,
+        "rows": []
+      }
+    ]
+  },
+  "admin_control": {
+    "ids": [],
+    "pages": [
+      {
+        "page": 1,
+        "http": 200,
+        "total": 0,
+        "rows": []
+      }
+    ]
+  },
+  "pass": true
+}

@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-12T16:56:39.020015+08:00",
+  "session": "wrong",
+  "userName": "t38_chain_1012",
+  "http": 200,
+  "code": 500,
+  "msg": "用户不存在/密码错误",
+  "token_present": false
+}

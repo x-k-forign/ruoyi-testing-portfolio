@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-12T11:07:15.755593+08:00",
+  "target": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\tNULL\r\nuser_id\trole_id\r\n134\t102\r\n",
+  "shared": "user_id\tdept_id\tstatus\tdel_flag\r\n101\t202\t0\t0\r\n103\t202\t0\t0\r\n104\t204\t0\t0\r\n105\t203\t0\t0\r\n110\t202\t0\t0\r\n116\t202\t0\t0\r\n125\t202\t0\t0\r\n129\t204\t0\t0\r\n130\t202\t0\t0\r\n131\t202\t0\t0\r\nuser_id\trole_id\r\n101\t101\r\n103\t102\r\n104\t101\r\n105\t101\r\n110\t101\r\n116\t101\r\n125\t102\r\n129\t101\r\n130\t104\r\n131\t105\r\n131\t106\r\n",
+  "roles": {
+    "add": 107,
+    "other": 108
+  }
+}

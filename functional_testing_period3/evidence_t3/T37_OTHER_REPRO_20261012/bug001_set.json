@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-12T16:06:59.718297+08:00",
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "config": {
+    "configId": 6,
+    "configKey": "sys.login.blackIPList",
+    "configName": "用户登录-黑名单列表",
+    "configType": "Y",
+    "configValue": "127.0.0.2",
+    "createBy": "admin",
+    "createTime": "2026-09-30 14:47:11",
+    "remark": "设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）",
+    "updateBy": "admin",
+    "updateTime": "2026-10-12 16:06:59"
+  },
+  "cache": "\"127.0.0.2\""
+}

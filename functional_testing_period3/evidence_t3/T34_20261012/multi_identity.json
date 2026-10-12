@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-12T10:39:42.529052+08:00",
+  "userId": 131,
+  "userName": "t34_multi_1012",
+  "deptId": 202,
+  "roles": [
+    "t34_r2_1012",
+    "t34_r1_1012"
+  ],
+  "permissions": [
+    "system:user:list",
+    "system:user:query"
+  ]
+}

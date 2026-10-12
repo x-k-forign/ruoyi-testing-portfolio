@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-12T16:55:20.878089+08:00",
+  "role": {
+    "roleName": "T38回归角色1012",
+    "roleKey": "t38_reg_1012",
+    "roleSort": 20,
+    "status": "0",
+    "dataScope": "3",
+    "menuIds": [
+      1,
+      100,
+      1000
+    ],
+    "menuCheckStrictly": true,
+    "deptCheckStrictly": true,
+    "roleId": 109
+  },
+  "regId": 145,
+  "chainId": 146
+}

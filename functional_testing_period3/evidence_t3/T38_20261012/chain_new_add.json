@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-12T16:59:23.437627+08:00",
+  "session": "chainB",
+  "target": "t38_chain_new_add",
+  "http": 200,
+  "response": {
+    "msg": "没有权限，请联系管理员授权",
+    "code": 403
+  },
+  "created_ids": [],
+  "db": ""
+}

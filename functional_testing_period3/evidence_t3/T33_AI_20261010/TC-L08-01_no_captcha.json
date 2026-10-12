@@ -1,0 +1,15 @@
+{
+  "case": "TC-L08-01",
+  "at": "2026-10-10T17:33:47.610393+08:00",
+  "username": "t310100001",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "has_token": true,
+  "captcha_supplied": false,
+  "identity": {
+    "code": 200,
+    "userId": 111,
+    "userName": "t310100001"
+  }
+}

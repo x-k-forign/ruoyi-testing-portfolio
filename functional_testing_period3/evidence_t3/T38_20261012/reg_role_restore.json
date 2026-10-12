@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-12T17:00:26.546277+08:00",
+  "mode": "restore",
+  "payload": {
+    "roleName": "T38回归角色1012",
+    "roleKey": "t38_reg_1012",
+    "roleSort": 20,
+    "status": "0",
+    "dataScope": "3",
+    "menuIds": [
+      1,
+      100,
+      1000
+    ],
+    "menuCheckStrictly": true,
+    "deptCheckStrictly": true,
+    "roleId": 109
+  },
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "before_role": {
+    "roleId": 109,
+    "admin": false,
+    "createBy": null,
+    "createTime": "2026-10-12 16:55:20",
+    "dataScope": "3",
+    "delFlag": "0",
+    "deptCheckStrictly": true,
+    "deptIds": null,
+    "flag": false,
+    "menuCheckStrictly": true,
+    "menuIds": null,
+    "permissions": null,
+    "remark": null,
+    "roleKey": "t38_reg_1012",
+    "roleName": "T38回归角色1012",
+    "roleSort": 20,
+    "status": "0",
+    "updateBy": null,
+    "updateTime": null
+  },
+  "db": "role_id\tdata_scope\tstatus\r\n109\t3\t0\r\nmenu_id\r\n1\r\n100\r\n1000\r\n"
+}

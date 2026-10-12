@@ -1,0 +1,136 @@
+- link "若依管理系统":
+  - /url: /
+  - heading "若依管理系统" [level=1]
+- menubar:
+  - link "首页":
+    - /url: /index
+    - menuitem "首页":
+      - generic: 首页
+  - menuitem "系统管理" [expanded]:
+    - generic: 系统管理
+    - menu:
+      - link "用户管理":
+        - /url: /system/user
+        - menuitem "用户管理":
+          - generic: 用户管理
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "用户管理"
+- button:
+- generic: "3"
+- button "T34_scopeuser":
+  - text: T34_scopeuser
+- link "首页":
+  - /url: /index
+- link "用户管理":
+  - /url: /system/user
+  - text: 用户管理
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- text: 组织机构
+- textbox "请输入部门名称"
+- tree:
+  - treeitem "T25部门B1009" [expanded]:
+    - generic "T25部门B1009"
+- generic: 用户名称
+- textbox "用户名称":
+  - /placeholder: 请输入用户名称
+- generic: 手机号码
+- textbox "手机号码":
+  - /placeholder: 请输入手机号码
+- generic: 状态
+- combobox "状态"
+- generic: 用户状态
+- generic: 创建时间
+- combobox "创建时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索":
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button:
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 用户编号 用户名称 用户昵称 部门 手机号码 状态 创建时间 操作":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行"
+      - columnheader "用户编号":
+        - generic: 用户编号
+      - columnheader "用户名称":
+        - generic: 用户名称
+      - columnheader "用户昵称":
+        - generic: 用户昵称
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "手机号码":
+        - generic: 手机号码
+      - columnheader "状态":
+        - generic: 状态
+      - columnheader "创建时间":
+        - generic: 创建时间
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "选择当前行 104 t25_b_query T25丙查询 T25部门B1009 2026-10-09 11:29:55":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "104":
+        - generic: "104"
+      - cell "t25_b_query":
+        - generic: t25_b_query
+      - cell "T25丙查询":
+        - generic: T25丙查询
+      - cell "T25部门B1009":
+        - generic: T25部门B1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:29:55":
+        - generic: 2026-10-09 11:29:55
+      - cell
+    - row "选择当前行 129 t34_c_1012 T34_c T25部门B1009 2026-10-12 10:30:02":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "129":
+        - generic: "129"
+      - cell "t34_c_1012":
+        - generic: t34_c_1012
+      - cell "T34_c":
+        - generic: T34_c
+      - cell "T25部门B1009":
+        - generic: T25部门B1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-12 10:30:02":
+        - generic: 2026-10-12 10:30:02
+      - cell
+- generic: 共 2 条
+- combobox
+- generic: 10条/页
+- button "上一页" [disabled]:
+- list:
+  - listitem "第 1 页": "1"
+- button "下一页" [disabled]:
+- generic: 前往
+- spinbutton "页": "1"
+- generic: 页
+- dialog "安全提示":
+  - generic: 安全提示
+  - button "关闭此对话框":
+  - paragraph: 您的密码还是初始密码，请修改密码！
+  - button "取消":
+    - generic: 取消
+  - button "确定" [active]:
+    - generic: 确定

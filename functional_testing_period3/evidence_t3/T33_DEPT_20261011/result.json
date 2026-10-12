@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-11T19:09:37.190196+08:00",
+  "http": 200,
+  "response": {
+    "msg": "修改部门'T3AI父部门1010'失败，上级部门不能是自己",
+    "code": 500
+  },
+  "after": "dept_id\tparent_id\tancestors\tdept_name\torder_num\tleader\tphone\temail\tstatus\tdel_flag\tupdate_by\tupdate_time\r\n205\t201\t0,100,101,201\tT3AI父部门1010\t0\tNULL\tNULL\tNULL\t0\t0\t\tNULL\r\n",
+  "unchanged": true,
+  "pass": true
+}

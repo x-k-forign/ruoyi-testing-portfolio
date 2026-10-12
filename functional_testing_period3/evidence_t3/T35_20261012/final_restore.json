@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-12T11:21:23.346221+08:00",
+  "kind": "roles",
+  "path": "/system/user",
+  "payload": {
+    "userId": 134,
+    "userName": "t35_change_1012",
+    "nickName": "T35变更专用",
+    "deptId": 202,
+    "status": "0",
+    "sex": "0",
+    "phonenumber": "",
+    "email": "",
+    "roleIds": [
+      102
+    ],
+    "postIds": []
+  },
+  "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 11:21:02\r\nuser_id\trole_id\r\n134\t101\r\n134\t107\r\n",
+  "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 11:21:23\r\nuser_id\trole_id\r\n134\t102\r\n",
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  }
+}

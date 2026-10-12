@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-12T16:04:32.205393+08:00",
+  "session": "short",
+  "user": "t37_pwd5_1012",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "identity": {
+    "userId": 144,
+    "userName": "t37_pwd5_1012",
+    "deptId": 202,
+    "status": "0"
+  },
+  "permissions": [
+    "system:user:list",
+    "system:user:query"
+  ]
+}

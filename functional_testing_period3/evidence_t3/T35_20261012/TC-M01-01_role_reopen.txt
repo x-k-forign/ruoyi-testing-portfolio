@@ -1,0 +1,236 @@
+- link "若依管理系统":
+  - /url: /
+  - heading "若依管理系统" [level=1]
+- menubar:
+  - link "首页":
+    - /url: /index
+    - menuitem "首页":
+      - generic: 首页
+  - menuitem "系统管理" [expanded]:
+    - generic: 系统管理
+    - menu:
+      - link "用户管理":
+        - /url: /system/user
+        - menuitem "用户管理":
+          - generic: 用户管理
+      - link "角色管理":
+        - /url: /system/role
+        - menuitem "角色管理":
+          - generic: 角色管理
+      - link "菜单管理":
+        - /url: /system/menu
+        - menuitem "菜单管理":
+          - generic: 菜单管理
+      - link "部门管理":
+        - /url: /system/dept
+        - menuitem "部门管理":
+          - generic: 部门管理
+      - link "岗位管理":
+        - /url: /system/post
+        - menuitem "岗位管理":
+          - generic: 岗位管理
+      - link "字典管理":
+        - /url: /system/dict
+        - menuitem "字典管理":
+          - generic: 字典管理
+      - link "参数设置":
+        - /url: /system/config
+        - menuitem "参数设置":
+          - generic: 参数设置
+      - link "通知公告":
+        - /url: /system/notice
+        - menuitem "通知公告":
+          - generic: 通知公告
+      - menuitem "日志管理":
+        - generic: 日志管理
+  - menuitem "系统监控":
+    - generic: 系统监控
+  - menuitem "系统工具":
+    - generic: 系统工具
+  - link "若依官网":
+    - /url: http://ruoyi.vip
+    - menuitem "若依官网":
+      - generic: 若依官网
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "用户管理"
+- button:
+- generic: "3"
+- button "若依":
+  - text: 若依
+- link "首页":
+  - /url: /index
+- link "用户管理":
+  - /url: /system/user
+  - text: 用户管理
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- text: 组织机构
+- textbox "请输入部门名称"
+- tree:
+  - treeitem "若依科技" [expanded]:
+    - generic "若依科技"
+    - treeitem "深圳总公司" [expanded]:
+      - generic "深圳总公司"
+      - treeitem "研发部门" [expanded]:
+        - generic "研发部门"
+      - treeitem "市场部门" [expanded]:
+        - generic "市场部门"
+      - treeitem "测试部门" [expanded]:
+        - generic "测试部门"
+      - treeitem "财务部门" [expanded]:
+        - generic "财务部门"
+      - treeitem "运维部门" [expanded]:
+        - generic "运维部门"
+      - treeitem "T24冒烟部门1009" [expanded]:
+        - generic "T24冒烟部门1009"
+      - treeitem "T25测试组织1009" [expanded]:
+        - generic "T25测试组织1009"
+        - treeitem "T3AI父部门1010" [expanded]:
+          - generic "T3AI父部门1010"
+        - treeitem "T3AI用户部门1010" [expanded]:
+          - generic "T3AI用户部门1010"
+        - treeitem "T25部门A1009" [expanded]:
+          - generic "T25部门A1009"
+          - treeitem "T25部门A子组1009" [expanded]:
+            - generic "T25部门A子组1009"
+        - treeitem "T25部门B1009" [expanded]:
+          - generic "T25部门B1009"
+    - treeitem "长沙分公司" [expanded]:
+      - generic "长沙分公司"
+      - treeitem "市场部门" [expanded]:
+        - generic "市场部门"
+      - treeitem "财务部门" [expanded]:
+        - generic "财务部门"
+- generic: 用户名称
+- textbox "用户名称":
+  - /placeholder: 请输入用户名称
+  - text: t35_change_1012
+- generic: 手机号码
+- textbox "手机号码":
+  - /placeholder: 请输入手机号码
+- generic: 状态
+- combobox "状态"
+- generic: 用户状态
+- generic: 创建时间
+- combobox "创建时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索":
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button "新增":
+  - generic: 新增
+- button "修改" [disabled]:
+  - generic: 修改
+- button "删除" [disabled]:
+  - generic: 删除
+- button "导入":
+  - generic: 导入
+- button "导出":
+  - generic: 导出
+- button:
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 用户编号 用户名称 用户昵称 部门 手机号码 状态 创建时间 操作":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行"
+      - columnheader "用户编号":
+        - generic: 用户编号
+      - columnheader "用户名称":
+        - generic: 用户名称
+      - columnheader "用户昵称":
+        - generic: 用户昵称
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "手机号码":
+        - generic: 手机号码
+      - columnheader "状态":
+        - generic: 状态
+      - columnheader "创建时间":
+        - generic: 创建时间
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "选择当前行 134 t35_change_1012 T35变更专用 T25部门A1009 2026-10-12 11:07:15":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "134":
+        - generic: "134"
+      - cell "t35_change_1012":
+        - generic: t35_change_1012
+      - cell "T35变更专用":
+        - generic: T35变更专用
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-12 11:07:15":
+        - generic: 2026-10-12 11:07:15
+      - cell:
+        - button:
+        - button:
+        - button:
+        - button:
+- generic: 共 1 条
+- combobox
+- generic: 10条/页
+- button "上一页" [disabled]:
+- list:
+  - listitem "第 1 页": "1"
+- button "下一页" [disabled]:
+- generic: 前往
+- spinbutton "页": "1"
+- generic: 页
+- dialog "修改用户":
+  - banner:
+    - heading "修改用户" [level=2]
+    - button "关闭此对话框":
+  - generic: "* 用户昵称"
+  - textbox "* 用户昵称":
+    - /placeholder: 请输入用户昵称
+    - text: T35变更专用
+  - generic: 归属部门
+  - combobox "归属部门"
+  - generic: T25部门A1009
+  - generic: 手机号码
+  - textbox "手机号码":
+    - /placeholder: 请输入手机号码
+  - generic: 邮箱
+  - textbox "邮箱":
+    - /placeholder: 请输入邮箱
+  - generic: 用户性别
+  - combobox "用户性别"
+  - generic: 男
+  - generic: 状态
+  - radiogroup "状态":
+    - radio "正常" [checked]
+    - generic: 正常
+    - radio "停用"
+    - generic: 停用
+  - generic: 岗位
+  - combobox "岗位"
+  - generic: 请选择
+  - generic: 角色
+  - generic: T25查询角色1009
+  - button "关闭此标签":
+  - combobox "角色"
+  - generic: 备注
+  - textbox "备注":
+    - /placeholder: 请输入内容
+  - contentinfo:
+    - button "确 定":
+      - generic: 确 定
+    - button "取 消":
+      - generic: 取 消

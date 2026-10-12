@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-12T16:36:15.562724+08:00",
+  "session": "restored",
+  "user": "t35_change_1012",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "source": "127.0.0.2",
+  "identity": {
+    "userId": 134,
+    "userName": "t35_change_1012",
+    "deptId": 202,
+    "status": "0"
+  },
+  "permissions": [
+    "system:user:list",
+    "system:user:query",
+    "system:user:add"
+  ]
+}

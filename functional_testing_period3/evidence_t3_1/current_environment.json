@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-10-10T08:21:34.350827+08:00",
+  "operator": "AI",
+  "purpose": "T3接手核查，不是功能用例执行",
+  "configured_target": {
+    "mysql_host": "127.0.0.1",
+    "mysql_port": 3306,
+    "database": "ruoyi_t2_lab",
+    "redis_host": "192.168.192.10",
+    "redis_port": "6379",
+    "redis_database": "0"
+  },
+  "database": {
+    "instance": {
+      "exit_code": 0,
+      "result": "db\tversion\tport\r\nruoyi_t2_lab\t8.4.11\t3306\r\n"
+    },
+    "users": {
+      "exit_code": 0,
+      "result": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\troles\r\n1\tadmin\t103\t0\t0\t1\r\n101\tt25_a_query\t202\t0\t0\t101\r\n103\tt25_a_add\t202\t0\t0\t102\r\n104\tt25_b_query\t204\t0\t0\t101\r\n105\tt25_a_child\t203\t0\t0\t101\r\n106\tt25_a_created\t202\t0\t2\tNULL\r\n107\tt25_a_created\t204\t0\t2\tNULL\r\n108\tt25_a_created\t202\t0\t0\t101\r\n109\tt25_log\t201\t0\t0\t103\r\n"
+    },
+    "roles": {
+      "exit_code": 0,
+      "result": "role_id\trole_key\tdata_scope\tstatus\tdel_flag\tperms\r\n101\tt25_query_1009\t3\t0\t0\tsystem:user:list,system:user:query\r\n102\tt25_maintain_1009\t3\t0\t0\tsystem:user:add,system:user:list,system:user:query\r\n103\tt25_log_1009\t1\t0\t0\tmonitor:operlog:list,monitor:operlog:query\r\n"
+    },
+    "departments": {
+      "exit_code": 0,
+      "result": "dept_id\tparent_id\tdept_name\tstatus\tdel_flag\r\n201\t101\tT25测试组织1009\t0\t0\r\n202\t201\tT25部门A1009\t0\t0\r\n203\t202\tT25部门A子组1009\t0\t0\r\n204\t201\tT25部门B1009\t0\t0\r\n"
+    },
+    "auth_config": {
+      "exit_code": 0,
+      "result": "config_key\tconfig_value\r\nsys.account.captchaEnabled\ttrue\r\nsys.login.blackIPList\t\r\n"
+    }
+  },
+  "frontend": {
+    "http_status": 200,
+    "checked_at": "2026-10-10T08:21:35.061260+08:00",
+    "html_present": true
+  },
+  "captcha_proxy": {
+    "http_status": 200,
+    "checked_at": "2026-10-10T08:21:39.564689+08:00",
+    "code": 200,
+    "msg": "操作成功",
+    "captchaEnabled": true,
+    "uuid_present": true,
+    "image_present": true
+  },
+  "boundary": "No login attempts or business data writes. Captcha GET may create one short-lived Redis captcha key; no token, password, UUID or image is saved."
+}

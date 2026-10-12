@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-12T14:45:31.553584+08:00",
+  "http": 200,
+  "code": 500,
+  "msg": "用户不存在/密码错误",
+  "user": "t3ai_contact_1010",
+  "mode": "wrong",
+  "token_present": false
+}

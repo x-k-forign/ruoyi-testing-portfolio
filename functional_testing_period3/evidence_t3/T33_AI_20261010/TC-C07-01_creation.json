@@ -1,0 +1,16 @@
+{
+  "case": "TC-C07-01",
+  "at": "2026-10-10T17:39:16.035648+08:00",
+  "actor": "t3ai_maint_1010",
+  "actorUserId": 125,
+  "target": "t3ai_nodept_1010",
+  "deptId": null,
+  "roleIds": [
+    101
+  ],
+  "password_length": 10,
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "layer": "普通身份真实新增请求；需数据库回查"
+}

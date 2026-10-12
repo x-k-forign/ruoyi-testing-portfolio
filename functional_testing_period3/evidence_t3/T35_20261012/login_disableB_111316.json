@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-12T11:13:16.655748+08:00",
+  "http": 200,
+  "code": 500,
+  "msg": "用户已封禁，请联系管理员",
+  "token_present": false,
+  "session": "disableB"
+}

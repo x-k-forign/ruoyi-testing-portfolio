@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-12T10:30:52.302472+08:00",
+  "code": 200,
+  "user": {
+    "userId": 101,
+    "userName": "t25_a_query",
+    "deptId": 202
+  },
+  "roleIds": [
+    101
+  ],
+  "db": "user_id\tuser_name\tdept_id\r\n101\tt25_a_query\t202\r\nrole_id\r\n101\r\n"
+}

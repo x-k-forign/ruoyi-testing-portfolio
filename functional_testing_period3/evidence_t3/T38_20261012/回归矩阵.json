@@ -1,0 +1,29 @@
+[
+  {
+    "phase": "before",
+    "role_permissions": "list/query",
+    "target_query": true,
+    "target_add_code": 403,
+    "control_query": true,
+    "control_add_code": 403,
+    "ui_has_add": false
+  },
+  {
+    "phase": "after",
+    "role_permissions": "list/query/add",
+    "target_query": true,
+    "target_add_code": 200,
+    "control_query": true,
+    "control_add_code": 403,
+    "ui_has_add": true
+  },
+  {
+    "phase": "restored",
+    "role_permissions": "list/query",
+    "target_query": true,
+    "target_add_code": 403,
+    "control_query": true,
+    "control_add_code": 403,
+    "ui_has_add": false
+  }
+]

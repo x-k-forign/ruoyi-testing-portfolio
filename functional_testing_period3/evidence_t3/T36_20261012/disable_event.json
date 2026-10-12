@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-12T14:46:04.747542+08:00",
+  "http": 200,
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "actor": "admin",
+  "method": "PUT",
+  "path": "/system/user/changeStatus",
+  "target": "140",
+  "db": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n140\tt36_event_1012\t202\t1\t0\r\nrole_id\r\n102\r\n"
+}

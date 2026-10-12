@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-12T10:37:38.441048+08:00",
+  "actor": "multi",
+  "http": 200,
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "target": "t34_new_multi_on",
+  "created_ids": [
+    133
+  ],
+  "payload_without_password": {
+    "userName": "t34_new_multi_on",
+    "nickName": "T34新增验证",
+    "deptId": 204,
+    "roleIds": [
+      101
+    ],
+    "postIds": [],
+    "status": "0"
+  },
+  "cleanup": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "after_cleanup": "user_id\tuser_name\tdel_flag\r\n133\tt34_new_multi_on\t2\r\n"
+}

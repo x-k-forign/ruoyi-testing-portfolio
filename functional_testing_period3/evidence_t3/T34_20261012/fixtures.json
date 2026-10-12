@@ -1,0 +1,90 @@
+{
+  "at": "2026-10-12T10:30:02.907901+08:00",
+  "objects": {
+    "scope": {
+      "roleId": 104,
+      "payload": {
+        "roleName": "T34_scope_1012",
+        "roleKey": "t34_scope_1012",
+        "roleSort": 10,
+        "status": "0",
+        "menuIds": [
+          1,
+          100,
+          1000
+        ],
+        "menuCheckStrictly": true,
+        "deptCheckStrictly": true,
+        "dataScope": "3",
+        "deptIds": [],
+        "roleId": 104
+      }
+    },
+    "r1": {
+      "roleId": 105,
+      "payload": {
+        "roleName": "T34_r1_1012",
+        "roleKey": "t34_r1_1012",
+        "roleSort": 10,
+        "status": "0",
+        "menuIds": [
+          1,
+          100,
+          1000
+        ],
+        "menuCheckStrictly": true,
+        "deptCheckStrictly": true,
+        "dataScope": "3",
+        "deptIds": [],
+        "roleId": 105
+      }
+    },
+    "r2": {
+      "roleId": 106,
+      "payload": {
+        "roleName": "T34_r2_1012",
+        "roleKey": "t34_r2_1012",
+        "roleSort": 10,
+        "status": "0",
+        "menuIds": [
+          1,
+          100,
+          1000,
+          1001
+        ],
+        "menuCheckStrictly": true,
+        "deptCheckStrictly": true,
+        "dataScope": "2",
+        "deptIds": [
+          204
+        ],
+        "roleId": 106
+      }
+    },
+    "c": {
+      "userId": 129,
+      "userName": "t34_c_1012",
+      "deptId": 204,
+      "roleIds": [
+        101
+      ]
+    },
+    "scopeuser": {
+      "userId": 130,
+      "userName": "t34_scopeuser_1012",
+      "deptId": 202,
+      "roleIds": [
+        104
+      ]
+    },
+    "multi": {
+      "userId": 131,
+      "userName": "t34_multi_1012",
+      "deptId": 202,
+      "roleIds": [
+        105,
+        106
+      ]
+    }
+  }
+}

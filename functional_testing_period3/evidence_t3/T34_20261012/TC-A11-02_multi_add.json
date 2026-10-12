@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-12T10:39:43.249276+08:00",
+  "actor": "multi",
+  "http": 200,
+  "response": {
+    "msg": "没有权限，请联系管理员授权",
+    "code": 403
+  },
+  "target": "t34_new_multi_off",
+  "created_ids": [],
+  "payload_without_password": {
+    "userName": "t34_new_multi_off",
+    "nickName": "T34新增验证",
+    "deptId": 202,
+    "roleIds": [
+      101
+    ],
+    "postIds": [],
+    "status": "0"
+  },
+  "after_cleanup": ""
+}

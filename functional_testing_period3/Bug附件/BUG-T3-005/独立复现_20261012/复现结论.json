@@ -1,0 +1,17 @@
+{
+  "bug": "BUG-T3-005",
+  "result": "再次观察到原问题，未修复",
+  "effective_attempts_this_batch": 1,
+  "occurrences_this_batch": 1,
+  "recorded_total": "2/2（首次一次＋本次一次，不表示所有条件必现）",
+  "summary": "合法新增被403拒绝；30秒每2秒查询，操作日志API和SQL均未匹配；有权限的日志读取身份能查到正常对照记录。",
+  "files": [
+    "baseline.json",
+    "bug005_denied.json",
+    "login_log_160545.json",
+    "login_query_160530.json",
+    "login_restored_163615.json",
+    "restoration.json",
+    "session_cleanup.json"
+  ]
+}

@@ -1,0 +1,141 @@
+- link:
+  - /url: /
+- menubar:
+  - link:
+    - /url: /index
+    - menuitem:
+  - menuitem:
+  - menuitem:
+  - menuitem:
+  - link:
+    - /url: http://ruoyi.vip
+    - menuitem:
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "参数设置"
+- button "若依":
+  - text: 若依
+- link "首页":
+  - /url: /index
+- link "参数设置":
+  - /url: /system/config
+  - text: 参数设置
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- generic: 参数名称
+- textbox "参数名称":
+  - /placeholder: 请输入参数名称
+- generic: 参数键名
+- textbox "参数键名":
+  - /placeholder: 请输入参数键名
+  - text: sys.login.blackIPList
+- generic: 系统内置
+- combobox "系统内置"
+- generic: 系统内置
+- generic: 创建时间
+- combobox "创建时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索":
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button "新增":
+  - generic: 新增
+- button "修改" [disabled]:
+  - generic: 修改
+- button "删除" [disabled]:
+  - generic: 删除
+- button "导出":
+  - generic: 导出
+- button "刷新缓存":
+  - generic: 刷新缓存
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 参数主键 参数名称 参数键名 参数键值 系统内置 备注 创建时间 操作":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行"
+      - columnheader "参数主键":
+        - generic: 参数主键
+      - columnheader "参数名称":
+        - generic: 参数名称
+      - columnheader "参数键名":
+        - generic: 参数键名
+      - columnheader "参数键值":
+        - generic: 参数键值
+      - columnheader "系统内置":
+        - generic: 系统内置
+      - columnheader "备注":
+        - generic: 备注
+      - columnheader "创建时间":
+        - generic: 创建时间
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "选择当前行 6 用户登录-黑名单列表 sys.login.blackIPList 127.0.0.2 是 设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段） 2026-09-30 14:47:11 修改 删除":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "6":
+        - generic: "6"
+      - cell "用户登录-黑名单列表":
+        - generic: 用户登录-黑名单列表
+      - cell "sys.login.blackIPList":
+        - generic: sys.login.blackIPList
+      - cell "127.0.0.2":
+        - generic: 127.0.0.2
+      - cell "是":
+        - generic: 是
+      - cell "设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）":
+        - generic: 设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）
+      - cell "2026-09-30 14:47:11":
+        - generic: 2026-09-30 14:47:11
+      - cell "修改 删除":
+        - button "修改":
+          - generic: 修改
+        - button "删除":
+          - generic: 删除
+- generic: 共 1 条
+- button "上一页" [disabled]:
+- list:
+  - listitem "第 1 页": "1"
+- button "下一页" [disabled]:
+- dialog "修改参数":
+  - banner:
+    - heading "修改参数" [level=2]
+    - button "关闭此对话框":
+  - generic: "* 参数名称"
+  - textbox "* 参数名称":
+    - /placeholder: 请输入参数名称
+    - text: 用户登录-黑名单列表
+  - generic: "* 参数键名"
+  - textbox "* 参数键名":
+    - /placeholder: 请输入参数键名
+    - text: sys.login.blackIPList
+  - generic: "* 参数键值"
+  - textbox "* 参数键值":
+    - /placeholder: 请输入参数键值
+  - generic: 参数键值不能为空
+  - generic: 系统内置
+  - radiogroup "系统内置":
+    - radio "是" [checked]
+    - generic: 是
+    - radio "否"
+    - generic: 否
+  - generic: 备注
+  - textbox "备注":
+    - /placeholder: 请输入内容
+    - text: 设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）
+  - contentinfo:
+    - button "确 定" [active]:
+      - generic: 确 定
+    - button "取 消":
+      - generic: 取 消

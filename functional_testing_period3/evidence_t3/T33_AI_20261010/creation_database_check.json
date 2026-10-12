@@ -1,0 +1,5 @@
+{
+  "time": "2026-10-10T17:09:09.899188+08:00",
+  "exit": 0,
+  "data": "user_id\tuser_name\tnick_name\tdept_id\tstatus\tdel_flag\tphonenumber\temail\troles\r\n101\tt25_a_query\tT25甲查询\t202\t0\t0\t\t\t101\r\n111\tt310100001\tT3自动化用户\t202\t0\t0\t\t\t101\r\n112\tt3ai_p06_1010\tT3自动化校验\t202\t0\t0\t\t\t101\r\n113\tt3ai_p07_1010\tT3自动化校验\t202\t0\t0\t\t\t101\r\n114\tt3ai_p19_1010\tT3自动化校验\t202\t0\t0\t\t\t101\r\n115\tt3ai_p20_1010\tT3自动化校验\t202\t0\t0\t\t\t101\r\n116\tt3ai_contact_1010\tT3联系字段对照\t202\t0\t0\t17000001111\tt3ai.reference@example.invalid\t101\r\nempty_account_count\r\n0\r\noper_id\toper_name\toper_url\tbusiness_type\tstatus\r\n131\tadmin\t/system/user\t1\t0\r\n132\tadmin\t/system/user\t1\t0\r\n133\tadmin\t/system/user\t1\t0\r\n134\tadmin\t/system/user\t1\t0\r\n135\tadmin\t/system/user\t1\t0\r\n136\tadmin\t/system/user\t1\t0\r\n137\tadmin\t/system/user\t1\t0\r\n138\tadmin\t/system/user\t1\t0\r\n139\tadmin\t/system/user\t1\t0\r\n"
+}

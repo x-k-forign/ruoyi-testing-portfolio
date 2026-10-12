@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-12T14:44:15.815015+08:00",
+  "userId": 1,
+  "userName": "admin",
+  "roles": [
+    "admin"
+  ],
+  "permissions": [
+    "*:*:*"
+  ]
+}

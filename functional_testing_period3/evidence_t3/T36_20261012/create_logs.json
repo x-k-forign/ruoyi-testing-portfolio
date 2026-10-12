@@ -1,0 +1,54 @@
+{
+  "reader": "log",
+  "kind": "oper",
+  "W_LOG_seconds": 30,
+  "poll_interval_seconds": 2,
+  "filter": {
+    "operName": "admin",
+    "id_greater_than": 223,
+    "target": "t36_event_1012"
+  },
+  "checks": [
+    {
+      "at": "2026-10-12T14:46:04.139374+08:00",
+      "elapsed_seconds": 0.063,
+      "candidate_ids": [
+        224
+      ],
+      "matched_ids": [
+        224
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "operId": 224,
+      "title": "用户管理",
+      "businessType": 1,
+      "requestMethod": "POST",
+      "operName": "admin",
+      "operUrl": "/system/user",
+      "operIp": "127.0.0.1",
+      "status": 0,
+      "operTime": "2026-10-12 14:46:03",
+      "errorMsg": null,
+      "method": "com.ruoyi.web.controller.system.SysUserController.add()",
+      "parameters": {
+        "deptId": 202,
+        "nickName": "T36日志事件",
+        "roleIds": [
+          101
+        ],
+        "status": "0",
+        "userId": 140,
+        "userName": "t36_event_1012"
+      },
+      "business_response": {
+        "code": 200,
+        "msg": "操作成功"
+      }
+    }
+  ],
+  "first_seen_elapsed_seconds": 0.063,
+  "note": "首次查询可见时间是观测上界，不是精确入库延迟或产品SLA；证据已去除口令和令牌。"
+}

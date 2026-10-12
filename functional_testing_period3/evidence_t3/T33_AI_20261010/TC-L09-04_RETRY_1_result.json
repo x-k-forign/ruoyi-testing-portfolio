@@ -1,0 +1,24 @@
+{
+  "case": "TC-L09-04_RETRY",
+  "start": "2026-10-10T17:30:02.907409+08:00",
+  "end": "2026-10-10T17:30:02.967203+08:00",
+  "username": "a11111111111111111111",
+  "password_length": 10,
+  "mode": "correct",
+  "http": 200,
+  "code": 500,
+  "msg": "用户不存在/密码错误",
+  "has_token": false,
+  "before": {
+    "captcha_exists": "1",
+    "captcha_pttl": "98245",
+    "fail_count": null,
+    "fail_pttl": "-2"
+  },
+  "after": {
+    "captcha_exists": "0",
+    "fail_count": null,
+    "fail_pttl": "-2"
+  },
+  "layer": "后端认证请求＋指定缓存键只读核验"
+}

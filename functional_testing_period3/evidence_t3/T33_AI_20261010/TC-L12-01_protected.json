@@ -1,0 +1,9 @@
+{
+  "case": "TC-L12-01",
+  "at": "2026-10-10T17:23:16.079897+08:00",
+  "http": 200,
+  "code": 401,
+  "msg": "请求访问：/system/user/list，认证失败，无法访问系统资源",
+  "rows_present": false,
+  "token_supplied": false
+}

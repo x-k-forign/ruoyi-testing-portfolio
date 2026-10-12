@@ -1,0 +1,108 @@
+{
+  "at": "2026-10-10T17:53:24.845274+08:00",
+  "scope": "仅本脚本产生的测试会话，不含用户浏览器会话",
+  "results": [
+    {
+      "session_case": "LOCKSUCCESS",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L01-01",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-01",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-03",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-03_INNER",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L10-03",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L06-01_CONTROL",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-01_INNER_RETRY",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-07",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-07_INNER",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-05_CONTROL",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "IPBASE2",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L08-01",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "PREP_MAINT_LOGIN",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L09-05_RUNTIME",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "TC-L07-01_CONTROL",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    },
+    {
+      "session_case": "RESTORE_STOP",
+      "http": 200,
+      "code": 200,
+      "msg": "退出成功"
+    }
+  ]
+}

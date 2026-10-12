@@ -1,0 +1,355 @@
+- link:
+  - /url: /
+- menubar:
+  - link:
+    - /url: /index
+    - menuitem:
+  - menuitem:
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "日志管理"
+  - text: /
+  - link "操作日志"
+- button "T36日志只读":
+  - text: T36日志只读
+- link "首页":
+  - /url: /index
+- link "操作日志":
+  - /url: /system/log/operlog
+  - text: 操作日志
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- generic: 操作地址
+- textbox "操作地址":
+  - /placeholder: 请输入操作地址
+- generic: 系统模块
+- textbox "系统模块":
+  - /placeholder: 请输入系统模块
+- generic: 操作人员
+- textbox "操作人员":
+  - /placeholder: 请输入操作人员
+- generic: 类型
+- combobox "类型"
+- generic: 操作类型
+- generic: 状态
+- combobox "状态"
+- generic: 操作状态
+- generic: 操作时间
+- combobox "操作时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索":
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 日志编号 系统模块 操作类型 操作人员 按 操作人员 排序 操作地址 操作状态 操作日期 按 操作日期 排序 消耗时间 按 消耗时间 排序 操作":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行"
+      - columnheader "日志编号":
+        - generic: 日志编号
+      - columnheader "系统模块":
+        - generic: 系统模块
+      - columnheader "操作类型":
+        - generic: 操作类型
+      - columnheader "操作人员 按 操作人员 排序":
+        - text: 操作人员
+        - button "按 操作人员 排序"
+      - columnheader "操作地址":
+        - generic: 操作地址
+      - columnheader "操作状态":
+        - generic: 操作状态
+      - columnheader "操作日期 按 操作日期 排序":
+        - text: 操作日期
+        - button "按 操作日期 排序"
+      - columnheader "消耗时间 按 消耗时间 排序":
+        - text: 消耗时间
+        - button "按 消耗时间 排序"
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "选择当前行 227 用户管理 新增 admin 127.0.0.1 成功 2026-10-12 14:46:16 7毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "227":
+        - generic: "227"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "新增":
+        - generic: 新增
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 14:46:16":
+        - generic: 2026-10-12 14:46:16
+      - cell "7毫秒":
+        - generic: 7毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 226 用户管理 修改 admin 127.0.0.1 成功 2026-10-12 14:46:04 7毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "226":
+        - generic: "226"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "修改":
+        - generic: 修改
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 14:46:04":
+        - generic: 2026-10-12 14:46:04
+      - cell "7毫秒":
+        - generic: 7毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 225 用户管理 授权 admin 127.0.0.1 成功 2026-10-12 14:46:04 67毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "225":
+        - generic: "225"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "授权":
+        - generic: 授权
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 14:46:04":
+        - generic: 2026-10-12 14:46:04
+      - cell "67毫秒":
+        - generic: 67毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 224 用户管理 新增 admin 127.0.0.1 成功 2026-10-12 14:46:03 228毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "224":
+        - generic: "224"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "新增":
+        - generic: 新增
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 14:46:03":
+        - generic: 2026-10-12 14:46:03
+      - cell "228毫秒":
+        - generic: 228毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 223 用户管理 新增 admin 127.0.0.1 成功 2026-10-12 14:44:34 225毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "223":
+        - generic: "223"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "新增":
+        - generic: 新增
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 14:44:34":
+        - generic: 2026-10-12 14:44:34
+      - cell "225毫秒":
+        - generic: 225毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 222 用户管理 修改 admin 127.0.0.1 成功 2026-10-12 11:21:23 16毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "222":
+        - generic: "222"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "修改":
+        - generic: 修改
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 11:21:23":
+        - generic: 2026-10-12 11:21:23
+      - cell "16毫秒":
+        - generic: 16毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 221 用户管理 删除 admin 127.0.0.1 成功 2026-10-12 11:21:23 11毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "221":
+        - generic: "221"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "删除":
+        - generic: 删除
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 11:21:23":
+        - generic: 2026-10-12 11:21:23
+      - cell "11毫秒":
+        - generic: 11毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 220 用户管理 新增 t35_change_1012 127.0.0.1 成功 2026-10-12 11:21:22 163毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "220":
+        - generic: "220"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "新增":
+        - generic: 新增
+      - cell "t35_change_1012":
+        - generic: t35_change_1012
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 11:21:22":
+        - generic: 2026-10-12 11:21:22
+      - cell "163毫秒":
+        - generic: 163毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 219 用户管理 修改 admin 127.0.0.1 成功 2026-10-12 11:21:02 17毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "219":
+        - generic: "219"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "修改":
+        - generic: 修改
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 11:21:02":
+        - generic: 2026-10-12 11:21:02
+      - cell "17毫秒":
+        - generic: 17毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+    - row "选择当前行 218 用户管理 修改 admin 127.0.0.1 成功 2026-10-12 11:21:02 60毫秒 详细":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "218":
+        - generic: "218"
+      - cell "用户管理":
+        - generic: 用户管理
+      - cell "修改":
+        - generic: 修改
+      - cell "admin":
+        - generic: admin
+      - cell "127.0.0.1":
+        - generic: 127.0.0.1
+      - cell "成功":
+        - generic: 成功
+      - cell "2026-10-12 11:21:02":
+        - generic: 2026-10-12 11:21:02
+      - cell "60毫秒":
+        - generic: 60毫秒
+      - cell "详细":
+        - button "详细":
+          - generic: 详细
+- generic: 共 128 条
+- button "上一页" [disabled]:
+- list:
+  - listitem "第 1 页": "1"
+  - listitem "第 2 页": "2"
+  - listitem "第 3 页": "3"
+  - listitem "第 4 页": "4"
+  - listitem "向后 3 页":
+  - listitem "第 13 页": "13"
+- button "下一页":
+- dialog "操作日志详细":
+  - banner:
+    - heading "操作日志详细" [level=2]
+    - button "关闭此对话框":
+  - text: 基本信息
+  - generic: 操作模块
+  - generic: 用户管理
+  - generic: 业务类型
+  - generic: 授权
+  - generic: 操作时间
+  - generic: 2026-10-12 14:46:04
+  - generic: 执行状态
+  - generic: 正常
+  - text: 操作人员
+  - generic: 操作人员
+  - generic: admin
+  - generic: 所属部门
+  - generic: 研发部门
+  - generic: 操作地址
+  - generic: 127.0.0.1 内网IP
+  - text: 请求信息
+  - generic: 请求地址
+  - generic: PUT
+  - text: /system/user/authRole
+  - generic: 操作方法
+  - generic: com.ruoyi.web.controller.system.SysUserController.insertAuthRole()
+  - generic: 消耗时间
+  - generic: 67 毫秒
+  - text: 请求参数
+  - button "复制":
+    - generic: 复制
+  - generic: "{ \"roleIds\": \"102\", \"userId\": \"140\" }"
+  - text: 返回参数
+  - button "复制":
+    - generic: 复制
+  - generic: "{ \"msg\": \"操作成功\", \"code\": 200 }"

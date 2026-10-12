@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-12T15:58:02.064514+08:00",
+  "sessions": [
+    {
+      "session": "admin",
+      "code": 200
+    },
+    {
+      "session": "A",
+      "code": 200
+    },
+    {
+      "session": "B",
+      "code": 200
+    },
+    {
+      "session": "C",
+      "code": 200
+    }
+  ]
+}

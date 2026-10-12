@@ -1,0 +1,24 @@
+{
+  "case": "LIMIT5",
+  "start": "2026-10-10T17:18:02.266917+08:00",
+  "end": "2026-10-10T17:18:02.502445+08:00",
+  "username": "t3ai_lock_1010",
+  "password_length": 10,
+  "mode": "wrong",
+  "http": 200,
+  "code": 500,
+  "msg": "用户不存在/密码错误",
+  "has_token": false,
+  "before": {
+    "captcha_exists": "1",
+    "captcha_pttl": "94042",
+    "fail_count": "4",
+    "fail_pttl": "599742"
+  },
+  "after": {
+    "captcha_exists": "0",
+    "fail_count": "5",
+    "fail_pttl": "599954"
+  },
+  "layer": "后端认证请求＋指定缓存键只读核验"
+}

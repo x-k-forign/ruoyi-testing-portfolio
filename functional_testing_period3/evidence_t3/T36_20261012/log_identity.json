@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-12T14:45:06.003175+08:00",
+  "userId": 139,
+  "userName": "t36_log_1012",
+  "roles": [
+    "t25_log_1009"
+  ],
+  "permissions": [
+    "monitor:operlog:query",
+    "monitor:operlog:list"
+  ]
+}

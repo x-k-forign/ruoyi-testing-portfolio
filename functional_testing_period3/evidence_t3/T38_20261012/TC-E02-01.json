@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-12T16:56:39.290821+08:00",
+  "http": 200,
+  "response": {
+    "msg": "新增用户't25_a_query'失败，登录账号已存在",
+    "code": 500
+  },
+  "before": "user_id\tuser_name\tnick_name\tdept_id\tstatus\r\n101\tt25_a_query\tT25甲查询\t202\t0\r\nrole_id\r\n101\r\n",
+  "after": "user_id\tuser_name\tnick_name\tdept_id\tstatus\r\n101\tt25_a_query\tT25甲查询\t202\t0\r\nrole_id\r\n101\r\n",
+  "unchanged": true,
+  "dependent_steps": "创建失败，不执行冒用OLD的新用户登录链"
+}

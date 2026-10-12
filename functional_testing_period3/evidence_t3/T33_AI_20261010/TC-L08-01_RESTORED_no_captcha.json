@@ -1,0 +1,10 @@
+{
+  "case": "TC-L08-01_RESTORED",
+  "at": "2026-10-10T17:34:24.526976+08:00",
+  "username": "t310100001",
+  "http": 200,
+  "code": 500,
+  "msg": "验证码已失效",
+  "has_token": false,
+  "captcha_supplied": false
+}

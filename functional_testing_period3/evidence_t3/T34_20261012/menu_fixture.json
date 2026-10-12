@@ -1,0 +1,15 @@
+{
+  "menuName": "T34用户测试入口",
+  "parentId": 1,
+  "orderNum": 99,
+  "path": "t34users",
+  "component": "system/user/index",
+  "isFrame": "1",
+  "isCache": "0",
+  "menuType": "C",
+  "visible": "0",
+  "status": "0",
+  "perms": "system:user:list",
+  "icon": "user",
+  "menuId": 2000
+}

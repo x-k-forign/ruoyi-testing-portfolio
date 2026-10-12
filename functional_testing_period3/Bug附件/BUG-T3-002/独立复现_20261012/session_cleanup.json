@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-12T16:36:16.930130+08:00",
+  "sessions": [
+    {
+      "session": "admin",
+      "code": 200
+    },
+    {
+      "session": "maint",
+      "code": 200
+    },
+    {
+      "session": "short",
+      "code": 200
+    },
+    {
+      "session": "deptA",
+      "code": 200
+    },
+    {
+      "session": "deptB",
+      "code": 200
+    },
+    {
+      "session": "query",
+      "code": 200
+    },
+    {
+      "session": "log",
+      "code": 200
+    },
+    {
+      "session": "restored",
+      "code": 200
+    }
+  ]
+}

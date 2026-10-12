@@ -1,0 +1,243 @@
+[
+  {
+    "event": "login_admin",
+    "at": "2026-10-12T15:56:46.563239+08:00",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "session": "admin",
+    "identity": {
+      "userId": 1,
+      "userName": "admin",
+      "deptId": 103,
+      "status": "0"
+    },
+    "permissions": [
+      "*:*:*"
+    ],
+    "roles": [
+      "admin"
+    ]
+  },
+  {
+    "event": "login_A",
+    "at": "2026-10-12T15:56:56.281533+08:00",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "session": "A",
+    "identity": {
+      "userId": 134,
+      "userName": "t35_change_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ],
+    "roles": [
+      "t25_maintain_1009"
+    ]
+  },
+  {
+    "event": "repro_before",
+    "at": "2026-10-12T15:57:09.585379+08:00",
+    "session": "A",
+    "target": "t35_repro_before",
+    "http": 200,
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "created_ids": [
+      141
+    ],
+    "created_detail": {
+      "userId": 141,
+      "userName": "t35_repro_before",
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    },
+    "cleanup": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "db_after": "user_id\tuser_name\tdept_id\tdel_flag\r\n141\tt35_repro_before\t202\t2\r\n"
+  },
+  {
+    "event": "repro_revoke",
+    "at": "2026-10-12T15:57:09.976833+08:00",
+    "kind": "roles",
+    "path": "/system/user",
+    "payload": {
+      "userId": 134,
+      "userName": "t35_change_1012",
+      "nickName": "T35变更专用",
+      "deptId": 202,
+      "status": "0",
+      "sex": "0",
+      "phonenumber": "",
+      "email": "",
+      "roleIds": [
+        101
+      ],
+      "postIds": []
+    },
+    "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 11:21:23\r\nuser_id\trole_id\r\n134\t102\r\n",
+    "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 15:57:09\r\nuser_id\trole_id\r\n134\t101\r\n",
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    }
+  },
+  {
+    "event": "repro_old",
+    "at": "2026-10-12T15:57:10.623634+08:00",
+    "session": "A",
+    "target": "t35_repro_old",
+    "http": 200,
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "created_ids": [
+      142
+    ],
+    "created_detail": {
+      "userId": 142,
+      "userName": "t35_repro_old",
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    },
+    "cleanup": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "db_after": "user_id\tuser_name\tdept_id\tdel_flag\r\n142\tt35_repro_old\t202\t2\r\n"
+  },
+  {
+    "event": "login_B",
+    "at": "2026-10-12T15:57:20.238744+08:00",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "session": "B",
+    "identity": {
+      "userId": 134,
+      "userName": "t35_change_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "roles": [
+      "t25_query_1009"
+    ]
+  },
+  {
+    "event": "repro_new",
+    "at": "2026-10-12T15:57:37.402717+08:00",
+    "session": "B",
+    "target": "t35_repro_new",
+    "http": 200,
+    "response": {
+      "msg": "没有权限，请联系管理员授权",
+      "code": 403
+    },
+    "created_ids": [],
+    "db_after": ""
+  },
+  {
+    "event": "repro_restore",
+    "at": "2026-10-12T15:57:37.832370+08:00",
+    "kind": "roles",
+    "path": "/system/user",
+    "payload": {
+      "userId": 134,
+      "userName": "t35_change_1012",
+      "nickName": "T35变更专用",
+      "deptId": 202,
+      "status": "0",
+      "sex": "0",
+      "phonenumber": "",
+      "email": "",
+      "roleIds": [
+        102
+      ],
+      "postIds": []
+    },
+    "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 15:57:09\r\nuser_id\trole_id\r\n134\t101\r\n",
+    "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 15:57:37\r\nuser_id\trole_id\r\n134\t102\r\n",
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    }
+  },
+  {
+    "event": "login_C",
+    "at": "2026-10-12T15:57:49.287985+08:00",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "session": "C",
+    "identity": {
+      "userId": 134,
+      "userName": "t35_change_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ],
+    "roles": [
+      "t25_maintain_1009"
+    ]
+  },
+  {
+    "event": "repro_recovered",
+    "at": "2026-10-12T15:58:00.960013+08:00",
+    "session": "C",
+    "target": "t35_repro_recovered",
+    "http": 200,
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "created_ids": [
+      143
+    ],
+    "created_detail": {
+      "userId": 143,
+      "userName": "t35_repro_recovered",
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    },
+    "cleanup": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "db_after": "user_id\tuser_name\tdept_id\tdel_flag\r\n143\tt35_repro_recovered\t202\t2\r\n"
+  },
+  {
+    "event": "restored_query",
+    "at": "2026-10-12T15:58:01.491166+08:00",
+    "session": "C",
+    "operation": "user list; no getInfo/refresh"
+  }
+]

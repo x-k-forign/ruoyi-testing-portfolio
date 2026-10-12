@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-12T16:55:19.697848+08:00",
+  "session": "admin",
+  "userName": "admin",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "identity": {
+    "userId": 1,
+    "userName": "admin",
+    "deptId": 103,
+    "status": "0"
+  },
+  "roles": [
+    "admin"
+  ],
+  "permissions": [
+    "*:*:*"
+  ]
+}

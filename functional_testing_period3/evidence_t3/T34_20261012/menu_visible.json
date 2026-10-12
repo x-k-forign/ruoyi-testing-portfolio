@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-12T10:42:02.209592+08:00",
+  "menu": {
+    "menuName": "T34用户测试入口",
+    "parentId": 1,
+    "orderNum": 99,
+    "path": "t34users",
+    "component": "system/user/index",
+    "isFrame": "1",
+    "isCache": "0",
+    "menuType": "C",
+    "visible": "0",
+    "status": "0",
+    "perms": "system:user:list",
+    "icon": "user",
+    "menuId": 2000
+  },
+  "role": {
+    "roleName": "T34_scope_1012",
+    "roleKey": "t34_scope_1012",
+    "roleSort": 10,
+    "status": "0",
+    "menuIds": [
+      1,
+      100,
+      1000,
+      2000
+    ],
+    "menuCheckStrictly": true,
+    "deptCheckStrictly": true,
+    "dataScope": "3",
+    "deptIds": [],
+    "roleId": 104
+  }
+}

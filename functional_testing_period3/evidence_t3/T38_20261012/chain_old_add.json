@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-12T16:59:08.035867+08:00",
+  "session": "chainA",
+  "target": "t38_chain_old_add",
+  "http": 200,
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "created_ids": [
+    149
+  ],
+  "detail": {
+    "userId": 149,
+    "deptId": 202,
+    "roleIds": [
+      101
+    ]
+  },
+  "cleanup": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "db": "user_id\tuser_name\tdel_flag\r\n149\tt38_chain_old_add\t2\r\n"
+}

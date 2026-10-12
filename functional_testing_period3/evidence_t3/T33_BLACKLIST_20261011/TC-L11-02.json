@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-11T18:48:50.790233+08:00",
+  "case": "TC-L11-02",
+  "source": "127.0.0.1",
+  "user": "t3ai_contact_1010",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "identity": {
+    "userId": 116,
+    "userName": "t3ai_contact_1010"
+  },
+  "logout_code": 200
+}

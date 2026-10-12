@@ -1,0 +1,561 @@
+[
+  {
+    "event": "login_admin",
+    "at": "2026-10-12T16:55:19.697848+08:00",
+    "session": "admin",
+    "userName": "admin",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 1,
+      "userName": "admin",
+      "deptId": 103,
+      "status": "0"
+    },
+    "roles": [
+      "admin"
+    ],
+    "permissions": [
+      "*:*:*"
+    ]
+  },
+  {
+    "event": "login_regBefore",
+    "at": "2026-10-12T16:55:46.264187+08:00",
+    "session": "regBefore",
+    "userName": "t38_reg_1012",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 145,
+      "userName": "t38_reg_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "roles": [
+      "t38_reg_1012"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ]
+  },
+  {
+    "event": "reg_before_query",
+    "at": "2026-10-12T16:55:46.839921+08:00",
+    "session": "regBefore",
+    "pass": true
+  },
+  {
+    "event": "reg_before_add",
+    "at": "2026-10-12T16:55:47.115346+08:00",
+    "session": "regBefore",
+    "target": "t38_reg_before_add",
+    "http": 200,
+    "response": {
+      "msg": "没有权限，请联系管理员授权",
+      "code": 403
+    },
+    "created_ids": [],
+    "db": ""
+  },
+  {
+    "event": "login_control",
+    "at": "2026-10-12T16:55:58.044767+08:00",
+    "session": "control",
+    "userName": "t3ai_contact_1010",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 116,
+      "userName": "t3ai_contact_1010",
+      "deptId": 202,
+      "status": "0"
+    },
+    "roles": [
+      "t25_query_1009"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ]
+  },
+  {
+    "event": "control_before_query",
+    "at": "2026-10-12T16:55:58.789637+08:00",
+    "session": "control",
+    "pass": true
+  },
+  {
+    "event": "control_before_add",
+    "at": "2026-10-12T16:55:59.063058+08:00",
+    "session": "control",
+    "target": "t38_control_before_add",
+    "http": 200,
+    "response": {
+      "msg": "没有权限，请联系管理员授权",
+      "code": 403
+    },
+    "created_ids": [],
+    "db": ""
+  },
+  {
+    "event": "login_wrong",
+    "at": "2026-10-12T16:56:39.020015+08:00",
+    "session": "wrong",
+    "userName": "t38_chain_1012",
+    "http": 200,
+    "code": 500,
+    "msg": "用户不存在/密码错误",
+    "token_present": false
+  },
+  {
+    "event": "login_chainA",
+    "at": "2026-10-12T16:57:40.339371+08:00",
+    "session": "chainA",
+    "userName": "t38_chain_1012",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 146,
+      "userName": "t38_chain_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "roles": [
+      "t25_maintain_1009"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ]
+  },
+  {
+    "event": "chain_before_query",
+    "at": "2026-10-12T16:57:40.913012+08:00",
+    "session": "chainA",
+    "pass": true
+  },
+  {
+    "event": "chain_before_add",
+    "at": "2026-10-12T16:57:41.383848+08:00",
+    "session": "chainA",
+    "target": "t38_chain_before_add",
+    "http": 200,
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "created_ids": [
+      147
+    ],
+    "detail": {
+      "userId": 147,
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    },
+    "cleanup": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "db": "user_id\tuser_name\tdel_flag\r\n147\tt38_chain_before_add\t2\r\n"
+  },
+  {
+    "event": "reg_role_add",
+    "at": "2026-10-12T16:58:06.385713+08:00",
+    "mode": "add",
+    "payload": {
+      "roleName": "T38回归角色1012",
+      "roleKey": "t38_reg_1012",
+      "roleSort": 20,
+      "status": "0",
+      "dataScope": "3",
+      "menuIds": [
+        1,
+        100,
+        1000,
+        1001
+      ],
+      "menuCheckStrictly": true,
+      "deptCheckStrictly": true,
+      "roleId": 109
+    },
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "before_role": {
+      "roleId": 109,
+      "admin": false,
+      "createBy": null,
+      "createTime": "2026-10-12 16:55:20",
+      "dataScope": "3",
+      "delFlag": "0",
+      "deptCheckStrictly": true,
+      "deptIds": null,
+      "flag": false,
+      "menuCheckStrictly": true,
+      "menuIds": null,
+      "permissions": null,
+      "remark": null,
+      "roleKey": "t38_reg_1012",
+      "roleName": "T38回归角色1012",
+      "roleSort": 20,
+      "status": "0",
+      "updateBy": null,
+      "updateTime": null
+    },
+    "db": "role_id\tdata_scope\tstatus\r\n109\t3\t0\r\nmenu_id\r\n1\r\n100\r\n1000\r\n1001\r\n"
+  },
+  {
+    "event": "login_regAfter",
+    "at": "2026-10-12T16:58:20.831744+08:00",
+    "session": "regAfter",
+    "userName": "t38_reg_1012",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 145,
+      "userName": "t38_reg_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "roles": [
+      "t38_reg_1012"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ]
+  },
+  {
+    "event": "reg_after_query",
+    "at": "2026-10-12T16:58:21.569399+08:00",
+    "session": "regAfter",
+    "pass": true
+  },
+  {
+    "event": "reg_after_add",
+    "at": "2026-10-12T16:58:22.048964+08:00",
+    "session": "regAfter",
+    "target": "t38_reg_after_add",
+    "http": 200,
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "created_ids": [
+      148
+    ],
+    "detail": {
+      "userId": 148,
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    },
+    "cleanup": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "db": "user_id\tuser_name\tdel_flag\r\n148\tt38_reg_after_add\t2\r\n"
+  },
+  {
+    "event": "control_after_query",
+    "at": "2026-10-12T16:58:22.902539+08:00",
+    "session": "control",
+    "pass": true
+  },
+  {
+    "event": "control_after_add",
+    "at": "2026-10-12T16:58:23.179140+08:00",
+    "session": "control",
+    "target": "t38_control_after_add",
+    "http": 200,
+    "response": {
+      "msg": "没有权限，请联系管理员授权",
+      "code": 403
+    },
+    "created_ids": [],
+    "db": ""
+  },
+  {
+    "event": "chain_revoke",
+    "at": "2026-10-12T16:59:07.506355+08:00",
+    "mode": "revoke",
+    "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t102\r\n",
+    "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t101\r\n",
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    }
+  },
+  {
+    "event": "chain_old_add",
+    "at": "2026-10-12T16:59:08.035867+08:00",
+    "session": "chainA",
+    "target": "t38_chain_old_add",
+    "http": 200,
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "created_ids": [
+      149
+    ],
+    "detail": {
+      "userId": 149,
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    },
+    "cleanup": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "db": "user_id\tuser_name\tdel_flag\r\n149\tt38_chain_old_add\t2\r\n"
+  },
+  {
+    "event": "login_chainB",
+    "at": "2026-10-12T16:59:23.168398+08:00",
+    "session": "chainB",
+    "userName": "t38_chain_1012",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 146,
+      "userName": "t38_chain_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "roles": [
+      "t25_query_1009"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ]
+  },
+  {
+    "event": "chain_new_add",
+    "at": "2026-10-12T16:59:23.437627+08:00",
+    "session": "chainB",
+    "target": "t38_chain_new_add",
+    "http": 200,
+    "response": {
+      "msg": "没有权限，请联系管理员授权",
+      "code": 403
+    },
+    "created_ids": [],
+    "db": ""
+  },
+  {
+    "event": "chain_before_disable_query",
+    "at": "2026-10-12T16:59:23.979425+08:00",
+    "session": "chainB",
+    "pass": true
+  },
+  {
+    "event": "chain_disable",
+    "at": "2026-10-12T16:59:24.196374+08:00",
+    "mode": "disable",
+    "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t101\r\n",
+    "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t1\t0\r\nuser_id\trole_id\r\n146\t101\r\n",
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    }
+  },
+  {
+    "event": "chain_disabled_old_query",
+    "at": "2026-10-12T16:59:24.715942+08:00",
+    "session": "chainB",
+    "pass": true
+  },
+  {
+    "event": "login_disabled",
+    "at": "2026-10-12T16:59:33.768066+08:00",
+    "session": "disabled",
+    "userName": "t38_chain_1012",
+    "http": 200,
+    "code": 500,
+    "msg": "用户已封禁，请联系管理员",
+    "token_present": false
+  },
+  {
+    "event": "reg_role_restore",
+    "at": "2026-10-12T17:00:26.546277+08:00",
+    "mode": "restore",
+    "payload": {
+      "roleName": "T38回归角色1012",
+      "roleKey": "t38_reg_1012",
+      "roleSort": 20,
+      "status": "0",
+      "dataScope": "3",
+      "menuIds": [
+        1,
+        100,
+        1000
+      ],
+      "menuCheckStrictly": true,
+      "deptCheckStrictly": true,
+      "roleId": 109
+    },
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    },
+    "before_role": {
+      "roleId": 109,
+      "admin": false,
+      "createBy": null,
+      "createTime": "2026-10-12 16:55:20",
+      "dataScope": "3",
+      "delFlag": "0",
+      "deptCheckStrictly": true,
+      "deptIds": null,
+      "flag": false,
+      "menuCheckStrictly": true,
+      "menuIds": null,
+      "permissions": null,
+      "remark": null,
+      "roleKey": "t38_reg_1012",
+      "roleName": "T38回归角色1012",
+      "roleSort": 20,
+      "status": "0",
+      "updateBy": null,
+      "updateTime": null
+    },
+    "db": "role_id\tdata_scope\tstatus\r\n109\t3\t0\r\nmenu_id\r\n1\r\n100\r\n1000\r\n"
+  },
+  {
+    "event": "login_regRestored",
+    "at": "2026-10-12T17:00:41.039344+08:00",
+    "session": "regRestored",
+    "userName": "t38_reg_1012",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 145,
+      "userName": "t38_reg_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "roles": [
+      "t38_reg_1012"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ]
+  },
+  {
+    "event": "reg_restored_query",
+    "at": "2026-10-12T17:00:41.548971+08:00",
+    "session": "regRestored",
+    "pass": true
+  },
+  {
+    "event": "reg_restored_add",
+    "at": "2026-10-12T17:00:41.775350+08:00",
+    "session": "regRestored",
+    "target": "t38_reg_restored_add",
+    "http": 200,
+    "response": {
+      "msg": "没有权限，请联系管理员授权",
+      "code": 403
+    },
+    "created_ids": [],
+    "db": ""
+  },
+  {
+    "event": "control_restored_query",
+    "at": "2026-10-12T17:00:42.319342+08:00",
+    "session": "control",
+    "pass": true
+  },
+  {
+    "event": "control_restored_add",
+    "at": "2026-10-12T17:00:42.539409+08:00",
+    "session": "control",
+    "target": "t38_control_restored_add",
+    "http": 200,
+    "response": {
+      "msg": "没有权限，请联系管理员授权",
+      "code": 403
+    },
+    "created_ids": [],
+    "db": ""
+  },
+  {
+    "event": "chain_enable",
+    "at": "2026-10-12T17:03:34.775716+08:00",
+    "mode": "enable",
+    "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t1\t0\r\nuser_id\trole_id\r\n146\t101\r\n",
+    "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t101\r\n",
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    }
+  },
+  {
+    "event": "chain_restore",
+    "at": "2026-10-12T17:03:35.067543+08:00",
+    "mode": "restore",
+    "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t101\r\n",
+    "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t102\r\n",
+    "response": {
+      "msg": "操作成功",
+      "code": 200
+    }
+  },
+  {
+    "event": "login_chainRestored",
+    "at": "2026-10-12T17:03:50.652561+08:00",
+    "session": "chainRestored",
+    "userName": "t38_chain_1012",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "token_present": true,
+    "identity": {
+      "userId": 146,
+      "userName": "t38_chain_1012",
+      "deptId": 202,
+      "status": "0"
+    },
+    "roles": [
+      "t25_maintain_1009"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ]
+  },
+  {
+    "event": "chain_restored_query",
+    "at": "2026-10-12T17:03:51.296183+08:00",
+    "session": "chainRestored",
+    "pass": true
+  }
+]

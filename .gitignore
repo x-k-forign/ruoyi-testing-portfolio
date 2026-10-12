@@ -42,5 +42,13 @@
 Thumbs.db
 desktop.ini
 
-# Prompt drafts are not project deliverables.
-/*提示词*.md
+# T3 deliverables: include only the agreed files and folders.
+/functional_testing_period3/*
+!/functional_testing_period3/Bug附件/
+!/functional_testing_period3/docs/
+!/functional_testing_period3/evidence_t3/
+!/functional_testing_period3/evidence_t3_1/
+!/functional_testing_period3/T3_缺陷报告.md
+!/functional_testing_period3/T3逐例执行计划与记录模板.xlsx
+!/functional_testing_period3/若依用户权限主线需求分析.xmind
+!/functional_testing_period3/若依主线测试用例_T3优化版.xlsx

@@ -1,0 +1,24 @@
+{
+  "case": "TC-L09-01_INNER",
+  "start": "2026-10-10T17:27:50.016081+08:00",
+  "end": "2026-10-10T17:27:50.046023+08:00",
+  "username": "a11",
+  "password_length": 10,
+  "mode": "correct",
+  "http": 200,
+  "code": 500,
+  "msg": "验证码错误",
+  "has_token": false,
+  "before": {
+    "captcha_exists": "1",
+    "captcha_pttl": "69736",
+    "fail_count": null,
+    "fail_pttl": "-2"
+  },
+  "after": {
+    "captcha_exists": "0",
+    "fail_count": null,
+    "fail_pttl": "-2"
+  },
+  "layer": "后端认证请求＋指定缓存键只读核验"
+}

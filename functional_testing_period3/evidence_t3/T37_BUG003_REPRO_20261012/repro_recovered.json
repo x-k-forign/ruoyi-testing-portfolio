@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-12T15:58:00.961573+08:00",
+  "session": "C",
+  "target": "t35_repro_recovered",
+  "http": 200,
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "created_ids": [
+    143
+  ],
+  "created_detail": {
+    "userId": 143,
+    "userName": "t35_repro_recovered",
+    "deptId": 202,
+    "roleIds": [
+      101
+    ]
+  },
+  "cleanup": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "db_after": "user_id\tuser_name\tdept_id\tdel_flag\r\n143\tt35_repro_recovered\t202\t2\r\n"
+}

@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-12T10:44:33.330869+08:00",
+  "shared_accounts_unchanged": true,
+  "shared_roles_unchanged": true,
+  "shared": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\troles\r\n101\tt25_a_query\t202\t0\t0\t101\r\n103\tt25_a_add\t202\t0\t0\t102\r\n104\tt25_b_query\t204\t0\t0\t101\r\n105\tt25_a_child\t203\t0\t0\t101\r\n108\tt25_a_created\t202\t0\t0\t101\r\n109\tt25_log\t201\t0\t0\t103\r\n110\tt3_pwd5_1010\t202\t0\t0\t101\r\n116\tt3ai_contact_1010\t202\t0\t0\t101\r\n125\tt3ai_maint_1010\t202\t0\t0\t102\r\n",
+  "roles": "role_id\trole_key\tdata_scope\tstatus\r\n101\tt25_query_1009\t3\t0\r\n102\tt25_maintain_1009\t3\t0\r\n103\tt25_log_1009\t1\t0\r\nrole_id\tmenu_id\r\n101\t1\r\n101\t100\r\n101\t1000\r\n102\t1\r\n102\t100\r\n102\t1000\r\n102\t1001\r\n103\t1\r\n103\t108\r\n103\t500\r\n103\t1039\r\n",
+  "fixtures": "role_id\trole_key\tdata_scope\tstatus\r\n104\tt34_scope_1012\t3\t0\r\n105\tt34_r1_1012\t3\t0\r\n106\tt34_r2_1012\t2\t0\r\nrole_id\tdept_id\r\n106\t204\r\nuser_id\tuser_name\tdel_flag\r\n132\tt34_new_b_on\t2\r\n133\tt34_new_multi_on\t2\r\n",
+  "settings": "config_key\tconfig_value\r\nsys.account.captchaEnabled\ttrue\r\nsys.login.blackIPList\t\r\n"
+}

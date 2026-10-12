@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-12T17:05:09.825948+08:00",
+  "sessions": [
+    {
+      "session": "admin",
+      "code": 200
+    },
+    {
+      "session": "regBefore",
+      "code": 200
+    },
+    {
+      "session": "control",
+      "code": 200
+    },
+    {
+      "session": "chainA",
+      "code": 200
+    },
+    {
+      "session": "regAfter",
+      "code": 200
+    },
+    {
+      "session": "chainB",
+      "code": 200
+    },
+    {
+      "session": "regRestored",
+      "code": 200
+    },
+    {
+      "session": "chainRestored",
+      "code": 200
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-12T11:12:24.528969+08:00",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "session": "deptB",
+  "identity": {
+    "userId": 134,
+    "userName": "t35_change_1012",
+    "deptId": 204,
+    "status": "0"
+  },
+  "permissions": [
+    "system:user:list",
+    "system:user:query"
+  ],
+  "roles": [
+    "t25_query_1009"
+  ]
+}

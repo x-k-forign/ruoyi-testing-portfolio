@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-12T14:52:04.693266+08:00",
+  "targetId": 140,
+  "target": "user_id\tuser_name\tstatus\tdel_flag\r\n140\tt36_event_1012\t0\t2\r\n",
+  "reader_kept": 139,
+  "original_accounts": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n109\tt25_log\t201\t0\t0\r\n116\tt3ai_contact_1010\t202\t0\t0\r\n134\tt35_change_1012\t202\t0\t0\r\nrole_id\tmenu_id\r\n103\t1\r\n103\t108\r\n103\t500\r\n103\t1039\r\n",
+  "failure_counter": null
+}

@@ -1,0 +1,35 @@
+{
+  "reader": "admin",
+  "kind": "login",
+  "W_LOG_seconds": 30,
+  "poll_interval_seconds": 2,
+  "filter": {
+    "userName": "t36_nonexistent_1012",
+    "id_greater_than": 332,
+    "target": null
+  },
+  "checks": [
+    {
+      "at": "2026-10-12T14:45:44.654158+08:00",
+      "elapsed_seconds": 0.031,
+      "candidate_ids": [
+        333
+      ],
+      "matched_ids": [
+        333
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "infoId": 333,
+      "userName": "t36_nonexistent_1012",
+      "ipaddr": "127.0.0.1",
+      "status": "1",
+      "msg": "用户不存在/密码错误",
+      "loginTime": "2026-10-12 14:45:44"
+    }
+  ],
+  "first_seen_elapsed_seconds": 0.031,
+  "note": "首次查询可见时间是观测上界，不是精确入库延迟或产品SLA；证据已去除口令和令牌。"
+}

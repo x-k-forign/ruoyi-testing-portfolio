@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-12T16:55:59.063058+08:00",
+  "session": "control",
+  "target": "t38_control_before_add",
+  "http": 200,
+  "response": {
+    "msg": "没有权限，请联系管理员授权",
+    "code": 403
+  },
+  "created_ids": [],
+  "db": ""
+}

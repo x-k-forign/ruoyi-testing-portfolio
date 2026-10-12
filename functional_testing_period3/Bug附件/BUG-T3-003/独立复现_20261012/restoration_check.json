@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-12T15:58:01.742002+08:00",
+  "shared_unchanged": true,
+  "target": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 15:57:37\r\nuser_id\trole_id\r\n134\t102\r\n",
+  "baseline_target": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\tupdate_time\r\n134\tt35_change_1012\t202\t0\t0\t2026-10-12 11:21:23\r\nuser_id\trole_id\r\n134\t102\r\n",
+  "all_sessions_distinct": true,
+  "session_labels": [
+    "admin",
+    "A",
+    "B",
+    "C"
+  ],
+  "temporary_objects": "user_id\tuser_name\tdept_id\tdel_flag\r\n134\tt35_change_1012\t202\t0\r\n135\tt35_revoke_before\t202\t2\r\n136\tt35_revoke_old\t202\t2\r\n137\tt35_grant_new\t202\t2\r\n138\tt35_grant_detail\t202\t2\r\n141\tt35_repro_before\t202\t2\r\n142\tt35_repro_old\t202\t2\r\n143\tt35_repro_recovered\t202\t2\r\nrole_id\trole_key\tdata_scope\tstatus\r\n107\tt35_add_1012\t3\t0\r\n108\tt35_other_1012\t3\t0\r\n",
+  "settings": "config_key\tconfig_value\r\nsys.account.captchaEnabled\ttrue\r\nsys.login.blackIPList\t\r\n"
+}

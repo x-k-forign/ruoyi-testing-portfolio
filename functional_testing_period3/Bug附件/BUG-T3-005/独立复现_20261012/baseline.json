@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-12T16:04:08.385712+08:00",
+  "shared": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n101\tt25_a_query\t202\t0\t0\r\n103\tt25_a_add\t202\t0\t0\r\n104\tt25_b_query\t204\t0\t0\r\n105\tt25_a_child\t203\t0\t0\r\n109\tt25_log\t201\t0\t0\r\n110\tt3_pwd5_1010\t202\t0\t0\r\n116\tt3ai_contact_1010\t202\t0\t0\r\n125\tt3ai_maint_1010\t202\t0\t0\r\n139\tt36_log_1012\t201\t0\t0\r\nuser_id\trole_id\r\n101\t101\r\n103\t102\r\n104\t101\r\n105\t101\r\n109\t103\r\n110\t101\r\n116\t101\r\n125\t102\r\n139\t103\r\n",
+  "target": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n134\tt35_change_1012\t202\t0\t0\r\nuser_id\trole_id\r\n134\t102\r\n",
+  "config": {
+    "configId": 6,
+    "configKey": "sys.login.blackIPList",
+    "configName": "用户登录-黑名单列表",
+    "configType": "Y",
+    "configValue": "",
+    "createBy": "admin",
+    "createTime": "2026-09-30 14:47:11",
+    "remark": "设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）",
+    "updateBy": "admin",
+    "updateTime": "2026-10-11 18:48:01"
+  },
+  "cache": "\"\"",
+  "versions": "BE13db1fc FE838965c; 5173/8080"
+}

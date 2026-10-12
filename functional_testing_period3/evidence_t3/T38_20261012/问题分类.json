@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-12T17:03:51.616478+08:00",
+  "project_owner": "x-k-forign",
+  "execution_method": "自动化辅助执行；用户人工抽检尚未登记完成",
+  "product_defects": [
+    "BUG-T3-001",
+    "BUG-T3-002",
+    "BUG-T3-003",
+    "BUG-T3-004",
+    "BUG-T3-005"
+  ],
+  "unresolved_business_questions": [
+    "禁用是否联动已有会话下线",
+    "增授是否立即影响已有会话"
+  ],
+  "report_observations": [
+    "未分配部门允许创建",
+    "未分配角色允许创建"
+  ],
+  "accepted_semantics": "日志SUCCESS表示方法正常返回，不等于业务成功",
+  "historical_environment_issue": "80端口被其他程序占用，已改5173；不是若依业务缺陷",
+  "regression_change": "独立角色109仅增减新增菜单权限1001，其余权限及数据范围保持不变",
+  "acceptance": "待用户指令，未验收T3.8"
+}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-12T14:46:16.470236+08:00",
+  "http": 200,
+  "response": {
+    "msg": "新增用户't3ai_contact_1010'失败，登录账号已存在",
+    "code": 500
+  },
+  "actor": "admin",
+  "method": "POST",
+  "path": "/system/user",
+  "target": "t3ai_contact_1010",
+  "db": "user_id\tuser_name\tstatus\tdel_flag\r\n116\tt3ai_contact_1010\t0\t0\r\n"
+}

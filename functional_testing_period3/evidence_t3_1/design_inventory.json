@@ -1,0 +1,23 @@
+{
+  "source_sha256": "09dde58017f014ed2dd7e5c79bc441a4ce3e2cd69939fd3f56a4342e3444e78a",
+  "cases": 88,
+  "points": 52,
+  "priority": {
+    "P0": 51,
+    "P1": 37
+  },
+  "business_pending": [
+    "TC-C07-01",
+    "TC-C07-02",
+    "TC-L09-05",
+    "TC-M02-01",
+    "TC-M04-01",
+    "TC-M06-01",
+    "TC-M09-02",
+    "TC-G04-02",
+    "TC-E01-01"
+  ],
+  "unmapped_cases": [],
+  "missing_points": [],
+  "t3_executed": 0
+}

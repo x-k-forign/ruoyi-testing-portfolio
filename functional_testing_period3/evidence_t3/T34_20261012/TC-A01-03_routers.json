@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-12T10:42:54.878707+08:00",
+  "routers": {
+    "msg": "操作成功",
+    "code": 200,
+    "data": [
+      {
+        "alwaysShow": true,
+        "children": [
+          {
+            "component": "system/user/index",
+            "hidden": false,
+            "meta": {
+              "icon": "user",
+              "link": null,
+              "noCache": false,
+              "title": "用户管理"
+            },
+            "name": "User",
+            "path": "user"
+          },
+          {
+            "component": "system/user/index",
+            "hidden": true,
+            "meta": {
+              "icon": "user",
+              "link": null,
+              "noCache": false,
+              "title": "T34用户测试入口"
+            },
+            "name": "T34users",
+            "path": "t34users"
+          }
+        ],
+        "component": "Layout",
+        "hidden": false,
+        "meta": {
+          "icon": "system",
+          "link": null,
+          "noCache": false,
+          "title": "系统管理"
+        },
+        "name": "System",
+        "path": "/system",
+        "redirect": "noRedirect"
+      }
+    ]
+  },
+  "permissions": [
+    "system:user:list",
+    "system:user:query"
+  ]
+}

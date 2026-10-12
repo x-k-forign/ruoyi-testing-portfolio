@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-12T11:08:18.140541+08:00",
+  "session": "revokeB",
+  "target": "t35_revoke_new",
+  "http": 200,
+  "response": {
+    "msg": "没有权限，请联系管理员授权",
+    "code": 403
+  },
+  "created_ids": [],
+  "db_after": ""
+}

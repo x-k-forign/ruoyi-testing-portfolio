@@ -1,0 +1,11 @@
+Browser tab: 1, Title: "若依管理系统", URL: "http://127.0.0.1/system/user".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 504-510, 512-516, 519-523, 525-527, 529-553, 555-560, 567-574
+~				74 text field (settable) 用户名称, Value: a111111111111111111, ID: el-id-8712-61
+~							451 text 119
+~							453 link a111111111111111111
+~								470 text a111111111111111111
+~							471 text 2026-10-10 17:10:24
++	473 container message_13
++		474 text 新增成功
+The focused UI element is 89 button 搜索

@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-12T16:35:49.543302+08:00",
+  "shared_unchanged": true,
+  "target_restored": true,
+  "target": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n134\tt35_change_1012\t202\t0\t0\r\nuser_id\trole_id\r\n134\t102\r\n",
+  "blacklist": "",
+  "cache": "\"\"",
+  "short_user": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n144\tt37_pwd5_1012\t202\t0\t2\r\n",
+  "sessions_distinct": true
+}

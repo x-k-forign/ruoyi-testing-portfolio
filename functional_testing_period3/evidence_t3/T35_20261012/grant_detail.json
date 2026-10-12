@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-12T11:21:23.081575+08:00",
+  "session": "grantRecheck",
+  "target": "t35_grant_detail",
+  "http": 200,
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "created_ids": [
+    138
+  ],
+  "created_detail": {
+    "userId": 138,
+    "userName": "t35_grant_detail",
+    "deptId": 202,
+    "roleIds": [
+      101
+    ]
+  },
+  "cleanup": {
+    "msg": "操作成功",
+    "code": 200
+  },
+  "db_after": "user_id\tuser_name\tdept_id\tdel_flag\r\n138\tt35_grant_detail\t202\t2\r\n"
+}

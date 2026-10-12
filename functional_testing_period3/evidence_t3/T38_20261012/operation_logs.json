@@ -1,0 +1,319 @@
+[
+  {
+    "operId": 261,
+    "operName": "admin",
+    "operUrl": "/system/user",
+    "businessType": 2,
+    "status": 0,
+    "operTime": "2026-10-12 17:03:35",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        102
+      ],
+      "status": "0",
+      "userId": 146,
+      "userName": "t38_chain_1012"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 260,
+    "operName": "admin",
+    "operUrl": "/system/user/changeStatus",
+    "businessType": 2,
+    "status": 0,
+    "operTime": "2026-10-12 17:03:34",
+    "parameters": {
+      "status": "0",
+      "userId": 146
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 259,
+    "operName": "admin",
+    "operUrl": "/system/role",
+    "businessType": 2,
+    "status": 0,
+    "operTime": "2026-10-12 17:00:26",
+    "parameters": {
+      "menuIds": [
+        1,
+        100,
+        1000
+      ],
+      "roleId": 109,
+      "roleKey": "t38_reg_1012",
+      "status": "0"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 258,
+    "operName": "admin",
+    "operUrl": "/system/user/changeStatus",
+    "businessType": 2,
+    "status": 0,
+    "operTime": "2026-10-12 16:59:24",
+    "parameters": {
+      "status": "1",
+      "userId": 146
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 257,
+    "operName": "admin",
+    "operUrl": "/system/user/149",
+    "businessType": 3,
+    "status": 0,
+    "operTime": "2026-10-12 16:59:08",
+    "parameters": {
+      "ids": [
+        149
+      ]
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 256,
+    "operName": "t38_chain_1012",
+    "operUrl": "/system/user",
+    "businessType": 1,
+    "status": 0,
+    "operTime": "2026-10-12 16:59:08",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 149,
+      "userName": "t38_chain_old_add"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 255,
+    "operName": "admin",
+    "operUrl": "/system/user",
+    "businessType": 2,
+    "status": 0,
+    "operTime": "2026-10-12 16:59:07",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 146,
+      "userName": "t38_chain_1012"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 254,
+    "operName": "admin",
+    "operUrl": "/system/user/148",
+    "businessType": 3,
+    "status": 0,
+    "operTime": "2026-10-12 16:58:22",
+    "parameters": {
+      "ids": [
+        148
+      ]
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 253,
+    "operName": "t38_reg_1012",
+    "operUrl": "/system/user",
+    "businessType": 1,
+    "status": 0,
+    "operTime": "2026-10-12 16:58:22",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 148,
+      "userName": "t38_reg_after_add"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 252,
+    "operName": "admin",
+    "operUrl": "/system/role",
+    "businessType": 2,
+    "status": 0,
+    "operTime": "2026-10-12 16:58:06",
+    "parameters": {
+      "menuIds": [
+        1,
+        100,
+        1000,
+        1001
+      ],
+      "roleId": 109,
+      "roleKey": "t38_reg_1012",
+      "status": "0"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 251,
+    "operName": "admin",
+    "operUrl": "/system/user/147",
+    "businessType": 3,
+    "status": 0,
+    "operTime": "2026-10-12 16:57:41",
+    "parameters": {
+      "ids": [
+        147
+      ]
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 250,
+    "operName": "t38_chain_1012",
+    "operUrl": "/system/user",
+    "businessType": 1,
+    "status": 0,
+    "operTime": "2026-10-12 16:57:41",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 147,
+      "userName": "t38_chain_before_add"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 249,
+    "operName": "admin",
+    "operUrl": "/system/user",
+    "businessType": 1,
+    "status": 0,
+    "operTime": "2026-10-12 16:56:39",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userName": "t25_a_query"
+    },
+    "response": {
+      "code": 500,
+      "msg": "新增用户't25_a_query'失败，登录账号已存在"
+    }
+  },
+  {
+    "operId": 248,
+    "operName": "admin",
+    "operUrl": "/system/user",
+    "businessType": 1,
+    "status": 0,
+    "operTime": "2026-10-12 16:55:20",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        102
+      ],
+      "status": "0",
+      "userId": 146,
+      "userName": "t38_chain_1012"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 247,
+    "operName": "admin",
+    "operUrl": "/system/user",
+    "businessType": 1,
+    "status": 0,
+    "operTime": "2026-10-12 16:55:20",
+    "parameters": {
+      "deptId": 202,
+      "roleIds": [
+        109
+      ],
+      "status": "0",
+      "userId": 145,
+      "userName": "t38_reg_1012"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  },
+  {
+    "operId": 246,
+    "operName": "admin",
+    "operUrl": "/system/role",
+    "businessType": 1,
+    "status": 0,
+    "operTime": "2026-10-12 16:55:20",
+    "parameters": {
+      "menuIds": [
+        1,
+        100,
+        1000
+      ],
+      "roleId": 109,
+      "roleKey": "t38_reg_1012",
+      "status": "0"
+    },
+    "response": {
+      "code": 200,
+      "msg": "操作成功"
+    }
+  }
+]

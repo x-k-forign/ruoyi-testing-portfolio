@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-12T16:59:23.168398+08:00",
+  "session": "chainB",
+  "userName": "t38_chain_1012",
+  "http": 200,
+  "code": 200,
+  "msg": "操作成功",
+  "token_present": true,
+  "identity": {
+    "userId": 146,
+    "userName": "t38_chain_1012",
+    "deptId": 202,
+    "status": "0"
+  },
+  "roles": [
+    "t25_query_1009"
+  ],
+  "permissions": [
+    "system:user:list",
+    "system:user:query"
+  ]
+}

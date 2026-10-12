@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-12T16:59:33.768066+08:00",
+  "session": "disabled",
+  "userName": "t38_chain_1012",
+  "http": 200,
+  "code": 500,
+  "msg": "用户已封禁，请联系管理员",
+  "token_present": false
+}

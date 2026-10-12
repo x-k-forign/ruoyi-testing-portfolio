@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-12T10:31:03.128846+08:00",
+  "userId": 125,
+  "userName": "t3ai_maint_1010",
+  "deptId": 202,
+  "roles": [
+    "t25_maintain_1009"
+  ],
+  "permissions": [
+    "system:user:list",
+    "system:user:query",
+    "system:user:add"
+  ]
+}

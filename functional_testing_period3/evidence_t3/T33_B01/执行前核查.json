@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-10-10T16:40:23.438472+08:00",
+  "purpose": "T3.3首批执行前只读检查",
+  "database": {
+    "mysql_host": "127.0.0.1",
+    "mysql_port": 3306,
+    "database": "ruoyi_t2_lab",
+    "redis_host": "192.168.192.10",
+    "redis_port": "6379",
+    "redis_database": "0"
+  },
+  "query_exit": 0,
+  "data": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\trole_ids\r\n1\tadmin\t103\t0\t0\t1\r\n101\tt25_a_query\t202\t0\t0\t101\r\n103\tt25_a_add\t202\t0\t0\t102\r\n104\tt25_b_query\t204\t0\t0\t101\r\n105\tt25_a_child\t203\t0\t0\t101\r\n108\tt25_a_created\t202\t0\t0\t101\r\n109\tt25_log\t201\t0\t0\t103\r\n110\tt3_pwd5_1010\t202\t0\t0\t101\r\nrole_id\trole_key\tdata_scope\tstatus\tdel_flag\r\n101\tt25_query_1009\t3\t0\t0\r\n102\tt25_maintain_1009\t3\t0\t0\r\n103\tt25_log_1009\t1\t0\t0\r\n",
+  "case_execution": "未执行",
+  "repositories": {
+    "backend": {
+      "head": "13db1fcef36bee9ce45d2d636a1d4e8f5ed5bbc3",
+      "status": ""
+    },
+    "frontend": {
+      "head": "838965c5a18d2c61b73ec30c6e288057aaa08b63",
+      "status": "M vite.config.js"
+    }
+  }
+}

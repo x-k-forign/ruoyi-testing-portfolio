@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-11T19:09:37.081324+08:00",
+  "actorId": 1,
+  "method": "PUT",
+  "path": "/system/dept",
+  "payload": {
+    "deptId": 205,
+    "parentId": 205,
+    "deptName": "T3AI父部门1010",
+    "orderNum": 0,
+    "leader": null,
+    "phone": null,
+    "email": null,
+    "status": "0"
+  },
+  "before": "dept_id\tparent_id\tancestors\tdept_name\torder_num\tleader\tphone\temail\tstatus\tdel_flag\tupdate_by\tupdate_time\r\n205\t201\t0,100,101,201\tT3AI父部门1010\t0\tNULL\tNULL\tNULL\t0\t0\t\tNULL\r\n"
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-12T16:59:07.506355+08:00",
+  "mode": "revoke",
+  "before": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t102\r\n",
+  "after": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n146\tt38_chain_1012\t202\t0\t0\r\nuser_id\trole_id\r\n146\t101\r\n",
+  "response": {
+    "msg": "操作成功",
+    "code": 200
+  }
+}

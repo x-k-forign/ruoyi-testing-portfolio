@@ -1,0 +1,11 @@
+- heading "若依管理系统" [level=3]
+- textbox "账号": t38_chain_1012
+- textbox "密码": <redacted>
+- textbox "验证码": "0"
+- checkbox "记住密码"
+- generic: 记住密码
+- button "登 录":
+  - generic: 登 录
+- generic: Copyright © 2018-2026 RuoYi. All Rights Reserved.
+- alert:
+  - paragraph: 用户已封禁，请联系管理员

@@ -1,0 +1,278 @@
+- link "若依管理系统":
+  - /url: /
+  - heading "若依管理系统" [level=1]
+- menubar:
+  - link "首页":
+    - /url: /index
+    - menuitem "首页":
+      - generic: 首页
+  - menuitem "系统管理" [expanded]:
+    - generic: 系统管理
+    - menu:
+      - link "用户管理":
+        - /url: /system/user
+        - menuitem "用户管理":
+          - generic: 用户管理
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "用户管理"
+- button:
+- generic: "3"
+- button "T34_multi":
+  - text: T34_multi
+- link "首页":
+  - /url: /index
+- link "用户管理":
+  - /url: /system/user
+  - text: 用户管理
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- text: 组织机构
+- textbox "请输入部门名称"
+- tree:
+  - treeitem "T25部门A1009" [expanded]:
+    - generic "T25部门A1009"
+  - treeitem "T25部门B1009" [expanded]:
+    - generic "T25部门B1009"
+- generic: 用户名称
+- textbox "用户名称":
+  - /placeholder: 请输入用户名称
+- generic: 手机号码
+- textbox "手机号码":
+  - /placeholder: 请输入手机号码
+- generic: 状态
+- combobox "状态"
+- generic: 用户状态
+- generic: 创建时间
+- combobox "创建时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索":
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button "新增":
+  - generic: 新增
+- button:
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 用户编号 用户名称 用户昵称 部门 手机号码 状态 创建时间 操作":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行"
+      - columnheader "用户编号":
+        - generic: 用户编号
+      - columnheader "用户名称":
+        - generic: 用户名称
+      - columnheader "用户昵称":
+        - generic: 用户昵称
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "手机号码":
+        - generic: 手机号码
+      - columnheader "状态":
+        - generic: 状态
+      - columnheader "创建时间":
+        - generic: 创建时间
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "选择当前行 101 t25_a_query T25甲查询 T25部门A1009 2026-10-09 11:27:30":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "101":
+        - generic: "101"
+      - cell "t25_a_query":
+        - generic: t25_a_query
+      - cell "T25甲查询":
+        - generic: T25甲查询
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:27:30":
+        - generic: 2026-10-09 11:27:30
+      - cell
+    - row "选择当前行 103 t25_a_add T25乙维护 T25部门A1009 2026-10-09 11:29:11":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "103":
+        - generic: "103"
+      - cell "t25_a_add":
+        - generic: t25_a_add
+      - cell "T25乙维护":
+        - generic: T25乙维护
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:29:11":
+        - generic: 2026-10-09 11:29:11
+      - cell
+    - row "选择当前行 104 t25_b_query T25丙查询 T25部门B1009 2026-10-09 11:29:55":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "104":
+        - generic: "104"
+      - cell "t25_b_query":
+        - generic: t25_b_query
+      - cell "T25丙查询":
+        - generic: T25丙查询
+      - cell "T25部门B1009":
+        - generic: T25部门B1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:29:55":
+        - generic: 2026-10-09 11:29:55
+      - cell
+    - row "选择当前行 108 t25_a_created T25新增验证1009 T25部门A1009 2026-10-09 16:55:24":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "108":
+        - generic: "108"
+      - cell "t25_a_created":
+        - generic: t25_a_created
+      - cell "T25新增验证1009":
+        - generic: T25新增验证1009
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 16:55:24":
+        - generic: 2026-10-09 16:55:24
+      - cell
+    - row "选择当前行 110 t3_pwd5_1010 T3五位密码测试 T25部门A1009 2026-10-10 15:44:29":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "110":
+        - generic: "110"
+      - cell "t3_pwd5_1010":
+        - generic: t3_pwd5_1010
+      - cell "T3五位密码测试":
+        - generic: T3五位密码测试
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-10 15:44:29":
+        - generic: 2026-10-10 15:44:29
+      - cell
+    - row "选择当前行 111 t310100001 T3自动化用户 T25部门A1009 2026-10-10 16:58:13":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "111":
+        - generic: "111"
+      - cell "t310100001":
+        - generic: t310100001
+      - cell "T3自动化用户":
+        - generic: T3自动化用户
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-10 16:58:13":
+        - generic: 2026-10-10 16:58:13
+      - cell
+    - row "选择当前行 112 t3ai_p06_1010 T3自动化校验 T25部门A1009 2026-10-10 17:02:15":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "112":
+        - generic: "112"
+      - cell "t3ai_p06_1010":
+        - generic: t3ai_p06_1010
+      - cell "T3自动化校验":
+        - generic: T3自动化校验
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-10 17:02:15":
+        - generic: 2026-10-10 17:02:15
+      - cell
+    - row "选择当前行 113 t3ai_p07_1010 T3自动化校验 T25部门A1009 2026-10-10 17:05:09":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "113":
+        - generic: "113"
+      - cell "t3ai_p07_1010":
+        - generic: t3ai_p07_1010
+      - cell "T3自动化校验":
+        - generic: T3自动化校验
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-10 17:05:09":
+        - generic: 2026-10-10 17:05:09
+      - cell
+    - row "选择当前行 114 t3ai_p19_1010 T3自动化校验 T25部门A1009 2026-10-10 17:06:06":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "114":
+        - generic: "114"
+      - cell "t3ai_p19_1010":
+        - generic: t3ai_p19_1010
+      - cell "T3自动化校验":
+        - generic: T3自动化校验
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-10 17:06:06":
+        - generic: 2026-10-10 17:06:06
+      - cell
+    - row "选择当前行 115 t3ai_p20_1010 T3自动化校验 T25部门A1009 2026-10-10 17:06:10":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "115":
+        - generic: "115"
+      - cell "t3ai_p20_1010":
+        - generic: t3ai_p20_1010
+      - cell "T3自动化校验":
+        - generic: T3自动化校验
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-10 17:06:10":
+        - generic: 2026-10-10 17:06:10
+      - cell
+- generic: 共 23 条
+- combobox
+- generic: 10条/页
+- button "上一页" [disabled]:
+- list:
+  - listitem "第 1 页": "1"
+  - listitem "第 2 页": "2"
+  - listitem "第 3 页": "3"
+- button "下一页":
+- generic: 前往
+- spinbutton "页": "1"
+- generic: 页

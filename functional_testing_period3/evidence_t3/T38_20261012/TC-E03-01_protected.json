@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-12T16:56:39.303559+08:00",
+  "http": 200,
+  "response": {
+    "msg": "请求访问：/system/user/list，认证失败，无法访问系统资源",
+    "code": 401
+  },
+  "token_sent": false,
+  "dependent_steps": "登录失败后不进入成功访问链；此请求为无令牌拒绝断言"
+}

@@ -1,0 +1,112 @@
+{
+  "reader": "log",
+  "kind": "oper",
+  "W_LOG_seconds": 30,
+  "poll_interval_seconds": 2,
+  "filter": {
+    "operName": "t3ai_contact_1010",
+    "id_greater_than": 227,
+    "target": "t36_denied_1012"
+  },
+  "checks": [
+    {
+      "at": "2026-10-12T14:46:16.928171+08:00",
+      "elapsed_seconds": 0.032,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:18.947892+08:00",
+      "elapsed_seconds": 2.047,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:20.986869+08:00",
+      "elapsed_seconds": 4.079,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:23.024505+08:00",
+      "elapsed_seconds": 6.125,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:25.065569+08:00",
+      "elapsed_seconds": 8.157,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:27.104362+08:00",
+      "elapsed_seconds": 10.204,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:29.136756+08:00",
+      "elapsed_seconds": 12.235,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:31.173816+08:00",
+      "elapsed_seconds": 14.266,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:33.214152+08:00",
+      "elapsed_seconds": 16.313,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:35.259923+08:00",
+      "elapsed_seconds": 18.36,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:37.302260+08:00",
+      "elapsed_seconds": 20.407,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:39.319119+08:00",
+      "elapsed_seconds": 22.422,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:41.353800+08:00",
+      "elapsed_seconds": 24.454,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:43.391896+08:00",
+      "elapsed_seconds": 26.485,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:45.414684+08:00",
+      "elapsed_seconds": 28.516,
+      "candidate_ids": [],
+      "matched_ids": []
+    },
+    {
+      "at": "2026-10-12T14:46:46.933897+08:00",
+      "elapsed_seconds": 30.032,
+      "candidate_ids": [],
+      "matched_ids": []
+    }
+  ],
+  "matches": [],
+  "first_seen_elapsed_seconds": null,
+  "note": "首次查询可见时间是观测上界，不是精确入库延迟或产品SLA；证据已去除口令和令牌。"
+}

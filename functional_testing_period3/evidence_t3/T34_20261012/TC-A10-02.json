@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-12T10:30:52.465725+08:00",
+  "filter": "t25_b_query",
+  "actual": {
+    "ids": [],
+    "pages": [
+      {
+        "page": 1,
+        "http": 200,
+        "total": 0,
+        "rows": []
+      }
+    ]
+  },
+  "admin_control": {
+    "ids": [
+      104
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "http": 200,
+        "total": 1,
+        "rows": [
+          {
+            "userId": 104,
+            "userName": "t25_b_query",
+            "deptId": 204,
+            "status": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "pass": true
+}

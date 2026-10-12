@@ -1,0 +1,134 @@
+- link "若依管理系统":
+  - /url: /
+  - heading "若依管理系统" [level=1]
+- menubar:
+  - link "首页":
+    - /url: /index
+    - menuitem "首页":
+      - generic: 首页
+  - menuitem "系统管理" [expanded]:
+    - generic: 系统管理
+    - menu:
+      - link "用户管理":
+        - /url: /system/user
+        - menuitem "用户管理":
+          - generic: 用户管理
+- navigation "面包屑":
+  - link "首页"
+- button:
+- generic: "3"
+- button "T34_scopeuser":
+  - text: T34_scopeuser
+- link "首页":
+  - /url: /index
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- heading "若依后台管理框架" [level=2]
+- paragraph: 一直想做一款后台管理系统，看了很多优秀的开源项目但是发现没有合适自己的。于是利用空闲休息时间开始自己写一套后台系统。如此有了若依管理系统，她可以用于所有的Web应用程序，如网站管理后台，网站会员中心，CMS，CRM，OA等等，当然，您也可以对她进行深度定制，以做出更强系统。所有前端后台代码封装过后十分精简易上手，出错概率低。同时支持移动客户端访问。系统会陆续更新一些实用功能。
+- paragraph: "当前版本: v3.9.2"
+- paragraph:
+  - generic: ¥免费开源
+- paragraph:
+  - button "访问码云":
+    - generic: 访问码云
+  - button "访问主页":
+    - generic: 访问主页
+- heading "技术选型" [level=2]
+- heading "后端技术" [level=4]
+- list:
+  - listitem: SpringBoot
+  - listitem: Spring Security
+  - listitem: JWT
+  - listitem: MyBatis
+  - listitem: Druid
+  - listitem: Fastjson
+  - listitem: ...
+- heading "前端技术" [level=4]
+- list:
+  - listitem: Vue
+  - listitem: Vuex
+  - listitem: Element-ui
+  - listitem: Axios
+  - listitem: Sass
+  - listitem: Quill
+  - listitem: ...
+- separator
+- generic: 联系信息
+- paragraph:
+  - text: 官网：
+  - link "http://www.ruoyi.vip":
+    - /url: http://www.ruoyi.vip
+    - generic: http://www.ruoyi.vip
+- paragraph:
+  - text: QQ群： 满937441 满887144332 满180251782 满104180207 满186866453 满201396349 满101456076 满101539465 满264312783 满167385320 满104748341 满160110482 满170801498 满108482800 满101046199 满136919097 满143961921 满174951577 满161281055 满138988063 满151450850 满224622315 满287842588 满187944233 满228578329 满191164766 满174569686 满127358632
+  - link "113071109":
+    - /url: http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=EQz10zmHf6ga7Zv2U5kWNrpkBlnknJE-&authKey=65C4sdiKSSyJFEtartvUfLEHQiPYoysBoVkNuLP1AxpKdV4nQR%2FEvobGCI9jvDpQ&noverify=0&group_code=113071109
+- paragraph:
+  - text: 微信：
+  - link "/ *若依":
+    - /url: javascript:;
+- paragraph:
+  - text: 支付宝：
+  - link "/ *若依":
+    - /url: javascript:;
+- generic: 更新日志
+- button "v3.9.2 - 2026-03-26":
+  - generic: v3.9.2 - 2026-03-26
+- button "v3.9.1 - 2025-12-18":
+  - generic: v3.9.1 - 2025-12-18
+- button "v3.9.0 - 2025-05-28":
+  - generic: v3.9.0 - 2025-05-28
+- button "v3.8.9 - 2024-12-30":
+  - generic: v3.8.9 - 2024-12-30
+- button "v3.8.8 - 2024-06-30":
+  - generic: v3.8.8 - 2024-06-30
+- button "v3.8.7 - 2023-12-08":
+  - generic: v3.8.7 - 2023-12-08
+- button "v3.8.6 - 2023-06-30":
+  - generic: v3.8.6 - 2023-06-30
+- button "v3.8.5 - 2023-01-01":
+  - generic: v3.8.5 - 2023-01-01
+- button "v3.8.4 - 2022-09-26":
+  - generic: v3.8.4 - 2022-09-26
+- button "v3.8.3 - 2022-06-27":
+  - generic: v3.8.3 - 2022-06-27
+- button "v3.8.2 - 2022-04-01":
+  - generic: v3.8.2 - 2022-04-01
+- button "v3.8.1 - 2022-01-01":
+  - generic: v3.8.1 - 2022-01-01
+- button "v3.8.0 - 2021-12-01":
+  - generic: v3.8.0 - 2021-12-01
+- button "v3.7.0 - 2021-09-13":
+  - generic: v3.7.0 - 2021-09-13
+- button "v3.6.0 - 2021-07-12":
+  - generic: v3.6.0 - 2021-07-12
+- button "v3.5.0 - 2021-05-25":
+  - generic: v3.5.0 - 2021-05-25
+- button "v3.4.0 - 2021-02-22":
+  - generic: v3.4.0 - 2021-02-22
+- button "v3.3.0 - 2020-12-14":
+  - generic: v3.3.0 - 2020-12-14
+- button "v3.2.1 - 2020-11-18":
+  - generic: v3.2.1 - 2020-11-18
+- button "v3.2.0 - 2020-10-10":
+  - generic: v3.2.0 - 2020-10-10
+- button "v3.1.0 - 2020-08-13":
+  - generic: v3.1.0 - 2020-08-13
+- button "v3.0.0 - 2020-07-20":
+  - generic: v3.0.0 - 2020-07-20
+- button "v2.3.0 - 2020-06-01":
+  - generic: v2.3.0 - 2020-06-01
+- button "v2.2.0 - 2020-03-18":
+  - generic: v2.2.0 - 2020-03-18
+- button "v2.1.0 - 2020-02-24":
+  - generic: v2.1.0 - 2020-02-24
+- button "v2.0.0 - 2019-12-02":
+  - generic: v2.0.0 - 2019-12-02
+- button "v1.1.0 - 2019-11-11":
+  - generic: v1.1.0 - 2019-11-11
+- button "v1.0.0 - 2019-10-08":
+  - generic: v1.0.0 - 2019-10-08
+- generic: 捐赠支持
+- img "donate"
+- generic: 你可以请作者喝杯咖啡表示鼓励

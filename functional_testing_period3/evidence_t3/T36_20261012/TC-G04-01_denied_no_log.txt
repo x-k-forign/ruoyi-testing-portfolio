@@ -1,0 +1,81 @@
+- link:
+  - /url: /
+- menubar:
+  - link:
+    - /url: /index
+    - menuitem:
+  - menuitem:
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "日志管理"
+  - text: /
+  - link "操作日志"
+- button "T36日志只读":
+  - text: T36日志只读
+- link "首页":
+  - /url: /index
+- link "操作日志":
+  - /url: /system/log/operlog
+  - text: 操作日志
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- generic: 操作地址
+- textbox "操作地址":
+  - /placeholder: 请输入操作地址
+- generic: 系统模块
+- textbox "系统模块":
+  - /placeholder: 请输入系统模块
+- generic: 操作人员
+- textbox "操作人员":
+  - /placeholder: 请输入操作人员
+  - text: t3ai_contact_1010
+- generic: 类型
+- combobox "类型"
+- generic: 操作类型
+- generic: 状态
+- combobox "状态"
+- generic: 操作状态
+- generic: 操作时间
+- combobox "操作时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索" [active]:
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 日志编号 系统模块 操作类型 操作人员 按 操作人员 排序 操作地址 操作状态 操作日期 按 操作日期 排序 消耗时间 按 消耗时间 排序 操作":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行" [disabled]
+      - columnheader "日志编号":
+        - generic: 日志编号
+      - columnheader "系统模块":
+        - generic: 系统模块
+      - columnheader "操作类型":
+        - generic: 操作类型
+      - columnheader "操作人员 按 操作人员 排序":
+        - text: 操作人员
+        - button "按 操作人员 排序"
+      - columnheader "操作地址":
+        - generic: 操作地址
+      - columnheader "操作状态":
+        - generic: 操作状态
+      - columnheader "操作日期 按 操作日期 排序":
+        - text: 操作日期
+        - button "按 操作日期 排序"
+      - columnheader "消耗时间 按 消耗时间 排序":
+        - text: 消耗时间
+        - button "按 消耗时间 排序"
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup
+- generic: 暂无数据

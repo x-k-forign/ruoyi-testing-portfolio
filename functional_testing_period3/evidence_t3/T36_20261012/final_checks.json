@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-12T14:52:39.074888+08:00",
+  "original_accounts_and_log_role_unchanged": true,
+  "missing_user_and_denied_target": "",
+  "duplicate_target": "user_id\tuser_name\tdept_id\tstatus\tdel_flag\r\n116\tt3ai_contact_1010\t202\t0\t0\r\n",
+  "db_timezone_offset": "offset_minutes\r\n480\r\n",
+  "operator_log_source": "SysOperlogController.list; ordinary reader role103; no log deletion/export used",
+  "aspect_source": "LogAspect sets SUCCESS by default and FAIL only when exception e!=null; normal return error remains SUCCESS"
+}

@@ -1,0 +1,18 @@
+{
+  "bug": "BUG-T3-002",
+  "result": "再次观察到原问题，未修复",
+  "effective_attempts_this_batch": 1,
+  "occurrences_this_batch": 1,
+  "recorded_total": "2/2（首次一次＋本次一次，不表示所有条件必现）",
+  "summary": "新增页面五位密码字段校验拒绝；普通新增接口创建144成功，五位密码登录成功；144已逻辑删除。",
+  "files": [
+    "baseline.json",
+    "bug002_create.json",
+    "bug002_ui_length.png",
+    "bug002_ui_length.txt",
+    "login_restored_163615.json",
+    "login_short_160432.json",
+    "restoration.json",
+    "session_cleanup.json"
+  ]
+}

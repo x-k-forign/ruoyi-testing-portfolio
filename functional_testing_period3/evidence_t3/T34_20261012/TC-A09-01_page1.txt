@@ -1,0 +1,316 @@
+- link "若依管理系统":
+  - /url: /
+  - heading "若依管理系统" [level=1]
+- menubar:
+  - link "首页":
+    - /url: /index
+    - menuitem "首页":
+      - generic: 首页
+  - menuitem "系统管理" [expanded]:
+    - generic: 系统管理
+    - menu:
+      - link "用户管理":
+        - /url: /system/user
+        - menuitem "用户管理":
+          - generic: 用户管理
+- navigation "面包屑":
+  - link "首页"
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "用户管理"
+- button:
+- generic: "3"
+- button "T34_scopeuser":
+  - text: T34_scopeuser
+- link "首页":
+  - /url: /index
+- link "用户管理":
+  - /url: /system/user
+  - text: 用户管理
+- button:
+- generic "刷新页面":
+  - text: 刷新
+- text: 组织机构
+- textbox "请输入部门名称"
+- tree:
+  - treeitem "若依科技" [expanded]:
+    - generic "若依科技"
+    - treeitem "深圳总公司" [expanded]:
+      - generic "深圳总公司"
+      - treeitem "研发部门" [expanded]:
+        - generic "研发部门"
+      - treeitem "市场部门" [expanded]:
+        - generic "市场部门"
+      - treeitem "测试部门" [expanded]:
+        - generic "测试部门"
+      - treeitem "财务部门" [expanded]:
+        - generic "财务部门"
+      - treeitem "运维部门" [expanded]:
+        - generic "运维部门"
+      - treeitem "T24冒烟部门1009" [expanded]:
+        - generic "T24冒烟部门1009"
+      - treeitem "T25测试组织1009" [expanded]:
+        - generic "T25测试组织1009"
+        - treeitem "T3AI父部门1010" [expanded]:
+          - generic "T3AI父部门1010"
+        - treeitem "T3AI用户部门1010" [expanded]:
+          - generic "T3AI用户部门1010"
+        - treeitem "T25部门A1009" [expanded]:
+          - generic "T25部门A1009"
+          - treeitem "T25部门A子组1009" [expanded]:
+            - generic "T25部门A子组1009"
+        - treeitem "T25部门B1009" [expanded]:
+          - generic "T25部门B1009"
+    - treeitem "长沙分公司" [expanded]:
+      - generic "长沙分公司"
+      - treeitem "市场部门" [expanded]:
+        - generic "市场部门"
+      - treeitem "财务部门" [expanded]:
+        - generic "财务部门"
+- generic: 用户名称
+- textbox "用户名称":
+  - /placeholder: 请输入用户名称
+- generic: 手机号码
+- textbox "手机号码":
+  - /placeholder: 请输入手机号码
+- generic: 状态
+- combobox "状态"
+- generic: 用户状态
+- generic: 创建时间
+- combobox "创建时间"
+- generic: "-"
+- combobox "结束日期"
+- button "搜索":
+  - generic: 搜索
+- button "重置":
+  - generic: 重置
+- button:
+- button:
+- button:
+- table:
+  - rowgroup:
+    - row "选择所有行 用户编号 用户名称 用户昵称 部门 手机号码 状态 创建时间 操作":
+      - columnheader "选择所有行":
+        - generic "选择所有行":
+          - checkbox "选择所有行"
+      - columnheader "用户编号":
+        - generic: 用户编号
+      - columnheader "用户名称":
+        - generic: 用户名称
+      - columnheader "用户昵称":
+        - generic: 用户昵称
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "手机号码":
+        - generic: 手机号码
+      - columnheader "状态":
+        - generic: 状态
+      - columnheader "创建时间":
+        - generic: 创建时间
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "选择当前行 1 admin 若依 研发部门 15888888888 2026-09-30 14:47:10":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "1":
+        - generic: "1"
+      - cell "admin":
+        - generic: admin
+      - cell "若依":
+        - generic: 若依
+      - cell "研发部门":
+        - generic: 研发部门
+      - cell "15888888888":
+        - generic: "15888888888"
+      - cell:
+        - switch [checked]
+      - cell "2026-09-30 14:47:10":
+        - generic: 2026-09-30 14:47:10
+      - cell
+    - row "选择当前行 2 ry 若依 测试部门 15666666666 2026-09-30 14:47:10":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "2":
+        - generic: "2"
+      - cell "ry":
+        - generic: ry
+      - cell "若依":
+        - generic: 若依
+      - cell "测试部门":
+        - generic: 测试部门
+      - cell "15666666666":
+        - generic: "15666666666"
+      - cell:
+        - switch [checked]
+      - cell "2026-09-30 14:47:10":
+        - generic: 2026-09-30 14:47:10
+      - cell
+    - row "选择当前行 100 t24_user_1009 T24冒烟用户1009 T24冒烟部门1009 2026-10-09 10:44:45":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "100":
+        - generic: "100"
+      - cell "t24_user_1009":
+        - generic: t24_user_1009
+      - cell "T24冒烟用户1009":
+        - generic: T24冒烟用户1009
+      - cell "T24冒烟部门1009":
+        - generic: T24冒烟部门1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 10:44:45":
+        - generic: 2026-10-09 10:44:45
+      - cell
+    - row "选择当前行 101 t25_a_query T25甲查询 T25部门A1009 2026-10-09 11:27:30":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "101":
+        - generic: "101"
+      - cell "t25_a_query":
+        - generic: t25_a_query
+      - cell "T25甲查询":
+        - generic: T25甲查询
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:27:30":
+        - generic: 2026-10-09 11:27:30
+      - cell
+    - row "选择当前行 103 t25_a_add T25乙维护 T25部门A1009 2026-10-09 11:29:11":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "103":
+        - generic: "103"
+      - cell "t25_a_add":
+        - generic: t25_a_add
+      - cell "T25乙维护":
+        - generic: T25乙维护
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:29:11":
+        - generic: 2026-10-09 11:29:11
+      - cell
+    - row "选择当前行 104 t25_b_query T25丙查询 T25部门B1009 2026-10-09 11:29:55":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "104":
+        - generic: "104"
+      - cell "t25_b_query":
+        - generic: t25_b_query
+      - cell "T25丙查询":
+        - generic: T25丙查询
+      - cell "T25部门B1009":
+        - generic: T25部门B1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:29:55":
+        - generic: 2026-10-09 11:29:55
+      - cell
+    - row "选择当前行 105 t25_a_child T25子组查询 T25部门A子组1009 2026-10-09 11:30:24":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "105":
+        - generic: "105"
+      - cell "t25_a_child":
+        - generic: t25_a_child
+      - cell "T25子组查询":
+        - generic: T25子组查询
+      - cell "T25部门A子组1009":
+        - generic: T25部门A子组1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 11:30:24":
+        - generic: 2026-10-09 11:30:24
+      - cell
+    - row "选择当前行 108 t25_a_created T25新增验证1009 T25部门A1009 2026-10-09 16:55:24":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "108":
+        - generic: "108"
+      - cell "t25_a_created":
+        - generic: t25_a_created
+      - cell "T25新增验证1009":
+        - generic: T25新增验证1009
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 16:55:24":
+        - generic: 2026-10-09 16:55:24
+      - cell
+    - row "选择当前行 109 t25_log T25日志查询 T25测试组织1009 2026-10-09 17:06:22":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "109":
+        - generic: "109"
+      - cell "t25_log":
+        - generic: t25_log
+      - cell "T25日志查询":
+        - generic: T25日志查询
+      - cell "T25测试组织1009":
+        - generic: T25测试组织1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-09 17:06:22":
+        - generic: 2026-10-09 17:06:22
+      - cell
+    - row "选择当前行 110 t3_pwd5_1010 T3五位密码测试 T25部门A1009 2026-10-10 15:44:29":
+      - cell "选择当前行":
+        - generic "选择当前行":
+          - checkbox "选择当前行"
+      - cell "110":
+        - generic: "110"
+      - cell "t3_pwd5_1010":
+        - generic: t3_pwd5_1010
+      - cell "T3五位密码测试":
+        - generic: T3五位密码测试
+      - cell "T25部门A1009":
+        - generic: T25部门A1009
+      - cell
+      - cell:
+        - switch [checked]
+      - cell "2026-10-10 15:44:29":
+        - generic: 2026-10-10 15:44:29
+      - cell
+- generic: 共 30 条
+- combobox
+- generic: 10条/页
+- button "上一页" [disabled]:
+- list:
+  - listitem "第 1 页": "1"
+  - listitem "第 2 页": "2"
+  - listitem "第 3 页": "3"
+- button "下一页":
+- generic: 前往
+- spinbutton "页": "1"
+- generic: 页
+- dialog "安全提示":
+  - generic: 安全提示
+  - button "关闭此对话框":
+  - paragraph: 您的密码还是初始密码，请修改密码！
+  - button "取消":
+    - generic: 取消
+  - button "确定" [active]:
+    - generic: 确定

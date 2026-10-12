@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-10-10T08:23:33.4568336+08:00",
+  "repositories": [
+    {
+      "path": "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\backend",
+      "branch": "t2-environment",
+      "head": "13db1fcef36bee9ce45d2d636a1d4e8f5ed5bbc3",
+      "status": [],
+      "cachedDiff": []
+    },
+    {
+      "path": "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\frontend",
+      "branch": "t2-environment",
+      "head": "838965c5a18d2c61b73ec30c6e288057aaa08b63",
+      "status": [
+        " M vite.config.js"
+      ],
+      "cachedDiff": []
+    },
+    {
+      "path": "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi_git",
+      "branch": "t2-git-practice",
+      "head": "512527479c84cf4bef3668fbb85e66d87b56c39a",
+      "status": [],
+      "cachedDiff": []
+    }
+  ],
+  "remoteHead": "512527479c84cf4bef3668fbb85e66d87b56c39a\trefs/heads/t2-git-practice",
+  "processes": [
+    {
+      "pid": 6776,
+      "name": "mysqld.exe",
+      "expectedJarArgument": false,
+      "localConfigArgument": false,
+      "expectedVitePath": false
+    },
+    {
+      "pid": 16692,
+      "name": "java.exe",
+      "expectedJarArgument": true,
+      "localConfigArgument": true,
+      "expectedVitePath": false
+    },
+    {
+      "pid": 16212,
+      "name": "node.exe",
+      "expectedJarArgument": false,
+      "localConfigArgument": false,
+      "expectedVitePath": true
+    }
+  ],
+  "listeners": [
+    {
+      "LocalAddress": "::",
+      "LocalPort": 3306,
+      "OwningProcess": 6776
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8080,
+      "OwningProcess": 16692
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 7897,
+      "OwningProcess": 16464
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 80,
+      "OwningProcess": 16212
+    }
+  ]
+}
