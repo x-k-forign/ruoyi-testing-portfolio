@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-14",
+  "unique_cases": 25,
+  "passed": 23,
+  "failed": 2,
+  "valid_cli_requests": 100,
+  "assertions": 326,
+  "failed_assertions": 4,
+  "t3_current": {
+    "失败": 5,
+    "待观察": 4,
+    "通过": 82,
+    "未执行": 3
+  },
+  "t3_ids_titles_match_original": true,
+  "t4_cumulative": {
+    "通过": 24,
+    "失败": 2,
+    "未执行": 3
+  },
+  "hyperlinks_checked": 273,
+  "broken_links": [],
+  "cloud_definitions_match": true,
+  "temporary_users_cleaned": 10,
+  "sessions_logged_out": 5,
+  "acceptance": "通过（AI辅助验收与作答）",
+  "local_t45_credentials_removed": true,
+  "delivered_text_files_scanned_for_jwt": 60,
+  "jwt_findings": 0,
+  "report_links_valid": true,
+  "t4_excel_normal_open": true,
+  "t3_excel_normal_open": true
+}

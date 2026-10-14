@@ -1,0 +1,160 @@
+{
+  "checked_at": "2026-10-14T11:26:44.295624",
+  "sessions": [
+    {
+      "identity": "qa",
+      "logout_http": 200,
+      "logout_code": 200,
+      "old_token_code": 401
+    },
+    {
+      "identity": "fresh",
+      "logout_http": 200,
+      "logout_code": 200,
+      "old_token_code": 401
+    },
+    {
+      "identity": "maint",
+      "logout_http": 200,
+      "logout_code": 200,
+      "old_token_code": 401
+    },
+    {
+      "identity": "qb",
+      "logout_http": 200,
+      "logout_code": 200,
+      "old_token_code": 401
+    },
+    {
+      "identity": "admin",
+      "logout_http": 200,
+      "logout_code": 200,
+      "old_token_code": 401
+    }
+  ],
+  "fixture_cleanup": [
+    {
+      "identity": "qa",
+      "userId": 154,
+      "userName": "t45_10141114_qa",
+      "http": 200,
+      "code": 200
+    },
+    {
+      "identity": "maint",
+      "userId": 155,
+      "userName": "t45_10141114_maint",
+      "http": 200,
+      "code": 200
+    },
+    {
+      "identity": "qb",
+      "userId": 156,
+      "userName": "t45_10141114_qb",
+      "http": 200,
+      "code": 200
+    },
+    {
+      "identity": "dup",
+      "userId": 157,
+      "userName": "t45_10141114_dup",
+      "http": 200,
+      "code": 200
+    }
+  ],
+  "original_users_unchanged": true,
+  "new_rows": [
+    {
+      "user_id": 154,
+      "user_name": "t45_10141114_qa",
+      "nick_name": "T45_qa",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 155,
+      "user_name": "t45_10141114_maint",
+      "nick_name": "T45_maint",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 156,
+      "user_name": "t45_10141114_qb",
+      "nick_name": "T45_qb",
+      "dept_id": 204,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 157,
+      "user_name": "t45_10141114_dup",
+      "nick_name": "T45_dup",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 158,
+      "user_name": "t45_10141114_c01",
+      "nick_name": "T45_ctrl_a",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 159,
+      "user_name": "t45_10141114_c02",
+      "nick_name": "T45_ctrl_m",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 160,
+      "user_name": "t45_10141114_c13",
+      "nick_name": "T45_pwd5",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 161,
+      "user_name": "t45_10141114_c14",
+      "nick_name": "T45_pwd6",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 162,
+      "user_name": "t45_10141114_c15",
+      "nick_name": "T45_pwd20",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 163,
+      "user_name": "t45_10141114_c16",
+      "nick_name": "T45_pwd21",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    }
+  ],
+  "new_post_links": [],
+  "all_new_rows_cleaned": true
+}

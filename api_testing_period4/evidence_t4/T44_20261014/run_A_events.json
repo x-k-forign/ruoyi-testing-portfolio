@@ -1,0 +1,799 @@
+[
+  {
+    "time": "2026-10-14T02:30:20.026Z",
+    "request": "01 管理员登录",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": null,
+    "tokenPresent": true,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:20.306Z",
+    "request": "02 核验管理员身份",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": {
+      "userId": 1,
+      "userName": "admin",
+      "deptId": 103,
+      "status": "0",
+      "roleId": null
+    },
+    "data": null,
+    "roles": [
+      "admin"
+    ],
+    "permissions": [
+      "*:*:*"
+    ],
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:20.430Z",
+    "request": "03 核验部门202",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": {
+      "deptId": 202,
+      "status": "0"
+    },
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:20.539Z",
+    "request": "04 核验角色101",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": {
+      "status": "0",
+      "roleId": 101,
+      "roleKey": "t25_query_1009",
+      "dataScope": "3"
+    },
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:20.775Z",
+    "request": "05 创建前确认账号不存在",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 0,
+    "rows": [],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:21.089Z",
+    "request": "06 创建用户并关联部门角色",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:21.215Z",
+    "request": "07 查询并提取本批用户ID",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 1,
+    "rows": [
+      {
+        "userId": 151,
+        "userName": "t44_1014103013_a",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:21.343Z",
+    "request": "08 回查用户部门角色状态",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": {
+      "userId": 151,
+      "userName": "t44_1014103013_a",
+      "deptId": 202,
+      "status": "0",
+      "roleId": null
+    },
+    "roleIds": [
+      101
+    ],
+    "postIds": [],
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:21.471Z",
+    "request": "09 管理员完整分页范围基准",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 35,
+    "rows": [
+      {
+        "userId": 1,
+        "userName": "admin",
+        "deptId": 103,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 2,
+        "userName": "ry",
+        "deptId": 105,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 100,
+        "userName": "t24_user_1009",
+        "deptId": 200,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 101,
+        "userName": "t25_a_query",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 103,
+        "userName": "t25_a_add",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 104,
+        "userName": "t25_b_query",
+        "deptId": 204,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 105,
+        "userName": "t25_a_child",
+        "deptId": 203,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 108,
+        "userName": "t25_a_created",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 109,
+        "userName": "t25_log",
+        "deptId": 201,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 110,
+        "userName": "t3_pwd5_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:21.581Z",
+    "request": "09 管理员完整分页范围基准",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 35,
+    "rows": [
+      {
+        "userId": 111,
+        "userName": "t310100001",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 112,
+        "userName": "t3ai_p06_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 113,
+        "userName": "t3ai_p07_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 114,
+        "userName": "t3ai_p19_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 115,
+        "userName": "t3ai_p20_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 116,
+        "userName": "t3ai_contact_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 117,
+        "userName": "a1",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 118,
+        "userName": "a11",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 119,
+        "userName": "a111111111111111111",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 120,
+        "userName": "a1111111111111111111",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:21.706Z",
+    "request": "09 管理员完整分页范围基准",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 35,
+    "rows": [
+      {
+        "userId": 121,
+        "userName": "t3ai_lock_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 122,
+        "userName": "t3ai_stop_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 124,
+        "userName": "t3ai_dept_1010",
+        "deptId": 207,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 125,
+        "userName": "t3ai_maint_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 126,
+        "userName": "t3ai_nodept_1010",
+        "deptId": null,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 127,
+        "userName": "t3ai_norole_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 128,
+        "userName": "t3ai_pwd5_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 129,
+        "userName": "t34_c_1012",
+        "deptId": 204,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 130,
+        "userName": "t34_scopeuser_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 131,
+        "userName": "t34_multi_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:21.817Z",
+    "request": "09 管理员完整分页范围基准",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 35,
+    "rows": [
+      {
+        "userId": 134,
+        "userName": "t35_change_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 139,
+        "userName": "t36_log_1012",
+        "deptId": 201,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 145,
+        "userName": "t38_reg_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 146,
+        "userName": "t38_chain_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 151,
+        "userName": "t44_1014103013_a",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.070Z",
+    "request": "10 本批新用户登录",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": null,
+    "tokenPresent": true,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.180Z",
+    "request": "11 核验新用户身份权限",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": {
+      "userId": 151,
+      "userName": "t44_1014103013_a",
+      "deptId": 202,
+      "status": "0",
+      "roleId": null
+    },
+    "data": null,
+    "roles": [
+      "t25_query_1009"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.293Z",
+    "request": "12 新用户完整分页获准访问",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 25,
+    "rows": [
+      {
+        "userId": 101,
+        "userName": "t25_a_query",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 103,
+        "userName": "t25_a_add",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 108,
+        "userName": "t25_a_created",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 110,
+        "userName": "t3_pwd5_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 111,
+        "userName": "t310100001",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 112,
+        "userName": "t3ai_p06_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 113,
+        "userName": "t3ai_p07_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 114,
+        "userName": "t3ai_p19_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 115,
+        "userName": "t3ai_p20_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 116,
+        "userName": "t3ai_contact_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.385Z",
+    "request": "12 新用户完整分页获准访问",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 25,
+    "rows": [
+      {
+        "userId": 117,
+        "userName": "a1",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 118,
+        "userName": "a11",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 119,
+        "userName": "a111111111111111111",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 120,
+        "userName": "a1111111111111111111",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 121,
+        "userName": "t3ai_lock_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 122,
+        "userName": "t3ai_stop_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 125,
+        "userName": "t3ai_maint_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 127,
+        "userName": "t3ai_norole_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 128,
+        "userName": "t3ai_pwd5_1010",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 130,
+        "userName": "t34_scopeuser_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.495Z",
+    "request": "12 新用户完整分页获准访问",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 25,
+    "rows": [
+      {
+        "userId": 131,
+        "userName": "t34_multi_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 134,
+        "userName": "t35_change_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 145,
+        "userName": "t38_reg_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 146,
+        "userName": "t38_chain_1012",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      },
+      {
+        "userId": 151,
+        "userName": "t44_1014103013_a",
+        "deptId": 202,
+        "status": "0",
+        "roleId": null
+      }
+    ],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.596Z",
+    "request": "13 退出新用户会话",
+    "http": 200,
+    "code": 200,
+    "msg": "退出成功",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.690Z",
+    "request": "14 回查新用户旧凭证失效",
+    "http": 200,
+    "code": 401,
+    "msg": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.796Z",
+    "request": "15 清理本批新用户",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.906Z",
+    "request": "16 管理员回查账号已不可见",
+    "http": 200,
+    "code": 200,
+    "msg": "查询成功",
+    "total": 0,
+    "rows": [],
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:22.984Z",
+    "request": "17 退出管理员会话",
+    "http": 200,
+    "code": 200,
+    "msg": "退出成功",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  },
+  {
+    "time": "2026-10-14T02:30:23.082Z",
+    "request": "18 回查管理员旧凭证并清变量",
+    "http": 200,
+    "code": 401,
+    "msg": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103013_a"
+  }
+]

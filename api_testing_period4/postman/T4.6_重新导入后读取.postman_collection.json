@@ -1,0 +1,1430 @@
+{
+  "info": {
+    "_postman_id": "2516a9f4-805f-4ab5-b39d-cf3ae08151a2",
+    "name": "T4.6 重新导入验证（脱敏副本）",
+    "description": "T4.6脱敏交付。使用独立空环境模板，重新取得验证码与会话后按组运行。部门202/角色101为已知前置，执行时仍检查。禁止直接一键运行整个集合；先取码，再整组运行正常链。最终阶段待用户验收。",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-14T07:43:59.000Z",
+    "updatedAt": "2026-10-14T07:43:59.000Z",
+    "lastUpdatedBy": "58910263",
+    "uid": "58910263-2516a9f4-805f-4ab5-b39d-cf3ae08151a2"
+  },
+  "item": [
+    {
+      "name": "01 验证码准备",
+      "item": [
+        {
+          "name": "00 获取验证码",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\")stopRequest(\"仅允许本机若依\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"验证码开启并返回图片及uuid\",b.captchaEnabled===true&&typeof b.uuid===\"string\"&&b.uuid.length>0&&typeof b.img===\"string\"&&b.img.length>0);pm.visualizer.set('<img src=\"data:image/jpeg;base64,{{img}}\" />',{img:b.img});",
+                  "pm.environment.set(\"t46CaptchaUuid\",b.uuid);"
+                ]
+              }
+            }
+          ],
+          "id": "de38350d-a009-4b6a-bf77-89f935e75a61",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/captchaImage",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "captchaImage"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:50:16.000Z",
+          "uid": "58910263-de38350d-a009-4b6a-bf77-89f935e75a61"
+        }
+      ],
+      "id": "06a684b8-320b-4844-8592-a9350cbb3c57",
+      "createdAt": "2026-10-14T07:43:59.000Z",
+      "updatedAt": "2026-10-14T07:43:59.000Z",
+      "uid": "58910263-06a684b8-320b-4844-8592-a9350cbb3c57"
+    },
+    {
+      "name": "02 正常业务链（整组运行）",
+      "item": [
+        {
+          "name": "01 管理员登录",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "",
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\")stopRequest(\"仅允许本机若依环境\");",
+                  "[\"t46AdminToken\",\"t46UserToken\",\"t46UserId\",\"t46ExpectedIds\",\"t46ActualIds\",\"t46Page\",\"t46Stage\"].forEach(k=>pm.variables.unset(k));",
+                  "[\"t46Name\",\"t46AdminPassword\",\"t46NewPassword\",\"t46AdminCode\",\"t46AdminUuid\",\"t46UserCode\",\"t46UserUuid\"].forEach(k=>{if(!pm.environment.get(k))stopRequest(\"缺少本地运行输入：\"+k);});",
+                  "pm.variables.set(\"t46Stage\",0);",
+                  "if(!/^t46_[A-Za-z0-9_]{1,16}$/.test(pm.environment.get(\"t46Name\")))stopRequest(\"新账号必须使用t46_前缀且不超过20位\");",
+                  "if(pm.environment.get(\"t46NewPassword\").length<6||pm.environment.get(\"t46NewPassword\").length>20)stopRequest(\"正常链新密码需6至20位\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"返回本批管理员凭证\",typeof b.token===\"string\"&&b.token.length>0);pm.variables.set(\"t46AdminToken\",b.token);",
+                  "pm.variables.set(\"t46Stage\",1);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "23233687-bed0-421e-b15c-de94500bb17b",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"{{t46AdminPassword}}\",\n  \"code\": \"{{t46AdminCode}}\",\n  \"uuid\": \"{{t46AdminUuid}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:50:20.000Z",
+          "uid": "58910263-23233687-bed0-421e-b15c-de94500bb17b"
+        },
+        {
+          "name": "02 核验管理员身份",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==1)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"操作者为admin 1\",b.user&&b.user.userId===1&&b.user.userName===\"admin\");",
+                  "pm.variables.set(\"t46Stage\",2);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              }
+            }
+          ],
+          "id": "265537b8-b685-4485-9fc4-c3089ca3db0f",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:11.000Z",
+          "uid": "58910263-265537b8-b685-4485-9fc4-c3089ca3db0f"
+        },
+        {
+          "name": "03 核验部门202",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==2)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"部门202正常存在\",b.data&&b.data.deptId===202&&b.data.status===\"0\");",
+                  "pm.variables.set(\"t46Stage\",3);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "c1698bc9-53e4-4c44-8530-a4438c6ca56d",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/dept/202",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "dept",
+                "202"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:12.000Z",
+          "uid": "58910263-c1698bc9-53e4-4c44-8530-a4438c6ca56d"
+        },
+        {
+          "name": "04 核验角色101",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==3)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"角色101正常且为本部门范围\",b.data&&b.data.roleId===101&&b.data.status===\"0\"&&b.data.dataScope===\"3\"&&b.data.roleKey===\"t25_query_1009\");",
+                  "pm.variables.set(\"t46Stage\",4);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "f3fa1fe1-0e49-4ca0-9164-2d3710afd0f1",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/role/101",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "role",
+                "101"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:15.000Z",
+          "uid": "58910263-f3fa1fe1-0e49-4ca0-9164-2d3710afd0f1"
+        },
+        {
+          "name": "05 创建前确认账号不存在",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==4)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"本批唯一账号不存在\",b.total===0&&Array.isArray(b.rows)&&b.rows.length===0);",
+                  "pm.variables.set(\"t46Stage\",5);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "ba433349-5647-4dc8-a61a-f06f11e71a1e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName={{t46Name}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "userName",
+                  "value": "{{t46Name}}"
+                }
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:41.000Z",
+          "uid": "58910263-ba433349-5647-4dc8-a61a-f06f11e71a1e"
+        },
+        {
+          "name": "06 创建用户并关联部门角色",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==5)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t46Stage\",6);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              }
+            }
+          ],
+          "id": "67ca7ad4-a2c1-4840-abf4-9f70744cea2f",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"{{t46Name}}\",\n  \"nickName\": \"T46接口业务链\",\n  \"password\": \"{{t46NewPassword}}\",\n  \"deptId\": 202,\n  \"roleIds\": [\n    101\n  ],\n  \"postIds\": [],\n  \"status\": \"0\",\n  \"sex\": \"2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/system/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:42.000Z",
+          "uid": "58910263-67ca7ad4-a2c1-4840-abf4-9f70744cea2f"
+        },
+        {
+          "name": "07 查询并提取本批用户ID",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==6)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"唯一匹配本批账号\",b.total===1&&Array.isArray(b.rows)&&b.rows.length===1&&b.rows[0].userName===pm.environment.get(\"t46Name\"));const u=b.rows[0];check(\"ID为有效正整数\",Number.isSafeInteger(u.userId)&&u.userId>1);pm.variables.set(\"t46UserId\",u.userId);",
+                  "pm.variables.set(\"t46Stage\",7);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "77c49d39-2c08-48ce-800c-08f7d69a5eed",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName={{t46Name}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "userName",
+                  "value": "{{t46Name}}"
+                }
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:43.000Z",
+          "uid": "58910263-77c49d39-2c08-48ce-800c-08f7d69a5eed"
+        },
+        {
+          "name": "08 回查用户部门角色状态",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==7)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "const u=b.data;check(\"用户ID及账号正确\",u&&u.userId===Number(pm.variables.get(\"t46UserId\"))&&u.userName===pm.environment.get(\"t46Name\"));check(\"部门和状态正确\",u.deptId===202&&u.status===\"0\");check(\"角色仅101且无岗位\",JSON.stringify(b.roleIds)===\"[101]\"&&Array.isArray(b.postIds)&&b.postIds.length===0);pm.variables.set(\"t46Page\",1);pm.variables.set(\"t46ExpectedIds\",\"[]\");",
+                  "pm.variables.set(\"t46Stage\",8);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "13ef97ee-20fb-4660-8698-2ca5fc654161",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/{{t46UserId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "{{t46UserId}}"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:45.000Z",
+          "uid": "58910263-13ef97ee-20fb-4660-8698-2ca5fc654161"
+        },
+        {
+          "name": "09 管理员完整分页范围基准",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==8)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"分页结构有效\",Array.isArray(b.rows)&&Number.isInteger(b.total));const page=Number(pm.variables.get(\"t46Page\"));let ids=JSON.parse(pm.variables.get(\"t46ExpectedIds\"));ids.push(...b.rows.filter(u=>u.deptId===202).map(u=>u.userId));pm.variables.set(\"t46ExpectedIds\",JSON.stringify(ids));if(page*10<b.total){check(\"未到末页时仍有记录\",b.rows.length>0);pm.variables.set(\"t46Page\",page+1);next(pm.info.requestId);}else{check(\"基准包含本轮新用户\",ids.includes(Number(pm.variables.get(\"t46UserId\"))));check(\"基准ID无重复\",new Set(ids).size===ids.length);",
+                  "pm.variables.set(\"t46Stage\",9);}",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "49700f7c-6664-4db5-8a9f-51c24923ba6e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum={{t46Page}}&pageSize=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "{{t46Page}}"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:46.000Z",
+          "uid": "58910263-49700f7c-6664-4db5-8a9f-51c24923ba6e"
+        },
+        {
+          "name": "10 本批新用户登录",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==9)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"返回新用户凭证\",typeof b.token===\"string\"&&b.token.length>0);pm.variables.set(\"t46UserToken\",b.token);",
+                  "pm.variables.set(\"t46Stage\",10);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "829c5fbd-936e-476d-be6d-d378a35640e1",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{t46Name}}\",\n  \"password\": \"{{t46NewPassword}}\",\n  \"code\": \"{{t46UserCode}}\",\n  \"uuid\": \"{{t46UserUuid}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:53:01.000Z",
+          "uid": "58910263-829c5fbd-936e-476d-be6d-d378a35640e1"
+        },
+        {
+          "name": "11 核验新用户身份权限",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==10)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"身份为本批用户\",b.user&&b.user.userId===Number(pm.variables.get(\"t46UserId\"))&&b.user.userName===pm.environment.get(\"t46Name\")&&!b.user.admin);check(\"部门为202\",b.user.deptId===202);check(\"仅查询角色\",JSON.stringify(b.roles)==='[\"t25_query_1009\"]');check(\"查询权限且无新增权限\",Array.isArray(b.permissions)&&JSON.stringify(b.permissions.slice().sort())==='[\"system:user:list\",\"system:user:query\"]');pm.variables.set(\"t46ActualIds\",\"[]\");pm.variables.set(\"t46Page\",1);",
+                  "pm.variables.set(\"t46Stage\",11);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              }
+            }
+          ],
+          "id": "1952805d-31e4-4def-be00-4ee688c565ba",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:48.000Z",
+          "uid": "58910263-1952805d-31e4-4def-be00-4ee688c565ba"
+        },
+        {
+          "name": "12 新用户完整分页获准访问",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==11)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"分页结构有效\",Array.isArray(b.rows)&&Number.isInteger(b.total));check(\"本页记录均属于部门202\",b.rows.every(u=>u.deptId===202));let ids=JSON.parse(pm.variables.get(\"t46ActualIds\"));ids.push(...b.rows.map(u=>u.userId));pm.variables.set(\"t46ActualIds\",JSON.stringify(ids));const page=Number(pm.variables.get(\"t46Page\"));if(page*10<b.total){check(\"未到末页时仍有记录\",b.rows.length>0);pm.variables.set(\"t46Page\",page+1);next(pm.info.requestId);}else{const expected=JSON.parse(pm.variables.get(\"t46ExpectedIds\")).sort((a,b)=>a-b);check(\"完整ID集合等于管理员本部门基准\",JSON.stringify(ids.slice().sort((a,b)=>a-b))===JSON.stringify(expected));check(\"总数及分页无重复\",ids.length===b.total&&new Set(ids).size===ids.length);",
+                  "pm.variables.set(\"t46Stage\",12);}",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              }
+            }
+          ],
+          "id": "c4364497-b138-4100-953b-2db046bbed6a",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum={{t46Page}}&pageSize=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "{{t46Page}}"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:49.000Z",
+          "uid": "58910263-c4364497-b138-4100-953b-2db046bbed6a"
+        },
+        {
+          "name": "13 退出新用户会话",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==12)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t46Stage\",13);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              }
+            }
+          ],
+          "id": "8d0bc1c7-0a50-4a0a-9c52-d1ab3502b12b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:51.000Z",
+          "uid": "58910263-8d0bc1c7-0a50-4a0a-9c52-d1ab3502b12b"
+        },
+        {
+          "name": "14 回查新用户旧凭证失效",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==13)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"旧新用户凭证被拒绝\",b.code===401&&!b.user);",
+                  "pm.variables.set(\"t46Stage\",14);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "25da945b-3443-4ff1-81ca-0590f07b82f7",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:52.000Z",
+          "uid": "58910263-25da945b-3443-4ff1-81ca-0590f07b82f7"
+        },
+        {
+          "name": "15 清理本批新用户",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==14)stopRequest(\"前置步骤未通过，请从本批起点运行\");",
+                  "if(!Number.isSafeInteger(Number(pm.variables.get(\"t46UserId\")))||Number(pm.variables.get(\"t46UserId\"))<=1)stopRequest(\"仅清理本轮提取的有效新用户ID\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t46Stage\",15);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "c04dc1cc-308b-434c-b05a-ca7521320514",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/{{t46UserId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "{{t46UserId}}"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:54.000Z",
+          "uid": "58910263-c04dc1cc-308b-434c-b05a-ca7521320514"
+        },
+        {
+          "name": "16 管理员回查账号已不可见",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==15)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"本批用户已从有效列表移除\",b.total===0&&Array.isArray(b.rows)&&b.rows.length===0);",
+                  "pm.variables.set(\"t46Stage\",16);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              }
+            }
+          ],
+          "id": "50f308a6-9a3c-4eda-84c4-d41d697faf59",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName={{t46Name}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "userName",
+                  "value": "{{t46Name}}"
+                }
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:55.000Z",
+          "uid": "58910263-50f308a6-9a3c-4eda-84c4-d41d697faf59"
+        },
+        {
+          "name": "17 退出管理员会话",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==16)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t46Stage\",17);",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "d761f0be-a34c-40f3-b76f-7ebab2685e25",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:55:58.000Z",
+          "uid": "58910263-d761f0be-a34c-40f3-b76f-7ebab2685e25"
+        },
+        {
+          "name": "18 回查管理员旧凭证并清变量",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function stopRequest(msg){pm.execution.skipRequest();pm.execution.setNextRequest(null);throw Error(msg);}",
+                  "if(Number(pm.variables.get(\"t46Stage\"))!==17)stopRequest(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T46_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t46Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"旧管理员凭证被拒绝\",b.code===401&&!b.user);[\"t46AdminToken\",\"t46UserToken\",\"t46UserId\",\"t46ExpectedIds\",\"t46ActualIds\",\"t46Page\",\"t46Stage\"].forEach(k=>pm.variables.unset(k));",
+                  "check(\"业务code为整数且msg为字符串\",Number.isInteger(b.code)&&typeof b.msg===\"string\");"
+                ]
+              }
+            }
+          ],
+          "id": "43b355db-ad56-4441-b207-1506c9b71183",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t46AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.6复用正常业务链；检查HTTP/业务code、身份、关联及后续状态。响应字段与证据说明见本地若依接口文档T4.6补充。动态token和用户ID仅在本次整组运行有效。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:56:00.000Z",
+          "uid": "58910263-43b355db-ad56-4441-b207-1506c9b71183"
+        }
+      ],
+      "id": "2f3a7f82-cc7f-46d4-9c62-785dab2ddd8f",
+      "createdAt": "2026-10-14T07:43:59.000Z",
+      "updatedAt": "2026-10-14T07:43:59.000Z",
+      "uid": "58910263-2f3a7f82-cc7f-46d4-9c62-785dab2ddd8f"
+    },
+    {
+      "name": "03 断言有效性（只读）",
+      "item": [
+        {
+          "name": "01 无认证只读断言（恢复后的正确版本）",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机\");}"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "const b=pm.response.json();",
+                  "pm.test(\"HTTP为200\",()=>pm.expect(pm.response.code).to.equal(200));",
+                  "pm.test(\"无认证应返回业务401\",()=>pm.expect(b.code).to.equal(401));",
+                  "pm.test(\"不泄漏用户身份\",()=>pm.expect(b).not.to.have.property(\"user\"));",
+                  "console.log(\"T46_ASSERT \"+JSON.stringify({http:pm.response.code,code:b.code,userPresent:!!b.user}));"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "f2b6ba54-8303-4779-9a7a-62a1fc7b3029",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "正常预期HTTP200、业务401、无user。故意错误版只在本地教学副本将code断言改为200；失败证据保留后恢复401，不登记产品缺陷。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T07:43:59.000Z",
+          "updatedAt": "2026-10-14T07:53:21.000Z",
+          "uid": "58910263-f2b6ba54-8303-4779-9a7a-62a1fc7b3029"
+        }
+      ],
+      "id": "c2392cd1-fa2e-48b0-ac60-b149f0abe1a9",
+      "createdAt": "2026-10-14T07:43:59.000Z",
+      "updatedAt": "2026-10-14T07:43:59.000Z",
+      "uid": "58910263-c2392cd1-fa2e-48b0-ac60-b149f0abe1a9"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-14T10:35:23.267851+08:00",
+  "mode": "独立连接SQL只读回查",
+  "original_users_unchanged": true,
+  "batch_users": [
+    {
+      "user_id": 151,
+      "user_name": "t44_1014103013_a",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 152,
+      "user_name": "t44_1014103200_b",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    },
+    {
+      "user_id": 153,
+      "user_name": "t44_1014103410_b",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2",
+      "role_id": null
+    }
+  ],
+  "aborted_before_creation_name_absent": true,
+  "batch_post_links": [],
+  "departments_unchanged": true,
+  "role_unchanged": true,
+  "permissions_unchanged": true,
+  "all_created_users_cleaned": true
+}

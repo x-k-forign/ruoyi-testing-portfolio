@@ -1,0 +1,423 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+若依T4.5异常与权限
+
+Folder 02 认证与数据范围
+Sub-folder 01 管理员身份
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.61 KB, 23 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.104Z","request":
+  | "01 管理员身份","caseId":"01 管理员身份","http":200,"code":200,"
+  | msg":"操作成功","data":null,"user":{"userId":1,"userName":
+  | "admin","nickName":"若依","deptId":103,"status":"0","rol
+  | eId":null},"roles":["admin"],"permissions":["*:*:*"],"
+  | tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  身份编号与部门正确
+  Pass  操作权限正确
+
+Sub-folder 02 普通甲身份
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.65 KB, 56 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.234Z","request":
+  | "02 普通甲身份","caseId":"02 普通甲身份","http":200,"code":200,"
+  | msg":"操作成功","data":null,"user":{"userId":154,"userName
+  | ":"t45_10141114_qa","nickName":"T45_qa","deptId":202,"
+  | status":"0","roleId":null},"roles":["t25_query_1009"],
+  | "permissions":["system:user:list","system:user:query"]
+  | ,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  身份编号与部门正确
+  Pass  操作权限正确
+
+Sub-folder 03 有限新增身份
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.7 KB, 11 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.334Z","request":
+  | "03 有限新增身份","caseId":"03 有限新增身份","http":200,"code":200
+  | ,"msg":"操作成功","data":null,"user":{"userId":155,"userNa
+  | me":"t45_10141114_maint","nickName":"T45_maint","deptI
+  | d":202,"status":"0","roleId":null},"roles":["t25_maint
+  | ain_1009"],"permissions":["system:user:list","system:u
+  | ser:query","system:user:add"],"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  身份编号与部门正确
+  Pass  操作权限正确
+
+Sub-folder 04 部门B身份
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.65 KB, 18 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.447Z","request":
+  | "04 部门B身份","caseId":"04 部门B身份","http":200,"code":200,"
+  | msg":"操作成功","data":null,"user":{"userId":156,"userName
+  | ":"t45_10141114_qb","nickName":"T45_qb","deptId":204,"
+  | status":"0","roleId":null},"roles":["t25_query_1009"],
+  | "permissions":["system:user:list","system:user:query"]
+  | ,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  身份编号与部门正确
+  Pass  操作权限正确
+
+Sub-folder 05 TC-A04-01 普通甲查询原目标101
+
+  GET http://127.0.0.1:8080/system/user/101 [200 OK, 4.28 KB, 31 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.573Z","request":
+  | "05 TC-A04-01 普通甲查询原目标101","caseId":"05 TC-A04-01 普通甲查
+  | 询原目标101","http":200,"code":200,"msg":"操作成功","data":{"u
+  | serId":101,"userName":"t25_a_query","nickName":"T25甲查询
+  | ","deptId":202,"status":"0","roleId":null},"user":null
+  | ,"roleIds":[101],"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  目标101账号部门角色正确
+
+Sub-folder 06 管理员确认跨部门目标104
+
+  GET http://127.0.0.1:8080/system/user/104 [200 OK, 5.96 KB, 17 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.687Z","request":
+  | "06 管理员确认跨部门目标104","caseId":"06 管理员确认跨部门目标104","http":
+  | 200,"code":200,"msg":"操作成功","data":{"userId":104,"user
+  | Name":"t25_b_query","nickName":"T25丙查询","deptId":204,"
+  | status":"0","roleId":null},"user":null,"roleIds":[101]
+  | ,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  目标104存在且属于204
+
+Sub-folder 07 TC-A10-02 甲查询范围外账号
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t25_b_query [200 OK, 381 B, 11 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.780Z","request":
+  | "07 TC-A10-02 甲查询范围外账号","caseId":"07 TC-A10-02 甲查询范围外账
+  | 号","http":200,"code":200,"msg":"查询成功","total":0,"rows"
+  | :[],"data":null,"user":null,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  范围外账号无泄露
+
+Sub-folder 08 部门B同条件获准对照
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t25_b_query [200 OK, 1.04 KB, 15 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.892Z","request":
+  | "08 部门B同条件获准对照","caseId":"08 部门B同条件获准对照","http":200,"c
+  | ode":200,"msg":"查询成功","total":1,"rows":[{"userId":104,
+  | "userName":"t25_b_query","nickName":"T25丙查询","deptId":
+  | 204,"status":"0","roleId":null}],"data":null,"user":nu
+  | ll,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  同部门可查104
+
+Sub-folder 09 管理员完整数据基准
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=1000 [200 OK, 25.75 KB, 12 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:15.986Z","request":
+  | "09 管理员完整数据基准","caseId":"09 管理员完整数据基准","http":200,"cod
+  | e":200,"msg":"查询成功","total":38,"rows":[{"userId":1,"us
+  | erName":"admin","nickName":"若依","deptId":103,"status":
+  | "0","roleId":null},{"userId":2,"userName":"ry","nickNa
+  | me":"若依","deptId":105,"status":"0","roleId":null},{"us
+  | erId":100,"userName":"t24_user_1009","nickName":"T24冒烟
+  | 用户1009","deptId":200,"status":"0","roleId":null},{"use
+  | rId":101,"userName":"t25_a_query","nickName":"T25甲查询",
+  | "deptId":202,"status":"0","roleId":null},{"userId":103
+  | ,"userName":"t25_a_add","nickName":"T25乙维护","deptId":2
+  | 02,"status":"0","roleId":null},{"userId":104,"userName
+  | ":"t25_b_query","nickName":"T25丙查询","deptId":204,"stat
+  | us":"0","roleId":null},{"userId":105,"userName":"t25_a
+  | _child","nickName":"T25子组查询","deptId":203,"status":"0"
+  | ,"roleId":null},{"userId":108,"userName":"t25_a_create
+  | d","nickName":"T25新增验证1009","deptId":202,"status":"0",
+  | "roleId":null},{"userId":109,"userName":"t25_log","nic
+  | kName":"T25日志查询","deptId":201,"status":"0","roleId":nu
+  | ll},{"userId":110,"userName":"t3_pwd5_1010","nickName"
+  | :"T3五位密码测试","deptId":202,"status":"0","roleId":null},{
+  | "userId":111,"userName":"t310100001","nickName":"T3自动化
+  | 用户","deptId":202,"status":"0","roleId":null},{"userId"
+  | :112,"userName":"t3ai_p06_1010","nickName":"T3自动化校验","
+  | deptId":202,"status":"0","roleId":null},{"userId":113,
+  | "userName":"t3ai_p07_1010","nickName":"T3自动化校验","deptI
+  | d":202,"status":"0","roleId":null},{"userId":114,"user
+  | Name":"t3ai_p19_1010","nickName":"T3自动化校验","deptId":20
+  | 2,"status":"0","roleId":null},{"userId":115,"userName"
+  | :"t3ai_p20_1010","nickName":"T3自动化校验","deptId":202,"st
+  | atus":"0","roleId":null},{"userId":116,"userName":"t3a
+  | i_contact_1010","nickName":"T3联系字段对照","deptId":202,"st
+  | atus":"0","roleId":null},{"userId":117,"userName":"a1"
+  | ,"nickName":"T3自动化校验","deptId":202,"status":"0","roleI
+  | d":null},{"userId":118,"userName":"a11","nickName":"T3
+  | 自动化校验","deptId":202,"status":"0","roleId":null},{"user
+  | Id":119,"userName":"a111111111111111111","nickName":"T
+  | 3自动化校验","deptId":202,"status":"0","roleId":null},{"use
+  | rId":120,"userName":"a1111111111111111111","nickName":
+  | "T3自动化校验","deptId":202,"status":"0","roleId":null},{"u
+  | serId":121,"userName":"t3ai_lock_1010","nickName":"T3自
+  | 动化校验","deptId":202,"status":"0","roleId":null},{"userI
+  | d":122,"userName":"t3ai_stop_1010","nickName":"T3自动化校验
+  | ","deptId":202,"status":"0","roleId":null},{"userId":1
+  | 24,"userName":"t3ai_dept_1010","nickName":"T3部门约束专用","
+  | deptId":207,"status":"0","roleId":null},{"userId":125,
+  | "userName":"t3ai_maint_1010","nickName":"T3隔离新增身份","de
+  | ptId":202,"status":"0","roleId":null},{"userId":126,"u
+  | serName":"t3ai_nodept_1010","nickName":"T3空关联观察","dept
+  | Id":null,"status":"0","roleId":null},{"userId":127,"us
+  | erName":"t3ai_norole_1010","nickName":"T3空关联观察","deptI
+  | d":202,"status":"0","roleId":null},{"userId":128,"user
+  | Name":"t3ai_pwd5_1010","nickName":"T3五位隔离样本","deptId":
+  | 202,"status":"0","roleId":null},{"userId":129,"userNam
+  | e":"t34_c_1012","nickName":"T34_c","deptId":204,"statu
+  | s":"0","roleId":null},{"userId":130,"userName":"t34_sc
+  | opeuser_1012","nickName":"T34_scopeuser","deptId":202,
+  | "status":"0","roleId":null},{"userId":131,"userName":"
+  | t34_multi_1012","nickName":"T34_multi","deptId":202,"s
+  | tatus":"0","roleId":null},{"userId":134,"userName":"t3
+  | 5_change_1012","nickName":"T35变更专用","deptId":202,"stat
+  | us":"0","roleId":null},{"userId":139,"userName":"t36_l
+  | og_1012","nickName":"T36日志只读","deptId":201,"status":"0
+  | ","roleId":null},{"userId":145,"userName":"t38_reg_101
+  | 2","nickName":"T38_reg","deptId":202,"status":"0","rol
+  | eId":null},{"userId":146,"userName":"t38_chain_1012","
+  | nickName":"T38_chain","deptId":202,"status":"0","roleI
+  | d":null},{"userId":154,"userName":"t45_10141114_qa","n
+  | ickName":"T45_qa","deptId":202,"status":"0","roleId":n
+  | ull},{"userId":155,"userName":"t45_10141114_maint","ni
+  | ckName":"T45_maint","deptId":202,"status":"0","roleId"
+  | :null},{"userId":156,"userName":"t45_10141114_qb","nic
+  | kName":"T45_qb","deptId":204,"status":"0","roleId":nul
+  | l},{"userId":157,"userName":"t45_10141114_dup","nickNa
+  | me":"T45_dup","deptId":202,"status":"0","roleId":null}
+  | ],"data":null,"user":null,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  基准完整
+
+Sub-folder 10 TC-A05-01 甲完整分页
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10 [200 OK, 7.15 KB, 12 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.081Z","request":
+  | "10 TC-A05-01 甲完整分页","caseId":"10 TC-A05-01 甲完整分页","ht
+  | tp":200,"code":200,"msg":"查询成功","total":27,"rows":[{"u
+  | serId":101,"userName":"t25_a_query","nickName":"T25甲查询
+  | ","deptId":202,"status":"0","roleId":null},{"userId":1
+  | 03,"userName":"t25_a_add","nickName":"T25乙维护","deptId"
+  | :202,"status":"0","roleId":null},{"userId":108,"userNa
+  | me":"t25_a_created","nickName":"T25新增验证1009","deptId":
+  | 202,"status":"0","roleId":null},{"userId":110,"userNam
+  | e":"t3_pwd5_1010","nickName":"T3五位密码测试","deptId":202,"
+  | status":"0","roleId":null},{"userId":111,"userName":"t
+  | 310100001","nickName":"T3自动化用户","deptId":202,"status":
+  | "0","roleId":null},{"userId":112,"userName":"t3ai_p06_
+  | 1010","nickName":"T3自动化校验","deptId":202,"status":"0","
+  | roleId":null},{"userId":113,"userName":"t3ai_p07_1010"
+  | ,"nickName":"T3自动化校验","deptId":202,"status":"0","roleI
+  | d":null},{"userId":114,"userName":"t3ai_p19_1010","nic
+  | kName":"T3自动化校验","deptId":202,"status":"0","roleId":nu
+  | ll},{"userId":115,"userName":"t3ai_p20_1010","nickName
+  | ":"T3自动化校验","deptId":202,"status":"0","roleId":null},{
+  | "userId":116,"userName":"t3ai_contact_1010","nickName"
+  | :"T3联系字段对照","deptId":202,"status":"0","roleId":null}],
+  | "data":null,"user":null,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  本页所有记录在目标部门
+
+Attempting to set next request to 1ecfbab6-6198-41c7-b7fa-fe7c93ca1bee
+
+Sub-folder 10 TC-A05-01 甲完整分页
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=2&pageSize=10 [200 OK, 7.14 KB, 13 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.176Z","request":
+  | "10 TC-A05-01 甲完整分页","caseId":"10 TC-A05-01 甲完整分页","ht
+  | tp":200,"code":200,"msg":"查询成功","total":27,"rows":[{"u
+  | serId":117,"userName":"a1","nickName":"T3自动化校验","deptI
+  | d":202,"status":"0","roleId":null},{"userId":118,"user
+  | Name":"a11","nickName":"T3自动化校验","deptId":202,"status"
+  | :"0","roleId":null},{"userId":119,"userName":"a1111111
+  | 11111111111","nickName":"T3自动化校验","deptId":202,"status
+  | ":"0","roleId":null},{"userId":120,"userName":"a111111
+  | 1111111111111","nickName":"T3自动化校验","deptId":202,"stat
+  | us":"0","roleId":null},{"userId":121,"userName":"t3ai_
+  | lock_1010","nickName":"T3自动化校验","deptId":202,"status":
+  | "0","roleId":null},{"userId":122,"userName":"t3ai_stop
+  | _1010","nickName":"T3自动化校验","deptId":202,"status":"0",
+  | "roleId":null},{"userId":125,"userName":"t3ai_maint_10
+  | 10","nickName":"T3隔离新增身份","deptId":202,"status":"0","r
+  | oleId":null},{"userId":127,"userName":"t3ai_norole_101
+  | 0","nickName":"T3空关联观察","deptId":202,"status":"0","rol
+  | eId":null},{"userId":128,"userName":"t3ai_pwd5_1010","
+  | nickName":"T3五位隔离样本","deptId":202,"status":"0","roleId
+  | ":null},{"userId":130,"userName":"t34_scopeuser_1012",
+  | "nickName":"T34_scopeuser","deptId":202,"status":"0","
+  | roleId":null}],"data":null,"user":null,"tokenPresent":
+  | false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  本页所有记录在目标部门
+
+Attempting to set next request to 1ecfbab6-6198-41c7-b7fa-fe7c93ca1bee
+
+Sub-folder 10 TC-A05-01 甲完整分页
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=3&pageSize=10 [200 OK, 5.04 KB, 13 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.271Z","request":
+  | "10 TC-A05-01 甲完整分页","caseId":"10 TC-A05-01 甲完整分页","ht
+  | tp":200,"code":200,"msg":"查询成功","total":27,"rows":[{"u
+  | serId":131,"userName":"t34_multi_1012","nickName":"T34
+  | _multi","deptId":202,"status":"0","roleId":null},{"use
+  | rId":134,"userName":"t35_change_1012","nickName":"T35变
+  | 更专用","deptId":202,"status":"0","roleId":null},{"userId
+  | ":145,"userName":"t38_reg_1012","nickName":"T38_reg","
+  | deptId":202,"status":"0","roleId":null},{"userId":146,
+  | "userName":"t38_chain_1012","nickName":"T38_chain","de
+  | ptId":202,"status":"0","roleId":null},{"userId":154,"u
+  | serName":"t45_10141114_qa","nickName":"T45_qa","deptId
+  | ":202,"status":"0","roleId":null},{"userId":155,"userN
+  | ame":"t45_10141114_maint","nickName":"T45_maint","dept
+  | Id":202,"status":"0","roleId":null},{"userId":157,"use
+  | rName":"t45_10141114_dup","nickName":"T45_dup","deptId
+  | ":202,"status":"0","roleId":null}],"data":null,"user":
+  | null,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  本页所有记录在目标部门
+  Pass  完整ID集合与管理员当批基准一致
+
+Sub-folder 11 TC-A05-02 部门B完整分页
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10 [200 OK, 2.37 KB, 10 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.366Z","request":
+  | "11 TC-A05-02 部门B完整分页","caseId":"11 TC-A05-02 部门B完整分页"
+  | ,"http":200,"code":200,"msg":"查询成功","total":3,"rows":[
+  | {"userId":104,"userName":"t25_b_query","nickName":"T25
+  | 丙查询","deptId":204,"status":"0","roleId":null},{"userId
+  | ":129,"userName":"t34_c_1012","nickName":"T34_c","dept
+  | Id":204,"status":"0","roleId":null},{"userId":156,"use
+  | rName":"t45_10141114_qb","nickName":"T45_qb","deptId":
+  | 204,"status":"0","roleId":null}],"data":null,"user":nu
+  | ll,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  本页所有记录在目标部门
+  Pass  完整ID集合与管理员当批基准一致
+
+Sub-folder 12 TC-T4-AUTH-01 无认证
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10 [200 OK, 437 B, 4 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.449Z","request":
+  | "12 TC-T4-AUTH-01 无认证","caseId":"12 TC-T4-AUTH-01 无认证"
+  | ,"http":200,"code":401,"msg":"请求访问：/system/user/list，认
+  | 证失败，无法访问系统资源","data":null,"user":null,"tokenPresent":f
+  | alse}'
+  -
+  Pass  HTTP返回200
+  Pass  无认证业务401且无数据
+
+Sub-folder 13 TC-T4-AUTH-02 无效凭证
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10 [200 OK, 437 B, 45 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.668Z","request":
+  | "13 TC-T4-AUTH-02 无效凭证","caseId":"13 TC-T4-AUTH-02 无效凭
+  | 证","http":200,"code":401,"msg":"请求访问：/system/user/list
+  | ，认证失败，无法访问系统资源","data":null,"user":null,"tokenPresent"
+  | :false}'
+  -
+  Pass  HTTP返回200
+  Pass  无效凭证业务401且无数据
+
+Sub-folder 14 退出甲专用会话A
+
+  POST http://127.0.0.1:8080/logout [200 OK, 375 B, 5 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.757Z","request":
+  | "14 退出甲专用会话A","caseId":"14 退出甲专用会话A","http":200,"code"
+  | :200,"msg":"退出成功","data":null,"user":null,"tokenPresen
+  | t":false}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+
+Sub-folder 15 TC-T4-AUTH-03 已退出凭证
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10 [200 OK, 437 B, 4 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.851Z","request":
+  | "15 TC-T4-AUTH-03 已退出凭证","caseId":"15 TC-T4-AUTH-03 已退
+  | 出凭证","http":200,"code":401,"msg":"请求访问：/system/user/li
+  | st，认证失败，无法访问系统资源","data":null,"user":null,"tokenPresen
+  | t":false}'
+  -
+  Pass  HTTP返回200
+  Pass  已退出凭证业务401且无数据
+
+Sub-folder 16 独立有效新会话B对照
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.67 KB, 14 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:23:16.946Z","request":
+  | "16 独立有效新会话B对照","caseId":"16 独立有效新会话B对照","http":200,"c
+  | ode":200,"msg":"操作成功","data":null,"user":{"userId":154
+  | ,"userName":"t45_10141114_qa","nickName":"T45_qa","dep
+  | tId":202,"status":"0","roleId":null},"tokenPresent":fa
+  | lse}'
+  -
+  Pass  HTTP返回200
+  Pass  业务code为200
+  Pass  新会话仍为普通甲
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                 18 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                 18 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                 18 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                 56 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 1963 ms                                       |
+---------------------------------------------------------------------
+| total data received: 63.19 KB (approx)                            |
+---------------------------------------------------------------------
+| average response time: 17 ms [min: 4 ms, max: 56 ms, s.d.: 13 ms] |
+---------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

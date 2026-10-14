@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-14T10:38:07.104307+08:00",
+  "cloud_folder": "T4阶段/T4.4阶段",
+  "cloud_execution_copy_exact_match": true,
+  "request_count": 19,
+  "removed_private_runtime_files": [
+    "run_A.env.json",
+    "run_B.env.json",
+    "run_B2.env.json",
+    "run_C.env.json",
+    "admin_captcha.jpg",
+    "admin_captcha_B.jpg",
+    "admin_captcha_B2.jpg",
+    "admin_captcha_C.jpg",
+    "cleanup_captcha_C.jpg",
+    "user_captcha.jpg",
+    "user_captcha_B.jpg",
+    "user_captcha_B2.jpg",
+    "user_captcha_C.jpg",
+    "captchas_A.json",
+    "captchas_B.json",
+    "captchas_B2.json",
+    "captchas_C.json"
+  ],
+  "secret_scan": "交付文本和JSON未发现JWT或管理员明文密码",
+  "files": [
+    {
+      "name": "T4.4_云端核对版.postman_collection.json",
+      "sha256": "c0e622c24f94ff21e75835de5fb93a1ad8aa3ae785eaacfd9ae72fa2667694aa"
+    },
+    {
+      "name": "T4.4_本机环境模板.postman_environment.json",
+      "sha256": "0f13fdba0d34841380df1bfccab8a82029466ea0cbb7269279ad6169dd3de8e1"
+    }
+  ],
+  "acceptance": "执行完成，待用户验收；未勾选大纲"
+}

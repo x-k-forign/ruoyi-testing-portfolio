@@ -1,0 +1,38 @@
+[
+  {
+    "label": "legacy_t44_fixture_chain",
+    "requests": 23,
+    "assertions": 81,
+    "failures": [],
+    "scriptErrors": [],
+    "deleteRequests": 1,
+    "mocked": true
+  },
+  {
+    "label": "legacy_single_send_login_and_identity",
+    "requests": 2,
+    "assertions": 8,
+    "failures": [],
+    "scriptErrors": [],
+    "deleteRequests": 0,
+    "mocked": true
+  },
+  {
+    "label": "legacy_t45_rejected_write_and_safe_cleanup",
+    "requests": 5,
+    "assertions": 17,
+    "failures": [],
+    "scriptErrors": [],
+    "deleteRequests": 0,
+    "mocked": true
+  },
+  {
+    "label": "legacy_t45_scope_auth_fixtures",
+    "requests": 18,
+    "assertions": 56,
+    "failures": [],
+    "scriptErrors": [],
+    "deleteRequests": 0,
+    "mocked": true
+  }
+]

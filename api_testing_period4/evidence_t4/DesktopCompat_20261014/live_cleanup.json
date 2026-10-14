@@ -1,0 +1,16 @@
+{
+  "new_users": [
+    {
+      "user_id": 165,
+      "user_name": "t46_1014165043",
+      "nick_name": "T46接口业务链",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2"
+    }
+  ],
+  "original_users_checked_fields_unchanged": true,
+  "roles_and_links_restored": true,
+  "sessions_logged_out_with_401_recheck": true,
+  "runtime_tokens_cleared": true
+}

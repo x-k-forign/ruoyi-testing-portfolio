@@ -1,0 +1,1327 @@
+{
+  "info": {
+    "name": "若依 T4.4 正常业务链",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "两批真实本机测试。先单独运行验证码准备两次，识别后将同组uuid/code放入本地环境，再运行正常业务链。凭据不得上传。"
+  },
+  "item": [
+    {
+      "name": "01 验证码准备",
+      "item": [
+        {
+          "name": "00 获取验证码",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\")throw Error(\"仅允许本机若依\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"验证码开启并返回图片及uuid\",b.captchaEnabled===true&&typeof b.uuid===\"string\"&&b.uuid.length>0&&typeof b.img===\"string\"&&b.img.length>0);pm.visualizer.set('<img src=\"data:image/jpeg;base64,{{img}}\" />',{img:b.img});"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "66865385-b406-a373-847f-bdd2001a0240",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/captchaImage",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "captchaImage"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:26:55.000Z",
+          "updatedAt": "2026-10-14T02:28:58.000Z",
+          "uid": "58910263-66865385-b406-a373-847f-bdd2001a0240"
+        }
+      ],
+      "id": "fc97110c-bf00-4858-aea4-7db2878e3b0a",
+      "createdAt": "2026-10-14T02:25:26.000Z",
+      "updatedAt": "2026-10-14T02:26:55.000Z",
+      "uid": "58910263-fc97110c-bf00-4858-aea4-7db2878e3b0a"
+    },
+    {
+      "name": "02 正常业务链",
+      "item": [
+        {
+          "name": "01 管理员登录",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "",
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\")throw Error(\"仅允许本机若依环境\");",
+                  "[\"t44AdminToken\",\"t44UserToken\",\"t44UserId\",\"t44ExpectedIds\",\"t44ActualIds\",\"t44Page\",\"t44Stage\"].forEach(k=>pm.variables.unset(k));",
+                  "[\"t44Name\",\"t44AdminPassword\",\"t44NewPassword\",\"t44AdminCode\",\"t44AdminUuid\",\"t44UserCode\",\"t44UserUuid\"].forEach(k=>{if(!pm.environment.get(k))throw Error(\"缺少本地运行输入：\"+k);});",
+                  "pm.variables.set(\"t44Stage\",0);",
+                  ""
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"返回本批管理员凭证\",typeof b.token===\"string\"&&b.token.length>0);pm.variables.set(\"t44AdminToken\",b.token);",
+                  "pm.variables.set(\"t44Stage\",1);"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "f4e9da5c-4649-6909-29a3-a24f8afec15d",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"{{t44AdminPassword}}\",\n  \"code\": \"{{t44AdminCode}}\",\n  \"uuid\": \"{{t44AdminUuid}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:26:57.000Z",
+          "updatedAt": "2026-10-14T02:29:00.000Z",
+          "uid": "58910263-f4e9da5c-4649-6909-29a3-a24f8afec15d"
+        },
+        {
+          "name": "02 核验管理员身份",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==1)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"操作者为admin 1\",b.user&&b.user.userId===1&&b.user.userName===\"admin\");",
+                  "pm.variables.set(\"t44Stage\",2);"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "85e2c544-1b9b-863e-b390-c39df7b3e746",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:26:58.000Z",
+          "updatedAt": "2026-10-14T02:29:01.000Z",
+          "uid": "58910263-85e2c544-1b9b-863e-b390-c39df7b3e746"
+        },
+        {
+          "name": "03 核验部门202",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==2)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"部门202正常存在\",b.data&&b.data.deptId===202&&b.data.status===\"0\");",
+                  "pm.variables.set(\"t44Stage\",3);"
+                ]
+              }
+            }
+          ],
+          "id": "fa3ad1e2-fa24-ba48-6495-30f8f181cde6",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/dept/202",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "dept",
+                "202"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:26:58.000Z",
+          "updatedAt": "2026-10-14T02:29:02.000Z",
+          "uid": "58910263-fa3ad1e2-fa24-ba48-6495-30f8f181cde6"
+        },
+        {
+          "name": "04 核验角色101",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==3)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"角色101正常且为本部门范围\",b.data&&b.data.roleId===101&&b.data.status===\"0\"&&b.data.dataScope===\"3\"&&b.data.roleKey===\"t25_query_1009\");",
+                  "pm.variables.set(\"t44Stage\",4);"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "5395028d-c97e-d258-8d36-191bc7c13dd6",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/role/101",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "role",
+                "101"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:26:59.000Z",
+          "updatedAt": "2026-10-14T02:29:03.000Z",
+          "uid": "58910263-5395028d-c97e-d258-8d36-191bc7c13dd6"
+        },
+        {
+          "name": "05 创建前确认账号不存在",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==4)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"本批唯一账号不存在\",b.total===0&&Array.isArray(b.rows)&&b.rows.length===0);",
+                  "pm.variables.set(\"t44Stage\",5);"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "60b4cb99-7cfc-8ce3-627a-9dcc6c87f70b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName={{t44Name}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "userName",
+                  "value": "{{t44Name}}"
+                }
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:00.000Z",
+          "updatedAt": "2026-10-14T02:29:04.000Z",
+          "uid": "58910263-60b4cb99-7cfc-8ce3-627a-9dcc6c87f70b"
+        },
+        {
+          "name": "06 创建用户并关联部门角色",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==5)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t44Stage\",6);"
+                ]
+              }
+            }
+          ],
+          "id": "943d4c7b-a6cf-9e08-57e8-84c79c83c22e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "value": "application/json",
+                "key": "Content-Type"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"{{t44Name}}\",\n  \"nickName\": \"T44接口业务链\",\n  \"password\": \"{{t44NewPassword}}\",\n  \"deptId\": 202,\n  \"roleIds\": [\n    101\n  ],\n  \"postIds\": [],\n  \"status\": \"0\",\n  \"sex\": \"2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/system/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:01.000Z",
+          "updatedAt": "2026-10-14T02:29:04.000Z",
+          "uid": "58910263-943d4c7b-a6cf-9e08-57e8-84c79c83c22e"
+        },
+        {
+          "name": "07 查询并提取本批用户ID",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==6)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"唯一匹配本批账号\",b.total===1&&Array.isArray(b.rows)&&b.rows.length===1&&b.rows[0].userName===pm.environment.get(\"t44Name\"));const u=b.rows[0];check(\"ID为有效正整数\",Number.isSafeInteger(u.userId)&&u.userId>1);pm.variables.set(\"t44UserId\",u.userId);",
+                  "pm.variables.set(\"t44Stage\",7);"
+                ]
+              }
+            }
+          ],
+          "id": "20d17fc2-e3cf-402d-7936-44d150bfdb76",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName={{t44Name}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "userName",
+                  "value": "{{t44Name}}"
+                }
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:02.000Z",
+          "updatedAt": "2026-10-14T02:29:05.000Z",
+          "uid": "58910263-20d17fc2-e3cf-402d-7936-44d150bfdb76"
+        },
+        {
+          "name": "08 回查用户部门角色状态",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==7)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "const u=b.data;check(\"用户ID及账号正确\",u&&u.userId===Number(pm.variables.get(\"t44UserId\"))&&u.userName===pm.environment.get(\"t44Name\"));check(\"部门和状态正确\",u.deptId===202&&u.status===\"0\");check(\"角色仅101且无岗位\",JSON.stringify(b.roleIds)===\"[101]\"&&Array.isArray(b.postIds)&&b.postIds.length===0);pm.variables.set(\"t44Page\",1);pm.variables.set(\"t44ExpectedIds\",\"[]\");",
+                  "pm.variables.set(\"t44Stage\",8);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "98075268-75d0-740a-02f2-5c9df96de0ad",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/{{t44UserId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "{{t44UserId}}"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:02.000Z",
+          "updatedAt": "2026-10-14T02:29:07.000Z",
+          "uid": "58910263-98075268-75d0-740a-02f2-5c9df96de0ad"
+        },
+        {
+          "name": "09 管理员完整分页范围基准",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==8)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"分页结构有效\",Array.isArray(b.rows)&&Number.isInteger(b.total));const page=Number(pm.variables.get(\"t44Page\"));let ids=JSON.parse(pm.variables.get(\"t44ExpectedIds\"));ids.push(...b.rows.filter(u=>u.deptId===202).map(u=>u.userId));pm.variables.set(\"t44ExpectedIds\",JSON.stringify(ids));if(page*10<b.total){check(\"未到末页时仍有记录\",b.rows.length>0);pm.variables.set(\"t44Page\",page+1);next(pm.info.requestId);}else{check(\"基准包含本轮新用户\",ids.includes(Number(pm.variables.get(\"t44UserId\"))));check(\"基准ID无重复\",new Set(ids).size===ids.length);",
+                  "pm.variables.set(\"t44Stage\",9);}"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "2e1c2049-7704-a641-504f-2611ae34ff9b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum={{t44Page}}&pageSize=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "{{t44Page}}"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:03.000Z",
+          "updatedAt": "2026-10-14T02:29:08.000Z",
+          "uid": "58910263-2e1c2049-7704-a641-504f-2611ae34ff9b"
+        },
+        {
+          "name": "10 本批新用户登录",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==9)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"返回新用户凭证\",typeof b.token===\"string\"&&b.token.length>0);pm.variables.set(\"t44UserToken\",b.token);",
+                  "pm.variables.set(\"t44Stage\",10);"
+                ]
+              }
+            }
+          ],
+          "id": "9a869a35-580a-e192-f881-31427b2a260a",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{t44Name}}\",\n  \"password\": \"{{t44NewPassword}}\",\n  \"code\": \"{{t44UserCode}}\",\n  \"uuid\": \"{{t44UserUuid}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:04.000Z",
+          "updatedAt": "2026-10-14T02:29:09.000Z",
+          "uid": "58910263-9a869a35-580a-e192-f881-31427b2a260a"
+        },
+        {
+          "name": "11 核验新用户身份权限",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==10)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"身份为本批用户\",b.user&&b.user.userId===Number(pm.variables.get(\"t44UserId\"))&&b.user.userName===pm.environment.get(\"t44Name\")&&!b.user.admin);check(\"部门为202\",b.user.deptId===202);check(\"仅查询角色\",JSON.stringify(b.roles)==='[\"t25_query_1009\"]');check(\"查询权限且无新增权限\",Array.isArray(b.permissions)&&JSON.stringify(b.permissions.slice().sort())==='[\"system:user:list\",\"system:user:query\"]');pm.variables.set(\"t44ActualIds\",\"[]\");pm.variables.set(\"t44Page\",1);",
+                  "pm.variables.set(\"t44Stage\",11);"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "40823c5c-e046-dce0-6dc7-6983cb0186cf",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:05.000Z",
+          "updatedAt": "2026-10-14T02:29:10.000Z",
+          "uid": "58910263-40823c5c-e046-dce0-6dc7-6983cb0186cf"
+        },
+        {
+          "name": "12 新用户完整分页获准访问",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==11)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"分页结构有效\",Array.isArray(b.rows)&&Number.isInteger(b.total));check(\"本页记录均属于部门202\",b.rows.every(u=>u.deptId===202));let ids=JSON.parse(pm.variables.get(\"t44ActualIds\"));ids.push(...b.rows.map(u=>u.userId));pm.variables.set(\"t44ActualIds\",JSON.stringify(ids));const page=Number(pm.variables.get(\"t44Page\"));if(page*10<b.total){check(\"未到末页时仍有记录\",b.rows.length>0);pm.variables.set(\"t44Page\",page+1);next(pm.info.requestId);}else{const expected=JSON.parse(pm.variables.get(\"t44ExpectedIds\")).sort((a,b)=>a-b);check(\"完整ID集合等于管理员本部门基准\",JSON.stringify(ids.slice().sort((a,b)=>a-b))===JSON.stringify(expected));check(\"总数及分页无重复\",ids.length===b.total&&new Set(ids).size===ids.length);",
+                  "pm.variables.set(\"t44Stage\",12);}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "f184dabf-a180-fbe5-969c-3c5d697e02da",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum={{t44Page}}&pageSize=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "{{t44Page}}"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:06.000Z",
+          "updatedAt": "2026-10-14T02:29:11.000Z",
+          "uid": "58910263-f184dabf-a180-fbe5-969c-3c5d697e02da"
+        },
+        {
+          "name": "13 退出新用户会话",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==12)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t44Stage\",13);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "718a77e1-a7c0-9d5d-3708-659d5915719f",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:07.000Z",
+          "updatedAt": "2026-10-14T02:29:12.000Z",
+          "uid": "58910263-718a77e1-a7c0-9d5d-3708-659d5915719f"
+        },
+        {
+          "name": "14 回查新用户旧凭证失效",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==13)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"旧新用户凭证被拒绝\",b.code===401&&!b.user);",
+                  "pm.variables.set(\"t44Stage\",14);"
+                ]
+              }
+            }
+          ],
+          "id": "6bda29a6-429d-d464-b2d3-36380f3fda80",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44UserToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:08.000Z",
+          "updatedAt": "2026-10-14T02:29:13.000Z",
+          "uid": "58910263-6bda29a6-429d-d464-b2d3-36380f3fda80"
+        },
+        {
+          "name": "15 清理本批新用户",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==14)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t44Stage\",15);"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "5f672a9d-8799-ee7e-9334-4c100e76c395",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/{{t44UserId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "{{t44UserId}}"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:08.000Z",
+          "updatedAt": "2026-10-14T02:29:13.000Z",
+          "uid": "58910263-5f672a9d-8799-ee7e-9334-4c100e76c395"
+        },
+        {
+          "name": "16 管理员回查账号已不可见",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==15)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "check(\"本批用户已从有效列表移除\",b.total===0&&Array.isArray(b.rows)&&b.rows.length===0);",
+                  "pm.variables.set(\"t44Stage\",16);"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "95b2be17-972e-7f15-9f1e-43e69424b794",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName={{t44Name}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "system",
+                "user",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "pageNum",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "userName",
+                  "value": "{{t44Name}}"
+                }
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:09.000Z",
+          "updatedAt": "2026-10-14T02:29:14.000Z",
+          "uid": "58910263-95b2be17-972e-7f15-9f1e-43e69424b794"
+        },
+        {
+          "name": "17 退出管理员会话",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==16)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"业务code为200\",b.code===200);",
+                  "",
+                  "pm.variables.set(\"t44Stage\",17);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "b5ea4018-b597-46c3-99c7-35793f9e4f65",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:10.000Z",
+          "updatedAt": "2026-10-14T02:29:15.000Z",
+          "uid": "58910263-b5ea4018-b597-46c3-99c7-35793f9e4f65"
+        },
+        {
+          "name": "18 回查管理员旧凭证并清变量",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(Number(pm.variables.get(\"t44Stage\"))!==17)throw Error(\"前置步骤未通过，请从本批起点运行\");"
+                ]
+              },
+              "listen": "prerequest"
+            },
+            {
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "function next(v){if(pm.execution&&pm.execution.setNextRequest){pm.execution.setNextRequest(v);}else{postman.setNextRequest(v);}}",
+                  "function check(name, ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){next(null);throw new Error(name);}}",
+                  "let b;try{b=pm.response.json();}catch(e){check(\"响应必须为JSON\",false);}",
+                  "",
+                  "const safeUser = u => u ? {userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,roleId:u.roleId,roleKey:u.roleKey,dataScope:u.dataScope} : null;",
+                  "console.log(\"T44_EVIDENCE \" + JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(safeUser):undefined,user:safeUser(b.user),data:safeUser(b.data),roleIds:b.roleIds,postIds:b.postIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\",captchaEnabled:b.captchaEnabled,imagePresent:typeof b.img===\"string\",uuidPresent:typeof b.uuid===\"string\",batch:pm.environment.get(\"t44Name\")}));",
+                  "",
+                  "check(\"HTTP状态为200\",pm.response.code===200);",
+                  "check(\"旧管理员凭证被拒绝\",b.code===401&&!b.user);[\"t44AdminToken\",\"t44UserToken\",\"t44UserId\",\"t44ExpectedIds\",\"t44ActualIds\",\"t44Page\",\"t44Stage\"].forEach(k=>pm.variables.unset(k));"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "34811e30-2bff-0e83-9c76-f571f2dd7d89",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t44AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getInfo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getInfo"
+              ]
+            },
+            "description": "T4.4本机正常链，按编号顺序运行。运行时凭据来自本地环境/本批响应；中断后先核对清理，不重复创建。"
+          },
+          "response": [],
+          "createdAt": "2026-10-14T02:27:10.000Z",
+          "updatedAt": "2026-10-14T02:29:15.000Z",
+          "uid": "58910263-34811e30-2bff-0e83-9c76-f571f2dd7d89"
+        }
+      ],
+      "id": "05a3d021-e516-4b7c-956c-c8b0cfea4c9f",
+      "createdAt": "2026-10-14T02:25:27.000Z",
+      "updatedAt": "2026-10-14T02:27:11.000Z",
+      "uid": "58910263-05a3d021-e516-4b7c-956c-c8b0cfea4c9f"
+    }
+  ]
+}

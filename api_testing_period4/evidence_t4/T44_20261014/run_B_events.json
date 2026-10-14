@@ -1,0 +1,15 @@
+[
+  {
+    "time": "2026-10-14T02:31:16.708Z",
+    "request": "01 管理员登录",
+    "http": 200,
+    "code": 500,
+    "msg": "验证码错误",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "imagePresent": false,
+    "uuidPresent": false,
+    "batch": "t44_1014103114_b"
+  }
+]

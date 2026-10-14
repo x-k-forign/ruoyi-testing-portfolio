@@ -1,0 +1,113 @@
+{
+  "started_at": "2026-10-14T08:39:36.609697+08:00",
+  "responsible": "x-k-forign（项目测试负责人）",
+  "method": "自动化辅助执行：正常管理员API创建，API及数据库只读回查",
+  "account": "t43_1014_01",
+  "password": "未记录；按用户指定值提交",
+  "events": [
+    {
+      "action": "admin_login",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "token_received": true
+    },
+    {
+      "action": "identity_check",
+      "http": 200,
+      "code": 200,
+      "userId": 1,
+      "userName": "admin"
+    },
+    {
+      "action": "create_user",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "request_fields": {
+        "userName": "t43_1014_01",
+        "nickName": "T43关联练习",
+        "deptId": 202,
+        "roleIds": [
+          101
+        ],
+        "postIds": [],
+        "status": "0",
+        "sex": "2"
+      }
+    },
+    {
+      "action": "detail_readback",
+      "http": 200,
+      "code": 200,
+      "detail": {
+        "userId": 150,
+        "userName": "t43_1014_01",
+        "nickName": "T43关联练习",
+        "deptId": 202,
+        "status": "0",
+        "roleIds": [
+          101
+        ],
+        "postIds": []
+      }
+    }
+  ],
+  "before": {
+    "users": [],
+    "department": [
+      {
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0"
+      }
+    ],
+    "role": [
+      {
+        "role_id": 101,
+        "data_scope": "3",
+        "status": "0",
+        "del_flag": "0"
+      }
+    ]
+  },
+  "userId": 150,
+  "after": {
+    "users": [
+      {
+        "user_id": 150,
+        "user_name": "t43_1014_01",
+        "nick_name": "T43关联练习",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      }
+    ],
+    "department": [
+      {
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0"
+      }
+    ],
+    "role": [
+      {
+        "role_id": 101,
+        "data_scope": "3",
+        "status": "0",
+        "del_flag": "0"
+      }
+    ]
+  },
+  "result": "创建成功；API及SQL关联回查一致；账号保留供T4.3业务ID关联练习",
+  "session_cleanup": {
+    "http": 200,
+    "code": 200,
+    "old_token_check": {
+      "http": 200,
+      "code": 401
+    }
+  },
+  "ended_at": "2026-10-14T08:39:37.306043+08:00"
+}

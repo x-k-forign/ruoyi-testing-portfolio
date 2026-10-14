@@ -1,0 +1,14 @@
+[
+  {
+    "time": "2026-10-14T03:24:37.594Z",
+    "request": "01 单一无效条件登录",
+    "caseId": "TC-L05-01",
+    "key": "wrongcaptcha",
+    "http": 200,
+    "code": 500,
+    "msg": "验证码已失效",
+    "data": null,
+    "user": null,
+    "tokenPresent": false
+  }
+]

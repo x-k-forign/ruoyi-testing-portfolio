@@ -1,0 +1,38 @@
+{
+  "prefix": "t45_10141114",
+  "fixtures": {
+    "qa": {
+      "userName": "t45_10141114_qa",
+      "userId": 154,
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    },
+    "maint": {
+      "userName": "t45_10141114_maint",
+      "userId": 155,
+      "deptId": 202,
+      "roleIds": [
+        102
+      ]
+    },
+    "qb": {
+      "userName": "t45_10141114_qb",
+      "userId": 156,
+      "deptId": 204,
+      "roleIds": [
+        101
+      ]
+    },
+    "dup": {
+      "userName": "t45_10141114_dup",
+      "userId": 157,
+      "deptId": 202,
+      "roleIds": [
+        101
+      ]
+    }
+  },
+  "created_by": "正常管理员API；密码和token未归档"
+}

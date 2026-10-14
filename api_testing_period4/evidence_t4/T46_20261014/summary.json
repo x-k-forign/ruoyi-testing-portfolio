@@ -1,0 +1,19 @@
+{
+  "stage": "T4.6",
+  "status": "2026-10-14验收通过（AI辅助）",
+  "request_definitions": 20,
+  "valid_and_teaching_requests": 26,
+  "assertions": 113,
+  "passed_assertions": 112,
+  "intentionally_failed_assertions": 1,
+  "core_chain_requests": 23,
+  "core_chain_assertions": 104,
+  "invalid_import_requests": 18,
+  "invalid_import_assertions": 0,
+  "new_user_id": 164,
+  "scope_count": 25,
+  "t3_status_counts_unchanged": true,
+  "t4_status_counts_unchanged": true,
+  "product_defects_closed": 0,
+  "acceptance_report": "../../docs/T4.6_验收记录.md"
+}

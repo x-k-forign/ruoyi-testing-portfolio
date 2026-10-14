@@ -1,0 +1,2169 @@
+{
+  "scenario": {
+    "key": "dup",
+    "caseId": "TC-C03-01",
+    "title": "创建拒绝：登录名重复",
+    "actor": "maint",
+    "variant": "duplicate",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c12"
+  },
+  "exit_code": 0,
+  "action": {
+    "time": "2026-10-14T03:22:06.097Z",
+    "request": "02 单一条件新增请求",
+    "caseId": "TC-C03-01",
+    "key": "dup",
+    "http": 200,
+    "code": 500,
+    "msg": "新增用户't45_10141114_dup'失败，登录账号已存在",
+    "data": null,
+    "user": null,
+    "tokenPresent": false
+  },
+  "delta": [
+    {
+      "key": "dup",
+      "added": [],
+      "originalUnchanged": true
+    }
+  ],
+  "events": [
+    {
+      "time": "2026-10-14T03:22:05.992Z",
+      "request": "01 管理员变更前快照",
+      "caseId": "TC-C03-01",
+      "key": "dup",
+      "http": 200,
+      "code": 200,
+      "msg": "查询成功",
+      "total": 38,
+      "rows": [
+        {
+          "userId": 1,
+          "userName": "admin",
+          "nickName": "若依",
+          "deptId": 103,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 2,
+          "userName": "ry",
+          "nickName": "若依",
+          "deptId": 105,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 100,
+          "userName": "t24_user_1009",
+          "nickName": "T24冒烟用户1009",
+          "deptId": 200,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 101,
+          "userName": "t25_a_query",
+          "nickName": "T25甲查询",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 103,
+          "userName": "t25_a_add",
+          "nickName": "T25乙维护",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 104,
+          "userName": "t25_b_query",
+          "nickName": "T25丙查询",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 105,
+          "userName": "t25_a_child",
+          "nickName": "T25子组查询",
+          "deptId": 203,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 108,
+          "userName": "t25_a_created",
+          "nickName": "T25新增验证1009",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 109,
+          "userName": "t25_log",
+          "nickName": "T25日志查询",
+          "deptId": 201,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 110,
+          "userName": "t3_pwd5_1010",
+          "nickName": "T3五位密码测试",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 111,
+          "userName": "t310100001",
+          "nickName": "T3自动化用户",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 112,
+          "userName": "t3ai_p06_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 113,
+          "userName": "t3ai_p07_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 114,
+          "userName": "t3ai_p19_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 115,
+          "userName": "t3ai_p20_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 116,
+          "userName": "t3ai_contact_1010",
+          "nickName": "T3联系字段对照",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 117,
+          "userName": "a1",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 118,
+          "userName": "a11",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 119,
+          "userName": "a111111111111111111",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 120,
+          "userName": "a1111111111111111111",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 121,
+          "userName": "t3ai_lock_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 122,
+          "userName": "t3ai_stop_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 124,
+          "userName": "t3ai_dept_1010",
+          "nickName": "T3部门约束专用",
+          "deptId": 207,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 125,
+          "userName": "t3ai_maint_1010",
+          "nickName": "T3隔离新增身份",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 126,
+          "userName": "t3ai_nodept_1010",
+          "nickName": "T3空关联观察",
+          "deptId": null,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 127,
+          "userName": "t3ai_norole_1010",
+          "nickName": "T3空关联观察",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 128,
+          "userName": "t3ai_pwd5_1010",
+          "nickName": "T3五位隔离样本",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 129,
+          "userName": "t34_c_1012",
+          "nickName": "T34_c",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 130,
+          "userName": "t34_scopeuser_1012",
+          "nickName": "T34_scopeuser",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 131,
+          "userName": "t34_multi_1012",
+          "nickName": "T34_multi",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 134,
+          "userName": "t35_change_1012",
+          "nickName": "T35变更专用",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 139,
+          "userName": "t36_log_1012",
+          "nickName": "T36日志只读",
+          "deptId": 201,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 145,
+          "userName": "t38_reg_1012",
+          "nickName": "T38_reg",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 146,
+          "userName": "t38_chain_1012",
+          "nickName": "T38_chain",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 154,
+          "userName": "t45_10141114_qa",
+          "nickName": "T45_qa",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 155,
+          "userName": "t45_10141114_maint",
+          "nickName": "T45_maint",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 156,
+          "userName": "t45_10141114_qb",
+          "nickName": "T45_qb",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 157,
+          "userName": "t45_10141114_dup",
+          "nickName": "T45_dup",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        }
+      ],
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    {
+      "time": "2026-10-14T03:22:06.097Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C03-01",
+      "key": "dup",
+      "http": 200,
+      "code": 500,
+      "msg": "新增用户't45_10141114_dup'失败，登录账号已存在",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    {
+      "time": "2026-10-14T03:22:06.192Z",
+      "request": "03 管理员写后核验",
+      "caseId": "TC-C03-01",
+      "key": "dup",
+      "http": 200,
+      "code": 200,
+      "msg": "查询成功",
+      "total": 38,
+      "rows": [
+        {
+          "userId": 1,
+          "userName": "admin",
+          "nickName": "若依",
+          "deptId": 103,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 2,
+          "userName": "ry",
+          "nickName": "若依",
+          "deptId": 105,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 100,
+          "userName": "t24_user_1009",
+          "nickName": "T24冒烟用户1009",
+          "deptId": 200,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 101,
+          "userName": "t25_a_query",
+          "nickName": "T25甲查询",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 103,
+          "userName": "t25_a_add",
+          "nickName": "T25乙维护",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 104,
+          "userName": "t25_b_query",
+          "nickName": "T25丙查询",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 105,
+          "userName": "t25_a_child",
+          "nickName": "T25子组查询",
+          "deptId": 203,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 108,
+          "userName": "t25_a_created",
+          "nickName": "T25新增验证1009",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 109,
+          "userName": "t25_log",
+          "nickName": "T25日志查询",
+          "deptId": 201,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 110,
+          "userName": "t3_pwd5_1010",
+          "nickName": "T3五位密码测试",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 111,
+          "userName": "t310100001",
+          "nickName": "T3自动化用户",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 112,
+          "userName": "t3ai_p06_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 113,
+          "userName": "t3ai_p07_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 114,
+          "userName": "t3ai_p19_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 115,
+          "userName": "t3ai_p20_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 116,
+          "userName": "t3ai_contact_1010",
+          "nickName": "T3联系字段对照",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 117,
+          "userName": "a1",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 118,
+          "userName": "a11",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 119,
+          "userName": "a111111111111111111",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 120,
+          "userName": "a1111111111111111111",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 121,
+          "userName": "t3ai_lock_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 122,
+          "userName": "t3ai_stop_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 124,
+          "userName": "t3ai_dept_1010",
+          "nickName": "T3部门约束专用",
+          "deptId": 207,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 125,
+          "userName": "t3ai_maint_1010",
+          "nickName": "T3隔离新增身份",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 126,
+          "userName": "t3ai_nodept_1010",
+          "nickName": "T3空关联观察",
+          "deptId": null,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 127,
+          "userName": "t3ai_norole_1010",
+          "nickName": "T3空关联观察",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 128,
+          "userName": "t3ai_pwd5_1010",
+          "nickName": "T3五位隔离样本",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 129,
+          "userName": "t34_c_1012",
+          "nickName": "T34_c",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 130,
+          "userName": "t34_scopeuser_1012",
+          "nickName": "T34_scopeuser",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 131,
+          "userName": "t34_multi_1012",
+          "nickName": "T34_multi",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 134,
+          "userName": "t35_change_1012",
+          "nickName": "T35变更专用",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 139,
+          "userName": "t36_log_1012",
+          "nickName": "T36日志只读",
+          "deptId": 201,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 145,
+          "userName": "t38_reg_1012",
+          "nickName": "T38_reg",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 146,
+          "userName": "t38_chain_1012",
+          "nickName": "T38_chain",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 154,
+          "userName": "t45_10141114_qa",
+          "nickName": "T45_qa",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 155,
+          "userName": "t45_10141114_maint",
+          "nickName": "T45_maint",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 156,
+          "userName": "t45_10141114_qb",
+          "nickName": "T45_qb",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 157,
+          "userName": "t45_10141114_dup",
+          "nickName": "T45_dup",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        }
+      ],
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    {
+      "time": "2026-10-14T03:22:06.335Z",
+      "request": "05 清理后恢复核验",
+      "caseId": "TC-C03-01",
+      "key": "dup",
+      "http": 200,
+      "code": 200,
+      "msg": "查询成功",
+      "total": 38,
+      "rows": [
+        {
+          "userId": 1,
+          "userName": "admin",
+          "nickName": "若依",
+          "deptId": 103,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 2,
+          "userName": "ry",
+          "nickName": "若依",
+          "deptId": 105,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 100,
+          "userName": "t24_user_1009",
+          "nickName": "T24冒烟用户1009",
+          "deptId": 200,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 101,
+          "userName": "t25_a_query",
+          "nickName": "T25甲查询",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 103,
+          "userName": "t25_a_add",
+          "nickName": "T25乙维护",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 104,
+          "userName": "t25_b_query",
+          "nickName": "T25丙查询",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 105,
+          "userName": "t25_a_child",
+          "nickName": "T25子组查询",
+          "deptId": 203,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 108,
+          "userName": "t25_a_created",
+          "nickName": "T25新增验证1009",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 109,
+          "userName": "t25_log",
+          "nickName": "T25日志查询",
+          "deptId": 201,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 110,
+          "userName": "t3_pwd5_1010",
+          "nickName": "T3五位密码测试",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 111,
+          "userName": "t310100001",
+          "nickName": "T3自动化用户",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 112,
+          "userName": "t3ai_p06_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 113,
+          "userName": "t3ai_p07_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 114,
+          "userName": "t3ai_p19_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 115,
+          "userName": "t3ai_p20_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 116,
+          "userName": "t3ai_contact_1010",
+          "nickName": "T3联系字段对照",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 117,
+          "userName": "a1",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 118,
+          "userName": "a11",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 119,
+          "userName": "a111111111111111111",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 120,
+          "userName": "a1111111111111111111",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 121,
+          "userName": "t3ai_lock_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 122,
+          "userName": "t3ai_stop_1010",
+          "nickName": "T3自动化校验",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 124,
+          "userName": "t3ai_dept_1010",
+          "nickName": "T3部门约束专用",
+          "deptId": 207,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 125,
+          "userName": "t3ai_maint_1010",
+          "nickName": "T3隔离新增身份",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 126,
+          "userName": "t3ai_nodept_1010",
+          "nickName": "T3空关联观察",
+          "deptId": null,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 127,
+          "userName": "t3ai_norole_1010",
+          "nickName": "T3空关联观察",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 128,
+          "userName": "t3ai_pwd5_1010",
+          "nickName": "T3五位隔离样本",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 129,
+          "userName": "t34_c_1012",
+          "nickName": "T34_c",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 130,
+          "userName": "t34_scopeuser_1012",
+          "nickName": "T34_scopeuser",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 131,
+          "userName": "t34_multi_1012",
+          "nickName": "T34_multi",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 134,
+          "userName": "t35_change_1012",
+          "nickName": "T35变更专用",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 139,
+          "userName": "t36_log_1012",
+          "nickName": "T36日志只读",
+          "deptId": 201,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 145,
+          "userName": "t38_reg_1012",
+          "nickName": "T38_reg",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 146,
+          "userName": "t38_chain_1012",
+          "nickName": "T38_chain",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 154,
+          "userName": "t45_10141114_qa",
+          "nickName": "T45_qa",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 155,
+          "userName": "t45_10141114_maint",
+          "nickName": "T45_maint",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 156,
+          "userName": "t45_10141114_qb",
+          "nickName": "T45_qb",
+          "deptId": 204,
+          "status": "0",
+          "roleId": null
+        },
+        {
+          "userId": 157,
+          "userName": "t45_10141114_dup",
+          "nickName": "T45_dup",
+          "deptId": 202,
+          "status": "0",
+          "roleId": null
+        }
+      ],
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    }
+  ],
+  "sql_before": {
+    "users": [
+      {
+        "user_id": 1,
+        "user_name": "admin",
+        "nick_name": "若依",
+        "dept_id": 103,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 1
+      },
+      {
+        "user_id": 2,
+        "user_name": "ry",
+        "nick_name": "若依",
+        "dept_id": 105,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 2
+      },
+      {
+        "user_id": 100,
+        "user_name": "t24_user_1009",
+        "nick_name": "T24冒烟用户1009",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 100
+      },
+      {
+        "user_id": 101,
+        "user_name": "t25_a_query",
+        "nick_name": "T25甲查询",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 102,
+        "user_name": "T25乙维护",
+        "nick_name": "t25_a_add",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 103,
+        "user_name": "t25_a_add",
+        "nick_name": "T25乙维护",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 104,
+        "user_name": "t25_b_query",
+        "nick_name": "T25丙查询",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 105,
+        "user_name": "t25_a_child",
+        "nick_name": "T25子组查询",
+        "dept_id": 203,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 106,
+        "user_name": "t25_a_created",
+        "nick_name": "T25新增验证1009",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 107,
+        "user_name": "t25_a_created",
+        "nick_name": "T25新增验证1009",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 108,
+        "user_name": "t25_a_created",
+        "nick_name": "T25新增验证1009",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 109,
+        "user_name": "t25_log",
+        "nick_name": "T25日志查询",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 103
+      },
+      {
+        "user_id": 110,
+        "user_name": "t3_pwd5_1010",
+        "nick_name": "T3五位密码测试",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 111,
+        "user_name": "t310100001",
+        "nick_name": "T3自动化用户",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 112,
+        "user_name": "t3ai_p06_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 113,
+        "user_name": "t3ai_p07_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 114,
+        "user_name": "t3ai_p19_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 115,
+        "user_name": "t3ai_p20_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 116,
+        "user_name": "t3ai_contact_1010",
+        "nick_name": "T3联系字段对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 117,
+        "user_name": "a1",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 118,
+        "user_name": "a11",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 119,
+        "user_name": "a111111111111111111",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 120,
+        "user_name": "a1111111111111111111",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 121,
+        "user_name": "t3ai_lock_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 122,
+        "user_name": "t3ai_stop_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 123,
+        "user_name": "t3ai_del_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 124,
+        "user_name": "t3ai_dept_1010",
+        "nick_name": "T3部门约束专用",
+        "dept_id": 207,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 125,
+        "user_name": "t3ai_maint_1010",
+        "nick_name": "T3隔离新增身份",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 126,
+        "user_name": "t3ai_nodept_1010",
+        "nick_name": "T3空关联观察",
+        "dept_id": null,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 127,
+        "user_name": "t3ai_norole_1010",
+        "nick_name": "T3空关联观察",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": null
+      },
+      {
+        "user_id": 128,
+        "user_name": "t3ai_pwd5_1010",
+        "nick_name": "T3五位隔离样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 129,
+        "user_name": "t34_c_1012",
+        "nick_name": "T34_c",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 130,
+        "user_name": "t34_scopeuser_1012",
+        "nick_name": "T34_scopeuser",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 104
+      },
+      {
+        "user_id": 131,
+        "user_name": "t34_multi_1012",
+        "nick_name": "T34_multi",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 105
+      },
+      {
+        "user_id": 131,
+        "user_name": "t34_multi_1012",
+        "nick_name": "T34_multi",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 106
+      },
+      {
+        "user_id": 132,
+        "user_name": "t34_new_b_on",
+        "nick_name": "T34新增验证",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 133,
+        "user_name": "t34_new_multi_on",
+        "nick_name": "T34新增验证",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 134,
+        "user_name": "t35_change_1012",
+        "nick_name": "T35变更专用",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 135,
+        "user_name": "t35_revoke_before",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 136,
+        "user_name": "t35_revoke_old",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 137,
+        "user_name": "t35_grant_new",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 138,
+        "user_name": "t35_grant_detail",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 139,
+        "user_name": "t36_log_1012",
+        "nick_name": "T36日志只读",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 103
+      },
+      {
+        "user_id": 140,
+        "user_name": "t36_event_1012",
+        "nick_name": "T36日志事件",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 141,
+        "user_name": "t35_repro_before",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 142,
+        "user_name": "t35_repro_old",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 143,
+        "user_name": "t35_repro_recovered",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 144,
+        "user_name": "t37_pwd5_1012",
+        "nick_name": "T37五位复现",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 145,
+        "user_name": "t38_reg_1012",
+        "nick_name": "T38_reg",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 109
+      },
+      {
+        "user_id": 146,
+        "user_name": "t38_chain_1012",
+        "nick_name": "T38_chain",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 147,
+        "user_name": "t38_chain_before_add",
+        "nick_name": "T38回归样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 148,
+        "user_name": "t38_reg_after_add",
+        "nick_name": "T38回归样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 149,
+        "user_name": "t38_chain_old_add",
+        "nick_name": "T38回归样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 150,
+        "user_name": "t43_1014_01",
+        "nick_name": "T43关联练习",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 151,
+        "user_name": "t44_1014103013_a",
+        "nick_name": "T44接口业务链",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 152,
+        "user_name": "t44_1014103200_b",
+        "nick_name": "T44接口业务链",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 153,
+        "user_name": "t44_1014103410_b",
+        "nick_name": "T44接口业务链",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 154,
+        "user_name": "t45_10141114_qa",
+        "nick_name": "T45_qa",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 155,
+        "user_name": "t45_10141114_maint",
+        "nick_name": "T45_maint",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 156,
+        "user_name": "t45_10141114_qb",
+        "nick_name": "T45_qb",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 157,
+        "user_name": "t45_10141114_dup",
+        "nick_name": "T45_dup",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 158,
+        "user_name": "t45_10141114_c01",
+        "nick_name": "T45_ctrl_a",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 159,
+        "user_name": "t45_10141114_c02",
+        "nick_name": "T45_ctrl_m",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "posts": [
+      {
+        "user_id": 1,
+        "post_id": 1
+      },
+      {
+        "user_id": 2,
+        "post_id": 2
+      }
+    ]
+  },
+  "sql_after": {
+    "users": [
+      {
+        "user_id": 1,
+        "user_name": "admin",
+        "nick_name": "若依",
+        "dept_id": 103,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 1
+      },
+      {
+        "user_id": 2,
+        "user_name": "ry",
+        "nick_name": "若依",
+        "dept_id": 105,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 2
+      },
+      {
+        "user_id": 100,
+        "user_name": "t24_user_1009",
+        "nick_name": "T24冒烟用户1009",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 100
+      },
+      {
+        "user_id": 101,
+        "user_name": "t25_a_query",
+        "nick_name": "T25甲查询",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 102,
+        "user_name": "T25乙维护",
+        "nick_name": "t25_a_add",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 103,
+        "user_name": "t25_a_add",
+        "nick_name": "T25乙维护",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 104,
+        "user_name": "t25_b_query",
+        "nick_name": "T25丙查询",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 105,
+        "user_name": "t25_a_child",
+        "nick_name": "T25子组查询",
+        "dept_id": 203,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 106,
+        "user_name": "t25_a_created",
+        "nick_name": "T25新增验证1009",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 107,
+        "user_name": "t25_a_created",
+        "nick_name": "T25新增验证1009",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 108,
+        "user_name": "t25_a_created",
+        "nick_name": "T25新增验证1009",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 109,
+        "user_name": "t25_log",
+        "nick_name": "T25日志查询",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 103
+      },
+      {
+        "user_id": 110,
+        "user_name": "t3_pwd5_1010",
+        "nick_name": "T3五位密码测试",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 111,
+        "user_name": "t310100001",
+        "nick_name": "T3自动化用户",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 112,
+        "user_name": "t3ai_p06_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 113,
+        "user_name": "t3ai_p07_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 114,
+        "user_name": "t3ai_p19_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 115,
+        "user_name": "t3ai_p20_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 116,
+        "user_name": "t3ai_contact_1010",
+        "nick_name": "T3联系字段对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 117,
+        "user_name": "a1",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 118,
+        "user_name": "a11",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 119,
+        "user_name": "a111111111111111111",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 120,
+        "user_name": "a1111111111111111111",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 121,
+        "user_name": "t3ai_lock_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 122,
+        "user_name": "t3ai_stop_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 123,
+        "user_name": "t3ai_del_1010",
+        "nick_name": "T3自动化校验",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 124,
+        "user_name": "t3ai_dept_1010",
+        "nick_name": "T3部门约束专用",
+        "dept_id": 207,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 125,
+        "user_name": "t3ai_maint_1010",
+        "nick_name": "T3隔离新增身份",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 126,
+        "user_name": "t3ai_nodept_1010",
+        "nick_name": "T3空关联观察",
+        "dept_id": null,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 127,
+        "user_name": "t3ai_norole_1010",
+        "nick_name": "T3空关联观察",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": null
+      },
+      {
+        "user_id": 128,
+        "user_name": "t3ai_pwd5_1010",
+        "nick_name": "T3五位隔离样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 129,
+        "user_name": "t34_c_1012",
+        "nick_name": "T34_c",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 130,
+        "user_name": "t34_scopeuser_1012",
+        "nick_name": "T34_scopeuser",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 104
+      },
+      {
+        "user_id": 131,
+        "user_name": "t34_multi_1012",
+        "nick_name": "T34_multi",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 105
+      },
+      {
+        "user_id": 131,
+        "user_name": "t34_multi_1012",
+        "nick_name": "T34_multi",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 106
+      },
+      {
+        "user_id": 132,
+        "user_name": "t34_new_b_on",
+        "nick_name": "T34新增验证",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 133,
+        "user_name": "t34_new_multi_on",
+        "nick_name": "T34新增验证",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 134,
+        "user_name": "t35_change_1012",
+        "nick_name": "T35变更专用",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 135,
+        "user_name": "t35_revoke_before",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 136,
+        "user_name": "t35_revoke_old",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 137,
+        "user_name": "t35_grant_new",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 138,
+        "user_name": "t35_grant_detail",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 139,
+        "user_name": "t36_log_1012",
+        "nick_name": "T36日志只读",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 103
+      },
+      {
+        "user_id": 140,
+        "user_name": "t36_event_1012",
+        "nick_name": "T36日志事件",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 141,
+        "user_name": "t35_repro_before",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 142,
+        "user_name": "t35_repro_old",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 143,
+        "user_name": "t35_repro_recovered",
+        "nick_name": "T35会话新增对照",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 144,
+        "user_name": "t37_pwd5_1012",
+        "nick_name": "T37五位复现",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 145,
+        "user_name": "t38_reg_1012",
+        "nick_name": "T38_reg",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 109
+      },
+      {
+        "user_id": 146,
+        "user_name": "t38_chain_1012",
+        "nick_name": "T38_chain",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 147,
+        "user_name": "t38_chain_before_add",
+        "nick_name": "T38回归样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 148,
+        "user_name": "t38_reg_after_add",
+        "nick_name": "T38回归样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 149,
+        "user_name": "t38_chain_old_add",
+        "nick_name": "T38回归样本",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 150,
+        "user_name": "t43_1014_01",
+        "nick_name": "T43关联练习",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 151,
+        "user_name": "t44_1014103013_a",
+        "nick_name": "T44接口业务链",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 152,
+        "user_name": "t44_1014103200_b",
+        "nick_name": "T44接口业务链",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 153,
+        "user_name": "t44_1014103410_b",
+        "nick_name": "T44接口业务链",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 154,
+        "user_name": "t45_10141114_qa",
+        "nick_name": "T45_qa",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 155,
+        "user_name": "t45_10141114_maint",
+        "nick_name": "T45_maint",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 102
+      },
+      {
+        "user_id": 156,
+        "user_name": "t45_10141114_qb",
+        "nick_name": "T45_qb",
+        "dept_id": 204,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 157,
+        "user_name": "t45_10141114_dup",
+        "nick_name": "T45_dup",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "0",
+        "role_id": 101
+      },
+      {
+        "user_id": 158,
+        "user_name": "t45_10141114_c01",
+        "nick_name": "T45_ctrl_a",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      },
+      {
+        "user_id": 159,
+        "user_name": "t45_10141114_c02",
+        "nick_name": "T45_ctrl_m",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "posts": [
+      {
+        "user_id": 1,
+        "post_id": 1
+      },
+      {
+        "user_id": 2,
+        "post_id": 2
+      }
+    ]
+  },
+  "original_rows_unchanged": true,
+  "temporary_rows_cleaned": true,
+  "new_sql_rows": [],
+  "status": "通过"
+}

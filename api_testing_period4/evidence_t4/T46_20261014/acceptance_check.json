@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-14",
+  "stage": "T4.6",
+  "decision": "通过（AI辅助执行与作答）",
+  "criteria_passed": 5,
+  "original_export_hashes_match": true,
+  "current_compatibility_export_hash_matches": true,
+  "assertion_wrong_then_restored_verified": true,
+  "imported_chain": {
+    "requests": 23,
+    "assertions_passed": 104,
+    "user_id": 164
+  },
+  "legacy_runtime_chain": {
+    "requests": 23,
+    "assertions_passed": 104,
+    "user_id": 165
+  },
+  "t3_counts": {
+    "失败": 5,
+    "待观察": 4,
+    "通过": 82,
+    "未执行": 3
+  },
+  "t4_counts": {
+    "失败": 2,
+    "通过": 24,
+    "未执行": 3
+  },
+  "hyperlinks_checked": 277,
+  "broken_links": [],
+  "temp_credentials_cleanup_confirmed": true,
+  "known_product_failures_preserved": true,
+  "t4_overall_not_accepted": true
+}

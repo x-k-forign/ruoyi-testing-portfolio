@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-14",
+  "stage_status": "执行完成，待用户验收",
+  "t3_counts": {
+    "失败": 5,
+    "待观察": 4,
+    "通过": 82,
+    "未执行": 3
+  },
+  "t4_counts": {
+    "失败": 2,
+    "通过": 24,
+    "未执行": 3
+  },
+  "original_unrelated_cells_preserved": true,
+  "excel_normal_open_verified": true,
+  "xml_namespace_compatibility_verified": true,
+  "checked_hyperlinks": 277,
+  "broken_hyperlinks": [],
+  "shared_environment_credentials_empty": true,
+  "exact_runtime_secret_and_jwt_scan_findings": 0,
+  "scanned_files": 35,
+  "export_sha256": {
+    "postman\\T4.6_空环境模板.postman_environment.json": "c155a6abf4a23163bfe5c89c4483c94c53135eac6e52f6542cc508cdfc1c744f",
+    "postman\\T4.6_脱敏集合.postman_collection.json": "51e894fe59105fc9cac81a03c0a4ea4b5d5c122c4e28b05788c0489e4384c962",
+    "postman\\T4.6_重新导入后读取.postman_collection.json": "d976eb6120399808123956803b839dffeafec7829d6b95aa7e5f0d62da3b79b5"
+  },
+  "local_private_cleanup_pending": false,
+  "import_method": "MCP分步导入并读取核对；实际执行读取副本。未验证桌面UI一次导入。",
+  "local_private_cleanup_complete": true,
+  "post_restart_health": {
+    "frontend_http": 200,
+    "backend_captcha_code": 200,
+    "frontend_proxy_captcha_code": 200
+  }
+}

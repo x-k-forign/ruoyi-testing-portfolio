@@ -1,0 +1,28 @@
+{
+  "requests": [
+    {
+      "name": "01 无认证只读断言（恢复后的正确版本）",
+      "method": "GET",
+      "url": "http://127.0.0.1:8080/getInfo",
+      "http": 200
+    }
+  ],
+  "assertions": [
+    {
+      "name": "HTTP为200",
+      "passed": true
+    },
+    {
+      "name": "无认证应返回业务401",
+      "passed": true
+    },
+    {
+      "name": "不泄漏用户身份",
+      "passed": true
+    }
+  ],
+  "scriptErrors": [],
+  "events": [
+    "T46_ASSERT {\"http\":200,\"code\":401,\"userPresent\":false}"
+  ]
+}

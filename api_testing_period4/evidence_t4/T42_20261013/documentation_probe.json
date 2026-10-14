@@ -1,0 +1,476 @@
+{
+  "checked_at": "2026-10-13T19:10:30.396618+08:00",
+  "mode": "仅匿名GET接口文档；未发送业务写请求",
+  "endpoints": [
+    {
+      "path": "/swagger-ui.html",
+      "http_status": 200,
+      "final_url": "http://127.0.0.1:8080/swagger-ui/index.html",
+      "html_present": true
+    },
+    {
+      "path": "/v3/api-docs/swagger-config",
+      "http_status": 200,
+      "final_url": "http://127.0.0.1:8080/v3/api-docs/swagger-config",
+      "groups": [
+        {
+          "url": "/v3/api-docs/default",
+          "name": "测试模块"
+        }
+      ]
+    },
+    {
+      "path": "/v3/api-docs/default",
+      "http_status": 200,
+      "final_url": "http://127.0.0.1:8080/v3/api-docs/default",
+      "openapi": "3.1.0",
+      "paths": {
+        "/test/user/update": [
+          "put"
+        ],
+        "/test/user/save": [
+          "post"
+        ],
+        "/test/user/{userId}": [
+          "get",
+          "delete"
+        ],
+        "/test/user/list": [
+          "get"
+        ]
+      },
+      "path_count": 4
+    },
+    {
+      "path": "/v3/api-docs",
+      "http_status": 200,
+      "final_url": "http://127.0.0.1:8080/v3/api-docs",
+      "openapi": "3.1.0",
+      "paths": {
+        "/tool/gen": [
+          "put"
+        ],
+        "/test/user/update": [
+          "put"
+        ],
+        "/system/user": [
+          "put",
+          "post"
+        ],
+        "/system/user/resetPwd": [
+          "put"
+        ],
+        "/system/user/profile": [
+          "get",
+          "put"
+        ],
+        "/system/user/profile/updatePwd": [
+          "put"
+        ],
+        "/system/user/changeStatus": [
+          "put"
+        ],
+        "/system/user/authRole": [
+          "put"
+        ],
+        "/system/role": [
+          "put",
+          "post"
+        ],
+        "/system/role/dataScope": [
+          "put"
+        ],
+        "/system/role/changeStatus": [
+          "put"
+        ],
+        "/system/role/authUser/selectAll": [
+          "put"
+        ],
+        "/system/role/authUser/cancel": [
+          "put"
+        ],
+        "/system/role/authUser/cancelAll": [
+          "put"
+        ],
+        "/system/post": [
+          "put",
+          "post"
+        ],
+        "/system/notice": [
+          "put",
+          "post"
+        ],
+        "/system/menu": [
+          "put",
+          "post"
+        ],
+        "/system/menu/updateSort": [
+          "put"
+        ],
+        "/system/dict/type": [
+          "put",
+          "post"
+        ],
+        "/system/dict/data": [
+          "put",
+          "post"
+        ],
+        "/system/dept": [
+          "put",
+          "post"
+        ],
+        "/system/dept/updateSort": [
+          "put"
+        ],
+        "/system/config": [
+          "put",
+          "post"
+        ],
+        "/monitor/job": [
+          "put",
+          "post"
+        ],
+        "/monitor/job/run": [
+          "put"
+        ],
+        "/monitor/job/changeStatus": [
+          "put"
+        ],
+        "/unlockscreen": [
+          "post"
+        ],
+        "/tool/gen/importTable": [
+          "post"
+        ],
+        "/tool/gen/createTable": [
+          "post"
+        ],
+        "/test/user/save": [
+          "post"
+        ],
+        "/system/user/profile/avatar": [
+          "post"
+        ],
+        "/system/user/importTemplate": [
+          "post"
+        ],
+        "/system/user/importData": [
+          "post"
+        ],
+        "/system/user/export": [
+          "post"
+        ],
+        "/system/role/export": [
+          "post"
+        ],
+        "/system/post/export": [
+          "post"
+        ],
+        "/system/notice/markRead": [
+          "post"
+        ],
+        "/system/notice/markReadAll": [
+          "post"
+        ],
+        "/system/dict/type/export": [
+          "post"
+        ],
+        "/system/dict/data/export": [
+          "post"
+        ],
+        "/system/config/export": [
+          "post"
+        ],
+        "/register": [
+          "post"
+        ],
+        "/monitor/operlog/export": [
+          "post"
+        ],
+        "/monitor/logininfor/export": [
+          "post"
+        ],
+        "/monitor/jobLog/export": [
+          "post"
+        ],
+        "/monitor/job/export": [
+          "post"
+        ],
+        "/login": [
+          "post"
+        ],
+        "/common/uploads": [
+          "post"
+        ],
+        "/common/upload": [
+          "post"
+        ],
+        "/tool/gen/{tableId}": [
+          "get"
+        ],
+        "/tool/gen/synchDb/{tableName}": [
+          "get"
+        ],
+        "/tool/gen/preview/{tableId}": [
+          "get"
+        ],
+        "/tool/gen/list": [
+          "get"
+        ],
+        "/tool/gen/genCode/{tableName}": [
+          "get"
+        ],
+        "/tool/gen/download/{tableName}": [
+          "get"
+        ],
+        "/tool/gen/db/list": [
+          "get"
+        ],
+        "/tool/gen/column/{tableId}": [
+          "get"
+        ],
+        "/tool/gen/batchGenCode": [
+          "get"
+        ],
+        "/test/user/{userId}": [
+          "get",
+          "delete"
+        ],
+        "/test/user/list": [
+          "get"
+        ],
+        "/system/user/list": [
+          "get"
+        ],
+        "/system/user/deptTree": [
+          "get"
+        ],
+        "/system/user/authRole/{userId}": [
+          "get"
+        ],
+        "/system/user/{userId}": [
+          "get"
+        ],
+        "/system/user/": [
+          "get"
+        ],
+        "/system/role/{roleId}": [
+          "get"
+        ],
+        "/system/role/optionselect": [
+          "get"
+        ],
+        "/system/role/list": [
+          "get"
+        ],
+        "/system/role/deptTree/{roleId}": [
+          "get"
+        ],
+        "/system/role/authUser/unallocatedList": [
+          "get"
+        ],
+        "/system/role/authUser/allocatedList": [
+          "get"
+        ],
+        "/system/post/{postId}": [
+          "get"
+        ],
+        "/system/post/optionselect": [
+          "get"
+        ],
+        "/system/post/list": [
+          "get"
+        ],
+        "/system/notice/{noticeId}": [
+          "get"
+        ],
+        "/system/notice/readUsers/list": [
+          "get"
+        ],
+        "/system/notice/list": [
+          "get"
+        ],
+        "/system/notice/listTop": [
+          "get"
+        ],
+        "/system/menu/{menuId}": [
+          "get",
+          "delete"
+        ],
+        "/system/menu/treeselect": [
+          "get"
+        ],
+        "/system/menu/roleMenuTreeselect/{roleId}": [
+          "get"
+        ],
+        "/system/menu/list": [
+          "get"
+        ],
+        "/system/dict/type/{dictId}": [
+          "get"
+        ],
+        "/system/dict/type/optionselect": [
+          "get"
+        ],
+        "/system/dict/type/list": [
+          "get"
+        ],
+        "/system/dict/data/{dictCode}": [
+          "get"
+        ],
+        "/system/dict/data/type/{dictType}": [
+          "get"
+        ],
+        "/system/dict/data/list": [
+          "get"
+        ],
+        "/system/dept/{deptId}": [
+          "get",
+          "delete"
+        ],
+        "/system/dept/list": [
+          "get"
+        ],
+        "/system/dept/list/exclude/{deptId}": [
+          "get"
+        ],
+        "/system/config/{configId}": [
+          "get"
+        ],
+        "/system/config/list": [
+          "get"
+        ],
+        "/system/config/configKey/{configKey}": [
+          "get"
+        ],
+        "/monitor/server": [
+          "get"
+        ],
+        "/monitor/operlog/list": [
+          "get"
+        ],
+        "/monitor/online/list": [
+          "get"
+        ],
+        "/monitor/logininfor/unlock/{userName}": [
+          "get"
+        ],
+        "/monitor/logininfor/list": [
+          "get"
+        ],
+        "/monitor/jobLog/{jobLogId}": [
+          "get"
+        ],
+        "/monitor/jobLog/list": [
+          "get"
+        ],
+        "/monitor/job/{jobId}": [
+          "get"
+        ],
+        "/monitor/job/list": [
+          "get"
+        ],
+        "/monitor/cache": [
+          "get"
+        ],
+        "/monitor/cache/getValue/{cacheName}/{cacheKey}": [
+          "get"
+        ],
+        "/monitor/cache/getNames": [
+          "get"
+        ],
+        "/monitor/cache/getKeys/{cacheName}": [
+          "get"
+        ],
+        "/getRouters": [
+          "get"
+        ],
+        "/getInfo": [
+          "get"
+        ],
+        "/common/download": [
+          "get"
+        ],
+        "/common/download/resource": [
+          "get"
+        ],
+        "/captchaImage": [
+          "get"
+        ],
+        "/tool/gen/{tableIds}": [
+          "delete"
+        ],
+        "/system/user/{userIds}": [
+          "delete"
+        ],
+        "/system/role/{roleIds}": [
+          "delete"
+        ],
+        "/system/post/{postIds}": [
+          "delete"
+        ],
+        "/system/notice/{noticeIds}": [
+          "delete"
+        ],
+        "/system/dict/type/{dictIds}": [
+          "delete"
+        ],
+        "/system/dict/type/refreshCache": [
+          "delete"
+        ],
+        "/system/dict/data/{dictCodes}": [
+          "delete"
+        ],
+        "/system/config/{configIds}": [
+          "delete"
+        ],
+        "/system/config/refreshCache": [
+          "delete"
+        ],
+        "/monitor/operlog/{operIds}": [
+          "delete"
+        ],
+        "/monitor/operlog/clean": [
+          "delete"
+        ],
+        "/monitor/online/{tokenId}": [
+          "delete"
+        ],
+        "/monitor/logininfor/{infoIds}": [
+          "delete"
+        ],
+        "/monitor/logininfor/clean": [
+          "delete"
+        ],
+        "/monitor/jobLog/{jobLogIds}": [
+          "delete"
+        ],
+        "/monitor/jobLog/clean": [
+          "delete"
+        ],
+        "/monitor/job/{jobIds}": [
+          "delete"
+        ],
+        "/monitor/cache/clearCacheName/{cacheName}": [
+          "delete"
+        ],
+        "/monitor/cache/clearCacheKey/{cacheKey}": [
+          "delete"
+        ],
+        "/monitor/cache/clearCacheAll": [
+          "delete"
+        ],
+        "/": [
+          "get",
+          "put",
+          "post",
+          "delete",
+          "options",
+          "head",
+          "patch"
+        ]
+      },
+      "path_count": 134
+    }
+  ]
+}

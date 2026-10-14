@@ -1,0 +1,15 @@
+{
+  "desktop": "9.12.2",
+  "runtime": "7.29.0",
+  "sandbox": "4.0.6",
+  "businessHttpHits": 0,
+  "errors": [
+    "缺少变量，已阻止业务请求",
+    "Invalid protocol: t4blocked:"
+  ],
+  "caps": [
+    [
+      "CAPS {\"execution\":\"undefined\",\"urlUpdate\":\"function\",\"legacyNext\":\"function\"}"
+    ]
+  ]
+}

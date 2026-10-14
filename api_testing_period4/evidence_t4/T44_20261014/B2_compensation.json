@@ -1,0 +1,27 @@
+{
+  "batch": "t44_1014103200_b",
+  "purpose": "B2验证码中断后的补偿清理",
+  "operations": [
+    {
+      "action": "delete_batch_user",
+      "userId": 152,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "action": "force_logout_B2_exact_time_session",
+      "http": 200,
+      "code": 200
+    }
+  ],
+  "matching_orphan_sessions": 1,
+  "orphan_absent": true,
+  "cleanup_admin_logout": {
+    "http": 200,
+    "code": 200
+  },
+  "cleanup_admin_old_token": {
+    "http": 200,
+    "code": 401
+  }
+}

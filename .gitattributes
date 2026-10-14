@@ -1,0 +1,5 @@
+# Keep export fingerprints and execution evidence byte-for-byte reproducible.
+api_testing_period4/postman/*.json -text whitespace=cr-at-eol
+api_testing_period4/evidence_t4/** -text
+api_testing_period4/evidence_t4/**/*.json whitespace=cr-at-eol
+api_testing_period4/evidence_t4/**/*.log -whitespace

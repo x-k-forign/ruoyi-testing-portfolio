@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "T4.6教学副本_故意错误断言",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "T4.6脱敏交付。使用独立空环境模板，重新取得验证码与会话后按组运行。部门202/角色101为已知前置，执行时仍检查。禁止直接一键运行整个集合；先取码，再整组运行正常链。最终阶段待用户验收。"
+  },
+  "item": [
+    {
+      "name": "03 断言有效性（只读）",
+      "item": [
+        {
+          "name": "01 无认证只读断言（恢复后的正确版本）",
+          "id": "f1c24823-8d23-4d47-8842-4fbd487a8d2e",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": "{{baseUrl}}/getInfo",
+            "description": "正常预期HTTP200、业务401、无user。故意错误版只在本地教学副本将code断言改为200；失败证据保留后恢复401，不登记产品缺陷。"
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b=pm.response.json();",
+                  "pm.test(\"HTTP为200\",()=>pm.expect(pm.response.code).to.equal(200));",
+                  "pm.test(\"教学故意错误：业务code预期200\",()=>pm.expect(b.code).to.equal(200));",
+                  "pm.test(\"不泄漏用户身份\",()=>pm.expect(b).not.to.have.property(\"user\"));",
+                  "console.log(\"T46_ASSERT \"+JSON.stringify({http:pm.response.code,code:b.code,userPresent:!!b.user}));"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    }
+  ]
+}

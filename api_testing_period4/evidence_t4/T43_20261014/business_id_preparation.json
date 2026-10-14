@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-10-14T08:28:50.511485+08:00",
+  "mode": "只读准备核查；未创建用户",
+  "database": "ruoyi_t2_lab",
+  "candidate_username": "t43_1014_01",
+  "existing_same_name": [],
+  "department": [
+    {
+      "dept_id": 202,
+      "dept_name": "T25部门A1009",
+      "status": "0",
+      "del_flag": "0"
+    }
+  ],
+  "role": [
+    {
+      "role_id": 101,
+      "role_name": "T25查询角色1009",
+      "role_key": "t25_query_1009",
+      "data_scope": "3",
+      "status": "0",
+      "del_flag": "0"
+    }
+  ],
+  "role_permissions": [
+    {
+      "perms": "system:user:list"
+    },
+    {
+      "perms": "system:user:query"
+    }
+  ]
+}

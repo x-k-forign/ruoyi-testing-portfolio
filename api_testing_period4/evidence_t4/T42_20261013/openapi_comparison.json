@@ -1,0 +1,311 @@
+{
+  "source": "http://127.0.0.1:8080/v3/api-docs",
+  "mode": "接口定义读取，不代表业务请求实测",
+  "interfaces": [
+    {
+      "method": "GET",
+      "path": "/captchaImage",
+      "documented": true,
+      "parameters": [],
+      "requestBody": {}
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "documented": true,
+      "parameters": [],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/LoginBody"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/getInfo",
+      "documented": true,
+      "parameters": [],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/getRouters",
+      "documented": true,
+      "parameters": [],
+      "requestBody": {}
+    },
+    {
+      "method": "POST",
+      "path": "/logout",
+      "documented": false,
+      "parameters": [],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/list",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "user",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/SysUser"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/{userId}",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/deptTree",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "dept",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/SysDept"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "POST",
+      "path": "/system/user",
+      "documented": true,
+      "parameters": [],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SysUser"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user",
+      "documented": true,
+      "parameters": [],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SysUser"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/authRole/{userId}",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user/authRole",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        {
+          "name": "roleIds",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user/changeStatus",
+      "documented": true,
+      "parameters": [],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SysUser"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/user/{userIds}",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "userIds",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/list",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "role",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/SysRole"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/{roleId}",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "roleId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/system/dept/list",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "dept",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/SysDept"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/system/dept/{deptId}",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "deptId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/operlog/list",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "operLog",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/SysOperLog"
+          }
+        }
+      ],
+      "requestBody": {}
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/logininfor/list",
+      "documented": true,
+      "parameters": [
+        {
+          "name": "logininfor",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/SysLogininfor"
+          }
+        }
+      ],
+      "requestBody": {}
+    }
+  ]
+}

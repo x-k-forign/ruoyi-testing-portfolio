@@ -1,0 +1,131 @@
+{
+  "checked_at": "2026-10-13T10:32:24.877633+08:00",
+  "mode": "自动化辅助执行；仅环境和只读数据核查",
+  "http": [
+    {
+      "url": "http://127.0.0.1:5173/",
+      "http_status": 200,
+      "html_present": true
+    },
+    {
+      "url": "http://127.0.0.1:8080/captchaImage",
+      "http_status": 200,
+      "business_code": 200,
+      "captcha_enabled": true,
+      "image_present": true,
+      "uuid_present": true
+    },
+    {
+      "url": "http://127.0.0.1:5173/dev-api/captchaImage",
+      "error_type": "TimeoutError"
+    }
+  ],
+  "database": {
+    "db": "ruoyi_t2_lab",
+    "version": "8.4.11"
+  },
+  "accounts": [
+    {
+      "user_id": 101,
+      "user_name": "t25_a_query",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0",
+      "role_id": 101,
+      "data_scope": "3",
+      "role_status": "0"
+    },
+    {
+      "user_id": 103,
+      "user_name": "t25_a_add",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0",
+      "role_id": 102,
+      "data_scope": "3",
+      "role_status": "0"
+    },
+    {
+      "user_id": 104,
+      "user_name": "t25_b_query",
+      "dept_id": 204,
+      "status": "0",
+      "del_flag": "0",
+      "role_id": 101,
+      "data_scope": "3",
+      "role_status": "0"
+    },
+    {
+      "user_id": 116,
+      "user_name": "t3ai_contact_1010",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0",
+      "role_id": 101,
+      "data_scope": "3",
+      "role_status": "0"
+    },
+    {
+      "user_id": 125,
+      "user_name": "t3ai_maint_1010",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0",
+      "role_id": 102,
+      "data_scope": "3",
+      "role_status": "0"
+    },
+    {
+      "user_id": 145,
+      "user_name": "t38_reg_1012",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0",
+      "role_id": 109,
+      "data_scope": "3",
+      "role_status": "0"
+    },
+    {
+      "user_id": 146,
+      "user_name": "t38_chain_1012",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0",
+      "role_id": 102,
+      "data_scope": "3",
+      "role_status": "0"
+    }
+  ],
+  "permissions": [
+    {
+      "role_id": 101,
+      "perms": "system:user:list"
+    },
+    {
+      "role_id": 101,
+      "perms": "system:user:query"
+    },
+    {
+      "role_id": 102,
+      "perms": "system:user:add"
+    },
+    {
+      "role_id": 102,
+      "perms": "system:user:list"
+    },
+    {
+      "role_id": 102,
+      "perms": "system:user:query"
+    },
+    {
+      "role_id": 109,
+      "perms": "system:user:list"
+    },
+    {
+      "role_id": 109,
+      "perms": "system:user:query"
+    }
+  ],
+  "postman": "用户确认未安装，计划后续安装；本次未执行Postman请求",
+  "login": "本轮未登录；旧会话不复用；凭据未验证"
+}

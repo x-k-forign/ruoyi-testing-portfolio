@@ -52,3 +52,21 @@ desktop.ini
 !/functional_testing_period3/T3逐例执行计划与记录模板.xlsx
 !/functional_testing_period3/若依用户权限主线需求分析.xmind
 !/functional_testing_period3/若依主线测试用例_T3优化版.xlsx
+
+
+# Working backups and generation helpers stay local at every depth.
+**/backups/
+**/execution_build/
+*.inspect.ndjson
+*.lnk
+
+# T4 reviewed deliverables and sanitized execution evidence.
+/api_testing_period4/*
+!/api_testing_period4/docs/
+!/api_testing_period4/evidence_t4/
+!/api_testing_period4/postman/
+!/api_testing_period4/若依接口文档.md
+!/api_testing_period4/T4.6_104条断言说明.md
+!/api_testing_period4/T4接口用例执行记录.xlsx
+!/api_testing_period4/evidence_t4/**/*_cli.log
+!/functional_testing_period3/T4后续执行入口.md

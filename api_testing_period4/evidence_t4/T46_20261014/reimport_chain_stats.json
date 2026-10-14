@@ -1,0 +1,10 @@
+{
+  "requests": {
+    "total": 18,
+    "failed": 0
+  },
+  "assertions": {
+    "total": 0,
+    "failed": 0
+  }
+}

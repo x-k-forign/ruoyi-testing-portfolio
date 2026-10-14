@@ -1,0 +1,26 @@
+[
+  {
+    "time": "2026-10-14T03:25:47.866Z",
+    "request": "01 单一无效条件登录",
+    "caseId": "TC-L05-01",
+    "key": "wrongcaptcha_retry",
+    "http": 200,
+    "code": 500,
+    "msg": "验证码错误",
+    "data": null,
+    "user": null,
+    "tokenPresent": false
+  },
+  {
+    "time": "2026-10-14T03:25:47.944Z",
+    "request": "02 TC-L12-01 失败后无新身份",
+    "caseId": "TC-L05-01",
+    "key": "wrongcaptcha_retry",
+    "http": 200,
+    "code": 401,
+    "msg": "请求访问：/system/user/list，认证失败，无法访问系统资源",
+    "data": null,
+    "user": null,
+    "tokenPresent": false
+  }
+]

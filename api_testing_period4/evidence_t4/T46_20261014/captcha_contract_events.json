@@ -1,0 +1,16 @@
+[
+  {
+    "time": "2026-10-14T07:59:33.553Z",
+    "request": "00 获取验证码",
+    "http": 200,
+    "code": 200,
+    "msg": "操作成功",
+    "user": null,
+    "data": null,
+    "tokenPresent": false,
+    "captchaEnabled": true,
+    "imagePresent": true,
+    "uuidPresent": true,
+    "batch": ""
+  }
+]

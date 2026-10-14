@@ -1,0 +1,48 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+T4.6教学副本_故意错误断言
+
+Folder 03 断言有效性（只读）
+Sub-folder 01 无认证只读断言（恢复后的正确版本）
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 34 ms]
+  Pass  HTTP为200
+  1. 教学故意错误：业务code预期200
+  Pass  不泄漏用户身份
+  -
+  | 'T46_ASSERT {"http":200,"code":401,"userPresent":false
+  | }'
+  -
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  3 |                  1 |
+---------------------------------------------------------------------
+| total run duration: 172 ms                                        |
+---------------------------------------------------------------------
+| total data received: 86 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 34 ms [min: 34 ms, max: 34 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+  #  failure         detail                                                                 
+                                                                                            
+ 1.  AssertionError  教学故意错误：业务code预期200                                          
+                     expected 401 to equal 200                                              
+                     at assertion:1 in test-script                                          
+                     inside "03 断言有效性（只读） / 01 无认证只读断言（恢复后的正确版本）" 
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

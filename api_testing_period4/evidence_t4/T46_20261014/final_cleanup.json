@@ -1,0 +1,19 @@
+{
+  "original_users_checked_fields_unchanged": true,
+  "roles_unchanged": true,
+  "user_role_links_restored": true,
+  "user_post_links_restored": true,
+  "new_users": [
+    {
+      "user_id": 164,
+      "user_name": "t46_1014155757",
+      "nick_name": "T46接口业务链",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2"
+    }
+  ],
+  "new_user_active": false,
+  "normal_chain_admin_and_user_logout_and_old_token_401": true,
+  "invalid_import_session_compensated": true
+}

@@ -1,0 +1,475 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+若依 T4.4 正常业务链
+
+Folder 02 正常业务链
+Sub-folder 01 管理员登录
+
+  POST http://127.0.0.1:8080/login [200 OK, 590 B, 4.1 s]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:20.026Z","requ
+  | est":"01 管理员登录","http":200,"code":200,"msg":"操作成功","us
+  | er":null,"data":null,"tokenPresent":true,"imagePresent
+  | ":false,"uuidPresent":false,"batch":"t44_1014103013_a"
+  | }'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  返回本批管理员凭证
+
+Sub-folder 02 核验管理员身份
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.61 KB, 197 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:20.306Z","requ
+  | est":"02 核验管理员身份","http":200,"code":200,"msg":"操作成功","
+  | user":{"userId":1,"userName":"admin","deptId":103,"sta
+  | tus":"0","roleId":null},"data":null,"roles":["admin"],
+  | "permissions":["*:*:*"],"tokenPresent":false,"imagePre
+  | sent":false,"uuidPresent":false,"batch":"t44_101410301
+  | 3_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  操作者为admin 1
+
+Sub-folder 03 核验部门202
+
+  GET http://127.0.0.1:8080/system/dept/202 [200 OK, 668 B, 30 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:20.430Z","requ
+  | est":"03 核验部门202","http":200,"code":200,"msg":"操作成功","
+  | user":null,"data":{"deptId":202,"status":"0"},"tokenPr
+  | esent":false,"imagePresent":false,"uuidPresent":false,
+  | "batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  部门202正常存在
+
+Sub-folder 04 核验角色101
+
+  GET http://127.0.0.1:8080/system/role/101 [200 OK, 726 B, 15 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:20.539Z","requ
+  | est":"04 核验角色101","http":200,"code":200,"msg":"操作成功","
+  | user":null,"data":{"status":"0","roleId":101,"roleKey"
+  | :"t25_query_1009","dataScope":"3"},"tokenPresent":fals
+  | e,"imagePresent":false,"uuidPresent":false,"batch":"t4
+  | 4_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  角色101正常且为本部门范围
+
+Sub-folder 05 创建前确认账号不存在
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t44_1014103013_a [200 OK, 381 B, 144 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:20.775Z","requ
+  | est":"05 创建前确认账号不存在","http":200,"code":200,"msg":"查询成功
+  | ","total":0,"rows":[],"user":null,"data":null,"tokenPr
+  | esent":false,"imagePresent":false,"uuidPresent":false,
+  | "batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  本批唯一账号不存在
+
+Sub-folder 06 创建用户并关联部门角色
+
+  POST http://127.0.0.1:8080/system/user [200 OK, 375 B, 228 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:21.089Z","requ
+  | est":"06 创建用户并关联部门角色","http":200,"code":200,"msg":"操作成
+  | 功","user":null,"data":null,"tokenPresent":false,"image
+  | Present":false,"uuidPresent":false,"batch":"t44_101410
+  | 3013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+
+Sub-folder 07 查询并提取本批用户ID
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t44_1014103013_a [200 OK, 1.03 KB, 32 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:21.215Z","requ
+  | est":"07 查询并提取本批用户ID","http":200,"code":200,"msg":"查询成
+  | 功","total":1,"rows":[{"userId":151,"userName":"t44_101
+  | 4103013_a","deptId":202,"status":"0","roleId":null}],"
+  | user":null,"data":null,"tokenPresent":false,"imagePres
+  | ent":false,"uuidPresent":false,"batch":"t44_1014103013
+  | _a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  唯一匹配本批账号
+  Pass  ID为有效正整数
+
+Sub-folder 08 回查用户部门角色状态
+
+  GET http://127.0.0.1:8080/system/user/151 [200 OK, 5.95 KB, 40 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:21.343Z","requ
+  | est":"08 回查用户部门角色状态","http":200,"code":200,"msg":"操作成功
+  | ","user":null,"data":{"userId":151,"userName":"t44_101
+  | 4103013_a","deptId":202,"status":"0","roleId":null},"r
+  | oleIds":[101],"postIds":[],"tokenPresent":false,"image
+  | Present":false,"uuidPresent":false,"batch":"t44_101410
+  | 3013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  用户ID及账号正确
+  Pass  部门和状态正确
+  Pass  角色仅101且无岗位
+
+Sub-folder 09 管理员完整分页范围基准
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10 [200 OK, 7.15 KB, 36 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:21.471Z","requ
+  | est":"09 管理员完整分页范围基准","http":200,"code":200,"msg":"查询成
+  | 功","total":35,"rows":[{"userId":1,"userName":"admin","
+  | deptId":103,"status":"0","roleId":null},{"userId":2,"u
+  | serName":"ry","deptId":105,"status":"0","roleId":null}
+  | ,{"userId":100,"userName":"t24_user_1009","deptId":200
+  | ,"status":"0","roleId":null},{"userId":101,"userName":
+  | "t25_a_query","deptId":202,"status":"0","roleId":null}
+  | ,{"userId":103,"userName":"t25_a_add","deptId":202,"st
+  | atus":"0","roleId":null},{"userId":104,"userName":"t25
+  | _b_query","deptId":204,"status":"0","roleId":null},{"u
+  | serId":105,"userName":"t25_a_child","deptId":203,"stat
+  | us":"0","roleId":null},{"userId":108,"userName":"t25_a
+  | _created","deptId":202,"status":"0","roleId":null},{"u
+  | serId":109,"userName":"t25_log","deptId":201,"status":
+  | "0","roleId":null},{"userId":110,"userName":"t3_pwd5_1
+  | 010","deptId":202,"status":"0","roleId":null}],"user":
+  | null,"data":null,"tokenPresent":false,"imagePresent":f
+  | alse,"uuidPresent":false,"batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  分页结构有效
+  Pass  未到末页时仍有记录
+
+Attempting to set next request to 2e1c2049-7704-a641-504f-2611ae34ff9b
+
+Sub-folder 09 管理员完整分页范围基准
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=2&pageSize=10 [200 OK, 7.15 KB, 29 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:21.581Z","requ
+  | est":"09 管理员完整分页范围基准","http":200,"code":200,"msg":"查询成
+  | 功","total":35,"rows":[{"userId":111,"userName":"t31010
+  | 0001","deptId":202,"status":"0","roleId":null},{"userI
+  | d":112,"userName":"t3ai_p06_1010","deptId":202,"status
+  | ":"0","roleId":null},{"userId":113,"userName":"t3ai_p0
+  | 7_1010","deptId":202,"status":"0","roleId":null},{"use
+  | rId":114,"userName":"t3ai_p19_1010","deptId":202,"stat
+  | us":"0","roleId":null},{"userId":115,"userName":"t3ai_
+  | p20_1010","deptId":202,"status":"0","roleId":null},{"u
+  | serId":116,"userName":"t3ai_contact_1010","deptId":202
+  | ,"status":"0","roleId":null},{"userId":117,"userName":
+  | "a1","deptId":202,"status":"0","roleId":null},{"userId
+  | ":118,"userName":"a11","deptId":202,"status":"0","role
+  | Id":null},{"userId":119,"userName":"a11111111111111111
+  | 1","deptId":202,"status":"0","roleId":null},{"userId":
+  | 120,"userName":"a1111111111111111111","deptId":202,"st
+  | atus":"0","roleId":null}],"user":null,"data":null,"tok
+  | enPresent":false,"imagePresent":false,"uuidPresent":fa
+  | lse,"batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  分页结构有效
+  Pass  未到末页时仍有记录
+
+Attempting to set next request to 2e1c2049-7704-a641-504f-2611ae34ff9b
+
+Sub-folder 09 管理员完整分页范围基准
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=3&pageSize=10 [200 OK, 6.84 KB, 36 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:21.706Z","requ
+  | est":"09 管理员完整分页范围基准","http":200,"code":200,"msg":"查询成
+  | 功","total":35,"rows":[{"userId":121,"userName":"t3ai_l
+  | ock_1010","deptId":202,"status":"0","roleId":null},{"u
+  | serId":122,"userName":"t3ai_stop_1010","deptId":202,"s
+  | tatus":"0","roleId":null},{"userId":124,"userName":"t3
+  | ai_dept_1010","deptId":207,"status":"0","roleId":null}
+  | ,{"userId":125,"userName":"t3ai_maint_1010","deptId":2
+  | 02,"status":"0","roleId":null},{"userId":126,"userName
+  | ":"t3ai_nodept_1010","deptId":null,"status":"0","roleI
+  | d":null},{"userId":127,"userName":"t3ai_norole_1010","
+  | deptId":202,"status":"0","roleId":null},{"userId":128,
+  | "userName":"t3ai_pwd5_1010","deptId":202,"status":"0",
+  | "roleId":null},{"userId":129,"userName":"t34_c_1012","
+  | deptId":204,"status":"0","roleId":null},{"userId":130,
+  | "userName":"t34_scopeuser_1012","deptId":202,"status":
+  | "0","roleId":null},{"userId":131,"userName":"t34_multi
+  | _1012","deptId":202,"status":"0","roleId":null}],"user
+  | ":null,"data":null,"tokenPresent":false,"imagePresent"
+  | :false,"uuidPresent":false,"batch":"t44_1014103013_a"}
+  | '
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  分页结构有效
+  Pass  未到末页时仍有记录
+
+Attempting to set next request to 2e1c2049-7704-a641-504f-2611ae34ff9b
+
+Sub-folder 09 管理员完整分页范围基准
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=4&pageSize=10 [200 OK, 3.72 KB, 25 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:21.817Z","requ
+  | est":"09 管理员完整分页范围基准","http":200,"code":200,"msg":"查询成
+  | 功","total":35,"rows":[{"userId":134,"userName":"t35_ch
+  | ange_1012","deptId":202,"status":"0","roleId":null},{"
+  | userId":139,"userName":"t36_log_1012","deptId":201,"st
+  | atus":"0","roleId":null},{"userId":145,"userName":"t38
+  | _reg_1012","deptId":202,"status":"0","roleId":null},{"
+  | userId":146,"userName":"t38_chain_1012","deptId":202,"
+  | status":"0","roleId":null},{"userId":151,"userName":"t
+  | 44_1014103013_a","deptId":202,"status":"0","roleId":nu
+  | ll}],"user":null,"data":null,"tokenPresent":false,"ima
+  | gePresent":false,"uuidPresent":false,"batch":"t44_1014
+  | 103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  分页结构有效
+  Pass  基准包含本轮新用户
+  Pass  基准ID无重复
+
+Sub-folder 10 本批新用户登录
+
+  POST http://127.0.0.1:8080/login [200 OK, 605 B, 180 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.070Z","requ
+  | est":"10 本批新用户登录","http":200,"code":200,"msg":"操作成功","
+  | user":null,"data":null,"tokenPresent":true,"imagePrese
+  | nt":false,"uuidPresent":false,"batch":"t44_1014103013_
+  | a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  返回新用户凭证
+
+Sub-folder 11 核验新用户身份权限
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.66 KB, 29 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.180Z","requ
+  | est":"11 核验新用户身份权限","http":200,"code":200,"msg":"操作成功"
+  | ,"user":{"userId":151,"userName":"t44_1014103013_a","d
+  | eptId":202,"status":"0","roleId":null},"data":null,"ro
+  | les":["t25_query_1009"],"permissions":["system:user:li
+  | st","system:user:query"],"tokenPresent":false,"imagePr
+  | esent":false,"uuidPresent":false,"batch":"t44_10141030
+  | 13_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  身份为本批用户
+  Pass  部门为202
+  Pass  仅查询角色
+  Pass  查询权限且无新增权限
+
+Sub-folder 12 新用户完整分页获准访问
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10 [200 OK, 7.15 KB, 34 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.293Z","requ
+  | est":"12 新用户完整分页获准访问","http":200,"code":200,"msg":"查询成
+  | 功","total":25,"rows":[{"userId":101,"userName":"t25_a_
+  | query","deptId":202,"status":"0","roleId":null},{"user
+  | Id":103,"userName":"t25_a_add","deptId":202,"status":"
+  | 0","roleId":null},{"userId":108,"userName":"t25_a_crea
+  | ted","deptId":202,"status":"0","roleId":null},{"userId
+  | ":110,"userName":"t3_pwd5_1010","deptId":202,"status":
+  | "0","roleId":null},{"userId":111,"userName":"t31010000
+  | 1","deptId":202,"status":"0","roleId":null},{"userId":
+  | 112,"userName":"t3ai_p06_1010","deptId":202,"status":"
+  | 0","roleId":null},{"userId":113,"userName":"t3ai_p07_1
+  | 010","deptId":202,"status":"0","roleId":null},{"userId
+  | ":114,"userName":"t3ai_p19_1010","deptId":202,"status"
+  | :"0","roleId":null},{"userId":115,"userName":"t3ai_p20
+  | _1010","deptId":202,"status":"0","roleId":null},{"user
+  | Id":116,"userName":"t3ai_contact_1010","deptId":202,"s
+  | tatus":"0","roleId":null}],"user":null,"data":null,"to
+  | kenPresent":false,"imagePresent":false,"uuidPresent":f
+  | alse,"batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  分页结构有效
+  Pass  本页记录均属于部门202
+  Pass  未到末页时仍有记录
+
+Attempting to set next request to f184dabf-a180-fbe5-969c-3c5d697e02da
+
+Sub-folder 12 新用户完整分页获准访问
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=2&pageSize=10 [200 OK, 7.14 KB, 25 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.385Z","requ
+  | est":"12 新用户完整分页获准访问","http":200,"code":200,"msg":"查询成
+  | 功","total":25,"rows":[{"userId":117,"userName":"a1","d
+  | eptId":202,"status":"0","roleId":null},{"userId":118,"
+  | userName":"a11","deptId":202,"status":"0","roleId":nul
+  | l},{"userId":119,"userName":"a111111111111111111","dep
+  | tId":202,"status":"0","roleId":null},{"userId":120,"us
+  | erName":"a1111111111111111111","deptId":202,"status":"
+  | 0","roleId":null},{"userId":121,"userName":"t3ai_lock_
+  | 1010","deptId":202,"status":"0","roleId":null},{"userI
+  | d":122,"userName":"t3ai_stop_1010","deptId":202,"statu
+  | s":"0","roleId":null},{"userId":125,"userName":"t3ai_m
+  | aint_1010","deptId":202,"status":"0","roleId":null},{"
+  | userId":127,"userName":"t3ai_norole_1010","deptId":202
+  | ,"status":"0","roleId":null},{"userId":128,"userName":
+  | "t3ai_pwd5_1010","deptId":202,"status":"0","roleId":nu
+  | ll},{"userId":130,"userName":"t34_scopeuser_1012","dep
+  | tId":202,"status":"0","roleId":null}],"user":null,"dat
+  | a":null,"tokenPresent":false,"imagePresent":false,"uui
+  | dPresent":false,"batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  分页结构有效
+  Pass  本页记录均属于部门202
+  Pass  未到末页时仍有记录
+
+Attempting to set next request to f184dabf-a180-fbe5-969c-3c5d697e02da
+
+Sub-folder 12 新用户完整分页获准访问
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=3&pageSize=10 [200 OK, 3.74 KB, 24 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.495Z","requ
+  | est":"12 新用户完整分页获准访问","http":200,"code":200,"msg":"查询成
+  | 功","total":25,"rows":[{"userId":131,"userName":"t34_mu
+  | lti_1012","deptId":202,"status":"0","roleId":null},{"u
+  | serId":134,"userName":"t35_change_1012","deptId":202,"
+  | status":"0","roleId":null},{"userId":145,"userName":"t
+  | 38_reg_1012","deptId":202,"status":"0","roleId":null},
+  | {"userId":146,"userName":"t38_chain_1012","deptId":202
+  | ,"status":"0","roleId":null},{"userId":151,"userName":
+  | "t44_1014103013_a","deptId":202,"status":"0","roleId":
+  | null}],"user":null,"data":null,"tokenPresent":false,"i
+  | magePresent":false,"uuidPresent":false,"batch":"t44_10
+  | 14103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  分页结构有效
+  Pass  本页记录均属于部门202
+  Pass  完整ID集合等于管理员本部门基准
+  Pass  总数及分页无重复
+
+Sub-folder 13 退出新用户会话
+
+  POST http://127.0.0.1:8080/logout [200 OK, 375 B, 13 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.596Z","requ
+  | est":"13 退出新用户会话","http":200,"code":200,"msg":"退出成功","
+  | user":null,"data":null,"tokenPresent":false,"imagePres
+  | ent":false,"uuidPresent":false,"batch":"t44_1014103013
+  | _a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+
+Sub-folder 14 回查新用户旧凭证失效
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 9 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.690Z","requ
+  | est":"14 回查新用户旧凭证失效","http":200,"code":401,"msg":"请求访问
+  | ：/getInfo，认证失败，无法访问系统资源","user":null,"data":null,"toke
+  | nPresent":false,"imagePresent":false,"uuidPresent":fal
+  | se,"batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  旧新用户凭证被拒绝
+
+Sub-folder 15 清理本批新用户
+
+  DELETE http://127.0.0.1:8080/system/user/151 [200 OK, 361 B, 24 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.796Z","requ
+  | est":"15 清理本批新用户","http":200,"code":200,"msg":"操作成功","
+  | user":null,"data":null,"tokenPresent":false,"imagePres
+  | ent":false,"uuidPresent":false,"batch":"t44_1014103013
+  | _a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+
+Sub-folder 16 管理员回查账号已不可见
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t44_1014103013_a [200 OK, 381 B, 19 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.906Z","requ
+  | est":"16 管理员回查账号已不可见","http":200,"code":200,"msg":"查询成
+  | 功","total":0,"rows":[],"user":null,"data":null,"tokenP
+  | resent":false,"imagePresent":false,"uuidPresent":false
+  | ,"batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  本批用户已从有效列表移除
+
+Sub-folder 17 退出管理员会话
+
+  POST http://127.0.0.1:8080/logout [200 OK, 375 B, 6 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:22.984Z","requ
+  | est":"17 退出管理员会话","http":200,"code":200,"msg":"退出成功","
+  | user":null,"data":null,"tokenPresent":false,"imagePres
+  | ent":false,"uuidPresent":false,"batch":"t44_1014103013
+  | _a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+
+Sub-folder 18 回查管理员旧凭证并清变量
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 11 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:30:23.082Z","requ
+  | est":"18 回查管理员旧凭证并清变量","http":200,"code":401,"msg":"请求
+  | 访问：/getInfo，认证失败，无法访问系统资源","user":null,"data":null,"to
+  | kenPresent":false,"imagePresent":false,"uuidPresent":f
+  | alse,"batch":"t44_1014103013_a"}'
+  -
+  Pass  HTTP状态为200
+  Pass  旧管理员凭证被拒绝
+
+-----------------------------------------------------------------------
+|                         |            executed |              failed |
+--------------------------+---------------------+----------------------
+|              iterations |                   1 |                   0 |
+--------------------------+---------------------+----------------------
+|                requests |                  23 |                   0 |
+--------------------------+---------------------+----------------------
+|            test-scripts |                  23 |                   0 |
+--------------------------+---------------------+----------------------
+|      prerequest-scripts |                  23 |                   0 |
+--------------------------+---------------------+----------------------
+|              assertions |                  81 |                   0 |
+-----------------------------------------------------------------------
+| total run duration: 7.2 s                                           |
+-----------------------------------------------------------------------
+| total data received: 51.21 KB (approx)                              |
+-----------------------------------------------------------------------
+| average response time: 230 ms [min: 6 ms, max: 4.1 s, s.d.: 828 ms] |
+-----------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

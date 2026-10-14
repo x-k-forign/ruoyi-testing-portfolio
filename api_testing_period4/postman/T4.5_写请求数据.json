@@ -1,0 +1,182 @@
+[
+  {
+    "key": "ctrl_a",
+    "caseId": "TC-C01-01",
+    "title": "创建成功：合法资料和关联保存一致",
+    "actor": "admin",
+    "variant": "normal",
+    "expected": "accept",
+    "expectedCode": 200,
+    "caseNameSuffix": "c01"
+  },
+  {
+    "key": "ctrl_m",
+    "caseId": "TC-C01-01",
+    "title": "创建成功：合法资料和关联保存一致",
+    "actor": "maint",
+    "variant": "normal",
+    "expected": "accept",
+    "expectedCode": 200,
+    "caseNameSuffix": "c02"
+  },
+  {
+    "key": "noadd",
+    "caseId": "TC-C05-01",
+    "title": "新增拒绝：甲没有新增权限",
+    "actor": "qa",
+    "variant": "normal",
+    "expected": "reject",
+    "expectedCode": 403,
+    "caseNameSuffix": "c03"
+  },
+  {
+    "key": "deptout",
+    "caseId": "TC-C06-01",
+    "title": "创建拒绝：部门编号范围外",
+    "actor": "maint",
+    "variant": "deptOutside",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c04"
+  },
+  {
+    "key": "roleout",
+    "caseId": "TC-C06-02",
+    "title": "创建拒绝：角色编号范围外",
+    "actor": "maint",
+    "variant": "roleOutside",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c05"
+  },
+  {
+    "key": "deptnone",
+    "caseId": "TC-C07-03",
+    "title": "创建拒绝：部门编号不存在",
+    "actor": "maint",
+    "variant": "deptMissing",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c06"
+  },
+  {
+    "key": "rolenone",
+    "caseId": "TC-C07-04",
+    "title": "创建拒绝：角色编号不存在",
+    "actor": "maint",
+    "variant": "roleMissing",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c07"
+  },
+  {
+    "key": "empty",
+    "caseId": "TC-C02-01",
+    "title": "创建拒绝：登录名为空",
+    "actor": "maint",
+    "variant": "empty",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c08"
+  },
+  {
+    "key": "missing",
+    "caseId": "TC-C02-01",
+    "title": "创建拒绝：登录名为空",
+    "actor": "maint",
+    "variant": "missing",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c09"
+  },
+  {
+    "key": "null",
+    "caseId": "TC-C02-01",
+    "title": "创建拒绝：登录名为空",
+    "actor": "maint",
+    "variant": "null",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c10"
+  },
+  {
+    "key": "space",
+    "caseId": "TC-C02-02",
+    "title": "创建拒绝：登录名全为空格",
+    "actor": "maint",
+    "variant": "space",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c11"
+  },
+  {
+    "key": "dup",
+    "caseId": "TC-C03-01",
+    "title": "创建拒绝：登录名重复",
+    "actor": "maint",
+    "variant": "duplicate",
+    "expected": "reject",
+    "expectedCode": 500,
+    "caseNameSuffix": "c12"
+  },
+  {
+    "key": "pwd5",
+    "caseId": "TC-C09-01",
+    "title": "创建密码5位：长度校验拒绝",
+    "actor": "maint",
+    "variant": "pwd5",
+    "expected": "reject",
+    "expectedCode": null,
+    "caseNameSuffix": "c13"
+  },
+  {
+    "key": "pwd6",
+    "caseId": "TC-C09-02",
+    "title": "创建密码6位：长度校验允许",
+    "actor": "maint",
+    "variant": "pwd6",
+    "expected": "accept",
+    "expectedCode": 200,
+    "caseNameSuffix": "c14"
+  },
+  {
+    "key": "pwd20",
+    "caseId": "TC-C09-05",
+    "title": "创建密码20位：长度校验允许",
+    "actor": "maint",
+    "variant": "pwd20",
+    "expected": "accept",
+    "expectedCode": 200,
+    "caseNameSuffix": "c15"
+  },
+  {
+    "key": "pwd21",
+    "caseId": "TC-C09-06",
+    "title": "创建密码21位：长度校验拒绝",
+    "actor": "maint",
+    "variant": "pwd21",
+    "expected": "reject",
+    "expectedCode": null,
+    "caseNameSuffix": "c16"
+  },
+  {
+    "key": "dtyp",
+    "caseId": "TC-T4-P01",
+    "title": "创建拒绝：部门编号类型错误",
+    "actor": "maint",
+    "variant": "deptType",
+    "expected": "reject",
+    "expectedCode": null,
+    "caseNameSuffix": "c17"
+  },
+  {
+    "key": "rtyp",
+    "caseId": "TC-T4-P02",
+    "title": "创建拒绝：角色编号数组元素类型错误",
+    "actor": "maint",
+    "variant": "roleType",
+    "expected": "reject",
+    "expectedCode": null,
+    "caseNameSuffix": "c18"
+  }
+]

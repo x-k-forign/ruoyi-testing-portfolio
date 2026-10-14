@@ -1,0 +1,107 @@
+[
+  {
+    "path": "T4.4阶段/02 正常业务链/01 管理员登录",
+    "blocked": true,
+    "message": "请填写当前环境变量：t44AdminPassword"
+  },
+  {
+    "path": "T4.4阶段/02 正常业务链/06 创建用户并关联部门角色",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.4阶段/02 正常业务链/10 本批新用户登录",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.4阶段/02 正常业务链/13 退出新用户会话",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.4阶段/02 正常业务链/15 清理本批新用户",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.4阶段/02 正常业务链/17 退出管理员会话",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.5阶段/01 参数与新增权限/02 单一条件新增请求",
+    "blocked": true,
+    "message": "前置快照不完整，不执行写操作"
+  },
+  {
+    "path": "T4.5阶段/01 参数与新增权限/04 清理本例临时新增",
+    "blocked": true,
+    "message": "请填写当前环境变量：t45AdminToken"
+  },
+  {
+    "path": "T4.5阶段/02 认证与数据范围/14 退出甲专用会话A",
+    "blocked": true,
+    "message": "请填写当前环境变量：t45QaToken"
+  },
+  {
+    "path": "T4.5阶段/03 登录异常/01 单一无效条件登录",
+    "blocked": true,
+    "message": "请填写当前环境变量：t45QaName"
+  },
+  {
+    "path": "T4.6阶段/02 正常业务链（整组运行）/01 管理员登录",
+    "blocked": true,
+    "message": "请填写当前环境变量：t46AdminPassword"
+  },
+  {
+    "path": "T4.6阶段/02 正常业务链（整组运行）/06 创建用户并关联部门角色",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.6阶段/02 正常业务链（整组运行）/10 本批新用户登录",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.6阶段/02 正常业务链（整组运行）/13 退出新用户会话",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.6阶段/02 正常业务链（整组运行）/15 清理本批新用户",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "T4.6阶段/02 正常业务链（整组运行）/17 退出管理员会话",
+    "blocked": true,
+    "message": "前置步骤未通过，请从本批起点运行"
+  },
+  {
+    "path": "管理员登录",
+    "blocked": true,
+    "message": "登录Body缺少或未解析：username"
+  },
+  {
+    "path": "普通用户登录",
+    "blocked": true,
+    "message": "请填写当前环境变量：userToken"
+  },
+  {
+    "path": "退出普通用户账号",
+    "blocked": true,
+    "message": "请填写当前环境变量：userToken"
+  },
+  {
+    "path": "退出管理员账号",
+    "blocked": true,
+    "message": "请填写当前环境变量：adminToken"
+  },
+  {
+    "path": "清除普通账号",
+    "blocked": true,
+    "message": "请填写当前环境变量：adminToken"
+  }
+]

@@ -1,0 +1,56 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+若依T4.5异常与权限
+
+Folder 03 登录异常
+Sub-folder 01 单一无效条件登录
+
+  POST http://127.0.0.1:8080/login [200 OK, 367 B, 55 ms]
+  -
+  | 'T45_EVT {"time":"2026-10-14T03:24:37.594Z","request":
+  | "01 单一无效条件登录","caseId":"TC-L05-01","key":"wrongcaptcha
+  | ","http":200,"code":500,"msg":"验证码已失效","data":null,"us
+  | er":null,"tokenPresent":false}'
+  -
+  Pass  HTTP返回200
+  Pass  异常登录业务500且无新token
+  1. 失败原因未被其他前置掩盖
+  2⠄ AssertionFailure in test-script
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  1 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  3 |                  1 |
+---------------------------------------------------------------------
+| total run duration: 154 ms                                        |
+---------------------------------------------------------------------
+| total data received: 39 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 55 ms [min: 55 ms, max: 55 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+  #  failure           detail                                     
+                                                                  
+ 1.  AssertionError    失败原因未被其他前置掩盖                   
+                       expected false to equal true               
+                       at assertion:2 in test-script              
+                       inside "03 登录异常 / 01 单一无效条件登录" 
+                                                                  
+ 2.  AssertionFailure                                             
+                       失败原因未被其他前置掩盖                   
+                       at test-script                             
+                       inside "03 登录异常 / 01 单一无效条件登录" 
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

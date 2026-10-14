@@ -1,0 +1,44 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+T4.6 重新导入验证（脱敏副本）
+
+Folder 01 验证码准备
+Sub-folder 00 获取验证码
+
+  GET http://127.0.0.1:8080/captchaImage [200 OK, 4.09 KB, 34 ms]
+  -
+  | 'T46_EVIDENCE {"time":"2026-10-14T07:59:33.553Z","requ
+  | est":"00 获取验证码","http":200,"code":200,"msg":"操作成功","us
+  | er":null,"data":null,"tokenPresent":false,"captchaEnab
+  | led":true,"imagePresent":true,"uuidPresent":true,"batc
+  | h":""}'
+  -
+  Pass  HTTP状态为200
+  Pass  业务code为200
+  Pass  验证码开启并返回图片及uuid
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  3 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 132 ms                                        |
+---------------------------------------------------------------------
+| total data received: 3.76 KB (approx)                             |
+---------------------------------------------------------------------
+| average response time: 34 ms [min: 34 ms, max: 34 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

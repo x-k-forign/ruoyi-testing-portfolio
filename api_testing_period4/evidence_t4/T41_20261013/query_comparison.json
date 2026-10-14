@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-13",
+  "timezone": "Asia/Shanghai",
+  "provenance": "根据用户本聊天提交的浏览器/Postman截图和响应文本整理；字段节选，不是工具导出的完整原始响应；未重新发请求",
+  "responsible": "x-k-forign（项目测试负责人）",
+  "execution": "用户实际操作；AI指导、自动化辅助执行（文件整理与核验）",
+  "method": "GET",
+  "query": {
+    "pageNum": "1",
+    "pageSize": "10",
+    "userName": "t25_a_query"
+  },
+  "browser": {
+    "url": "http://127.0.0.1:5173/dev-api/system/user/list?pageNum=1&pageSize=10&userName=t25_a_query",
+    "http_status": 200,
+    "http_status_source": "用户文字记录；归档响应截图未展示General状态区",
+    "response_date": "2026-10-13T17:21:50+08:00",
+    "response_date_source": "未归档含密请求头截图的Date字段09:21:50 GMT；仅转录时间"
+  },
+  "postman": {
+    "url": "http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t25_a_query",
+    "http_status": 200,
+    "response_time_ms": 93,
+    "time_source": "截图桌面时钟17:33，非精确发送时间",
+    "version": "9.12.2"
+  },
+  "matched_response_fields": {
+    "code": 200,
+    "msg": "查询成功",
+    "total": 1,
+    "userId": 101,
+    "userName": "t25_a_query",
+    "deptId": 202,
+    "deptName": "T25部门A1009",
+    "status": "0"
+  },
+  "identity": {
+    "source": "用户随后以同一查询token调用GET /getInfo提交的响应文本节选；没有独立原始文件或HTTP状态截图",
+    "code": 200,
+    "userId": 1,
+    "userName": "admin",
+    "deptId": 103,
+    "roles": [
+      "admin"
+    ],
+    "permissions": [
+      "*:*:*"
+    ],
+    "roleId": 1,
+    "dataScope": "1"
+  },
+  "authentication": "Authorization: Bearer <REDACTED>；用户按指导从浏览器查询请求复制凭证至Postman，不保存值",
+  "body": "本GET按操作指导设置none；提交截图未展开Body，未独立导出请求核查",
+  "result": "通过：当前管理员身份下同条件查询的关键字段一致；不代表普通用户权限隔离通过",
+  "session_cleanup": "未取得本次会话退出证据，不声称已注销；本次未创建独立临时账号、角色或部门",
+  "evidence_files": [
+    {
+      "file": "browser_response.png",
+      "source": "用户在本聊天提交的截图；原图复制，未编辑",
+      "sha256": "f3801250b005d65564411234418d40b7b391a3e4aa7f169e53c818e6ee4166cf"
+    },
+    {
+      "file": "postman_query.png",
+      "source": "用户在本聊天提交的截图；原图复制，未编辑",
+      "sha256": "9f97c7a2891a22bf13ac295058f3415cb2e346ce5c5a85f9182b3981f246569f"
+    }
+  ]
+}

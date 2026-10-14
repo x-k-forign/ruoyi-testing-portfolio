@@ -1,0 +1,24 @@
+{
+  "workbook_opened_by_parser": true,
+  "title_and_id_matches": 12,
+  "native_links_verified": 64,
+  "formula_errors": [],
+  "index_counts": {
+    "失败": 0,
+    "阻塞": 0,
+    "待观察": 0,
+    "通过": 3,
+    "未执行": 9
+  },
+  "table_filters": {
+    "执行索引": [
+      "T4ExecutionIndex"
+    ],
+    "用例详情": [],
+    "批次记录": [
+      "T44Batches"
+    ]
+  },
+  "T3_workbook_changed": false,
+  "note": "Spreadsheet engine不支持HYPERLINK计算，已用原生超链接补齐；未声称Excel桌面逐项点击验证。"
+}

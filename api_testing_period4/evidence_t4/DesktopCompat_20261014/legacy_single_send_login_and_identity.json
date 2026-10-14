@@ -1,0 +1,55 @@
+{
+  "requests": [
+    {
+      "name": "01 管理员登录",
+      "method": "POST",
+      "url": "http://127.0.0.1:56660/login",
+      "http": 200
+    },
+    {
+      "name": "02 核验管理员身份",
+      "method": "GET",
+      "url": "http://127.0.0.1:56660/getInfo",
+      "http": 200
+    }
+  ],
+  "assertions": [
+    {
+      "name": "HTTP状态为200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "返回本批管理员凭证",
+      "passed": true
+    },
+    {
+      "name": "业务code为整数且msg为字符串",
+      "passed": true
+    },
+    {
+      "name": "HTTP状态为200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "操作者为admin 1",
+      "passed": true
+    },
+    {
+      "name": "业务code为整数且msg为字符串",
+      "passed": true
+    }
+  ],
+  "scriptErrors": [],
+  "events": [
+    "T46_EVIDENCE {\"time\":\"2026-10-14T09:01:41.153Z\",\"request\":\"01 管理员登录\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"user\":null,\"data\":null,\"tokenPresent\":true,\"imagePresent\":false,\"uuidPresent\":false}",
+    "T46_EVIDENCE {\"time\":\"2026-10-14T09:01:41.297Z\",\"request\":\"02 核验管理员身份\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"user\":{\"userId\":1,\"userName\":\"admin\",\"deptId\":103,\"status\":\"0\",\"roleId\":null},\"data\":null,\"roles\":[\"admin\"],\"permissions\":[\"*:*:*\"],\"tokenPresent\":false,\"imagePresent\":false,\"uuidPresent\":false}"
+  ]
+}

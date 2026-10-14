@@ -1,0 +1,7 @@
+{
+  "batch": "t44_1014103013_a",
+  "exit_code": 0,
+  "source": "执行包装进程当时返回的CLI退出码；非本次重新运行",
+  "runtime": "Postman CLI 1.73.0",
+  "report_events": false
+}

@@ -1,0 +1,1103 @@
+{
+  "info": {
+    "name": "若依T4.5异常与权限",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "本机真实测试。01组使用T4.5_写请求数据.json驱动，每个变体独立运行并回查清理。02组使用独立会话A/B。凭据仅本地环境，运行不上传事件。"
+  },
+  "item": [
+    {
+      "name": "01 参数与新增权限",
+      "item": [
+        {
+          "name": "01 管理员变更前快照",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}",
+                  "",
+                  "pm.variables.set(\"t45MutationAllowed\",false);pm.variables.unset(\"t45CleanupId\");",
+                  "pm.variables.set(\"t45Name\",pm.environment.get(\"t45Prefix\")+\"_\"+pm.iterationData.get(\"caseNameSuffix\"));",
+                  "pm.variables.set(\"t45Marker\",\"T45_\"+pm.iterationData.get(\"key\"));"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "",
+                  "const valid=b.code===200&&Array.isArray(b.rows)&&b.rows.length===b.total;",
+                  "ck(\"当前基准完整且未超过单页\",valid);",
+                  "if(valid){const snap=b.rows.map(pick).sort((a,b)=>a.userId-b.userId);pm.variables.set(\"t45Before\",JSON.stringify(snap));pm.variables.set(\"t45MutationAllowed\",true);}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=1000",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "02 单一条件新增请求",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}",
+                  "",
+                  "if(pm.variables.get(\"t45MutationAllowed\")!==true){pm.execution.skipRequest();throw Error(\"前置快照不完整，不执行写操作\");}",
+                  "const actor=pm.iterationData.get(\"actor\");const key={admin:\"t45AdminToken\",maint:\"t45MaintToken\",qa:\"t45QaToken\"}[actor];",
+                  "if(!key||!pm.environment.get(key)){pm.execution.skipRequest();throw Error(\"缺少本例身份凭证\");}",
+                  "pm.variables.set(\"t45ActorToken\",pm.environment.get(key));",
+                  "const p={userName:pm.variables.get(\"t45Name\"),nickName:pm.variables.get(\"t45Marker\"),password:pm.environment.get(\"t45Pwd10\"),deptId:202,roleIds:[101],postIds:[],status:\"0\",sex:\"2\"};",
+                  "const v=pm.iterationData.get(\"variant\");",
+                  "if(v===\"deptOutside\")p.deptId=204;if(v===\"roleOutside\")p.roleIds=[103];",
+                  "if(v===\"deptMissing\")p.deptId=2147483000;if(v===\"roleMissing\")p.roleIds=[2147483001];",
+                  "if(v===\"empty\")p.userName=\"\";if(v===\"missing\")delete p.userName;if(v===\"null\")p.userName=null;if(v===\"space\")p.userName=\"   \";",
+                  "if(v===\"duplicate\")p.userName=pm.environment.get(\"t45DupName\");",
+                  "if(v.startsWith(\"pwd\"))p.password=pm.environment.get(\"t45Pwd\"+v.slice(3));",
+                  "if(v===\"deptType\")p.deptId=\"not-a-number\";if(v===\"roleType\")p.roleIds=[\"not-a-number\"];",
+                  "pm.variables.set(\"t45Payload\",JSON.stringify(p));"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "",
+                  "const reject=pm.iterationData.get(\"expected\")===\"reject\";",
+                  "ck(reject?\"按项目规则拒绝本次输入或身份\":\"合法对照新增成功\",reject?b.code!==200&&b.code!=null:b.code===200);",
+                  "const code=pm.iterationData.get(\"expectedCode\");if(code!==null&&code!==undefined)ck(\"业务码符合已核实处理分支\",b.code===code);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/system/user",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45ActorToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{t45Payload}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "03 管理员写后核验",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "",
+                  "const valid=b.code===200&&Array.isArray(b.rows)&&b.rows.length===b.total;ck(\"写后基准完整\",valid);",
+                  "if(valid){const before=JSON.parse(pm.variables.get(\"t45Before\")||\"[]\");const ids=before.map(u=>u.userId);const added=b.rows.filter(u=>!ids.includes(u.userId));const current=b.rows.filter(u=>ids.includes(u.userId)).map(pick).sort((a,b)=>a.userId-b.userId);",
+                  "ck(\"已有用户基础字段未被改动\",JSON.stringify(current)===JSON.stringify(before));",
+                  "if(pm.iterationData.get(\"expected\")===\"reject\"){ck(\"拒绝请求没有新增用户\",added.length===0);}",
+                  "else{ck(\"新增仅一条且字段正确\",added.length===1&&added[0].userName===pm.variables.get(\"t45Name\")&&added[0].deptId===202&&added[0].status===\"0\");}",
+                  "const safe=added.filter(u=>u.nickName===pm.variables.get(\"t45Marker\")&&u.userName===pm.variables.get(\"t45Name\"));",
+                  "if(safe.length===1&&added.length===1)pm.variables.set(\"t45CleanupId\",safe[0].userId);",
+                  "console.log(\"T45_DELTA \"+JSON.stringify({key:pm.iterationData.get(\"key\"),added:added.map(pick),originalUnchanged:JSON.stringify(current)===JSON.stringify(before)}));}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=1000",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "04 清理本例临时新增",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}",
+                  "if(!Number.isSafeInteger(Number(pm.variables.get(\"t45CleanupId\")))||Number(pm.variables.get(\"t45CleanupId\"))<=1)pm.execution.skipRequest();"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/system/user/{{t45CleanupId}}",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "05 清理后恢复核验",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "",
+                  "ck(\"清理后有效用户集合恢复\",Array.isArray(b.rows)&&b.rows.length===b.total&&JSON.stringify(b.rows.map(pick).sort((a,b)=>a.userId-b.userId))===pm.variables.get(\"t45Before\"));",
+                  "[\"t45Payload\",\"t45ActorToken\",\"t45CleanupId\",\"t45Before\",\"t45MutationAllowed\",\"t45Name\",\"t45Marker\"].forEach(k=>pm.variables.unset(k));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=1000",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 认证与数据范围",
+      "item": [
+        {
+          "name": "01 管理员身份",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"身份编号与部门正确\",b.user&&b.user.userId===1&&b.user.deptId===103);ck(\"操作权限正确\",Array.isArray(b.permissions)&&JSON.stringify(b.permissions.slice().sort())===\"[\\\"*:*:*\\\"]\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/getInfo",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "02 普通甲身份",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"身份编号与部门正确\",b.user&&b.user.userId===Number(pm.environment.get(\"t45QaId\"))&&b.user.deptId===202);ck(\"操作权限正确\",Array.isArray(b.permissions)&&JSON.stringify(b.permissions.slice().sort())===\"[\\\"system:user:list\\\",\\\"system:user:query\\\"]\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/getInfo",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "03 有限新增身份",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"身份编号与部门正确\",b.user&&b.user.userId===Number(pm.environment.get(\"t45MaintId\"))&&b.user.deptId===202);ck(\"操作权限正确\",Array.isArray(b.permissions)&&JSON.stringify(b.permissions.slice().sort())===\"[\\\"system:user:add\\\",\\\"system:user:list\\\",\\\"system:user:query\\\"]\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/getInfo",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45MaintToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "04 部门B身份",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"身份编号与部门正确\",b.user&&b.user.userId===Number(pm.environment.get(\"t45QbId\"))&&b.user.deptId===204);ck(\"操作权限正确\",Array.isArray(b.permissions)&&JSON.stringify(b.permissions.slice().sort())===\"[\\\"system:user:list\\\",\\\"system:user:query\\\"]\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/getInfo",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QbToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "05 TC-A04-01 普通甲查询原目标101",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"目标101账号部门角色正确\",b.data&&b.data.userId===101&&b.data.userName===\"t25_a_query\"&&b.data.deptId===202&&JSON.stringify(b.roleIds)===\"[101]\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/101",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "06 管理员确认跨部门目标104",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"目标104存在且属于204\",b.data&&b.data.userId===104&&b.data.deptId===204);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/104",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "07 TC-A10-02 甲查询范围外账号",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"范围外账号无泄露\",b.total===0&&Array.isArray(b.rows)&&b.rows.length===0);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName=t25_b_query",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "08 部门B同条件获准对照",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"同部门可查104\",b.total===1&&b.rows.length===1&&b.rows[0].userId===104);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userName=t25_b_query",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QbToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "09 管理员完整数据基准",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "",
+                  "const good=Array.isArray(b.rows)&&b.total===b.rows.length;ck(\"基准完整\",good);if(good){[202,204].forEach(d=>pm.variables.set(\"t45S\"+d,JSON.stringify(b.rows.filter(u=>u.deptId===d).map(u=>u.userId).sort((a,b)=>a-b))));}pm.variables.set(\"t45Page\",1);pm.variables.set(\"t45Ids\",\"[]\");"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=1000",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45AdminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "10 TC-A05-01 甲完整分页",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "",
+                  "ck(\"本页所有记录在目标部门\",Array.isArray(b.rows)&&b.rows.every(u=>u.deptId===202));",
+                  "if(Array.isArray(b.rows)){let ids=JSON.parse(pm.variables.get(\"t45Ids\")||\"[]\");ids.push(...b.rows.map(u=>u.userId));pm.variables.set(\"t45Ids\",JSON.stringify(ids));const page=Number(pm.variables.get(\"t45Page\"));",
+                  "if(page*10<b.total&&b.rows.length>0){pm.variables.set(\"t45Page\",page+1);if(pm.execution&&pm.execution.setNextRequest)pm.execution.setNextRequest(pm.info.requestId);else postman.setNextRequest(pm.info.requestId);}",
+                  "else{ck(\"完整ID集合与管理员当批基准一致\",JSON.stringify(ids.slice().sort((a,b)=>a-b))===pm.variables.get(\"t45S202\")&&ids.length===b.total&&new Set(ids).size===ids.length);pm.variables.set(\"t45Page\",1);pm.variables.set(\"t45Ids\",\"[]\");}}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum={{t45Page}}&pageSize=10",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "11 TC-A05-02 部门B完整分页",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "",
+                  "ck(\"本页所有记录在目标部门\",Array.isArray(b.rows)&&b.rows.every(u=>u.deptId===204));",
+                  "if(Array.isArray(b.rows)){let ids=JSON.parse(pm.variables.get(\"t45Ids\")||\"[]\");ids.push(...b.rows.map(u=>u.userId));pm.variables.set(\"t45Ids\",JSON.stringify(ids));const page=Number(pm.variables.get(\"t45Page\"));",
+                  "if(page*10<b.total&&b.rows.length>0){pm.variables.set(\"t45Page\",page+1);if(pm.execution&&pm.execution.setNextRequest)pm.execution.setNextRequest(pm.info.requestId);else postman.setNextRequest(pm.info.requestId);}",
+                  "else{ck(\"完整ID集合与管理员当批基准一致\",JSON.stringify(ids.slice().sort((a,b)=>a-b))===pm.variables.get(\"t45S204\")&&ids.length===b.total&&new Set(ids).size===ids.length);pm.variables.set(\"t45Page\",1);pm.variables.set(\"t45Ids\",\"[]\");}}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum={{t45Page}}&pageSize=10",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QbToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "12 TC-T4-AUTH-01 无认证",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"无认证业务401且无数据\",b.code===401&&!b.rows);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "13 TC-T4-AUTH-02 无效凭证",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"无效凭证业务401且无数据\",b.code===401&&!b.rows);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "t45_invalid_token",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "14 退出甲专用会话A",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/logout",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "15 TC-T4-AUTH-03 已退出凭证",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"已退出凭证业务401且无数据\",b.code===401&&!b.rows);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45QaToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        },
+        {
+          "name": "16 独立有效新会话B对照",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"业务code为200\",b.code===200);",
+                  "ck(\"新会话仍为普通甲\",b.user&&b.user.userId===Number(pm.environment.get(\"t45QaId\")));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/getInfo",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{t45FreshToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 登录异常",
+      "item": [
+        {
+          "name": "01 单一无效条件登录",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}",
+                  "pm.variables.unset(\"t45RejectedToken\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"异常登录业务500且无新token\",b.code===500&&!b.token);const expected=pm.environment.get(\"t45LoginReason\");ck(\"失败原因未被其他前置掩盖\",typeof b.msg===\"string\"&&b.msg.includes(expected));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/login",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{t45QaName}}\",\n  \"password\": \"{{t45LoginPassword}}\",\n  \"code\": \"{{t45LoginCode}}\",\n  \"uuid\": \"{{t45LoginUuid}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "02 TC-L12-01 失败后无新身份",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if(pm.environment.get(\"baseUrl\")!==\"http://127.0.0.1:8080\"){pm.execution.skipRequest();throw Error(\"仅允许本机测试环境\");}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "let b;try{b=pm.response.json();}catch(e){b={code:null,msg:\"非JSON响应\"};}",
+                  "function ck(name,ok){pm.test(name,function(){pm.expect(Boolean(ok)).to.equal(true);});}",
+                  "const pick=u=>u?{userId:u.userId,userName:u.userName,nickName:u.nickName,deptId:u.deptId,status:u.status,roleId:u.roleId,dataScope:u.dataScope}:null;",
+                  "console.log(\"T45_EVT \"+JSON.stringify({time:new Date().toISOString(),request:pm.info.requestName,caseId:pm.iterationData.get(\"caseId\")||pm.info.requestName,key:pm.iterationData.get(\"key\"),http:pm.response.code,code:b.code,msg:b.msg,total:b.total,rows:Array.isArray(b.rows)?b.rows.map(pick):undefined,data:pick(b.data),user:pick(b.user),roleIds:b.roleIds,roles:pm.info.requestName.includes(\"身份\")?b.roles:undefined,permissions:pm.info.requestName.includes(\"身份\")?b.permissions:undefined,tokenPresent:typeof b.token===\"string\"}));",
+                  "ck(\"HTTP返回200\",pm.response.code===200);",
+                  "ck(\"登录失败后匿名访问仍被拒绝\",b.code===401&&!b.rows);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": []
+          }
+        }
+      ]
+    }
+  ]
+}

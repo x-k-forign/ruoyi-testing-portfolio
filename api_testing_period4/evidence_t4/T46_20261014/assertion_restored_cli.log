@@ -1,0 +1,41 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+若依T4.6_断言与复现
+
+Folder 03 断言有效性（只读）
+Sub-folder 01 无认证只读断言（恢复后的正确版本）
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 15 ms]
+  Pass  HTTP为200
+  Pass  无认证应返回业务401
+  Pass  不泄漏用户身份
+  -
+  | 'T46_ASSERT {"http":200,"code":401,"userPresent":false
+  | }'
+  -
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  3 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 123 ms                                        |
+---------------------------------------------------------------------
+| total data received: 86 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 15 ms [min: 15 ms, max: 15 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-14",
+  "files": [
+    {
+      "file": "admin_token_reference.png",
+      "sha256": "b4a59ab957d897b6f50db581ed923fca7da06cce1b6ad3d91469efc200c2b614",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "login_failure.png",
+      "sha256": "5c6da7c440cb4f6e3b33b03e6d3849c3295ee72964c0bc936b5681d8c496fb00",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "login_failure_followup_401.png",
+      "sha256": "5850fad3af34dd87c86f4d29eb9d92151df5bdd3d529d0fb1c800fb46843a2e0",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "admin_token_cleared.png",
+      "sha256": "187e4eca1e46e5fc99856f56360053149b2b85bf955fb74767ec5e6454c2da10",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "id_query_success.png",
+      "sha256": "89bb08ef464942684f6dc55b2d5bf52aa2c79ea278aec5f05ba5e8748ae9168b",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "id_detail_variable.png",
+      "sha256": "0d64583935524384b55c66c6d6f7658e18fb85dc320920cd1c975247c8f1de4e",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "id_detail_success.png",
+      "sha256": "1fee1823ca570a51fb172c905fbfabe8a026a7e952c7ac25609272930b0b8603",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "id_no_match_assertion.png",
+      "sha256": "b2fff31636fc761efbef1faadde3a43fad7bd5b6de13ac18db02d7b88c3a8eac",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "id_no_match_response.png",
+      "sha256": "820333b9f3dd197908986e91ab00ffc78a932d61e011e79cbfa7baa8aa0df2a9",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "id_unresolved_downstream.png",
+      "sha256": "ee60c04eb17bcf351e0a96d090c33d83a5526dd413876b6427ed2e9fe051e34f",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "id_recovery.png",
+      "sha256": "eb34542dee320e1ac120b6827431cc159f4440e89fe94dd84e67ca091a4c04b5",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "user_query_success.png",
+      "sha256": "22a535f53ea779136b11d1309db8e08c69fc678081ce950d8169ef2d9389662a",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "user_token_reference.png",
+      "sha256": "f706c16a0beb1de20d157920c476b68a26a344792e4d29ca1243e96fb3284db3",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "no_auth_401.png",
+      "sha256": "c6e821b29e501f1b33b56906ac1dff6078e3b03257c414f6de55f68ad14e35cb",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "user_after_logout_401.png",
+      "sha256": "1e1fbf89b569d21def0080945b7fd46abd6d2ef684817f57385a0910491d2804",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "user_logout.png",
+      "sha256": "23d5ebc3a36f4130157ab179d633e859d1b508986f5bce637f376c5b701517e5",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "account_delete_response.png",
+      "sha256": "791004eeb5252633fcba7e9b03daccf75806cdb5478743f1ab49691965f1cbe7",
+      "source": "用户本聊天提交的截图；已查看为无可见真实凭据，原图复制未编辑"
+    },
+    {
+      "file": "user_detail_submitted.json",
+      "source": "用户附件JSON，解析后格式化；不是AI新请求响应",
+      "sha256": "507399d0fdc72987725de211f3401de64220cd9e4b3541bdc04e6f560742e6b5"
+    }
+  ],
+  "excluded": "所有含真实密码或token的登录/环境截图不复制归档；聊天原件未被删除或修改"
+}

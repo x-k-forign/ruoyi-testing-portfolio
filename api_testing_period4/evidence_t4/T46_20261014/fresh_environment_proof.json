@@ -1,0 +1,14 @@
+{
+  "new_environment_id": "46e83888-b967-4839-ba62-b14fbe331b5c",
+  "name": "t46_1014155757",
+  "created_from_empty_template": true,
+  "prior_tokens_or_user_ids_loaded": false,
+  "runtime_dynamic_keys_initially_absent": [
+    "t46AdminToken",
+    "t46UserToken",
+    "t46UserId",
+    "t46ExpectedIds",
+    "t46ActualIds"
+  ],
+  "secrets_only_in_local_runtime": true
+}

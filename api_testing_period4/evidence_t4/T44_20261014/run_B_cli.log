@@ -1,0 +1,56 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+若依 T4.4 正常业务链
+
+Folder 02 正常业务链
+Sub-folder 01 管理员登录
+
+  POST http://127.0.0.1:8080/login [200 OK, 364 B, 78 ms]
+  -
+  | 'T44_EVIDENCE {"time":"2026-10-14T02:31:16.708Z","requ
+  | est":"01 管理员登录","http":200,"code":500,"msg":"验证码错误","u
+  | ser":null,"data":null,"tokenPresent":false,"imagePrese
+  | nt":false,"uuidPresent":false,"batch":"t44_1014103114_
+  | b"}'
+  -
+  Pass  HTTP状态为200
+  1. 业务code为200
+  2⠄ Error in test-script
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  1 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  2 |                  1 |
+---------------------------------------------------------------------
+| total run duration: 210 ms                                        |
+---------------------------------------------------------------------
+| total data received: 36 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 78 ms [min: 78 ms, max: 78 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+  #  failure         detail                                 
+                                                            
+ 1.  AssertionError  业务code为200                          
+                     expected false to equal true           
+                     at assertion:1 in test-script          
+                     inside "02 正常业务链 / 01 管理员登录" 
+                                                            
+ 2.  Error                                                  
+                     业务code为200                          
+                     at test-script                         
+                     inside "02 正常业务链 / 01 管理员登录" 
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

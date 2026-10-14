@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-14T09:17:11.983937+08:00",
+  "mode": "自动化辅助执行；删除后独立SQL只读回查",
+  "responsible": "x-k-forign（项目测试负责人）",
+  "user": [
+    {
+      "user_id": 150,
+      "user_name": "t43_1014_01",
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "2"
+    }
+  ],
+  "role_links": [],
+  "post_links": [],
+  "department": [
+    {
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0"
+    }
+  ],
+  "role": [
+    {
+      "role_id": 101,
+      "data_scope": "3",
+      "status": "0",
+      "del_flag": "0"
+    }
+  ],
+  "cleanup_verified": true
+}

@@ -1,0 +1,359 @@
+{
+  "requests": [
+    {
+      "name": "01 管理员身份",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/getInfo",
+      "http": 200
+    },
+    {
+      "name": "02 普通甲身份",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/getInfo",
+      "http": 200
+    },
+    {
+      "name": "03 有限新增身份",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/getInfo",
+      "http": 200
+    },
+    {
+      "name": "04 部门B身份",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/getInfo",
+      "http": 200
+    },
+    {
+      "name": "05 TC-A04-01 普通甲查询原目标101",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/101",
+      "http": 200
+    },
+    {
+      "name": "06 管理员确认跨部门目标104",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/104",
+      "http": 200
+    },
+    {
+      "name": "07 TC-A10-02 甲查询范围外账号",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=10&userName=t25_b_query",
+      "http": 200
+    },
+    {
+      "name": "08 部门B同条件获准对照",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=10&userName=t25_b_query",
+      "http": 200
+    },
+    {
+      "name": "09 管理员完整数据基准",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=1000",
+      "http": 200
+    },
+    {
+      "name": "10 TC-A05-01 甲完整分页",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=10",
+      "http": 200
+    },
+    {
+      "name": "10 TC-A05-01 甲完整分页",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=2&pageSize=10",
+      "http": 200
+    },
+    {
+      "name": "10 TC-A05-01 甲完整分页",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=3&pageSize=10",
+      "http": 200
+    },
+    {
+      "name": "11 TC-A05-02 部门B完整分页",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=10",
+      "http": 200
+    },
+    {
+      "name": "12 TC-T4-AUTH-01 无认证",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=10",
+      "http": 200
+    },
+    {
+      "name": "13 TC-T4-AUTH-02 无效凭证",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=10",
+      "http": 200
+    },
+    {
+      "name": "14 退出甲专用会话A",
+      "method": "POST",
+      "url": "http://127.0.0.1:56664/logout",
+      "http": 200
+    },
+    {
+      "name": "15 TC-T4-AUTH-03 已退出凭证",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/system/user/list?pageNum=1&pageSize=10",
+      "http": 200
+    },
+    {
+      "name": "16 独立有效新会话B对照",
+      "method": "GET",
+      "url": "http://127.0.0.1:56664/getInfo",
+      "http": 200
+    }
+  ],
+  "assertions": [
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "身份编号与部门正确",
+      "passed": true
+    },
+    {
+      "name": "操作权限正确",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "身份编号与部门正确",
+      "passed": true
+    },
+    {
+      "name": "操作权限正确",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "身份编号与部门正确",
+      "passed": true
+    },
+    {
+      "name": "操作权限正确",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "身份编号与部门正确",
+      "passed": true
+    },
+    {
+      "name": "操作权限正确",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "目标101账号部门角色正确",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "目标104存在且属于204",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "范围外账号无泄露",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "同部门可查104",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "基准完整",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "本页所有记录在目标部门",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "本页所有记录在目标部门",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "本页所有记录在目标部门",
+      "passed": true
+    },
+    {
+      "name": "完整ID集合与管理员当批基准一致",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "本页所有记录在目标部门",
+      "passed": true
+    },
+    {
+      "name": "完整ID集合与管理员当批基准一致",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "无认证业务401且无数据",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "无效凭证业务401且无数据",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "已退出凭证业务401且无数据",
+      "passed": true
+    },
+    {
+      "name": "HTTP返回200",
+      "passed": true
+    },
+    {
+      "name": "业务code为200",
+      "passed": true
+    },
+    {
+      "name": "新会话仍为普通甲",
+      "passed": true
+    }
+  ],
+  "scriptErrors": [],
+  "events": [
+    "T45_EVT {\"time\":\"2026-10-14T09:01:41.977Z\",\"request\":\"01 管理员身份\",\"caseId\":\"01 管理员身份\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"data\":null,\"user\":{\"userId\":1,\"userName\":\"admin\",\"nickName\":\"若依\",\"deptId\":103,\"status\":\"0\",\"roleId\":null},\"roles\":[\"admin\"],\"permissions\":[\"*:*:*\"],\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.069Z\",\"request\":\"02 普通甲身份\",\"caseId\":\"02 普通甲身份\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"data\":null,\"user\":{\"userId\":154,\"userName\":\"t45_10141114_qa\",\"nickName\":\"T45_qa\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},\"roles\":[\"t25_query_1009\"],\"permissions\":[\"system:user:list\",\"system:user:query\"],\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.155Z\",\"request\":\"03 有限新增身份\",\"caseId\":\"03 有限新增身份\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"data\":null,\"user\":{\"userId\":155,\"userName\":\"t45_10141114_maint\",\"nickName\":\"T45_maint\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},\"roles\":[\"t25_maintain_1009\"],\"permissions\":[\"system:user:list\",\"system:user:query\",\"system:user:add\"],\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.257Z\",\"request\":\"04 部门B身份\",\"caseId\":\"04 部门B身份\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"data\":null,\"user\":{\"userId\":156,\"userName\":\"t45_10141114_qb\",\"nickName\":\"T45_qb\",\"deptId\":204,\"status\":\"0\",\"roleId\":null},\"roles\":[\"t25_query_1009\"],\"permissions\":[\"system:user:list\",\"system:user:query\"],\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.337Z\",\"request\":\"05 TC-A04-01 普通甲查询原目标101\",\"caseId\":\"05 TC-A04-01 普通甲查询原目标101\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"data\":{\"userId\":101,\"userName\":\"t25_a_query\",\"nickName\":\"T25甲查询\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},\"user\":null,\"roleIds\":[101],\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.409Z\",\"request\":\"06 管理员确认跨部门目标104\",\"caseId\":\"06 管理员确认跨部门目标104\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"data\":{\"userId\":104,\"userName\":\"t25_b_query\",\"nickName\":\"T25丙查询\",\"deptId\":204,\"status\":\"0\",\"roleId\":null},\"user\":null,\"roleIds\":[101],\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.507Z\",\"request\":\"07 TC-A10-02 甲查询范围外账号\",\"caseId\":\"07 TC-A10-02 甲查询范围外账号\",\"http\":200,\"code\":200,\"msg\":\"查询成功\",\"total\":0,\"rows\":[],\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.602Z\",\"request\":\"08 部门B同条件获准对照\",\"caseId\":\"08 部门B同条件获准对照\",\"http\":200,\"code\":200,\"msg\":\"查询成功\",\"total\":1,\"rows\":[{\"userId\":104,\"userName\":\"t25_b_query\",\"nickName\":\"T25丙查询\",\"deptId\":204,\"status\":\"0\",\"roleId\":null}],\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.699Z\",\"request\":\"09 管理员完整数据基准\",\"caseId\":\"09 管理员完整数据基准\",\"http\":200,\"code\":200,\"msg\":\"查询成功\",\"total\":38,\"rows\":[{\"userId\":1,\"userName\":\"admin\",\"nickName\":\"若依\",\"deptId\":103,\"status\":\"0\",\"roleId\":null},{\"userId\":2,\"userName\":\"ry\",\"nickName\":\"若依\",\"deptId\":105,\"status\":\"0\",\"roleId\":null},{\"userId\":100,\"userName\":\"t24_user_1009\",\"nickName\":\"T24冒烟用户1009\",\"deptId\":200,\"status\":\"0\",\"roleId\":null},{\"userId\":101,\"userName\":\"t25_a_query\",\"nickName\":\"T25甲查询\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":103,\"userName\":\"t25_a_add\",\"nickName\":\"T25乙维护\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":104,\"userName\":\"t25_b_query\",\"nickName\":\"T25丙查询\",\"deptId\":204,\"status\":\"0\",\"roleId\":null},{\"userId\":105,\"userName\":\"t25_a_child\",\"nickName\":\"T25子组查询\",\"deptId\":203,\"status\":\"0\",\"roleId\":null},{\"userId\":108,\"userName\":\"t25_a_created\",\"nickName\":\"T25新增验证1009\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":109,\"userName\":\"t25_log\",\"nickName\":\"T25日志查询\",\"deptId\":201,\"status\":\"0\",\"roleId\":null},{\"userId\":110,\"userName\":\"t3_pwd5_1010\",\"nickName\":\"T3五位密码测试\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":111,\"userName\":\"t310100001\",\"nickName\":\"T3自动化用户\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":112,\"userName\":\"t3ai_p06_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":113,\"userName\":\"t3ai_p07_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":114,\"userName\":\"t3ai_p19_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":115,\"userName\":\"t3ai_p20_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":116,\"userName\":\"t3ai_contact_1010\",\"nickName\":\"T3联系字段对照\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":117,\"userName\":\"a1\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":118,\"userName\":\"a11\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":119,\"userName\":\"a111111111111111111\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":120,\"userName\":\"a1111111111111111111\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":121,\"userName\":\"t3ai_lock_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":122,\"userName\":\"t3ai_stop_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":124,\"userName\":\"t3ai_dept_1010\",\"nickName\":\"T3部门约束专用\",\"deptId\":207,\"status\":\"0\",\"roleId\":null},{\"userId\":125,\"userName\":\"t3ai_maint_1010\",\"nickName\":\"T3隔离新增身份\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":126,\"userName\":\"t3ai_nodept_1010\",\"nickName\":\"T3空关联观察\",\"deptId\":null,\"status\":\"0\",\"roleId\":null},{\"userId\":127,\"userName\":\"t3ai_norole_1010\",\"nickName\":\"T3空关联观察\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":128,\"userName\":\"t3ai_pwd5_1010\",\"nickName\":\"T3五位隔离样本\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":129,\"userName\":\"t34_c_1012\",\"nickName\":\"T34_c\",\"deptId\":204,\"status\":\"0\",\"roleId\":null},{\"userId\":130,\"userName\":\"t34_scopeuser_1012\",\"nickName\":\"T34_scopeuser\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":131,\"userName\":\"t34_multi_1012\",\"nickName\":\"T34_multi\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":134,\"userName\":\"t35_change_1012\",\"nickName\":\"T35变更专用\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":139,\"userName\":\"t36_log_1012\",\"nickName\":\"T36日志只读\",\"deptId\":201,\"status\":\"0\",\"roleId\":null},{\"userId\":145,\"userName\":\"t38_reg_1012\",\"nickName\":\"T38_reg\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":146,\"userName\":\"t38_chain_1012\",\"nickName\":\"T38_chain\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":154,\"userName\":\"t45_10141114_qa\",\"nickName\":\"T45_qa\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":155,\"userName\":\"t45_10141114_maint\",\"nickName\":\"T45_maint\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":156,\"userName\":\"t45_10141114_qb\",\"nickName\":\"T45_qb\",\"deptId\":204,\"status\":\"0\",\"roleId\":null},{\"userId\":157,\"userName\":\"t45_10141114_dup\",\"nickName\":\"T45_dup\",\"deptId\":202,\"status\":\"0\",\"roleId\":null}],\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.792Z\",\"request\":\"10 TC-A05-01 甲完整分页\",\"caseId\":\"10 TC-A05-01 甲完整分页\",\"http\":200,\"code\":200,\"msg\":\"查询成功\",\"total\":27,\"rows\":[{\"userId\":101,\"userName\":\"t25_a_query\",\"nickName\":\"T25甲查询\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":103,\"userName\":\"t25_a_add\",\"nickName\":\"T25乙维护\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":108,\"userName\":\"t25_a_created\",\"nickName\":\"T25新增验证1009\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":110,\"userName\":\"t3_pwd5_1010\",\"nickName\":\"T3五位密码测试\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":111,\"userName\":\"t310100001\",\"nickName\":\"T3自动化用户\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":112,\"userName\":\"t3ai_p06_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":113,\"userName\":\"t3ai_p07_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":114,\"userName\":\"t3ai_p19_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":115,\"userName\":\"t3ai_p20_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":116,\"userName\":\"t3ai_contact_1010\",\"nickName\":\"T3联系字段对照\",\"deptId\":202,\"status\":\"0\",\"roleId\":null}],\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.885Z\",\"request\":\"10 TC-A05-01 甲完整分页\",\"caseId\":\"10 TC-A05-01 甲完整分页\",\"http\":200,\"code\":200,\"msg\":\"查询成功\",\"total\":27,\"rows\":[{\"userId\":117,\"userName\":\"a1\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":118,\"userName\":\"a11\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":119,\"userName\":\"a111111111111111111\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":120,\"userName\":\"a1111111111111111111\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":121,\"userName\":\"t3ai_lock_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":122,\"userName\":\"t3ai_stop_1010\",\"nickName\":\"T3自动化校验\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":125,\"userName\":\"t3ai_maint_1010\",\"nickName\":\"T3隔离新增身份\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":127,\"userName\":\"t3ai_norole_1010\",\"nickName\":\"T3空关联观察\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":128,\"userName\":\"t3ai_pwd5_1010\",\"nickName\":\"T3五位隔离样本\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":130,\"userName\":\"t34_scopeuser_1012\",\"nickName\":\"T34_scopeuser\",\"deptId\":202,\"status\":\"0\",\"roleId\":null}],\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:42.979Z\",\"request\":\"10 TC-A05-01 甲完整分页\",\"caseId\":\"10 TC-A05-01 甲完整分页\",\"http\":200,\"code\":200,\"msg\":\"查询成功\",\"total\":27,\"rows\":[{\"userId\":131,\"userName\":\"t34_multi_1012\",\"nickName\":\"T34_multi\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":134,\"userName\":\"t35_change_1012\",\"nickName\":\"T35变更专用\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":145,\"userName\":\"t38_reg_1012\",\"nickName\":\"T38_reg\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":146,\"userName\":\"t38_chain_1012\",\"nickName\":\"T38_chain\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":154,\"userName\":\"t45_10141114_qa\",\"nickName\":\"T45_qa\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":155,\"userName\":\"t45_10141114_maint\",\"nickName\":\"T45_maint\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},{\"userId\":157,\"userName\":\"t45_10141114_dup\",\"nickName\":\"T45_dup\",\"deptId\":202,\"status\":\"0\",\"roleId\":null}],\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:43.060Z\",\"request\":\"11 TC-A05-02 部门B完整分页\",\"caseId\":\"11 TC-A05-02 部门B完整分页\",\"http\":200,\"code\":200,\"msg\":\"查询成功\",\"total\":3,\"rows\":[{\"userId\":104,\"userName\":\"t25_b_query\",\"nickName\":\"T25丙查询\",\"deptId\":204,\"status\":\"0\",\"roleId\":null},{\"userId\":129,\"userName\":\"t34_c_1012\",\"nickName\":\"T34_c\",\"deptId\":204,\"status\":\"0\",\"roleId\":null},{\"userId\":156,\"userName\":\"t45_10141114_qb\",\"nickName\":\"T45_qb\",\"deptId\":204,\"status\":\"0\",\"roleId\":null}],\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:43.152Z\",\"request\":\"12 TC-T4-AUTH-01 无认证\",\"caseId\":\"12 TC-T4-AUTH-01 无认证\",\"http\":200,\"code\":401,\"msg\":\"请求访问：/system/user/list，认证失败，无法访问系统资源\",\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:43.250Z\",\"request\":\"13 TC-T4-AUTH-02 无效凭证\",\"caseId\":\"13 TC-T4-AUTH-02 无效凭证\",\"http\":200,\"code\":401,\"msg\":\"请求访问：/system/user/list，认证失败，无法访问系统资源\",\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:43.342Z\",\"request\":\"14 退出甲专用会话A\",\"caseId\":\"14 退出甲专用会话A\",\"http\":200,\"code\":200,\"msg\":\"退出成功\",\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:43.436Z\",\"request\":\"15 TC-T4-AUTH-03 已退出凭证\",\"caseId\":\"15 TC-T4-AUTH-03 已退出凭证\",\"http\":200,\"code\":401,\"msg\":\"请求访问：/system/user/list，认证失败，无法访问系统资源\",\"data\":null,\"user\":null,\"tokenPresent\":false}",
+    "T45_EVT {\"time\":\"2026-10-14T09:01:43.533Z\",\"request\":\"16 独立有效新会话B对照\",\"caseId\":\"16 独立有效新会话B对照\",\"http\":200,\"code\":200,\"msg\":\"操作成功\",\"data\":null,\"user\":{\"userId\":154,\"userName\":\"t45_10141114_qa\",\"nickName\":\"T45_qa\",\"deptId\":202,\"status\":\"0\",\"roleId\":null},\"tokenPresent\":false}"
+  ]
+}

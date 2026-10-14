@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-14",
+  "decision": "T4必需项整体验收通过（AI辅助）",
+  "criteria_passed": 10,
+  "optional_stage": "按用户要求暂跳过，未计完成",
+  "independent_user_proficiency_assessed": false,
+  "t3_counts": {
+    "失败": 5,
+    "待观察": 4,
+    "通过": 82,
+    "未执行": 3
+  },
+  "t4_counts": {
+    "失败": 2,
+    "通过": 24,
+    "未执行": 3
+  },
+  "interfaces_documented": 20,
+  "openapi_matches": 19,
+  "t44_complete_chains": 2,
+  "t45_unique_cases": 25,
+  "t45_passed": 23,
+  "t45_failed": 2,
+  "t46_imported_chain_assertions": 104,
+  "desktop_runtime_chain_assertions": 104,
+  "requests_in_handoff": 74,
+  "configuration_repairs_verified": 4,
+  "hyperlinks_checked": 277,
+  "broken_links": [],
+  "secrets_in_final_handoff": 0,
+  "final_handoff_sha256": {
+    "postman\\T4_验收交付.postman_collection.json": "e3e650422281bd3c7486a98cc5f9a939cbc5c8cb8bf8907b232d1b8d15d38a89",
+    "postman\\T4_验收交付_空环境.postman_environment.json": "d9a5ecb947011c5e05361bcfa8b9bec5785ec49343e5dd8c53483b8503ae3df8"
+  },
+  "t5_not_started": true,
+  "postman_stage_metadata_updated": true,
+  "final_excel_normal_open_verified": true,
+  "t5_outline_unchanged": true,
+  "optional_checkboxes_not_marked_complete": true
+}

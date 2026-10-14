@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-14",
+  "desktop": "9.12.2",
+  "runtime": "7.29.0",
+  "sandbox": "4.0.6",
+  "requests_updated_and_read_back": 74,
+  "scripts_syntax_checked": 140,
+  "cloud_scripts_match_local": true,
+  "original_url_body_auth_and_names_preserved": true,
+  "guarded_missing_input_write_requests": 21,
+  "legacy_live_requests": 23,
+  "legacy_live_assertions_passed": 104,
+  "legacy_live_script_errors": 0,
+  "mock_scenarios_are_not_product_retests": true,
+  "desktop_ui_clicks_not_used": true,
+  "sensitive_values_found_in_delivery": 0,
+  "compatibility_export_sha256": "8b15ffe940e035624fc18f1e6e698072d297568f87b1551397722bd200c876e7",
+  "historical_exports_unchanged": true,
+  "t46_user_acceptance_unchanged": true,
+  "local_temporary_credentials_cleanup_pending": false,
+  "script_rollback_backup_retained": true
+}

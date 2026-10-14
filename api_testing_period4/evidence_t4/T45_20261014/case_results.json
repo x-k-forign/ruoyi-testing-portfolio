@@ -1,0 +1,371 @@
+[
+  {
+    "id": "TC-C01-01",
+    "title": "创建成功：合法资料和关联保存一致",
+    "status": "通过",
+    "variants": [
+      "normal",
+      "normal"
+    ],
+    "evidence": [
+      "ctrl_a_result.json",
+      "ctrl_m_result.json"
+    ],
+    "result": [
+      "normal：HTTP 200 / 业务 200；操作成功；新增1条；已恢复",
+      "normal：HTTP 200 / 业务 200；操作成功；新增1条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C05-01",
+    "title": "新增拒绝：甲没有新增权限",
+    "status": "通过",
+    "variants": [
+      "normal"
+    ],
+    "evidence": [
+      "noadd_result.json"
+    ],
+    "result": [
+      "normal：HTTP 200 / 业务 403；没有权限，请联系管理员授权；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C06-01",
+    "title": "创建拒绝：部门编号范围外",
+    "status": "通过",
+    "variants": [
+      "deptOutside"
+    ],
+    "evidence": [
+      "deptout_result.json"
+    ],
+    "result": [
+      "deptOutside：HTTP 200 / 业务 500；没有权限访问部门数据！；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C06-02",
+    "title": "创建拒绝：角色编号范围外",
+    "status": "通过",
+    "variants": [
+      "roleOutside"
+    ],
+    "evidence": [
+      "roleout_result.json"
+    ],
+    "result": [
+      "roleOutside：HTTP 200 / 业务 500；没有权限访问角色数据！；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C07-03",
+    "title": "创建拒绝：部门编号不存在",
+    "status": "通过",
+    "variants": [
+      "deptMissing"
+    ],
+    "evidence": [
+      "deptnone_result.json"
+    ],
+    "result": [
+      "deptMissing：HTTP 200 / 业务 500；没有权限访问部门数据！；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C07-04",
+    "title": "创建拒绝：角色编号不存在",
+    "status": "通过",
+    "variants": [
+      "roleMissing"
+    ],
+    "evidence": [
+      "rolenone_result.json"
+    ],
+    "result": [
+      "roleMissing：HTTP 200 / 业务 500；没有权限访问角色数据！；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C02-01",
+    "title": "创建拒绝：登录名为空",
+    "status": "通过",
+    "variants": [
+      "empty",
+      "missing",
+      "null"
+    ],
+    "evidence": [
+      "empty_result.json",
+      "missing_result.json",
+      "null_result.json"
+    ],
+    "result": [
+      "empty：HTTP 200 / 业务 500；用户账号不能为空；新增0条；已恢复",
+      "missing：HTTP 200 / 业务 500；用户账号不能为空；新增0条；已恢复",
+      "null：HTTP 200 / 业务 500；用户账号不能为空；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C02-02",
+    "title": "创建拒绝：登录名全为空格",
+    "status": "通过",
+    "variants": [
+      "space"
+    ],
+    "evidence": [
+      "space_result.json"
+    ],
+    "result": [
+      "space：HTTP 200 / 业务 500；用户账号不能为空；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C03-01",
+    "title": "创建拒绝：登录名重复",
+    "status": "通过",
+    "variants": [
+      "duplicate"
+    ],
+    "evidence": [
+      "dup_result.json"
+    ],
+    "result": [
+      "duplicate：HTTP 200 / 业务 500；新增用户't45_10141114_dup'失败，登录账号已存在；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C09-01",
+    "title": "创建密码5位：长度校验拒绝",
+    "status": "失败",
+    "variants": [
+      "pwd5"
+    ],
+    "evidence": [
+      "pwd5_result.json"
+    ],
+    "result": [
+      "pwd5：HTTP 200 / 业务 200；操作成功；新增1条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C09-02",
+    "title": "创建密码6位：长度校验允许",
+    "status": "通过",
+    "variants": [
+      "pwd6"
+    ],
+    "evidence": [
+      "pwd6_result.json"
+    ],
+    "result": [
+      "pwd6：HTTP 200 / 业务 200；操作成功；新增1条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C09-05",
+    "title": "创建密码20位：长度校验允许",
+    "status": "通过",
+    "variants": [
+      "pwd20"
+    ],
+    "evidence": [
+      "pwd20_result.json"
+    ],
+    "result": [
+      "pwd20：HTTP 200 / 业务 200；操作成功；新增1条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-C09-06",
+    "title": "创建密码21位：长度校验拒绝",
+    "status": "失败",
+    "variants": [
+      "pwd21"
+    ],
+    "evidence": [
+      "pwd21_result.json"
+    ],
+    "result": [
+      "pwd21：HTTP 200 / 业务 200；操作成功；新增1条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-T4-P01",
+    "title": "创建拒绝：部门编号类型错误",
+    "status": "通过",
+    "variants": [
+      "deptType"
+    ],
+    "evidence": [
+      "dtyp_result.json"
+    ],
+    "result": [
+      "deptType：HTTP 200 / 业务 500；JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"not-a-number\": not a valid `java.lang.Long` value；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-T4-P02",
+    "title": "创建拒绝：角色编号数组元素类型错误",
+    "status": "通过",
+    "variants": [
+      "roleType"
+    ],
+    "evidence": [
+      "rtyp_result.json"
+    ],
+    "result": [
+      "roleType：HTTP 200 / 业务 500；JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"not-a-number\": not a valid `java.lang.Long` value；新增0条；已恢复"
+    ]
+  },
+  {
+    "id": "TC-A04-01",
+    "title": "查询成功：返回正确的用户详情",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "auth_scope_events.json",
+      "auth_scope_cli.log"
+    ],
+    "result": [
+      "普通甲154（部门202、角色101）GET详情目标101，账号/部门/角色正确"
+    ]
+  },
+  {
+    "id": "TC-A05-01",
+    "title": "本部门范围：甲（部门202）不越界",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "auth_scope_events.json",
+      "auth_scope_cli.log"
+    ],
+    "result": [
+      "普通甲154完整分页=[101, 103, 108, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 125, 127, 128, 130, 131, 134, 145, 146, 154, 155, 157]，共27条，与管理员S202一致"
+    ]
+  },
+  {
+    "id": "TC-A05-02",
+    "title": "本部门范围：丙（部门204）不越界",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "auth_scope_events.json",
+      "auth_scope_cli.log"
+    ],
+    "result": [
+      "部门B账号156完整分页=[104, 129, 156]，共3条，与管理员S204一致"
+    ]
+  },
+  {
+    "id": "TC-A10-02",
+    "title": "不泄漏：范围外账号匹配也返回空",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "auth_scope_events.json",
+      "auth_scope_cli.log"
+    ],
+    "result": [
+      "甲搜索t25_b_query为空；admin核实104在204存在，部门B同条件可查104"
+    ]
+  },
+  {
+    "id": "TC-T4-AUTH-01",
+    "title": "访问拒绝：无认证凭证",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "auth_scope_events.json",
+      "auth_scope_cli.log"
+    ],
+    "result": [
+      "No Auth请求列表，HTTP200/业务401，无rows"
+    ]
+  },
+  {
+    "id": "TC-T4-AUTH-02",
+    "title": "访问拒绝：无效认证凭证",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "auth_scope_events.json",
+      "auth_scope_cli.log"
+    ],
+    "result": [
+      "构造无效token请求列表，HTTP200/业务401，无rows；不是自然过期"
+    ]
+  },
+  {
+    "id": "TC-T4-AUTH-03",
+    "title": "访问拒绝：已退出会话凭证",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "auth_scope_events.json",
+      "auth_scope_cli.log"
+    ],
+    "result": [
+      "甲会话A退出后列表401；同账号独立会话B仍getInfo200、用户154"
+    ]
+  },
+  {
+    "id": "TC-L03-02",
+    "title": "登录拒绝：密码错误",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "wrongpwd_events.json",
+      "wrongpwd_cli.log"
+    ],
+    "result": [
+      "同一有效uuid/code、正确存在账号154，仅密码错误；业务500且提示密码，无token"
+    ]
+  },
+  {
+    "id": "TC-L05-01",
+    "title": "登录拒绝：验证码错误",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "wrongcaptcha_retry_events.json",
+      "wrongcaptcha_retry_cli.log"
+    ],
+    "result": [
+      "重新取有效验证码后仅code故意错误；业务500且验证码错误，无token"
+    ]
+  },
+  {
+    "id": "TC-L12-01",
+    "title": "访问拒绝：登录失败不获得新身份",
+    "status": "通过",
+    "variants": [
+      "接口补证"
+    ],
+    "evidence": [
+      "wrongpwd_events.json",
+      "wrongpwd_cli.log"
+    ],
+    "result": [
+      "错误密码登录失败后不携带旧token访问列表，业务401"
+    ]
+  }
+]

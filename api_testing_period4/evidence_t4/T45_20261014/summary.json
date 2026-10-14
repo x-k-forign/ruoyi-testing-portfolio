@@ -1,0 +1,17 @@
+{
+  "unique_executed_cases": 25,
+  "passed": 23,
+  "failed": 2,
+  "write_scenarios": 18,
+  "scope_counts": {
+    "202": 27,
+    "204": 3
+  },
+  "failed_ids": [
+    "TC-C09-01",
+    "TC-C09-06"
+  ],
+  "known_issue": "BUG-T3-002新增接口密码长度校验差异；21位仅证明可创建，未证明可登录",
+  "invalid_attempts": "wrongcaptcha首次返回已失效，不作有效错误验证码用例；retry已成功隔离错误code",
+  "acceptance": "通过（2026-10-14，AI辅助验收与作答）"
+}

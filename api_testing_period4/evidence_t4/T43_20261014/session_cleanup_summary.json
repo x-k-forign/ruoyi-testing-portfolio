@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-14",
+  "responsible": "x-k-forign（项目测试负责人）",
+  "execution": "用户实际操作；自动化辅助执行用于证据保存与核验",
+  "admin_logout": {
+    "method": "POST",
+    "url_template": "{{baseUrl}}/logout",
+    "credential_reference": "{{adminToken}}",
+    "http_status": 200,
+    "business_code": 200,
+    "message": "退出成功"
+  },
+  "subsequent_request": {
+    "path": "/system/user/list",
+    "http_status": 200,
+    "business_code": 401,
+    "source_limit": "响应截图未展示请求头；按用户提交顺序作为管理员退出后的回查证据，不声称已检查所有历史会话"
+  },
+  "environment_cleanup": {
+    "visible_variables": [
+      "baseUrl"
+    ],
+    "baseUrl": "http://127.0.0.1:8080",
+    "source_limit": "只证明截图所示环境已清理，未检查其他作用域、请求正文或历史响应"
+  },
+  "account_cleanup_evidence": "account_cleanup_check.json",
+  "stage_acceptance": "2026-10-14 T4.3已验收通过；详见../../docs/T4.3_变量关联与验收记录.md",
+  "files": [
+    {
+      "file": "admin_logout.png",
+      "source": "用户本轮提交截图，未编辑；无可见真实凭据",
+      "sha256": "d41abbce769cb8f6219996a859a50a4068f5468c1fd9c2dd0b425c0f0c2ef0cf"
+    },
+    {
+      "file": "admin_after_logout_rejected.png",
+      "source": "用户本轮提交截图，未编辑；无可见真实凭据",
+      "sha256": "4667fe54c3287840fed880fdad506b414b19082a5194f5fb3d529876716b85c0"
+    },
+    {
+      "file": "environment_cleaned.png",
+      "source": "用户本轮提交截图，未编辑；无可见真实凭据",
+      "sha256": "de0575760ffb623e89063ab851f92acefd484fc996759e95c1496222445afb76"
+    }
+  ],
+  "login_body_cleanup": {
+    "source": "验收时用户明确确认",
+    "result": "已清理并保存",
+    "directly_inspected": false
+  }
+}

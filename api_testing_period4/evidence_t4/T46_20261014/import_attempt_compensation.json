@@ -1,0 +1,11 @@
+{
+  "reason": "MCP import omitted scripts; first run had zero assertions and is invalid",
+  "target_user": "admin",
+  "target_login_time": "2026-10-14T15:47:46.496000",
+  "matched_sessions": 1,
+  "revoked_code": 200,
+  "target_absent_after": true,
+  "compensation_logout_code": 200,
+  "compensation_old_token_code": 401,
+  "first_narrow_time_match_did_not_mutate": true
+}

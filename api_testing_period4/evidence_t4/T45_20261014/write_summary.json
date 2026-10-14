@@ -1,0 +1,764 @@
+[
+  {
+    "scenario": {
+      "key": "ctrl_a",
+      "caseId": "TC-C01-01",
+      "title": "创建成功：合法资料和关联保存一致",
+      "actor": "admin",
+      "variant": "normal",
+      "expected": "accept",
+      "expectedCode": 200,
+      "caseNameSuffix": "c01"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:20:49.391Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C01-01",
+      "key": "ctrl_a",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "ctrl_a",
+        "added": [
+          {
+            "userId": 158,
+            "userName": "t45_10141114_c01",
+            "nickName": "T45_ctrl_a",
+            "deptId": 202,
+            "status": "0",
+            "roleId": null
+          }
+        ],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [
+      {
+        "user_id": 158,
+        "user_name": "t45_10141114_c01",
+        "nick_name": "T45_ctrl_a",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "ctrl_m",
+      "caseId": "TC-C01-01",
+      "title": "创建成功：合法资料和关联保存一致",
+      "actor": "maint",
+      "variant": "normal",
+      "expected": "accept",
+      "expectedCode": 200,
+      "caseNameSuffix": "c02"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:20:57.679Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C01-01",
+      "key": "ctrl_m",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "ctrl_m",
+        "added": [
+          {
+            "userId": 159,
+            "userName": "t45_10141114_c02",
+            "nickName": "T45_ctrl_m",
+            "deptId": 202,
+            "status": "0",
+            "roleId": null
+          }
+        ],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [
+      {
+        "user_id": 159,
+        "user_name": "t45_10141114_c02",
+        "nick_name": "T45_ctrl_m",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "noadd",
+      "caseId": "TC-C05-01",
+      "title": "新增拒绝：甲没有新增权限",
+      "actor": "qa",
+      "variant": "normal",
+      "expected": "reject",
+      "expectedCode": 403,
+      "caseNameSuffix": "c03"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:01.333Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C05-01",
+      "key": "noadd",
+      "http": 200,
+      "code": 403,
+      "msg": "没有权限，请联系管理员授权",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "noadd",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "deptout",
+      "caseId": "TC-C06-01",
+      "title": "创建拒绝：部门编号范围外",
+      "actor": "maint",
+      "variant": "deptOutside",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c04"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:14.230Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C06-01",
+      "key": "deptout",
+      "http": 200,
+      "code": 500,
+      "msg": "没有权限访问部门数据！",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "deptout",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "roleout",
+      "caseId": "TC-C06-02",
+      "title": "创建拒绝：角色编号范围外",
+      "actor": "maint",
+      "variant": "roleOutside",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c05"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:18.651Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C06-02",
+      "key": "roleout",
+      "http": 200,
+      "code": 500,
+      "msg": "没有权限访问角色数据！",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "roleout",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "deptnone",
+      "caseId": "TC-C07-03",
+      "title": "创建拒绝：部门编号不存在",
+      "actor": "maint",
+      "variant": "deptMissing",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c06"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:27.030Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C07-03",
+      "key": "deptnone",
+      "http": 200,
+      "code": 500,
+      "msg": "没有权限访问部门数据！",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "deptnone",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "rolenone",
+      "caseId": "TC-C07-04",
+      "title": "创建拒绝：角色编号不存在",
+      "actor": "maint",
+      "variant": "roleMissing",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c07"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:33.169Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C07-04",
+      "key": "rolenone",
+      "http": 200,
+      "code": 500,
+      "msg": "没有权限访问角色数据！",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "rolenone",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "empty",
+      "caseId": "TC-C02-01",
+      "title": "创建拒绝：登录名为空",
+      "actor": "maint",
+      "variant": "empty",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c08"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:46.101Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C02-01",
+      "key": "empty",
+      "http": 200,
+      "code": 500,
+      "msg": "用户账号不能为空",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "empty",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "missing",
+      "caseId": "TC-C02-01",
+      "title": "创建拒绝：登录名为空",
+      "actor": "maint",
+      "variant": "missing",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c09"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:51.447Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C02-01",
+      "key": "missing",
+      "http": 200,
+      "code": 500,
+      "msg": "用户账号不能为空",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "missing",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "null",
+      "caseId": "TC-C02-01",
+      "title": "创建拒绝：登录名为空",
+      "actor": "maint",
+      "variant": "null",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c10"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:55.728Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C02-01",
+      "key": "null",
+      "http": 200,
+      "code": 500,
+      "msg": "用户账号不能为空",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "null",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "space",
+      "caseId": "TC-C02-02",
+      "title": "创建拒绝：登录名全为空格",
+      "actor": "maint",
+      "variant": "space",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c11"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:21:59.576Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C02-02",
+      "key": "space",
+      "http": 200,
+      "code": 500,
+      "msg": "用户账号不能为空",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "space",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "dup",
+      "caseId": "TC-C03-01",
+      "title": "创建拒绝：登录名重复",
+      "actor": "maint",
+      "variant": "duplicate",
+      "expected": "reject",
+      "expectedCode": 500,
+      "caseNameSuffix": "c12"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:22:06.097Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C03-01",
+      "key": "dup",
+      "http": 200,
+      "code": 500,
+      "msg": "新增用户't45_10141114_dup'失败，登录账号已存在",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "dup",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "pwd5",
+      "caseId": "TC-C09-01",
+      "title": "创建密码5位：长度校验拒绝",
+      "actor": "maint",
+      "variant": "pwd5",
+      "expected": "reject",
+      "expectedCode": null,
+      "caseNameSuffix": "c13"
+    },
+    "exit_code": 1,
+    "action": {
+      "time": "2026-10-14T03:22:10.974Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C09-01",
+      "key": "pwd5",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "pwd5",
+        "added": [
+          {
+            "userId": 160,
+            "userName": "t45_10141114_c13",
+            "nickName": "T45_pwd5",
+            "deptId": 202,
+            "status": "0",
+            "roleId": null
+          }
+        ],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [
+      {
+        "user_id": 160,
+        "user_name": "t45_10141114_c13",
+        "nick_name": "T45_pwd5",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "status": "失败"
+  },
+  {
+    "scenario": {
+      "key": "pwd6",
+      "caseId": "TC-C09-02",
+      "title": "创建密码6位：长度校验允许",
+      "actor": "maint",
+      "variant": "pwd6",
+      "expected": "accept",
+      "expectedCode": 200,
+      "caseNameSuffix": "c14"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:22:15.030Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C09-02",
+      "key": "pwd6",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "pwd6",
+        "added": [
+          {
+            "userId": 161,
+            "userName": "t45_10141114_c14",
+            "nickName": "T45_pwd6",
+            "deptId": 202,
+            "status": "0",
+            "roleId": null
+          }
+        ],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [
+      {
+        "user_id": 161,
+        "user_name": "t45_10141114_c14",
+        "nick_name": "T45_pwd6",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "pwd20",
+      "caseId": "TC-C09-05",
+      "title": "创建密码20位：长度校验允许",
+      "actor": "maint",
+      "variant": "pwd20",
+      "expected": "accept",
+      "expectedCode": 200,
+      "caseNameSuffix": "c15"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:22:19.481Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C09-05",
+      "key": "pwd20",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "pwd20",
+        "added": [
+          {
+            "userId": 162,
+            "userName": "t45_10141114_c15",
+            "nickName": "T45_pwd20",
+            "deptId": 202,
+            "status": "0",
+            "roleId": null
+          }
+        ],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [
+      {
+        "user_id": 162,
+        "user_name": "t45_10141114_c15",
+        "nick_name": "T45_pwd20",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "pwd21",
+      "caseId": "TC-C09-06",
+      "title": "创建密码21位：长度校验拒绝",
+      "actor": "maint",
+      "variant": "pwd21",
+      "expected": "reject",
+      "expectedCode": null,
+      "caseNameSuffix": "c16"
+    },
+    "exit_code": 1,
+    "action": {
+      "time": "2026-10-14T03:22:25.135Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-C09-06",
+      "key": "pwd21",
+      "http": 200,
+      "code": 200,
+      "msg": "操作成功",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "pwd21",
+        "added": [
+          {
+            "userId": 163,
+            "userName": "t45_10141114_c16",
+            "nickName": "T45_pwd21",
+            "deptId": 202,
+            "status": "0",
+            "roleId": null
+          }
+        ],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [
+      {
+        "user_id": 163,
+        "user_name": "t45_10141114_c16",
+        "nick_name": "T45_pwd21",
+        "dept_id": 202,
+        "status": "0",
+        "del_flag": "2",
+        "role_id": null
+      }
+    ],
+    "status": "失败"
+  },
+  {
+    "scenario": {
+      "key": "dtyp",
+      "caseId": "TC-T4-P01",
+      "title": "创建拒绝：部门编号类型错误",
+      "actor": "maint",
+      "variant": "deptType",
+      "expected": "reject",
+      "expectedCode": null,
+      "caseNameSuffix": "c17"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:22:29.243Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-T4-P01",
+      "key": "dtyp",
+      "http": 200,
+      "code": 500,
+      "msg": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"not-a-number\": not a valid `java.lang.Long` value",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "dtyp",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  },
+  {
+    "scenario": {
+      "key": "rtyp",
+      "caseId": "TC-T4-P02",
+      "title": "创建拒绝：角色编号数组元素类型错误",
+      "actor": "maint",
+      "variant": "roleType",
+      "expected": "reject",
+      "expectedCode": null,
+      "caseNameSuffix": "c18"
+    },
+    "exit_code": 0,
+    "action": {
+      "time": "2026-10-14T03:24:38.896Z",
+      "request": "02 单一条件新增请求",
+      "caseId": "TC-T4-P02",
+      "key": "rtyp",
+      "http": 200,
+      "code": 500,
+      "msg": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"not-a-number\": not a valid `java.lang.Long` value",
+      "data": null,
+      "user": null,
+      "tokenPresent": false
+    },
+    "delta": [
+      {
+        "key": "rtyp",
+        "added": [],
+        "originalUnchanged": true
+      }
+    ],
+    "original_rows_unchanged": true,
+    "temporary_rows_cleaned": true,
+    "new_sql_rows": [],
+    "status": "通过"
+  }
+]

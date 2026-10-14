@@ -1,0 +1,102 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+T4.6 重新导入验证（脱敏副本）
+
+Folder 02 正常业务链（整组运行）
+Sub-folder 01 管理员登录
+
+  POST http://127.0.0.1:8080/login [200 OK, 590 B, 3.1 s]
+
+Sub-folder 02 核验管理员身份
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 7 ms]
+
+Sub-folder 03 核验部门202
+
+  GET http://127.0.0.1:8080/system/dept/202 [200 OK, 436 B, 6 ms]
+
+Sub-folder 04 核验角色101
+
+  GET http://127.0.0.1:8080/system/role/101 [200 OK, 436 B, 5 ms]
+
+Sub-folder 05 创建前确认账号不存在
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t46_1014154741 [200 OK, 437 B, 6 ms]
+
+Sub-folder 06 创建用户并关联部门角色
+
+  POST http://127.0.0.1:8080/system/user [200 OK, 432 B, 7 ms]
+
+Sub-folder 07 查询并提取本批用户ID
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t46_1014154741 [200 OK, 437 B, 4 ms]
+
+Sub-folder 08 回查用户部门角色状态
+
+  GET http://127.0.0.1:8080/system/user/{{t46UserId}} [200 OK, 455 B, 4 ms]
+
+Sub-folder 09 管理员完整分页范围基准
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum={{t46Page}}&pageSize=10 [400 Bad Request, 601 B, 72 ms]
+
+Sub-folder 10 本批新用户登录
+
+  POST http://127.0.0.1:8080/login [200 OK, 377 B, 46 ms]
+
+Sub-folder 11 核验新用户身份权限
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 3 ms]
+
+Sub-folder 12 新用户完整分页获准访问
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum={{t46Page}}&pageSize=10 [400 Bad Request, 601 B, 7 ms]
+
+Sub-folder 13 退出新用户会话
+
+  POST http://127.0.0.1:8080/logout [200 OK, 375 B, 6 ms]
+
+Sub-folder 14 回查新用户旧凭证失效
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 6 ms]
+
+Sub-folder 15 清理本批新用户
+
+  DELETE http://127.0.0.1:8080/system/user/{{t46UserId}} [200 OK, 455 B, 4 ms]
+
+Sub-folder 16 管理员回查账号已不可见
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=10&userName=t46_1014154741 [200 OK, 437 B, 9 ms]
+
+Sub-folder 17 退出管理员会话
+
+  POST http://127.0.0.1:8080/logout [200 OK, 375 B, 6 ms]
+
+Sub-folder 18 回查管理员旧凭证并清变量
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 428 B, 6 ms]
+
+-----------------------------------------------------------------------
+|                         |            executed |              failed |
+--------------------------+---------------------+----------------------
+|              iterations |                   1 |                   0 |
+--------------------------+---------------------+----------------------
+|                requests |                  18 |                   0 |
+--------------------------+---------------------+----------------------
+|            test-scripts |                   0 |                   0 |
+--------------------------+---------------------+----------------------
+|      prerequest-scripts |                   0 |                   0 |
+--------------------------+---------------------+----------------------
+|              assertions |                   0 |                   0 |
+-----------------------------------------------------------------------
+| total run duration: 4.8 s                                           |
+-----------------------------------------------------------------------
+| total data received: 2.31 KB (approx)                               |
+-----------------------------------------------------------------------
+| average response time: 188 ms [min: 3 ms, max: 3.1 s, s.d.: 726 ms] |
+-----------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command
