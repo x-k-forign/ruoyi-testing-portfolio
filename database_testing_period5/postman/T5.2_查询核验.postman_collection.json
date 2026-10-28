@@ -1,0 +1,1662 @@
+{
+  "info": {
+    "name": "T5.2 只读查询与SQL对照",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "从T4最终交付复制GET请求定义，按T5.2新增本机地址、身份和SQL基准保护；不修改原集合。由本地辅助程序先准备样本和SQL基准。"
+  },
+  "item": [
+    {
+      "name": "identity_admin",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "check('Expected identity',b.user.userId===Number(pm.environment.get('adminId')));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,userId:b.user.userId,deptId:b.user.deptId}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:8080/getInfo",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "identity_user",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "check('Expected identity',b.user.userId===Number(pm.environment.get('userId')));",
+              "check('Dept 202 query-only identity',b.user.deptId===202&&b.permissions.includes('system:user:list')&&!b.permissions.includes('system:user:add'));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,userId:b.user.userId,deptId:b.user.deptId}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:8080/getInfo",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p2",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=2;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=2&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p3",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=3;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=3&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p4",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=4;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=4&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p5",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=5;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=5&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p6",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=6;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=6&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p7",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=7;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=7&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "admin_all_p8",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_admin_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_admin_all'));var page=8;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=8&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_p2",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree'));var page=2;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=2&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_p3",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree'));var page=3;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=3&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_p4",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree'));var page=4;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=4&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_p5",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree'));var page=5;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=5&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_p6",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree'));var page=6;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=6&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_normal_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree_normal'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree_normal'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202&status=0",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_normal_p2",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree_normal'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree_normal'));var page=2;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=2&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202&status=0",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_normal_p3",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree_normal'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree_normal'));var page=3;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=3&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202&status=0",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_normal_p4",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree_normal'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree_normal'));var page=4;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=4&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202&status=0",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_normal_p5",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree_normal'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree_normal'));var page=5;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=5&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202&status=0",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "department_tree_normal_p6",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_department_tree_normal'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_department_tree_normal'));var page=6;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=6&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=202&status=0",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "disabled_users_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_disabled_users'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_disabled_users'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc&status=1",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "batch_like_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_batch_like'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_batch_like'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc&userName=t521019185631",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "exact_id_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_exact_id'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_exact_id'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc&userId=166",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "ordinary_all_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_ordinary_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_ordinary_all'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "ordinary_all_p2",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_ordinary_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_ordinary_all'));var page=2;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=2&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "ordinary_all_p3",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_ordinary_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_ordinary_all'));var page=3;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=3&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "ordinary_all_p4",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_ordinary_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_ordinary_all'));var page=4;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=4&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "ordinary_all_p5",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_ordinary_all'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_ordinary_all'));var page=5;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=5&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "ordinary_outside_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_ordinary_outside'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_ordinary_outside'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc&deptId=204",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    },
+    {
+      "name": "ordinary_batch_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(msg){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(msg);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080')block('Only local target');",
+              "if(!pm.environment.get('requestToken'))block('Missing current token');",
+              "if(pm.request.method!=='GET')block('Read-only collection');",
+              "if(!pm.environment.get('expected_ordinary_batch'))block('Missing SQL baseline');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var expected=JSON.parse(pm.environment.get('expected_ordinary_batch'));var page=1;var slice=expected.slice((page-1)*5,page*5);",
+              "check('Rows and total types',Array.isArray(b.rows)&&Number.isInteger(b.total));",
+              "check('Total equals SQL',b.total===expected.length);",
+              "var ids=b.rows.map(x=>x.userId);check('Page IDs equal ordered SQL slice',JSON.stringify(ids)===JSON.stringify(slice.map(x=>x.user_id)));",
+              "check('No duplicate page IDs',new Set(ids).size===ids.length);",
+              "check('User fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&(u.deptId==null?null:u.deptId)===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T52_EVENT '+JSON.stringify({name:pm.info.requestName,http:pm.response.code,code:b.code,total:b.total,ids:ids,rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc&userName=t521019185631",
+        "description": "T5.2本机只读查询；本轮身份、SQL基准和分页由辅助程序设置；缺少前置时非网络协议阻断。"
+      }
+    }
+  ]
+}

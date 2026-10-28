@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-19T19:03:18+08:00",
+  "method": "自动化执行",
+  "status": "T5.2执行完成，待用户查看，未验收",
+  "checks": {
+    "main_query_count": true,
+    "cli_exit_and_assertions": true,
+    "real_event_count": true,
+    "nine_complete_comparisons": true,
+    "identity_separation": true,
+    "stable_data_during_comparison": true,
+    "department_aggregation_independent": true,
+    "multi_column_aggregation_independent": true,
+    "having_independent": true,
+    "null_count_semantics": true,
+    "sql_pagination": true,
+    "tree_scope_difference": true,
+    "time_zone": true,
+    "sql_file_matches_evidence": true,
+    "cleanup_sql_matches_evidence": true,
+    "original_t4_unchanged": true,
+    "cleanup_complete": true,
+    "active_count_restored": true,
+    "cleanup_sql_zero_visible": true,
+    "helper_request_count": true,
+    "failed_preparation_disclosed": true,
+    "expired_sessions_401": true,
+    "collection_read_only_and_guards": true,
+    "no_runtime_secret_values_in_delivery": true,
+    "python_syntax": true,
+    "private_inputs_cleared": true,
+    "links_valid": true
+  },
+  "all_checks_ok": true,
+  "comparison_cases": 9,
+  "cli_requests": 32,
+  "cli_assertions": 217,
+  "helper_requests": 22,
+  "total_http_requests": 54,
+  "sql_queries": {
+    "main": 21,
+    "cleanup": 3
+  },
+  "remaining_product_defects": "BUG-T3-001—005保持原状态",
+  "pending_fault_cases": [
+    "TC-C08-01",
+    "TC-M07-02",
+    "TC-G04-03"
+  ],
+  "broken_links": [],
+  "artifact_hashes": {
+    "docs\\T5.2_执行说明.md": "ca82dff3e904ed41223698a1dcdcb426119724aca4325a75ba28c07c0b2c178f",
+    "sql\\T5.2_queries.sql": "5320a1909f6c073da06fdea5ceac180cf82b91e493475dfdaaee7c4c10e42b3a",
+    "sql\\T5.2_cleanup_check.sql": "3199e5cdcad60bf17c855372418a5e21a2516f91341ab116168bebe5c79e1e11",
+    "postman\\T5.2_查询核验.postman_collection.json": "6d36a58e66f6a6aaa6f05f5d3d07f199f6d25202754e8923715b8be3d1ac3684"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-28T08:45:18+08:00",
+  "database": "ruoyi_t3_fault_lab",
+  "users": [
+    {
+      "user_id": 100,
+      "user_name": "t55_flow_1028",
+      "nick_name": "T55事务核验",
+      "dept_id": 201,
+      "status": "0",
+      "del_flag": "0",
+      "update_by": "admin",
+      "update_time": "2026-10-28 08:45:07"
+    }
+  ],
+  "roles": [
+    {
+      "user_id": 100,
+      "role_id": 100
+    }
+  ],
+  "posts": [
+    {
+      "user_id": 100,
+      "post_id": 1
+    }
+  ]
+}

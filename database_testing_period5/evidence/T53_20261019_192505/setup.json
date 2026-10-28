@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-19T19:25:05.929+08:00",
+  "environment": {
+    "version": "8.4.11",
+    "db": "learning_databases",
+    "connection_id": 70,
+    "autocommit": 1,
+    "isolation_level": "REPEATABLE-READ",
+    "local_time": "2026-10-19 19:25:05",
+    "database_utc_time": "2026-10-19 11:25:05",
+    "utc_offset_minutes": 480
+  },
+  "grants": [
+    "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO <本地练习管理账号> WITH GRANT OPTION",
+    "GRANT ALLOW_NONEXISTENT_DEFINER,APPLICATION_PASSWORD_ADMIN,AUDIT_ABORT_EXEMPT,AUDIT_ADMIN,AUTHENTICATION_POLICY_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTION_ADMIN,CLONE_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,FIREWALL_EXEMPT,FLUSH_OPTIMIZER_COSTS,FLUSH_PRIVILEGES,FLUSH_STATUS,FLUSH_TABLES,FLUSH_USER_RESOURCES,GROUP_REPLICATION_ADMIN,GROUP_REPLICATION_STREAM,INNODB_REDO_LOG_ARCHIVE,INNODB_REDO_LOG_ENABLE,OPTIMIZE_LOCAL_TABLE,PASSWORDLESS_USER_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_APPLIER,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SENSITIVE_VARIABLES_OBSERVER,SERVICE_CONNECTION_ADMIN,SESSION_VARIABLES_ADMIN,SET_ANY_DEFINER,SHOW_ROUTINE,SYSTEM_USER,SYSTEM_VARIABLES_ADMIN,TABLE_ENCRYPTION_ADMIN,TELEMETRY_LOG_ADMIN,TRANSACTION_GTID_TAG,XA_RECOVER_ADMIN ON *.* TO <本地练习管理账号> WITH GRANT OPTION",
+    "GRANT PROXY ON ``@`` TO <本地练习管理账号> WITH GRANT OPTION"
+  ],
+  "previous_tables": [
+    {
+      "TABLE_NAME": "学生表",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "学生饭卡表",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "教员表",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "班级表",
+      "ENGINE": "InnoDB"
+    }
+  ],
+  "created_table": "learning_databases.t5_dml_lab",
+  "ddl": "CREATE TABLE learning_databases.t5_dml_lab (\n  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '本次草稿记录ID',\n  run_tag VARCHAR(64) NOT NULL COMMENT '唯一实验分支标记',\n  dept_id BIGINT NOT NULL COMMENT '模拟若依所属部门，不关联真实业务表',\n  role_id BIGINT NOT NULL COMMENT '模拟若依角色配置，不授予真实权限',\n  status CHAR(1) NOT NULL COMMENT '模拟账号状态0正常1停用',\n  note VARCHAR(100) NOT NULL COMMENT '实验步骤说明',\n  PRIMARY KEY (id),\n  UNIQUE KEY uk_t5_run_tag (run_tag)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci\nCOMMENT='T5专用事务练习表，不是若依业务表'",
+  "show_create": "CREATE TABLE `t5_dml_lab` (\n  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '本次草稿记录ID',\n  `run_tag` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '唯一实验分支标记',\n  `dept_id` bigint NOT NULL COMMENT '模拟若依所属部门，不关联真实业务表',\n  `role_id` bigint NOT NULL COMMENT '模拟若依角色配置，不授予真实权限',\n  `status` char(1) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '模拟账号状态0正常1停用',\n  `note` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '实验步骤说明',\n  PRIMARY KEY (`id`),\n  UNIQUE KEY `uk_t5_run_tag` (`run_tag`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='T5专用事务练习表，不是若依业务表'",
+  "ddl_before_experiment": true,
+  "account": "本地练习管理账号，来自现有本地笔记；未新建账号或调整授权",
+  "prepare_sql_sha256": "ca7a07758f956c6271e0a3f0e133aec46dc8102183c81ed136df7e15104821c1"
+}

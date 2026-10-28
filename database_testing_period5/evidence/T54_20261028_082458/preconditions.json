@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-28T08:24:59+08:00",
+  "roles": [
+    {
+      "role_id": 105,
+      "role_key": "t34_r1_1012",
+      "data_scope": "3",
+      "status": "0",
+      "del_flag": "0"
+    },
+    {
+      "role_id": 106,
+      "role_key": "t34_r2_1012",
+      "data_scope": "2",
+      "status": "0",
+      "del_flag": "0"
+    }
+  ],
+  "departments": [
+    {
+      "dept_id": 202,
+      "parent_id": 201,
+      "ancestors": "0,100,101,201",
+      "status": "0",
+      "del_flag": "0"
+    },
+    {
+      "dept_id": 204,
+      "parent_id": 201,
+      "ancestors": "0,100,101,201",
+      "status": "0",
+      "del_flag": "0"
+    }
+  ],
+  "posts": [
+    {
+      "post_id": 1,
+      "post_code": "ceo",
+      "post_name": "董事长",
+      "status": "0"
+    }
+  ],
+  "scopes": [
+    {
+      "role_id": 106,
+      "dept_id": 204
+    }
+  ],
+  "role_menus": [
+    {
+      "role_id": 105,
+      "menu_id": 1,
+      "status": "0",
+      "perms": ""
+    },
+    {
+      "role_id": 105,
+      "menu_id": 100,
+      "status": "0",
+      "perms": "system:user:list"
+    },
+    {
+      "role_id": 105,
+      "menu_id": 1000,
+      "status": "0",
+      "perms": "system:user:query"
+    },
+    {
+      "role_id": 106,
+      "menu_id": 1,
+      "status": "0",
+      "perms": ""
+    },
+    {
+      "role_id": 106,
+      "menu_id": 100,
+      "status": "0",
+      "perms": "system:user:list"
+    },
+    {
+      "role_id": 106,
+      "menu_id": 1000,
+      "status": "0",
+      "perms": "system:user:query"
+    },
+    {
+      "role_id": 106,
+      "menu_id": 1001,
+      "status": "0",
+      "perms": "system:user:add"
+    }
+  ],
+  "existing_observations": [
+    {
+      "user_id": 126,
+      "dept_id": null,
+      "status": "0",
+      "del_flag": "0",
+      "role_count": 1
+    },
+    {
+      "user_id": 127,
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0",
+      "role_count": 0
+    }
+  ],
+  "expected": {
+    "deptId": 202,
+    "roleIds": [
+      105,
+      106
+    ],
+    "postIds": [
+      1
+    ],
+    "status": "0",
+    "roleKeys": [
+      "t34_r1_1012",
+      "t34_r2_1012"
+    ],
+    "permissions": [
+      "system:user:add",
+      "system:user:list",
+      "system:user:query"
+    ],
+    "visible_departments": [
+      202,
+      204
+    ]
+  }
+}

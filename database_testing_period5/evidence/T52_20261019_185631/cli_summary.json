@@ -1,0 +1,25 @@
+{
+  "started_at": "2026-10-19T18:58:05+08:00",
+  "finished_at": "2026-10-19T18:58:23+08:00",
+  "exit_code": 0,
+  "stats": {
+    "requests": {
+      "total": 32,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 217,
+      "failed": 0
+    },
+    "test-scripts": {
+      "total": 32,
+      "failed": 0
+    },
+    "prerequest-scripts": {
+      "total": 32,
+      "failed": 0
+    }
+  },
+  "report_events": false,
+  "target": "http://127.0.0.1:8080"
+}

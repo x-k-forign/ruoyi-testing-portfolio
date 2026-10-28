@@ -1,0 +1,2739 @@
+{
+  "stage": "T5.1",
+  "method": "自动化执行",
+  "started_at": "2026-10-19T18:25:43+08:00",
+  "target": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "ruoyi_t2_lab"
+  },
+  "backend_commit": "13db1fcef36bee9ce45d2d636a1d4e8f5ed5bbc3",
+  "backend_status": "",
+  "frontend_commit": "838965c5a18d2c61b73ec30c6e288057aaa08b63",
+  "frontend_status": "M vite.config.js",
+  "sql_sha256": "b8712be2fcc0c818c1b09ee905a38cf8b9e69e6a1a9025db85f4bf6456d14342",
+  "source_sql_sha256": "1145d8af606855b43eadb26cbb0f456587675c92702134e563d80972f19d942d",
+  "credential_handling": "仅从原 .local/application-local.yml 在内存读取；账号输出脱敏；没有查询密码值",
+  "queries": {
+    "connection": {
+      "sql": "SELECT VERSION() AS server_version, @@version_comment AS product,\n       @@port AS server_port, DATABASE() AS current_db,\n       CURRENT_USER() AS privilege_account, USER() AS connection_account,\n       CONNECTION_ID() AS connection_id, @@session.autocommit AS autocommit,\n       @@session.transaction_isolation AS isolation_level,\n       @@session.time_zone AS session_time_zone, @@system_time_zone AS system_time_zone",
+      "rows": [
+        {
+          "server_version": "8.4.11",
+          "product": "MySQL Community Server - GPL",
+          "server_port": 3306,
+          "current_db": "ruoyi_t2_lab",
+          "privilege_account": "<应用配置账号>@<本机>",
+          "connection_account": "<应用配置账号>@<本机>",
+          "connection_id": 19,
+          "autocommit": 1,
+          "isolation_level": "REPEATABLE-READ",
+          "session_time_zone": "SYSTEM",
+          "system_time_zone": "?й???׼ʱ?",
+          "configured_identity_matches": true
+        }
+      ],
+      "row_count": 1
+    },
+    "grants": {
+      "sql": "SHOW GRANTS",
+      "rows": [
+        {
+          "grant": "GRANT USAGE ON *.* TO <应用配置账号>"
+        },
+        {
+          "grant": "GRANT SELECT, INSERT, UPDATE, DELETE ON `ruoyi\\_t2\\_lab`.* TO <应用配置账号>"
+        }
+      ],
+      "row_count": 2
+    },
+    "inventory": {
+      "sql": "SELECT TABLE_NAME, ENGINE, TABLE_COLLATION, TABLE_COMMENT\nFROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE()\nORDER BY TABLE_NAME",
+      "rows": [
+        {
+          "TABLE_NAME": "gen_table",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "代码生成业务表"
+        },
+        {
+          "TABLE_NAME": "gen_table_column",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "代码生成业务表字段"
+        },
+        {
+          "TABLE_NAME": "qrtz_blob_triggers",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "Blob类型的触发器表"
+        },
+        {
+          "TABLE_NAME": "qrtz_calendars",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "日历信息表"
+        },
+        {
+          "TABLE_NAME": "qrtz_cron_triggers",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "Cron类型的触发器表"
+        },
+        {
+          "TABLE_NAME": "qrtz_fired_triggers",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "已触发的触发器表"
+        },
+        {
+          "TABLE_NAME": "qrtz_job_details",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "任务详细信息表"
+        },
+        {
+          "TABLE_NAME": "qrtz_locks",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "存储的悲观锁信息表"
+        },
+        {
+          "TABLE_NAME": "qrtz_paused_trigger_grps",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "暂停的触发器表"
+        },
+        {
+          "TABLE_NAME": "qrtz_scheduler_state",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "调度器状态表"
+        },
+        {
+          "TABLE_NAME": "qrtz_simple_triggers",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "简单触发器的信息表"
+        },
+        {
+          "TABLE_NAME": "qrtz_simprop_triggers",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "同步机制的行锁表"
+        },
+        {
+          "TABLE_NAME": "qrtz_triggers",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "触发器详细信息表"
+        },
+        {
+          "TABLE_NAME": "sys_config",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "参数配置表"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "部门表"
+        },
+        {
+          "TABLE_NAME": "sys_dict_data",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "字典数据表"
+        },
+        {
+          "TABLE_NAME": "sys_dict_type",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "字典类型表"
+        },
+        {
+          "TABLE_NAME": "sys_job",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "定时任务调度表"
+        },
+        {
+          "TABLE_NAME": "sys_job_log",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "定时任务调度日志表"
+        },
+        {
+          "TABLE_NAME": "sys_logininfor",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "系统访问记录"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "菜单权限表"
+        },
+        {
+          "TABLE_NAME": "sys_notice",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "通知公告表"
+        },
+        {
+          "TABLE_NAME": "sys_notice_read",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "公告已读记录表"
+        },
+        {
+          "TABLE_NAME": "sys_oper_log",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "操作日志记录"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "岗位信息表"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "角色信息表"
+        },
+        {
+          "TABLE_NAME": "sys_role_dept",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "角色和部门关联表"
+        },
+        {
+          "TABLE_NAME": "sys_role_menu",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "角色和菜单关联表"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "用户信息表"
+        },
+        {
+          "TABLE_NAME": "sys_user_post",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "用户与岗位关联表"
+        },
+        {
+          "TABLE_NAME": "sys_user_role",
+          "ENGINE": "InnoDB",
+          "TABLE_COLLATION": "utf8mb4_unicode_ci",
+          "TABLE_COMMENT": "用户和角色关联表"
+        }
+      ],
+      "row_count": 31
+    },
+    "columns": {
+      "sql": "SELECT TABLE_NAME, ORDINAL_POSITION, COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE,\n       COLUMN_DEFAULT, COLUMN_KEY, EXTRA, CHARACTER_SET_NAME, COLLATION_NAME, COLUMN_COMMENT\nFROM information_schema.COLUMNS\nWHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME IN\n('sys_user','sys_dept','sys_role','sys_menu','sys_post','sys_user_role','sys_role_menu','sys_role_dept','sys_user_post')\nORDER BY TABLE_NAME, ORDINAL_POSITION",
+      "rows": [
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "dept_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "auto_increment",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "部门id"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "parent_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "父部门id"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 3,
+          "COLUMN_NAME": "ancestors",
+          "COLUMN_TYPE": "varchar(50)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "祖级列表"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 4,
+          "COLUMN_NAME": "dept_name",
+          "COLUMN_TYPE": "varchar(30)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "部门名称"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 5,
+          "COLUMN_NAME": "order_num",
+          "COLUMN_TYPE": "int",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "显示顺序"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 6,
+          "COLUMN_NAME": "leader",
+          "COLUMN_TYPE": "varchar(20)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "负责人"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 7,
+          "COLUMN_NAME": "phone",
+          "COLUMN_TYPE": "varchar(11)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "联系电话"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 8,
+          "COLUMN_NAME": "email",
+          "COLUMN_TYPE": "varchar(50)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "邮箱"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 9,
+          "COLUMN_NAME": "status",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "部门状态（0正常 1停用）"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 10,
+          "COLUMN_NAME": "del_flag",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "删除标志（0代表存在 2代表删除）"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 11,
+          "COLUMN_NAME": "create_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "创建者"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 12,
+          "COLUMN_NAME": "create_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "创建时间"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 13,
+          "COLUMN_NAME": "update_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "更新者"
+        },
+        {
+          "TABLE_NAME": "sys_dept",
+          "ORDINAL_POSITION": 14,
+          "COLUMN_NAME": "update_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "更新时间"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "menu_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "auto_increment",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "菜单ID"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "menu_name",
+          "COLUMN_TYPE": "varchar(50)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "菜单名称"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 3,
+          "COLUMN_NAME": "parent_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "父菜单ID"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 4,
+          "COLUMN_NAME": "order_num",
+          "COLUMN_TYPE": "int",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "显示顺序"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 5,
+          "COLUMN_NAME": "path",
+          "COLUMN_TYPE": "varchar(200)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "路由地址"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 6,
+          "COLUMN_NAME": "component",
+          "COLUMN_TYPE": "varchar(255)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "组件路径"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 7,
+          "COLUMN_NAME": "query",
+          "COLUMN_TYPE": "varchar(255)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "路由参数"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 8,
+          "COLUMN_NAME": "route_name",
+          "COLUMN_TYPE": "varchar(50)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "路由名称"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 9,
+          "COLUMN_NAME": "is_frame",
+          "COLUMN_TYPE": "int",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "1",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "是否为外链（0是 1否）"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 10,
+          "COLUMN_NAME": "is_cache",
+          "COLUMN_TYPE": "int",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "是否缓存（0缓存 1不缓存）"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 11,
+          "COLUMN_NAME": "menu_type",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "菜单类型（M目录 C菜单 F按钮）"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 12,
+          "COLUMN_NAME": "visible",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "菜单状态（0显示 1隐藏）"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 13,
+          "COLUMN_NAME": "status",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "菜单状态（0正常 1停用）"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 14,
+          "COLUMN_NAME": "perms",
+          "COLUMN_TYPE": "varchar(100)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "权限标识"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 15,
+          "COLUMN_NAME": "icon",
+          "COLUMN_TYPE": "varchar(100)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "#",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "菜单图标"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 16,
+          "COLUMN_NAME": "create_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "创建者"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 17,
+          "COLUMN_NAME": "create_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "创建时间"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 18,
+          "COLUMN_NAME": "update_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "更新者"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 19,
+          "COLUMN_NAME": "update_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "更新时间"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "ORDINAL_POSITION": 20,
+          "COLUMN_NAME": "remark",
+          "COLUMN_TYPE": "varchar(500)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "备注"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "post_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "auto_increment",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "岗位ID"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "post_code",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "岗位编码"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 3,
+          "COLUMN_NAME": "post_name",
+          "COLUMN_TYPE": "varchar(50)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "岗位名称"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 4,
+          "COLUMN_NAME": "post_sort",
+          "COLUMN_TYPE": "int",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "显示顺序"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 5,
+          "COLUMN_NAME": "status",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "状态（0正常 1停用）"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 6,
+          "COLUMN_NAME": "create_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "创建者"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 7,
+          "COLUMN_NAME": "create_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "创建时间"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 8,
+          "COLUMN_NAME": "update_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "更新者"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 9,
+          "COLUMN_NAME": "update_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "更新时间"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "ORDINAL_POSITION": 10,
+          "COLUMN_NAME": "remark",
+          "COLUMN_TYPE": "varchar(500)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "备注"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "role_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "auto_increment",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "角色ID"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "role_name",
+          "COLUMN_TYPE": "varchar(30)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "角色名称"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 3,
+          "COLUMN_NAME": "role_key",
+          "COLUMN_TYPE": "varchar(100)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "角色权限字符串"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 4,
+          "COLUMN_NAME": "role_sort",
+          "COLUMN_TYPE": "int",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "显示顺序"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 5,
+          "COLUMN_NAME": "data_scope",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "1",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 6,
+          "COLUMN_NAME": "menu_check_strictly",
+          "COLUMN_TYPE": "tinyint(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "1",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "菜单树选择项是否关联显示"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 7,
+          "COLUMN_NAME": "dept_check_strictly",
+          "COLUMN_TYPE": "tinyint(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "1",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "部门树选择项是否关联显示"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 8,
+          "COLUMN_NAME": "status",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "角色状态（0正常 1停用）"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 9,
+          "COLUMN_NAME": "del_flag",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "删除标志（0代表存在 2代表删除）"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 10,
+          "COLUMN_NAME": "create_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "创建者"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 11,
+          "COLUMN_NAME": "create_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "创建时间"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 12,
+          "COLUMN_NAME": "update_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "更新者"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 13,
+          "COLUMN_NAME": "update_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "更新时间"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "ORDINAL_POSITION": 14,
+          "COLUMN_NAME": "remark",
+          "COLUMN_TYPE": "varchar(500)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "备注"
+        },
+        {
+          "TABLE_NAME": "sys_role_dept",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "role_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "角色ID"
+        },
+        {
+          "TABLE_NAME": "sys_role_dept",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "dept_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "部门ID"
+        },
+        {
+          "TABLE_NAME": "sys_role_menu",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "role_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "角色ID"
+        },
+        {
+          "TABLE_NAME": "sys_role_menu",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "menu_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "菜单ID"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "user_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "auto_increment",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "用户ID"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "dept_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "部门ID"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 3,
+          "COLUMN_NAME": "user_name",
+          "COLUMN_TYPE": "varchar(30)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "用户账号"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 4,
+          "COLUMN_NAME": "nick_name",
+          "COLUMN_TYPE": "varchar(30)",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "用户昵称"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 5,
+          "COLUMN_NAME": "user_type",
+          "COLUMN_TYPE": "varchar(2)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "00",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "用户类型（00系统用户）"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 6,
+          "COLUMN_NAME": "email",
+          "COLUMN_TYPE": "varchar(50)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "用户邮箱"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 7,
+          "COLUMN_NAME": "phonenumber",
+          "COLUMN_TYPE": "varchar(11)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "手机号码"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 8,
+          "COLUMN_NAME": "sex",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "用户性别（0男 1女 2未知）"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 9,
+          "COLUMN_NAME": "avatar",
+          "COLUMN_TYPE": "varchar(100)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "头像地址"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 10,
+          "COLUMN_NAME": "password",
+          "COLUMN_TYPE": "varchar(100)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "密码"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 11,
+          "COLUMN_NAME": "status",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "账号状态（0正常 1停用）"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 12,
+          "COLUMN_NAME": "del_flag",
+          "COLUMN_TYPE": "char(1)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "0",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "删除标志（0代表存在 2代表删除）"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 13,
+          "COLUMN_NAME": "login_ip",
+          "COLUMN_TYPE": "varchar(128)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "最后登录IP"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 14,
+          "COLUMN_NAME": "login_date",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "最后登录时间"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 15,
+          "COLUMN_NAME": "pwd_update_date",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "密码最后更新时间"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 16,
+          "COLUMN_NAME": "create_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "创建者"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 17,
+          "COLUMN_NAME": "create_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "创建时间"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 18,
+          "COLUMN_NAME": "update_by",
+          "COLUMN_TYPE": "varchar(64)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": "",
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "更新者"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 19,
+          "COLUMN_NAME": "update_time",
+          "COLUMN_TYPE": "datetime",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "更新时间"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "ORDINAL_POSITION": 20,
+          "COLUMN_NAME": "remark",
+          "COLUMN_TYPE": "varchar(500)",
+          "IS_NULLABLE": "YES",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": "utf8mb4",
+          "COLLATION_NAME": "utf8mb4_unicode_ci",
+          "COLUMN_COMMENT": "备注"
+        },
+        {
+          "TABLE_NAME": "sys_user_post",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "user_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "用户ID"
+        },
+        {
+          "TABLE_NAME": "sys_user_post",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "post_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "岗位ID"
+        },
+        {
+          "TABLE_NAME": "sys_user_role",
+          "ORDINAL_POSITION": 1,
+          "COLUMN_NAME": "user_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "用户ID"
+        },
+        {
+          "TABLE_NAME": "sys_user_role",
+          "ORDINAL_POSITION": 2,
+          "COLUMN_NAME": "role_id",
+          "COLUMN_TYPE": "bigint",
+          "IS_NULLABLE": "NO",
+          "COLUMN_DEFAULT": null,
+          "COLUMN_KEY": "PRI",
+          "EXTRA": "",
+          "CHARACTER_SET_NAME": null,
+          "COLLATION_NAME": null,
+          "COLUMN_COMMENT": "角色ID"
+        }
+      ],
+      "row_count": 86
+    },
+    "indexes": {
+      "sql": "SELECT TABLE_NAME, INDEX_NAME, NON_UNIQUE, SEQ_IN_INDEX, COLUMN_NAME, INDEX_TYPE\nFROM information_schema.STATISTICS\nWHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME IN\n('sys_user','sys_dept','sys_role','sys_menu','sys_post','sys_user_role','sys_role_menu','sys_role_dept','sys_user_post')\nORDER BY TABLE_NAME, INDEX_NAME, SEQ_IN_INDEX",
+      "rows": [
+        {
+          "TABLE_NAME": "sys_dept",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "dept_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "menu_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "post_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "role_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_role_dept",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "role_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_role_dept",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 2,
+          "COLUMN_NAME": "dept_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_role_menu",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "role_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_role_menu",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 2,
+          "COLUMN_NAME": "menu_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "user_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_user_post",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "user_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_user_post",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 2,
+          "COLUMN_NAME": "post_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_user_role",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 1,
+          "COLUMN_NAME": "user_id",
+          "INDEX_TYPE": "BTREE"
+        },
+        {
+          "TABLE_NAME": "sys_user_role",
+          "INDEX_NAME": "PRIMARY",
+          "NON_UNIQUE": 0,
+          "SEQ_IN_INDEX": 2,
+          "COLUMN_NAME": "role_id",
+          "INDEX_TYPE": "BTREE"
+        }
+      ],
+      "row_count": 13
+    },
+    "constraints": {
+      "sql": "SELECT TABLE_NAME, CONSTRAINT_NAME, CONSTRAINT_TYPE\nFROM information_schema.TABLE_CONSTRAINTS\nWHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME IN\n('sys_user','sys_dept','sys_role','sys_menu','sys_post','sys_user_role','sys_role_menu','sys_role_dept','sys_user_post')\nORDER BY TABLE_NAME, CONSTRAINT_NAME",
+      "rows": [
+        {
+          "TABLE_NAME": "sys_dept",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_menu",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_post",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_role",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_role_dept",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_role_menu",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_user",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_user_post",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "sys_user_role",
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        }
+      ],
+      "row_count": 9
+    },
+    "foreign_keys": {
+      "sql": "SELECT TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME\nFROM information_schema.KEY_COLUMN_USAGE\nWHERE TABLE_SCHEMA=DATABASE() AND REFERENCED_TABLE_NAME IS NOT NULL\nAND TABLE_NAME IN ('sys_user','sys_dept','sys_role','sys_menu','sys_post','sys_user_role','sys_role_menu','sys_role_dept','sys_user_post')\nORDER BY TABLE_NAME,CONSTRAINT_NAME,ORDINAL_POSITION",
+      "rows": [],
+      "row_count": 0
+    },
+    "user_baseline": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag\nFROM sys_user WHERE user_id IN (101,134,151,153) ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 151,
+          "user_name": "t44_1014103013_a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "2"
+        },
+        {
+          "user_id": 153,
+          "user_name": "t44_1014103410_b",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "2"
+        }
+      ],
+      "row_count": 4
+    },
+    "user_department": {
+      "sql": "SELECT u.user_id,u.user_name,u.dept_id,u.status AS user_status,u.del_flag AS user_del_flag,\n       d.dept_name,d.parent_id,d.ancestors,d.status AS dept_status,d.del_flag AS dept_del_flag\nFROM sys_user u LEFT JOIN sys_dept d ON u.dept_id=d.dept_id\nWHERE u.user_id IN (101,134,151,153) ORDER BY u.user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "user_status": "0",
+          "user_del_flag": "0",
+          "dept_name": "T25部门A1009",
+          "parent_id": 201,
+          "ancestors": "0,100,101,201",
+          "dept_status": "0",
+          "dept_del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "user_status": "0",
+          "user_del_flag": "0",
+          "dept_name": "T25部门A1009",
+          "parent_id": 201,
+          "ancestors": "0,100,101,201",
+          "dept_status": "0",
+          "dept_del_flag": "0"
+        },
+        {
+          "user_id": 151,
+          "user_name": "t44_1014103013_a",
+          "dept_id": 202,
+          "user_status": "0",
+          "user_del_flag": "2",
+          "dept_name": "T25部门A1009",
+          "parent_id": 201,
+          "ancestors": "0,100,101,201",
+          "dept_status": "0",
+          "dept_del_flag": "0"
+        },
+        {
+          "user_id": 153,
+          "user_name": "t44_1014103410_b",
+          "dept_id": 202,
+          "user_status": "0",
+          "user_del_flag": "2",
+          "dept_name": "T25部门A1009",
+          "parent_id": 201,
+          "ancestors": "0,100,101,201",
+          "dept_status": "0",
+          "dept_del_flag": "0"
+        }
+      ],
+      "row_count": 4
+    },
+    "user_roles": {
+      "sql": "SELECT u.user_id,ur.role_id,r.role_name,r.role_key,r.data_scope,r.status AS role_status,r.del_flag AS role_del_flag\nFROM sys_user u LEFT JOIN sys_user_role ur ON u.user_id=ur.user_id\nLEFT JOIN sys_role r ON ur.role_id=r.role_id\nWHERE u.user_id IN (101,134,151,153) ORDER BY u.user_id,ur.role_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "role_id": 101,
+          "role_name": "T25查询角色1009",
+          "role_key": "t25_query_1009",
+          "data_scope": "3",
+          "role_status": "0",
+          "role_del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "role_id": 102,
+          "role_name": "T25维护角色1009",
+          "role_key": "t25_maintain_1009",
+          "data_scope": "3",
+          "role_status": "0",
+          "role_del_flag": "0"
+        },
+        {
+          "user_id": 151,
+          "role_id": null,
+          "role_name": null,
+          "role_key": null,
+          "data_scope": null,
+          "role_status": null,
+          "role_del_flag": null
+        },
+        {
+          "user_id": 153,
+          "role_id": null,
+          "role_name": null,
+          "role_key": null,
+          "data_scope": null,
+          "role_status": null,
+          "role_del_flag": null
+        }
+      ],
+      "row_count": 4
+    },
+    "role_menus": {
+      "sql": "SELECT rm.role_id,rm.menu_id,m.menu_name,m.parent_id,m.menu_type,m.visible,m.status,m.perms\nFROM sys_role_menu rm LEFT JOIN sys_menu m ON rm.menu_id=m.menu_id\nWHERE rm.role_id IN (101,102,106) ORDER BY rm.role_id,rm.menu_id",
+      "rows": [
+        {
+          "role_id": 101,
+          "menu_id": 1,
+          "menu_name": "系统管理",
+          "parent_id": 0,
+          "menu_type": "M",
+          "visible": "0",
+          "status": "0",
+          "perms": ""
+        },
+        {
+          "role_id": 101,
+          "menu_id": 100,
+          "menu_name": "用户管理",
+          "parent_id": 1,
+          "menu_type": "C",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:list"
+        },
+        {
+          "role_id": 101,
+          "menu_id": 1000,
+          "menu_name": "用户查询",
+          "parent_id": 100,
+          "menu_type": "F",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:query"
+        },
+        {
+          "role_id": 102,
+          "menu_id": 1,
+          "menu_name": "系统管理",
+          "parent_id": 0,
+          "menu_type": "M",
+          "visible": "0",
+          "status": "0",
+          "perms": ""
+        },
+        {
+          "role_id": 102,
+          "menu_id": 100,
+          "menu_name": "用户管理",
+          "parent_id": 1,
+          "menu_type": "C",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:list"
+        },
+        {
+          "role_id": 102,
+          "menu_id": 1000,
+          "menu_name": "用户查询",
+          "parent_id": 100,
+          "menu_type": "F",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:query"
+        },
+        {
+          "role_id": 102,
+          "menu_id": 1001,
+          "menu_name": "用户新增",
+          "parent_id": 100,
+          "menu_type": "F",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:add"
+        },
+        {
+          "role_id": 106,
+          "menu_id": 1,
+          "menu_name": "系统管理",
+          "parent_id": 0,
+          "menu_type": "M",
+          "visible": "0",
+          "status": "0",
+          "perms": ""
+        },
+        {
+          "role_id": 106,
+          "menu_id": 100,
+          "menu_name": "用户管理",
+          "parent_id": 1,
+          "menu_type": "C",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:list"
+        },
+        {
+          "role_id": 106,
+          "menu_id": 1000,
+          "menu_name": "用户查询",
+          "parent_id": 100,
+          "menu_type": "F",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:query"
+        },
+        {
+          "role_id": 106,
+          "menu_id": 1001,
+          "menu_name": "用户新增",
+          "parent_id": 100,
+          "menu_type": "F",
+          "visible": "0",
+          "status": "0",
+          "perms": "system:user:add"
+        }
+      ],
+      "row_count": 11
+    },
+    "custom_scope": {
+      "sql": "SELECT r.role_id,r.role_name,r.data_scope,rd.dept_id,d.dept_name,d.status,d.del_flag\nFROM sys_role r LEFT JOIN sys_role_dept rd ON r.role_id=rd.role_id\nLEFT JOIN sys_dept d ON rd.dept_id=d.dept_id\nWHERE r.role_id IN (101,102,106) ORDER BY r.role_id,rd.dept_id",
+      "rows": [
+        {
+          "role_id": 101,
+          "role_name": "T25查询角色1009",
+          "data_scope": "3",
+          "dept_id": null,
+          "dept_name": null,
+          "status": null,
+          "del_flag": null
+        },
+        {
+          "role_id": 102,
+          "role_name": "T25维护角色1009",
+          "data_scope": "3",
+          "dept_id": null,
+          "dept_name": null,
+          "status": null,
+          "del_flag": null
+        },
+        {
+          "role_id": 106,
+          "role_name": "T34_r2_1012",
+          "data_scope": "2",
+          "dept_id": 204,
+          "dept_name": "T25部门B1009",
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 3
+    },
+    "custom_scope_users": {
+      "sql": "SELECT u.user_id,u.user_name,u.dept_id,u.status,u.del_flag,ur.role_id\nFROM sys_user_role ur JOIN sys_user u ON u.user_id=ur.user_id\nWHERE ur.role_id=106 ORDER BY u.user_id",
+      "rows": [
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0",
+          "role_id": 106
+        }
+      ],
+      "row_count": 1
+    },
+    "user_posts": {
+      "sql": "SELECT up.user_id,up.post_id,p.post_name,p.status\nFROM sys_user_post up LEFT JOIN sys_post p ON up.post_id=p.post_id\nWHERE up.user_id IN (101,134,151,153) ORDER BY up.user_id,up.post_id",
+      "rows": [],
+      "row_count": 0
+    },
+    "historical_cleanup": {
+      "sql": "SELECT u.user_id,u.user_name,u.status,u.del_flag,\n (SELECT COUNT(*) FROM sys_user_role ur WHERE ur.user_id=u.user_id) AS role_rows,\n (SELECT COUNT(*) FROM sys_user_post up WHERE up.user_id=u.user_id) AS post_rows\nFROM sys_user u WHERE u.user_id IN (151,153) ORDER BY u.user_id",
+      "rows": [
+        {
+          "user_id": 151,
+          "user_name": "t44_1014103013_a",
+          "status": "0",
+          "del_flag": "2",
+          "role_rows": 0,
+          "post_rows": 0
+        },
+        {
+          "user_id": 153,
+          "user_name": "t44_1014103410_b",
+          "status": "0",
+          "del_flag": "2",
+          "role_rows": 0,
+          "post_rows": 0
+        }
+      ],
+      "row_count": 2
+    },
+    "sample_consistency": {
+      "sql": "SELECT 'sample_user_missing_dept' AS check_name,COUNT(*) AS issue_count\nFROM sys_user u LEFT JOIN sys_dept d ON u.dept_id=d.dept_id\nWHERE u.user_id IN (101,134,151,153) AND u.dept_id IS NOT NULL AND d.dept_id IS NULL\nUNION ALL\nSELECT 'sample_role_missing_role',COUNT(*) FROM sys_user_role ur LEFT JOIN sys_role r ON ur.role_id=r.role_id\nWHERE ur.user_id IN (101,134,151,153) AND r.role_id IS NULL\nUNION ALL\nSELECT 'sample_menu_missing_menu',COUNT(*) FROM sys_role_menu rm LEFT JOIN sys_menu m ON rm.menu_id=m.menu_id\nWHERE rm.role_id IN (101,102,106) AND m.menu_id IS NULL\nUNION ALL\nSELECT 'sample_scope_missing_dept',COUNT(*) FROM sys_role_dept rd LEFT JOIN sys_dept d ON rd.dept_id=d.dept_id\nWHERE rd.role_id IN (101,102,106) AND d.dept_id IS NULL\nUNION ALL\nSELECT 'sample_post_missing_post',COUNT(*) FROM sys_user_post up LEFT JOIN sys_post p ON up.post_id=p.post_id\nWHERE up.user_id IN (101,134,151,153) AND p.post_id IS NULL",
+      "rows": [
+        {
+          "check_name": "sample_user_missing_dept",
+          "issue_count": 0
+        },
+        {
+          "check_name": "sample_role_missing_role",
+          "issue_count": 0
+        },
+        {
+          "check_name": "sample_menu_missing_menu",
+          "issue_count": 0
+        },
+        {
+          "check_name": "sample_scope_missing_dept",
+          "issue_count": 0
+        },
+        {
+          "check_name": "sample_post_missing_post",
+          "issue_count": 0
+        }
+      ],
+      "row_count": 5
+    }
+  },
+  "show_create": {
+    "sys_user": "CREATE TABLE `sys_user` (\n  `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT '用户ID',\n  `dept_id` bigint DEFAULT NULL COMMENT '部门ID',\n  `user_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户账号',\n  `nick_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户昵称',\n  `user_type` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT '00' COMMENT '用户类型（00系统用户）',\n  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '用户邮箱',\n  `phonenumber` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '手机号码',\n  `sex` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '用户性别（0男 1女 2未知）',\n  `avatar` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '头像地址',\n  `password` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '密码',\n  `status` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '账号状态（0正常 1停用）',\n  `del_flag` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',\n  `login_ip` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '最后登录IP',\n  `login_date` datetime DEFAULT NULL COMMENT '最后登录时间',\n  `pwd_update_date` datetime DEFAULT NULL COMMENT '密码最后更新时间',\n  `create_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '创建者',\n  `create_time` datetime DEFAULT NULL COMMENT '创建时间',\n  `update_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '更新者',\n  `update_time` datetime DEFAULT NULL COMMENT '更新时间',\n  `remark` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '备注',\n  PRIMARY KEY (`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息表'",
+    "sys_dept": "CREATE TABLE `sys_dept` (\n  `dept_id` bigint NOT NULL AUTO_INCREMENT COMMENT '部门id',\n  `parent_id` bigint DEFAULT '0' COMMENT '父部门id',\n  `ancestors` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '祖级列表',\n  `dept_name` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '部门名称',\n  `order_num` int DEFAULT '0' COMMENT '显示顺序',\n  `leader` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '负责人',\n  `phone` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '联系电话',\n  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '邮箱',\n  `status` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '部门状态（0正常 1停用）',\n  `del_flag` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',\n  `create_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '创建者',\n  `create_time` datetime DEFAULT NULL COMMENT '创建时间',\n  `update_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '更新者',\n  `update_time` datetime DEFAULT NULL COMMENT '更新时间',\n  PRIMARY KEY (`dept_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='部门表'",
+    "sys_role": "CREATE TABLE `sys_role` (\n  `role_id` bigint NOT NULL AUTO_INCREMENT COMMENT '角色ID',\n  `role_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色名称',\n  `role_key` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色权限字符串',\n  `role_sort` int NOT NULL COMMENT '显示顺序',\n  `data_scope` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '1' COMMENT '数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）',\n  `menu_check_strictly` tinyint(1) DEFAULT '1' COMMENT '菜单树选择项是否关联显示',\n  `dept_check_strictly` tinyint(1) DEFAULT '1' COMMENT '部门树选择项是否关联显示',\n  `status` char(1) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色状态（0正常 1停用）',\n  `del_flag` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',\n  `create_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '创建者',\n  `create_time` datetime DEFAULT NULL COMMENT '创建时间',\n  `update_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '更新者',\n  `update_time` datetime DEFAULT NULL COMMENT '更新时间',\n  `remark` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '备注',\n  PRIMARY KEY (`role_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='角色信息表'",
+    "sys_menu": "CREATE TABLE `sys_menu` (\n  `menu_id` bigint NOT NULL AUTO_INCREMENT COMMENT '菜单ID',\n  `menu_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '菜单名称',\n  `parent_id` bigint DEFAULT '0' COMMENT '父菜单ID',\n  `order_num` int DEFAULT '0' COMMENT '显示顺序',\n  `path` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '路由地址',\n  `component` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '组件路径',\n  `query` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '路由参数',\n  `route_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '路由名称',\n  `is_frame` int DEFAULT '1' COMMENT '是否为外链（0是 1否）',\n  `is_cache` int DEFAULT '0' COMMENT '是否缓存（0缓存 1不缓存）',\n  `menu_type` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '菜单类型（M目录 C菜单 F按钮）',\n  `visible` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '菜单状态（0显示 1隐藏）',\n  `status` char(1) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',\n  `perms` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '权限标识',\n  `icon` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '#' COMMENT '菜单图标',\n  `create_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '创建者',\n  `create_time` datetime DEFAULT NULL COMMENT '创建时间',\n  `update_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '更新者',\n  `update_time` datetime DEFAULT NULL COMMENT '更新时间',\n  `remark` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '备注',\n  PRIMARY KEY (`menu_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='菜单权限表'",
+    "sys_post": "CREATE TABLE `sys_post` (\n  `post_id` bigint NOT NULL AUTO_INCREMENT COMMENT '岗位ID',\n  `post_code` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '岗位编码',\n  `post_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '岗位名称',\n  `post_sort` int NOT NULL COMMENT '显示顺序',\n  `status` char(1) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '状态（0正常 1停用）',\n  `create_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '创建者',\n  `create_time` datetime DEFAULT NULL COMMENT '创建时间',\n  `update_by` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '更新者',\n  `update_time` datetime DEFAULT NULL COMMENT '更新时间',\n  `remark` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '备注',\n  PRIMARY KEY (`post_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='岗位信息表'",
+    "sys_user_role": "CREATE TABLE `sys_user_role` (\n  `user_id` bigint NOT NULL COMMENT '用户ID',\n  `role_id` bigint NOT NULL COMMENT '角色ID',\n  PRIMARY KEY (`user_id`,`role_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户和角色关联表'",
+    "sys_role_menu": "CREATE TABLE `sys_role_menu` (\n  `role_id` bigint NOT NULL COMMENT '角色ID',\n  `menu_id` bigint NOT NULL COMMENT '菜单ID',\n  PRIMARY KEY (`role_id`,`menu_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='角色和菜单关联表'",
+    "sys_role_dept": "CREATE TABLE `sys_role_dept` (\n  `role_id` bigint NOT NULL COMMENT '角色ID',\n  `dept_id` bigint NOT NULL COMMENT '部门ID',\n  PRIMARY KEY (`role_id`,`dept_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='角色和部门关联表'",
+    "sys_user_post": "CREATE TABLE `sys_user_post` (\n  `user_id` bigint NOT NULL COMMENT '用户ID',\n  `post_id` bigint NOT NULL COMMENT '岗位ID',\n  PRIMARY KEY (`user_id`,`post_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户与岗位关联表'"
+  },
+  "transaction_closed": "ROLLBACK：结束只读事务，无业务写入",
+  "finished_at": "2026-10-19T18:25:43+08:00",
+  "source_comparison": {
+    "sys_user": {
+      "source": {
+        "line": 42,
+        "columns": [
+          {
+            "name": "user_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": true,
+            "comment": "用户ID"
+          },
+          {
+            "name": "dept_id",
+            "type": "bigint",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "部门ID"
+          },
+          {
+            "name": "user_name",
+            "type": "varchar(30)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "用户账号"
+          },
+          {
+            "name": "nick_name",
+            "type": "varchar(30)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "用户昵称"
+          },
+          {
+            "name": "user_type",
+            "type": "varchar(2)",
+            "nullable": true,
+            "default": "00",
+            "auto_increment": false,
+            "comment": "用户类型（00系统用户）"
+          },
+          {
+            "name": "email",
+            "type": "varchar(50)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "用户邮箱"
+          },
+          {
+            "name": "phonenumber",
+            "type": "varchar(11)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "手机号码"
+          },
+          {
+            "name": "sex",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "用户性别（0男 1女 2未知）"
+          },
+          {
+            "name": "avatar",
+            "type": "varchar(100)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "头像地址"
+          },
+          {
+            "name": "password",
+            "type": "varchar(100)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "密码"
+          },
+          {
+            "name": "status",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "账号状态（0正常 1停用）"
+          },
+          {
+            "name": "del_flag",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "删除标志（0代表存在 2代表删除）"
+          },
+          {
+            "name": "login_ip",
+            "type": "varchar(128)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "最后登录IP"
+          },
+          {
+            "name": "login_date",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "最后登录时间"
+          },
+          {
+            "name": "pwd_update_date",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "密码最后更新时间"
+          },
+          {
+            "name": "create_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "创建者"
+          },
+          {
+            "name": "create_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "创建时间"
+          },
+          {
+            "name": "update_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "更新者"
+          },
+          {
+            "name": "update_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "更新时间"
+          },
+          {
+            "name": "remark",
+            "type": "varchar(500)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "备注"
+          }
+        ],
+        "primary_key": [
+          "user_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 20,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_dept": {
+      "source": {
+        "line": 5,
+        "columns": [
+          {
+            "name": "dept_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": true,
+            "comment": "部门id"
+          },
+          {
+            "name": "parent_id",
+            "type": "bigint",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "父部门id"
+          },
+          {
+            "name": "ancestors",
+            "type": "varchar(50)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "祖级列表"
+          },
+          {
+            "name": "dept_name",
+            "type": "varchar(30)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "部门名称"
+          },
+          {
+            "name": "order_num",
+            "type": "int",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "显示顺序"
+          },
+          {
+            "name": "leader",
+            "type": "varchar(20)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "负责人"
+          },
+          {
+            "name": "phone",
+            "type": "varchar(11)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "联系电话"
+          },
+          {
+            "name": "email",
+            "type": "varchar(50)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "邮箱"
+          },
+          {
+            "name": "status",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "部门状态（0正常 1停用）"
+          },
+          {
+            "name": "del_flag",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "删除标志（0代表存在 2代表删除）"
+          },
+          {
+            "name": "create_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "创建者"
+          },
+          {
+            "name": "create_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "创建时间"
+          },
+          {
+            "name": "update_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "更新者"
+          },
+          {
+            "name": "update_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "更新时间"
+          }
+        ],
+        "primary_key": [
+          "dept_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 14,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_role": {
+      "source": {
+        "line": 105,
+        "columns": [
+          {
+            "name": "role_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": true,
+            "comment": "角色ID"
+          },
+          {
+            "name": "role_name",
+            "type": "varchar(30)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "角色名称"
+          },
+          {
+            "name": "role_key",
+            "type": "varchar(100)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "角色权限字符串"
+          },
+          {
+            "name": "role_sort",
+            "type": "int",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "显示顺序"
+          },
+          {
+            "name": "data_scope",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "1",
+            "auto_increment": false,
+            "comment": "数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）"
+          },
+          {
+            "name": "menu_check_strictly",
+            "type": "tinyint",
+            "nullable": true,
+            "default": "1",
+            "auto_increment": false,
+            "comment": "菜单树选择项是否关联显示"
+          },
+          {
+            "name": "dept_check_strictly",
+            "type": "tinyint",
+            "nullable": true,
+            "default": "1",
+            "auto_increment": false,
+            "comment": "部门树选择项是否关联显示"
+          },
+          {
+            "name": "status",
+            "type": "char(1)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "角色状态（0正常 1停用）"
+          },
+          {
+            "name": "del_flag",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "删除标志（0代表存在 2代表删除）"
+          },
+          {
+            "name": "create_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "创建者"
+          },
+          {
+            "name": "create_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "创建时间"
+          },
+          {
+            "name": "update_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "更新者"
+          },
+          {
+            "name": "update_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "更新时间"
+          },
+          {
+            "name": "remark",
+            "type": "varchar(500)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "备注"
+          }
+        ],
+        "primary_key": [
+          "role_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 14,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_menu": {
+      "source": {
+        "line": 134,
+        "columns": [
+          {
+            "name": "menu_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": true,
+            "comment": "菜单ID"
+          },
+          {
+            "name": "menu_name",
+            "type": "varchar(50)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "菜单名称"
+          },
+          {
+            "name": "parent_id",
+            "type": "bigint",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "父菜单ID"
+          },
+          {
+            "name": "order_num",
+            "type": "int",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "显示顺序"
+          },
+          {
+            "name": "path",
+            "type": "varchar(200)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "路由地址"
+          },
+          {
+            "name": "component",
+            "type": "varchar(255)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "组件路径"
+          },
+          {
+            "name": "query",
+            "type": "varchar(255)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "路由参数"
+          },
+          {
+            "name": "route_name",
+            "type": "varchar(50)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "路由名称"
+          },
+          {
+            "name": "is_frame",
+            "type": "int",
+            "nullable": true,
+            "default": "1",
+            "auto_increment": false,
+            "comment": "是否为外链（0是 1否）"
+          },
+          {
+            "name": "is_cache",
+            "type": "int",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "是否缓存（0缓存 1不缓存）"
+          },
+          {
+            "name": "menu_type",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "菜单类型（M目录 C菜单 F按钮）"
+          },
+          {
+            "name": "visible",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "菜单状态（0显示 1隐藏）"
+          },
+          {
+            "name": "status",
+            "type": "char(1)",
+            "nullable": true,
+            "default": "0",
+            "auto_increment": false,
+            "comment": "菜单状态（0正常 1停用）"
+          },
+          {
+            "name": "perms",
+            "type": "varchar(100)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "权限标识"
+          },
+          {
+            "name": "icon",
+            "type": "varchar(100)",
+            "nullable": true,
+            "default": "#",
+            "auto_increment": false,
+            "comment": "菜单图标"
+          },
+          {
+            "name": "create_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "创建者"
+          },
+          {
+            "name": "create_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "创建时间"
+          },
+          {
+            "name": "update_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "更新者"
+          },
+          {
+            "name": "update_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "更新时间"
+          },
+          {
+            "name": "remark",
+            "type": "varchar(500)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "备注"
+          }
+        ],
+        "primary_key": [
+          "menu_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 20,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_post": {
+      "source": {
+        "line": 77,
+        "columns": [
+          {
+            "name": "post_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": true,
+            "comment": "岗位ID"
+          },
+          {
+            "name": "post_code",
+            "type": "varchar(64)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "岗位编码"
+          },
+          {
+            "name": "post_name",
+            "type": "varchar(50)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "岗位名称"
+          },
+          {
+            "name": "post_sort",
+            "type": "int",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "显示顺序"
+          },
+          {
+            "name": "status",
+            "type": "char(1)",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "状态（0正常 1停用）"
+          },
+          {
+            "name": "create_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "创建者"
+          },
+          {
+            "name": "create_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "创建时间"
+          },
+          {
+            "name": "update_by",
+            "type": "varchar(64)",
+            "nullable": true,
+            "default": "",
+            "auto_increment": false,
+            "comment": "更新者"
+          },
+          {
+            "name": "update_time",
+            "type": "datetime",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "更新时间"
+          },
+          {
+            "name": "remark",
+            "type": "varchar(500)",
+            "nullable": true,
+            "default": null,
+            "auto_increment": false,
+            "comment": "备注"
+          }
+        ],
+        "primary_key": [
+          "post_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 10,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_user_role": {
+      "source": {
+        "line": 268,
+        "columns": [
+          {
+            "name": "user_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "用户ID"
+          },
+          {
+            "name": "role_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "角色ID"
+          }
+        ],
+        "primary_key": [
+          "user_id",
+          "role_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 2,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_role_menu": {
+      "source": {
+        "line": 285,
+        "columns": [
+          {
+            "name": "role_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "角色ID"
+          },
+          {
+            "name": "menu_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "菜单ID"
+          }
+        ],
+        "primary_key": [
+          "role_id",
+          "menu_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 2,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_role_dept": {
+      "source": {
+        "line": 384,
+        "columns": [
+          {
+            "name": "role_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "角色ID"
+          },
+          {
+            "name": "dept_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "部门ID"
+          }
+        ],
+        "primary_key": [
+          "role_id",
+          "dept_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 2,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    },
+    "sys_user_post": {
+      "source": {
+        "line": 402,
+        "columns": [
+          {
+            "name": "user_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "用户ID"
+          },
+          {
+            "name": "post_id",
+            "type": "bigint",
+            "nullable": false,
+            "default": null,
+            "auto_increment": false,
+            "comment": "岗位ID"
+          }
+        ],
+        "primary_key": [
+          "user_id",
+          "post_id"
+        ],
+        "declared_engine": "InnoDB",
+        "charset_explicit": false,
+        "foreign_key_declared": false
+      },
+      "actual_column_count": 2,
+      "differences": [],
+      "extra_columns": [],
+      "normalization": "整数显示宽度归一化；未将当前自增计数与初始化起点比较；源码未指定字符集，运行值单独记录"
+    }
+  }
+}

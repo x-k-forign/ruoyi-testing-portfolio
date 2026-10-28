@@ -1,0 +1,248 @@
+[
+  {
+    "at": "2026-10-28T08:25:00+08:00",
+    "label": "captcha_admin",
+    "method": "GET",
+    "path": "/captchaImage",
+    "http": 200,
+    "code": 200,
+    "captcha_enabled": true,
+    "image_present": true
+  },
+  {
+    "at": "2026-10-28T08:25:04+08:00",
+    "finished_at": "2026-10-28T08:25:07+08:00",
+    "label": "login_admin",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "token_present": true,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:07+08:00",
+    "finished_at": "2026-10-28T08:25:07+08:00",
+    "label": "identity_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "user": {
+      "userId": 1,
+      "userName": "admin",
+      "deptId": 103,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "admin"
+    ],
+    "permissions": [
+      "*:*:*"
+    ],
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:08+08:00",
+    "finished_at": "2026-10-28T08:25:08+08:00",
+    "label": "create",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:08+08:00",
+    "finished_at": "2026-10-28T08:25:08+08:00",
+    "label": "lookup_created",
+    "method": "GET",
+    "path": "/system/user/list?userName=t541028082458&pageNum=1&pageSize=10",
+    "http": 200,
+    "code": 200,
+    "total": 1,
+    "rows": [
+      {
+        "userId": 168,
+        "userName": "t541028082458",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:08+08:00",
+    "finished_at": "2026-10-28T08:25:08+08:00",
+    "label": "detail_created",
+    "method": "GET",
+    "path": "/system/user/168",
+    "http": 200,
+    "code": 200,
+    "data": {
+      "userId": 168,
+      "userName": "t541028082458",
+      "deptId": 202,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roleIds": [
+      105,
+      106
+    ],
+    "postIds": [
+      1
+    ],
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:09+08:00",
+    "label": "captcha_user",
+    "method": "GET",
+    "path": "/captchaImage",
+    "http": 200,
+    "code": 200,
+    "captcha_enabled": true,
+    "image_present": true
+  },
+  {
+    "at": "2026-10-28T08:25:13+08:00",
+    "finished_at": "2026-10-28T08:25:13+08:00",
+    "label": "login_user",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "token_present": true,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:13+08:00",
+    "finished_at": "2026-10-28T08:25:13+08:00",
+    "label": "identity_user",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "user": {
+      "userId": 168,
+      "userName": "t541028082458",
+      "deptId": 202,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t34_r2_1012",
+      "t34_r1_1012"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ],
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:52+08:00",
+    "finished_at": "2026-10-28T08:25:52+08:00",
+    "label": "logout_user",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:52+08:00",
+    "finished_at": "2026-10-28T08:25:52+08:00",
+    "label": "expired_user",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:52+08:00",
+    "finished_at": "2026-10-28T08:25:53+08:00",
+    "label": "delete_owned",
+    "method": "DELETE",
+    "path": "/system/user/168",
+    "http": 200,
+    "code": 200,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:53+08:00",
+    "finished_at": "2026-10-28T08:25:53+08:00",
+    "label": "cleanup_lookup",
+    "method": "GET",
+    "path": "/system/user/list?userName=t541028082458&pageNum=1&pageSize=10",
+    "http": 200,
+    "code": 200,
+    "total": 0,
+    "rows": [],
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:53+08:00",
+    "finished_at": "2026-10-28T08:25:53+08:00",
+    "label": "logout_admin",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  },
+  {
+    "at": "2026-10-28T08:25:53+08:00",
+    "finished_at": "2026-10-28T08:25:53+08:00",
+    "label": "expired_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "checks": {
+      "http_200": true,
+      "business_expected": true
+    }
+  }
+]

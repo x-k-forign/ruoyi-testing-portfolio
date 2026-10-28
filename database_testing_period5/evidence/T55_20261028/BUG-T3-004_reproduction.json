@@ -1,0 +1,13 @@
+{
+  "expected_new_department_ids": [
+    100,
+    101
+  ],
+  "old_session_ids": [
+    102,
+    103,
+    104
+  ],
+  "reproduced": true,
+  "scope": "新角色登录会话在调部门前建立；调部门后未刷新身份"
+}

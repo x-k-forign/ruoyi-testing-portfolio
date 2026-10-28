@@ -1,0 +1,14 @@
+{
+  "round": 2,
+  "tag": "t5610280919482",
+  "dept": 200,
+  "role": 100,
+  "post": 1,
+  "role_key": "t55_queryRole",
+  "expected_permissions": [
+    "system:user:list",
+    "system:user:query"
+  ],
+  "prepared": true,
+  "user_id": 108
+}

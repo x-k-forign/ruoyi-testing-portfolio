@@ -1,0 +1,11 @@
+[
+  {
+    "round": 1,
+    "step": "CLI前读取SQL基准",
+    "classification": "执行脚本路径问题",
+    "error": "读取时漏写.json后缀",
+    "effect": "CLI尚未发请求；107已创建且状态已保存",
+    "recovery": "修正读取函数后从CLI步骤续跑，不重复创建、不重置本轮数据",
+    "product_bug": false
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "expected_code": 403,
+  "actual_code": 200,
+  "reproduced": true,
+  "scope": "本隔离版本与本批旧会话；未声称修复"
+}

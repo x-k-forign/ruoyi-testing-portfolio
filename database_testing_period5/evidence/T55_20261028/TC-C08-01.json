@@ -1,0 +1,11 @@
+{
+  "status": "通过",
+  "generated_id": 105,
+  "exception": "T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new",
+  "independent_readback": {
+    "user": [],
+    "roles": [],
+    "posts": []
+  },
+  "expected": "用户、岗位、角色全部回滚"
+}

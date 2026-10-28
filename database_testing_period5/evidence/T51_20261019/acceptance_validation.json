@@ -1,0 +1,39 @@
+{
+  "accepted_at": "2026-10-19T18:43:37+08:00",
+  "stage": "T5.1",
+  "method": "自动化执行及成果核对，用户确认理解",
+  "user_confirmation": "这几个点我理解了，帮我验收一下T5.1，通过后告诉我T5.2要做什么",
+  "criteria": {
+    "实际环境与元数据": "通过",
+    "对象关系与约束": "通过",
+    "真实对象与状态": "通过",
+    "原理说明与理解确认": "通过（按用户约定方式）"
+  },
+  "checks": {
+    "prior_execution_checks_pass": true,
+    "evidence_scope": true,
+    "identity_verified": true,
+    "primary_sql_hash": true,
+    "additional_sql_hash": true,
+    "baseline_sql_hash": true,
+    "four_t51_items_checked": true,
+    "later_t5_items_not_checked": true,
+    "agreed_explanation_method": true,
+    "report_links_valid": true,
+    "no_configuration_passwords": true,
+    "no_bcrypt_values": true
+  },
+  "conclusion": "T5.1 验收通过",
+  "T5_2": "尚未执行",
+  "business_data_modified": false,
+  "github_published": false,
+  "all_checks_ok": true,
+  "broken_links": [],
+  "file_sha256": {
+    "若依软件测试学习大纲.md": "a78f2e52815becf0f216b21bd360d2ee781310bb927c540b2326c5f3963ab793",
+    "database_testing_period5\\docs\\T5.1_执行记录.md": "8f02e5d5f8b90b3211df2541f11a20ad7069656d872c8b71793970d6901ca0ba",
+    "database_testing_period5\\docs\\T5.1_字段字典.md": "22d977514cdfc4dc60e6be12cb6a64cf699614a35d9c25cd84a552a2f526c220",
+    "database_testing_period5\\evidence\\T51_20261019\\read_only_results.json": "5a85b84e390e69671962e219741b0807f7c61add9a2e604ceac4c3deece0f9b5",
+    "database_testing_period5\\evidence\\T51_20261019\\additional_results.json": "2c830b89de20424595ac1e69cbc8e65938fb98dedbc5136c97f7c9a2ff14f714"
+  }
+}

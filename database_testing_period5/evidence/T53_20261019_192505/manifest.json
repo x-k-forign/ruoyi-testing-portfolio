@@ -1,0 +1,32 @@
+{
+  "batch": "T53_20261019_192505",
+  "started_at": "2026-10-19T19:25:05.987+08:00",
+  "tags": {
+    "rollback": "T53_20261019_192505_rollback",
+    "commit": "T53_20261019_192505_commit",
+    "autocommit": "T53_20261019_192505_autocommit"
+  },
+  "connections": {
+    "A": {
+      "connection_id": 73,
+      "autocommit": 1,
+      "isolation_level": "REPEATABLE-READ",
+      "db": "learning_databases"
+    },
+    "B": {
+      "connection_id": 74,
+      "autocommit": 1,
+      "isolation_level": "REPEATABLE-READ",
+      "db": "learning_databases"
+    }
+  },
+  "actual_ids": {
+    "rollback": 1,
+    "commit": 2,
+    "autocommit": 3
+  },
+  "table": "learning_databases.t5_dml_lab",
+  "method": "自动化执行",
+  "transaction_sql_sha256": "f5052d9a7c013a26ab9bff60e03f892c4589bc96baace90f81c6c6f1f349adcb",
+  "finished_at": "2026-10-19T19:25:06.158+08:00"
+}

@@ -1,0 +1,92 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+T5.6 两轮通用只读核验
+
+Root admin_identity
+
+  GET http://127.0.0.1:18080/getInfo [200 OK, 1.61 KB, 45 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Admin
+  -
+  | 'T56_EVENT {"name":"admin_identity","code":200,"userId
+  | ":1}'
+  -
+
+Root user_identity
+
+  GET http://127.0.0.1:18080/getInfo [200 OK, 1.65 KB, 105 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Batch identity
+  Pass  Role and permissions
+  -
+  | 'T56_EVENT {"name":"user_identity","code":200,"userId"
+  | :107,"roles":["t55_queryRole"],"permissions":["system:
+  | user:list","system:user:query"]}'
+  -
+
+Root admin_detail
+
+  GET http://127.0.0.1:18080/system/user/107 [200 OK, 3.16 KB, 84 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Target fields
+  Pass  Associations
+  -
+  | 'T56_EVENT {"name":"admin_detail","code":200,"userId":
+  | 107,"deptId":200,"roleIds":[100],"postIds":[1]}'
+  -
+
+Root user_detail
+
+  GET http://127.0.0.1:18080/system/user/107 [200 OK, 2.5 KB, 83 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Target fields
+  Pass  Associations
+  -
+  | 'T56_EVENT {"name":"user_detail","code":200,"userId":1
+  | 07,"deptId":200,"roleIds":[100],"postIds":[1]}'
+  -
+
+Root user_pages
+
+  GET http://127.0.0.1:18080/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc [200 OK, 1.05 KB, 71 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Shape
+  Pass  Total
+  Pass  Ordered page IDs
+  Pass  Full ID set without duplicates
+  -
+  | 'T56_EVENT {"name":"user_pages","code":200,"page":1,"t
+  | otal":1,"ids":[107]}'
+  -
+
+-----------------------------------------------------------------------
+|                         |            executed |              failed |
+--------------------------+---------------------+----------------------
+|              iterations |                   1 |                   0 |
+--------------------------+---------------------+----------------------
+|                requests |                   5 |                   0 |
+--------------------------+---------------------+----------------------
+|            test-scripts |                   5 |                   0 |
+--------------------------+---------------------+----------------------
+|      prerequest-scripts |                   5 |                   0 |
+--------------------------+---------------------+----------------------
+|              assertions |                  21 |                   0 |
+-----------------------------------------------------------------------
+| total run duration: 823 ms                                          |
+-----------------------------------------------------------------------
+| total data received: 8.36 KB (approx)                               |
+-----------------------------------------------------------------------
+| average response time: 77 ms [min: 45 ms, max: 105 ms, s.d.: 19 ms] |
+-----------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command
+

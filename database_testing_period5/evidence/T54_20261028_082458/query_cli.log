@@ -1,0 +1,242 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+T5.4 关联与身份核验
+
+Root admin_identity
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 1.61 KB, 25 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Admin identity
+  -
+  | 'T54_EVENT {"name":"admin_identity","http":200,"code":
+  | 200,"userId":1}'
+  -
+
+Root user_identity
+
+  GET http://127.0.0.1:8080/getInfo [200 OK, 2.09 KB, 28 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Batch identity
+  Pass  Department
+  Pass  Role keys
+  Pass  Permissions
+  -
+  | 'T54_EVENT {"name":"user_identity","http":200,"code":2
+  | 00,"userId":168,"deptId":202,"roles":["t34_r2_1012","t
+  | 34_r1_1012"],"permissions":["system:user:list","system
+  | :user:query","system:user:add"]}'
+  -
+
+Root admin_detail
+
+  GET http://127.0.0.1:8080/system/user/168 [200 OK, 6.29 KB, 27 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Target identity
+  Pass  Department/status
+  Pass  Role IDs
+  Pass  Post IDs
+  -
+  | 'T54_EVENT {"name":"admin_detail","http":200,"code":20
+  | 0,"userId":168,"deptId":202,"status":"0","roleIds":[10
+  | 5,106],"postIds":[1]}'
+  -
+
+Root user_detail
+
+  GET http://127.0.0.1:8080/system/user/168 [200 OK, 4.57 KB, 51 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Target identity
+  Pass  Department/status
+  Pass  Role IDs
+  Pass  Post IDs
+  -
+  | 'T54_EVENT {"name":"user_detail","http":200,"code":200
+  | ,"userId":168,"deptId":202,"status":"0","roleIds":[105
+  | ,106],"postIds":[1]}'
+  -
+
+Root role_105
+
+  GET http://127.0.0.1:8080/system/role/105 [200 OK, 716 B, 16 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Role metadata
+  -
+  | 'T54_EVENT {"name":"role_105","http":200,"code":200,"r
+  | oleId":105,"dataScope":"3","status":"0"}'
+  -
+
+Root role_106
+
+  GET http://127.0.0.1:8080/system/role/106 [200 OK, 717 B, 17 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Role metadata
+  -
+  | 'T54_EVENT {"name":"role_106","http":200,"code":200,"r
+  | oleId":106,"dataScope":"2","status":"0"}'
+  -
+
+Root visible_p1
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc [200 OK, 3.74 KB, 46 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Pagination shape
+  Pass  Total equals SQL
+  Pass  Ordered IDs equal SQL
+  Pass  Fields equal SQL
+  -
+  | 'T54_EVENT {"name":"visible_p1","http":200,"code":200,
+  | "total":27,"ids":[101,103,104,108,110],"rows":[{"userI
+  | d":101,"userName":"t25_a_query","deptId":202,"status":
+  | "0","delFlag":"0"},{"userId":103,"userName":"t25_a_add
+  | ","deptId":202,"status":"0","delFlag":"0"},{"userId":1
+  | 04,"userName":"t25_b_query","deptId":204,"status":"0",
+  | "delFlag":"0"},{"userId":108,"userName":"t25_a_created
+  | ","deptId":202,"status":"0","delFlag":"0"},{"userId":1
+  | 10,"userName":"t3_pwd5_1010","deptId":202,"status":"0"
+  | ,"delFlag":"0"}]}'
+  -
+
+Root visible_p2
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=2&pageSize=5&orderByColumn=userId&isAsc=asc [200 OK, 3.73 KB, 41 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Pagination shape
+  Pass  Total equals SQL
+  Pass  Ordered IDs equal SQL
+  Pass  Fields equal SQL
+  -
+  | 'T54_EVENT {"name":"visible_p2","http":200,"code":200,
+  | "total":27,"ids":[111,112,113,114,115],"rows":[{"userI
+  | d":111,"userName":"t310100001","deptId":202,"status":"
+  | 0","delFlag":"0"},{"userId":112,"userName":"t3ai_p06_1
+  | 010","deptId":202,"status":"0","delFlag":"0"},{"userId
+  | ":113,"userName":"t3ai_p07_1010","deptId":202,"status"
+  | :"0","delFlag":"0"},{"userId":114,"userName":"t3ai_p19
+  | _1010","deptId":202,"status":"0","delFlag":"0"},{"user
+  | Id":115,"userName":"t3ai_p20_1010","deptId":202,"statu
+  | s":"0","delFlag":"0"}]}'
+  -
+
+Root visible_p3
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=3&pageSize=5&orderByColumn=userId&isAsc=asc [200 OK, 3.8 KB, 26 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Pagination shape
+  Pass  Total equals SQL
+  Pass  Ordered IDs equal SQL
+  Pass  Fields equal SQL
+  -
+  | 'T54_EVENT {"name":"visible_p3","http":200,"code":200,
+  | "total":27,"ids":[116,117,118,119,120],"rows":[{"userI
+  | d":116,"userName":"t3ai_contact_1010","deptId":202,"st
+  | atus":"0","delFlag":"0"},{"userId":117,"userName":"a1"
+  | ,"deptId":202,"status":"0","delFlag":"0"},{"userId":11
+  | 8,"userName":"a11","deptId":202,"status":"0","delFlag"
+  | :"0"},{"userId":119,"userName":"a111111111111111111","
+  | deptId":202,"status":"0","delFlag":"0"},{"userId":120,
+  | "userName":"a1111111111111111111","deptId":202,"status
+  | ":"0","delFlag":"0"}]}'
+  -
+
+Root visible_p4
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=4&pageSize=5&orderByColumn=userId&isAsc=asc [200 OK, 3.77 KB, 31 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Pagination shape
+  Pass  Total equals SQL
+  Pass  Ordered IDs equal SQL
+  Pass  Fields equal SQL
+  -
+  | 'T54_EVENT {"name":"visible_p4","http":200,"code":200,
+  | "total":27,"ids":[121,122,125,127,128],"rows":[{"userI
+  | d":121,"userName":"t3ai_lock_1010","deptId":202,"statu
+  | s":"0","delFlag":"0"},{"userId":122,"userName":"t3ai_s
+  | top_1010","deptId":202,"status":"0","delFlag":"0"},{"u
+  | serId":125,"userName":"t3ai_maint_1010","deptId":202,"
+  | status":"0","delFlag":"0"},{"userId":127,"userName":"t
+  | 3ai_norole_1010","deptId":202,"status":"0","delFlag":"
+  | 0"},{"userId":128,"userName":"t3ai_pwd5_1010","deptId"
+  | :202,"status":"0","delFlag":"0"}]}'
+  -
+
+Root visible_p5
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=5&pageSize=5&orderByColumn=userId&isAsc=asc [200 OK, 3.73 KB, 34 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Pagination shape
+  Pass  Total equals SQL
+  Pass  Ordered IDs equal SQL
+  Pass  Fields equal SQL
+  -
+  | 'T54_EVENT {"name":"visible_p5","http":200,"code":200,
+  | "total":27,"ids":[129,130,131,134,145],"rows":[{"userI
+  | d":129,"userName":"t34_c_1012","deptId":204,"status":"
+  | 0","delFlag":"0"},{"userId":130,"userName":"t34_scopeu
+  | ser_1012","deptId":202,"status":"0","delFlag":"0"},{"u
+  | serId":131,"userName":"t34_multi_1012","deptId":202,"s
+  | tatus":"0","delFlag":"0"},{"userId":134,"userName":"t3
+  | 5_change_1012","deptId":202,"status":"0","delFlag":"0"
+  | },{"userId":145,"userName":"t38_reg_1012","deptId":202
+  | ,"status":"0","delFlag":"0"}]}'
+  -
+
+Root visible_p6
+
+  GET http://127.0.0.1:8080/system/user/list?pageNum=6&pageSize=5&orderByColumn=userId&isAsc=asc [200 OK, 1.72 KB, 21 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Pagination shape
+  Pass  Total equals SQL
+  Pass  Ordered IDs equal SQL
+  Pass  Fields equal SQL
+  -
+  | 'T54_EVENT {"name":"visible_p6","http":200,"code":200,
+  | "total":27,"ids":[146,168],"rows":[{"userId":146,"user
+  | Name":"t38_chain_1012","deptId":202,"status":"0","delF
+  | lag":"0"},{"userId":168,"userName":"t541028082458","de
+  | ptId":202,"status":"0","delFlag":"0"}]}'
+  -
+
+----------------------------------------------------------------------
+|                         |            executed |             failed |
+--------------------------+---------------------+---------------------
+|              iterations |                   1 |                  0 |
+--------------------------+---------------------+---------------------
+|                requests |                  12 |                  0 |
+--------------------------+---------------------+---------------------
+|            test-scripts |                  12 |                  0 |
+--------------------------+---------------------+---------------------
+|      prerequest-scripts |                  12 |                  0 |
+--------------------------+---------------------+---------------------
+|              assertions |                  63 |                  0 |
+----------------------------------------------------------------------
+| total run duration: 1400 ms                                        |
+----------------------------------------------------------------------
+| total data received: 32.56 KB (approx)                             |
+----------------------------------------------------------------------
+| average response time: 30 ms [min: 16 ms, max: 51 ms, s.d.: 10 ms] |
+----------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command
+
+A new version of Postman CLI is available (v1.80.0). Refer https://go.pstmn.io/cli-release-notes for changelogs.
+To update your Postman CLI, run:
+
+postman update
+
+

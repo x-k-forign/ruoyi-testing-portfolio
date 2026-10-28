@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-19T18:58:54+08:00",
+  "owned_ids": [
+    166,
+    167
+  ],
+  "checks": {
+    "baseline_users_unchanged": true,
+    "baseline_configuration_unchanged": true,
+    "only_batch_new_rows": true,
+    "batch_deleted": true,
+    "batch_relations_empty": true,
+    "sessions_logged_out": true
+  },
+  "all_ok": true,
+  "retained": "逻辑删除用户行及业务审计记录按原行为保留"
+}

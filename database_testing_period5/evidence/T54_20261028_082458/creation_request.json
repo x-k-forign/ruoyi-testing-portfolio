@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-28T08:25:08+08:00",
+  "source": "T4.6/06 创建用户并关联部门角色",
+  "source_sha256": "e3e650422281bd3c7486a98cc5f9a939cbc5c8cb8bf8907b232d1b8d15d38a89",
+  "method": "POST",
+  "path": "/system/user",
+  "body": {
+    "userName": "t541028082458",
+    "nickName": "T54关联核验",
+    "deptId": 202,
+    "roleIds": [
+      105,
+      106
+    ],
+    "postIds": [
+      1
+    ],
+    "status": "0",
+    "sex": "2"
+  },
+  "password": "只在本地内存设置合规口令，不归档"
+}

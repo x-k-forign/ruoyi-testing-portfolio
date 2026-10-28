@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-28T09:23:17+08:00",
+  "operation_sql": "SELECT oper_id,oper_name,oper_url,request_method,status,oper_time,CASE WHEN JSON_VALID(oper_param) THEN JSON_UNQUOTE(JSON_EXTRACT(oper_param,'$.userName')) ELSE NULL END AS target_name FROM sys_oper_log WHERE (oper_url='/system/user' AND JSON_VALID(oper_param) AND JSON_UNQUOTE(JSON_EXTRACT(oper_param,'$.userName')) IN(%s,%s)) OR oper_url IN(%s,%s) ORDER BY oper_id",
+  "parameters": [
+    "t5610280919481",
+    "t5610280919482",
+    "/system/user/107",
+    "/system/user/108"
+  ],
+  "operations": [
+    {
+      "oper_id": 122,
+      "oper_name": "admin",
+      "oper_url": "/system/user",
+      "request_method": "POST",
+      "status": 0,
+      "oper_time": "2026-10-28 09:21:05",
+      "target_name": "t5610280919481"
+    },
+    {
+      "oper_id": 123,
+      "oper_name": "admin",
+      "oper_url": "/system/user/107",
+      "request_method": "DELETE",
+      "status": 0,
+      "oper_time": "2026-10-28 09:21:36",
+      "target_name": null
+    },
+    {
+      "oper_id": 124,
+      "oper_name": "admin",
+      "oper_url": "/system/user",
+      "request_method": "POST",
+      "status": 0,
+      "oper_time": "2026-10-28 09:22:24",
+      "target_name": "t5610280919482"
+    },
+    {
+      "oper_id": 125,
+      "oper_name": "admin",
+      "oper_url": "/system/user/108",
+      "request_method": "DELETE",
+      "status": 0,
+      "oper_time": "2026-10-28 09:22:48",
+      "target_name": null
+    }
+  ],
+  "login_logs": [
+    {
+      "info_id": 109,
+      "user_name": "t5610280919481",
+      "status": "0",
+      "msg": "登录成功",
+      "login_time": "2026-10-28 09:21:15"
+    },
+    {
+      "info_id": 110,
+      "user_name": "t5610280919481",
+      "status": "0",
+      "msg": "退出成功",
+      "login_time": "2026-10-28 09:21:36"
+    },
+    {
+      "info_id": 113,
+      "user_name": "t5610280919482",
+      "status": "0",
+      "msg": "登录成功",
+      "login_time": "2026-10-28 09:22:34"
+    },
+    {
+      "info_id": 114,
+      "user_name": "t5610280919482",
+      "status": "0",
+      "msg": "退出成功",
+      "login_time": "2026-10-28 09:22:48"
+    }
+  ],
+  "policy": "保留成功创建、删除、登录退出审计；不删除历史日志"
+}

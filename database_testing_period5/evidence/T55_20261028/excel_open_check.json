@@ -1,0 +1,24 @@
+[
+  {
+    "sheets": 9,
+    "file": "Ruo_Yi\\functional_testing_period3\\backups\\T55_20261028_before.xlsx",
+    "version": "16.0",
+    "states": [
+      "未执行",
+      "未执行",
+      "未执行"
+    ],
+    "opened": true
+  },
+  {
+    "sheets": 9,
+    "file": "Ruo_Yi\\functional_testing_period3\\T3逐例执行计划与记录模板.xlsx",
+    "version": "16.0",
+    "states": [
+      "通过",
+      "通过",
+      "通过"
+    ],
+    "opened": true
+  }
+]

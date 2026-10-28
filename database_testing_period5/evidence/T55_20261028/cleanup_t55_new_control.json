@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-28T08:50:16+08:00",
+  "database": "ruoyi_t3_fault_lab",
+  "users": [
+    {
+      "user_id": 102,
+      "user_name": "t55_new_control",
+      "nick_name": "T55事务核验",
+      "dept_id": 200,
+      "status": "0",
+      "del_flag": "2",
+      "update_by": "",
+      "update_time": null
+    }
+  ],
+  "roles": [],
+  "posts": []
+}

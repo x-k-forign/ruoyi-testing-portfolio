@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-28T08:27:05+08:00",
+  "sql_sha256": "8c8dc8bcec789aa5f1d95ceeca88ae2e363c79881cf275c16cee9f4f84fcb80c",
+  "queries": {
+    "owned_user": {
+      "sql": "SELECT u.user_id,u.user_name,u.dept_id,u.status,u.del_flag,\n (SELECT COUNT(*) FROM sys_user_role ur WHERE ur.user_id=u.user_id) AS role_rows,\n (SELECT COUNT(*) FROM sys_user_post up WHERE up.user_id=u.user_id) AS post_rows\nFROM sys_user u WHERE u.user_id=168 AND u.user_name='t541028082458'",
+      "rows": [
+        {
+          "user_id": 168,
+          "user_name": "t541028082458",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "2",
+          "role_rows": 0,
+          "post_rows": 0
+        }
+      ]
+    },
+    "visible_batch": {
+      "sql": "SELECT COUNT(*) AS remaining_rows FROM sys_user\nWHERE user_id=168 AND user_name='t541028082458' AND del_flag='0'",
+      "rows": [
+        {
+          "remaining_rows": 0
+        }
+      ]
+    },
+    "active_total": {
+      "sql": "SELECT COUNT(*) AS active_rows FROM sys_user WHERE del_flag='0'",
+      "rows": [
+        {
+          "active_rows": 34
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-19T18:30:17+08:00",
+  "method": "自动化执行",
+  "stage_status": "T5.1 执行完成，待用户查看；未进行阶段验收",
+  "tools": {
+    "Python": "3.13.12",
+    "PyMySQL": "1.2.0",
+    "mysql_client": "8.4.11（本轮 --version 实际核验）"
+  },
+  "checks": {
+    "9_tables_86_columns": true,
+    "31_inventory_tables": true,
+    "columns_pk_match_source": true,
+    "all_core_innodb": true,
+    "all_core_utf8mb4_unicode_ci": true,
+    "only_primary_indexes": true,
+    "only_primary_constraints": true,
+    "no_foreign_keys": true,
+    "configured_identity_verified": true,
+    "utc_plus_8": true,
+    "sample_reference_checks_zero": true,
+    "historical_cleaned": true,
+    "multi_role_configuration": true,
+    "custom_scope_204": true,
+    "sample_fields_unchanged": true,
+    "sample_relation_counts_unchanged": true,
+    "transactions_closed": true,
+    "sql_hashes_match": true,
+    "source_hash_matches": true,
+    "recorded_queries_read_only": true,
+    "local_links_resolve": true,
+    "no_config_secrets_or_bcrypt_values": true,
+    "python_syntax_valid": true
+  },
+  "all_checks_ok": true,
+  "broken_links": [],
+  "secret_scan_affected_file_count": 0,
+  "evidence_limits": [
+    "样本一致性不等于全库审计",
+    "数据库配置不等于当前会话授权",
+    "没有完成遗留事务故障用例",
+    "核查未覆盖本轮范围外表结构"
+  ]
+}

@@ -1,0 +1,96 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+T5.5 隔离恢复与日志核验
+
+Root 管理员身份
+
+  GET http://127.0.0.1:18080/getInfo [200 OK, 1.61 KB, 51 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Admin identity
+  -
+  | 'T55_EVENT {"name":"管理员身份","code":200,"userId":1}'
+  -
+
+Root 恢复后详情_t3_fault_new
+
+  GET http://127.0.0.1:18080/system/user/106 [200 OK, 3.12 KB, 95 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Real target
+  Pass  Restored associations
+  -
+  | 'T55_EVENT {"name":"恢复后详情_t3_fault_new","code":200,"us
+  | erId":106,"roleIds":[100],"postIds":[1]}'
+  -
+
+Root 恢复后详情_t3_fault_edit
+
+  GET http://127.0.0.1:18080/system/user/103 [200 OK, 3.15 KB, 61 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Real target
+  Pass  Restored associations
+  -
+  | 'T55_EVENT {"name":"恢复后详情_t3_fault_edit","code":200,"u
+  | serId":103,"roleIds":[101],"postIds":[1]}'
+  -
+
+Root 故障生成ID无残留
+
+  GET http://127.0.0.1:18080/system/user/list?pageNum=1&pageSize=10&userId=105 [200 OK, 381 B, 211 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Rolled back ID absent
+  -
+  | 'T55_EVENT {"name":"故障生成ID无残留","code":200,"total":0}'
+  -
+
+Root 两次异常操作日志
+
+  GET http://127.0.0.1:18080/monitor/operlog/list?pageNum=1&pageSize=100&status=1 [200 OK, 1.89 KB, 41 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Fault logs present
+  -
+  | 'T55_EVENT {"name":"两次异常操作日志","code":200,"ids":[113,11
+  | 2],"statuses":[1,1]}'
+  -
+
+Root 登录日志关联
+
+  GET http://127.0.0.1:18080/monitor/logininfor/list?pageNum=1&pageSize=100&userName=t55_flow_1028 [200 OK, 1.19 KB, 58 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Successful isolated logins
+  -
+  | 'T55_EVENT {"name":"登录日志关联","code":200,"ids":[103,102,
+  | 101],"count":3}'
+  -
+
+-----------------------------------------------------------------------
+|                         |            executed |              failed |
+--------------------------+---------------------+----------------------
+|              iterations |                   1 |                   0 |
+--------------------------+---------------------+----------------------
+|                requests |                   6 |                   0 |
+--------------------------+---------------------+----------------------
+|            test-scripts |                   6 |                   0 |
+--------------------------+---------------------+----------------------
+|      prerequest-scripts |                   6 |                   0 |
+--------------------------+---------------------+----------------------
+|              assertions |                  20 |                   0 |
+-----------------------------------------------------------------------
+| total run duration: 1008 ms                                         |
+-----------------------------------------------------------------------
+| total data received: 9.39 KB (approx)                               |
+-----------------------------------------------------------------------
+| average response time: 86 ms [min: 41 ms, max: 211 ms, s.d.: 58 ms] |
+-----------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command
+

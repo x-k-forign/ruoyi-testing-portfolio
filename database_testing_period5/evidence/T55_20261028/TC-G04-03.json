@@ -1,0 +1,13 @@
+{
+  "status": "通过",
+  "fault_log_ids": [
+    112,
+    113
+  ],
+  "aspect_trace": [
+    "08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new",
+    "08:47:43.525 [http-nio-127.0.0.1-18080-exec-3] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit"
+  ],
+  "window_seconds": 30,
+  "note": "窗口为测试安排，不是产品SLA；日志与事务回滚分别核验"
+}

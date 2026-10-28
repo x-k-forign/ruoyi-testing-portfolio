@@ -1,0 +1,914 @@
+[
+  {
+    "at": "2026-10-28T08:44:37+08:00",
+    "label": "captcha_admin",
+    "method": "GET",
+    "path": "/captchaImage",
+    "code": 200,
+    "enabled": true
+  },
+  {
+    "at": "2026-10-28T08:44:46+08:00",
+    "finished_at": "2026-10-28T08:44:50+08:00",
+    "label": "login_admin",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "token_present": true,
+    "message": "操作成功",
+    "request_fields": {
+      "username": "admin"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:50+08:00",
+    "finished_at": "2026-10-28T08:44:50+08:00",
+    "label": "identity_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "user": {
+      "userId": 1,
+      "userName": "admin",
+      "deptId": 103,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "admin"
+    ],
+    "permissions": [
+      "*:*:*"
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:50+08:00",
+    "finished_at": "2026-10-28T08:44:51+08:00",
+    "label": "create_t55_flow_1028",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userName": "t55_flow_1028",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        101
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:51+08:00",
+    "finished_at": "2026-10-28T08:44:51+08:00",
+    "label": "create_t55_other_1028",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userName": "t55_other_1028",
+      "nickName": "T55事务核验",
+      "deptId": 201,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:52+08:00",
+    "finished_at": "2026-10-28T08:44:52+08:00",
+    "label": "create_t55_new_control",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userName": "t55_new_control",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:52+08:00",
+    "finished_at": "2026-10-28T08:44:52+08:00",
+    "label": "create_t3_fault_edit",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userName": "t3_fault_edit",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:52+08:00",
+    "finished_at": "2026-10-28T08:44:53+08:00",
+    "label": "edit_t3_fault_edit",
+    "method": "PUT",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 103,
+      "userName": "t3_fault_edit",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        101
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:53+08:00",
+    "finished_at": "2026-10-28T08:44:53+08:00",
+    "label": "edit_t3_fault_edit",
+    "method": "PUT",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 103,
+      "userName": "t3_fault_edit",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:54+08:00",
+    "label": "captcha_old",
+    "method": "GET",
+    "path": "/captchaImage",
+    "code": 200,
+    "enabled": true
+  },
+  {
+    "at": "2026-10-28T08:44:58+08:00",
+    "finished_at": "2026-10-28T08:44:58+08:00",
+    "label": "login_old",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "token_present": true,
+    "message": "操作成功",
+    "request_fields": {
+      "username": "t55_flow_1028"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:58+08:00",
+    "finished_at": "2026-10-28T08:44:58+08:00",
+    "label": "identity_old",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "user": {
+      "userId": 100,
+      "userName": "t55_flow_1028",
+      "deptId": 200,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t55_maintRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:59+08:00",
+    "finished_at": "2026-10-28T08:44:59+08:00",
+    "label": "old_before_revoke_p1",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "查询成功",
+    "total": 3,
+    "rows": [
+      {
+        "userId": 100,
+        "userName": "t55_flow_1028",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 102,
+        "userName": "t55_new_control",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 103,
+        "userName": "t3_fault_edit",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:59+08:00",
+    "finished_at": "2026-10-28T08:44:59+08:00",
+    "label": "edit_t55_flow_1028",
+    "method": "PUT",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 100,
+      "userName": "t55_flow_1028",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:44:59+08:00",
+    "finished_at": "2026-10-28T08:45:00+08:00",
+    "label": "create_t55_old_write",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": null,
+    "message": "操作成功",
+    "request_fields": {
+      "userName": "t55_old_write",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:00+08:00",
+    "label": "captcha_new",
+    "method": "GET",
+    "path": "/captchaImage",
+    "code": 200,
+    "enabled": true
+  },
+  {
+    "at": "2026-10-28T08:45:06+08:00",
+    "finished_at": "2026-10-28T08:45:06+08:00",
+    "label": "login_new",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "token_present": true,
+    "message": "操作成功",
+    "request_fields": {
+      "username": "t55_flow_1028"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:06+08:00",
+    "finished_at": "2026-10-28T08:45:06+08:00",
+    "label": "identity_new",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "user": {
+      "userId": 100,
+      "userName": "t55_flow_1028",
+      "deptId": 200,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t55_queryRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:07+08:00",
+    "finished_at": "2026-10-28T08:45:07+08:00",
+    "label": "create_t55_new_write",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 403,
+    "expected_business_code": 403,
+    "message": "没有权限，请联系管理员授权",
+    "request_fields": {
+      "userName": "t55_new_write",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:07+08:00",
+    "finished_at": "2026-10-28T08:45:07+08:00",
+    "label": "edit_t55_flow_1028",
+    "method": "PUT",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 100,
+      "userName": "t55_flow_1028",
+      "nickName": "T55事务核验",
+      "deptId": 201,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:07+08:00",
+    "finished_at": "2026-10-28T08:45:07+08:00",
+    "label": "old_before_dept_refresh_p1",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "查询成功",
+    "total": 3,
+    "rows": [
+      {
+        "userId": 102,
+        "userName": "t55_new_control",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 103,
+        "userName": "t3_fault_edit",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 104,
+        "userName": "t55_old_write",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:08+08:00",
+    "label": "captcha_fresh",
+    "method": "GET",
+    "path": "/captchaImage",
+    "code": 200,
+    "enabled": true
+  },
+  {
+    "at": "2026-10-28T08:45:17+08:00",
+    "finished_at": "2026-10-28T08:45:17+08:00",
+    "label": "login_fresh",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "token_present": true,
+    "message": "操作成功",
+    "request_fields": {
+      "username": "t55_flow_1028"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:17+08:00",
+    "finished_at": "2026-10-28T08:45:17+08:00",
+    "label": "identity_fresh",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "user": {
+      "userId": 100,
+      "userName": "t55_flow_1028",
+      "deptId": 201,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t55_queryRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:18+08:00",
+    "finished_at": "2026-10-28T08:45:18+08:00",
+    "label": "fresh_after_move_p1",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "查询成功",
+    "total": 2,
+    "rows": [
+      {
+        "userId": 100,
+        "userName": "t55_flow_1028",
+        "deptId": 201,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 101,
+        "userName": "t55_other_1028",
+        "deptId": 201,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:18+08:00",
+    "finished_at": "2026-10-28T08:45:18+08:00",
+    "label": "disable_flow",
+    "method": "PUT",
+    "path": "/system/user/changeStatus",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 100,
+      "status": "1"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:18+08:00",
+    "finished_at": "2026-10-28T08:45:18+08:00",
+    "label": "old_session_after_disable_p1",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "查询成功",
+    "total": 2,
+    "rows": [
+      {
+        "userId": 100,
+        "userName": "t55_flow_1028",
+        "deptId": 201,
+        "status": "1",
+        "delFlag": "0"
+      },
+      {
+        "userId": 101,
+        "userName": "t55_other_1028",
+        "deptId": 201,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:18+08:00",
+    "finished_at": "2026-10-28T08:45:18+08:00",
+    "label": "enable_flow",
+    "method": "PUT",
+    "path": "/system/user/changeStatus",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 100,
+      "status": "0"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:45:18+08:00",
+    "finished_at": "2026-10-28T08:45:18+08:00",
+    "label": "edit_t55_flow_1028",
+    "method": "PUT",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 100,
+      "userName": "t55_flow_1028",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        101
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:47:03+08:00",
+    "finished_at": "2026-10-28T08:47:05+08:00",
+    "label": "create_t3_fault_new",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 500,
+    "expected_business_code": 500,
+    "message": "T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new",
+    "request_fields": {
+      "userName": "t3_fault_new",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:47:42+08:00",
+    "finished_at": "2026-10-28T08:47:43+08:00",
+    "label": "fault_update",
+    "method": "PUT",
+    "path": "/system/user",
+    "http": 200,
+    "code": 500,
+    "expected_business_code": 500,
+    "message": "T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit",
+    "request_fields": {
+      "userId": 103,
+      "userName": "t3_fault_edit",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        101
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:49:13+08:00",
+    "finished_at": "2026-10-28T08:49:14+08:00",
+    "label": "create_t3_fault_new",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userName": "t3_fault_new",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:49:14+08:00",
+    "finished_at": "2026-10-28T08:49:14+08:00",
+    "label": "edit_t3_fault_edit",
+    "method": "PUT",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userId": 103,
+      "userName": "t3_fault_edit",
+      "nickName": "T55事务核验",
+      "deptId": 200,
+      "roleIds": [
+        101
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:15+08:00",
+    "finished_at": "2026-10-28T08:50:15+08:00",
+    "label": "logout_old",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:15+08:00",
+    "finished_at": "2026-10-28T08:50:15+08:00",
+    "label": "expired_old",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:15+08:00",
+    "finished_at": "2026-10-28T08:50:15+08:00",
+    "label": "logout_new",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:15+08:00",
+    "finished_at": "2026-10-28T08:50:15+08:00",
+    "label": "expired_new",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:15+08:00",
+    "finished_at": "2026-10-28T08:50:15+08:00",
+    "label": "logout_fresh",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:15+08:00",
+    "finished_at": "2026-10-28T08:50:15+08:00",
+    "label": "expired_fresh",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:15+08:00",
+    "finished_at": "2026-10-28T08:50:15+08:00",
+    "label": "cleanup_t55_flow_1028",
+    "method": "DELETE",
+    "path": "/system/user/100",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:16+08:00",
+    "finished_at": "2026-10-28T08:50:16+08:00",
+    "label": "cleanup_t55_other_1028",
+    "method": "DELETE",
+    "path": "/system/user/101",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:16+08:00",
+    "finished_at": "2026-10-28T08:50:16+08:00",
+    "label": "cleanup_t55_new_control",
+    "method": "DELETE",
+    "path": "/system/user/102",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:16+08:00",
+    "finished_at": "2026-10-28T08:50:16+08:00",
+    "label": "cleanup_t3_fault_edit",
+    "method": "DELETE",
+    "path": "/system/user/103",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:16+08:00",
+    "finished_at": "2026-10-28T08:50:16+08:00",
+    "label": "cleanup_t55_old_write",
+    "method": "DELETE",
+    "path": "/system/user/104",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:17+08:00",
+    "finished_at": "2026-10-28T08:50:17+08:00",
+    "label": "cleanup_t3_fault_new",
+    "method": "DELETE",
+    "path": "/system/user/106",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:17+08:00",
+    "finished_at": "2026-10-28T08:50:17+08:00",
+    "label": "logout_admin",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T08:50:17+08:00",
+    "finished_at": "2026-10-28T08:50:17+08:00",
+    "label": "expired_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "passed": true
+  }
+]

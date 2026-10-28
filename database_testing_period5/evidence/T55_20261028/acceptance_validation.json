@@ -1,0 +1,45 @@
+{
+  "accepted_at": "2026-10-28T09:17:06+08:00",
+  "stage": "T5.5",
+  "method": "自动化执行成果核对、原理说明及用户理解确认",
+  "user_confirmation": "这几个点我理解了，帮我验收一下T5.5，通过后告诉我T5.6要做什么。",
+  "criteria": {
+    "业务操作与SQL闭环": "通过",
+    "配置范围状态与日志对照": "通过",
+    "三条隔离专项": "通过",
+    "差异分类与恢复": "通过",
+    "原理说明与理解确认": "通过（按约定方式）"
+  },
+  "checks": {
+    "prior_delivery": true,
+    "sql_and_workbook_unchanged": true,
+    "C08": true,
+    "M07": true,
+    "G04": true,
+    "known_failures_retained": true,
+    "normal_controls_restored": true,
+    "users_and_sessions_cleaned": true,
+    "fault_removed_services_stopped": true,
+    "shared_configuration_unchanged": true,
+    "excel_open_verified": true,
+    "five_t55_items_checked": true,
+    "later_t5_not_checked": true,
+    "links_valid": true
+  },
+  "conclusion": "T5.5验收通过",
+  "known_product_failures": [
+    "BUG-T3-003",
+    "BUG-T3-004"
+  ],
+  "observation": "禁用后的旧会话行为沿用待观察",
+  "new_database_or_api_execution": false,
+  "T5_6": "尚未执行",
+  "github_published": false,
+  "all_checks_ok": true,
+  "broken_links": [],
+  "current_file_sha256": {
+    "若依软件测试学习大纲.md": "95d66d9e7b0452eed1bbc49ab1f23c18d883507a12bbb23748eadcf0cf2fb606",
+    "database_testing_period5\\docs\\T5.5_执行说明.md": "cc36cc19939d65df90e0865bcace4200205c6d2eb4e5b9b59a5add3570f4df22",
+    "functional_testing_period3\\T3逐例执行计划与记录模板.xlsx": "e8fd5fcba75feac16997e6c3b902197bd002d73aa6a526514abc850ae2dfe12c"
+  }
+}

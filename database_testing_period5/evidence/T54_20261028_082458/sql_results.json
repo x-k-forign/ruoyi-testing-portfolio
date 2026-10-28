@@ -1,0 +1,544 @@
+{
+  "at": "2026-10-28T08:25:14+08:00",
+  "target_user_id": 168,
+  "sql_sha256": "6e001c2f265a565e3c91c0a069bad9ec542ff7ffad759223b5ebe894bcf3ed3f",
+  "queries": {
+    "environment": {
+      "sql": "SELECT DATABASE() AS db,VERSION() AS version,CONNECTION_ID() AS connection_id,\n NOW() AS local_time_value,UTC_TIMESTAMP() AS utc_time_value,\n TIMESTAMPDIFF(MINUTE,UTC_TIMESTAMP(),NOW()) AS utc_offset_minutes",
+      "rows": [
+        {
+          "db": "ruoyi_t2_lab",
+          "version": "8.4.11",
+          "connection_id": 42,
+          "local_time_value": "2026-10-28 08:25:14",
+          "utc_time_value": "2026-10-28 00:25:14",
+          "utc_offset_minutes": 480
+        }
+      ],
+      "row_count": 1
+    },
+    "target_user": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user WHERE user_id=@target_user_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "user_name": "t541028082458",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 1
+    },
+    "target_roles": {
+      "sql": "SELECT user_id,role_id FROM sys_user_role WHERE user_id=@target_user_id ORDER BY role_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "role_id": 105
+        },
+        {
+          "user_id": 168,
+          "role_id": 106
+        }
+      ],
+      "row_count": 2
+    },
+    "target_posts": {
+      "sql": "SELECT user_id,post_id FROM sys_user_post WHERE user_id=@target_user_id ORDER BY post_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "post_id": 1
+        }
+      ],
+      "row_count": 1
+    },
+    "inner_user_department_roles": {
+      "sql": "SELECT u.user_id,u.user_name,u.dept_id,d.dept_name,d.status AS dept_status,d.del_flag AS dept_del_flag,\n r.role_id,r.role_key,r.data_scope,r.status AS role_status,r.del_flag AS role_del_flag\nFROM sys_user u INNER JOIN sys_dept d ON u.dept_id=d.dept_id\nINNER JOIN sys_user_role ur ON u.user_id=ur.user_id\nINNER JOIN sys_role r ON ur.role_id=r.role_id\nWHERE u.user_id=@target_user_id ORDER BY r.role_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "user_name": "t541028082458",
+          "dept_id": 202,
+          "dept_name": "T25部门A1009",
+          "dept_status": "0",
+          "dept_del_flag": "0",
+          "role_id": 105,
+          "role_key": "t34_r1_1012",
+          "data_scope": "3",
+          "role_status": "0",
+          "role_del_flag": "0"
+        },
+        {
+          "user_id": 168,
+          "user_name": "t541028082458",
+          "dept_id": 202,
+          "dept_name": "T25部门A1009",
+          "dept_status": "0",
+          "dept_del_flag": "0",
+          "role_id": 106,
+          "role_key": "t34_r2_1012",
+          "data_scope": "2",
+          "role_status": "0",
+          "role_del_flag": "0"
+        }
+      ],
+      "row_count": 2
+    },
+    "role_menu_pairs": {
+      "sql": "SELECT ur.user_id,ur.role_id,rm.menu_id,m.menu_name,m.menu_type,m.status,m.perms\nFROM sys_user_role ur INNER JOIN sys_role_menu rm ON ur.role_id=rm.role_id\nINNER JOIN sys_menu m ON rm.menu_id=m.menu_id\nWHERE ur.user_id=@target_user_id ORDER BY ur.role_id,rm.menu_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "role_id": 105,
+          "menu_id": 1,
+          "menu_name": "系统管理",
+          "menu_type": "M",
+          "status": "0",
+          "perms": ""
+        },
+        {
+          "user_id": 168,
+          "role_id": 105,
+          "menu_id": 100,
+          "menu_name": "用户管理",
+          "menu_type": "C",
+          "status": "0",
+          "perms": "system:user:list"
+        },
+        {
+          "user_id": 168,
+          "role_id": 105,
+          "menu_id": 1000,
+          "menu_name": "用户查询",
+          "menu_type": "F",
+          "status": "0",
+          "perms": "system:user:query"
+        },
+        {
+          "user_id": 168,
+          "role_id": 106,
+          "menu_id": 1,
+          "menu_name": "系统管理",
+          "menu_type": "M",
+          "status": "0",
+          "perms": ""
+        },
+        {
+          "user_id": 168,
+          "role_id": 106,
+          "menu_id": 100,
+          "menu_name": "用户管理",
+          "menu_type": "C",
+          "status": "0",
+          "perms": "system:user:list"
+        },
+        {
+          "user_id": 168,
+          "role_id": 106,
+          "menu_id": 1000,
+          "menu_name": "用户查询",
+          "menu_type": "F",
+          "status": "0",
+          "perms": "system:user:query"
+        },
+        {
+          "user_id": 168,
+          "role_id": 106,
+          "menu_id": 1001,
+          "menu_name": "用户新增",
+          "menu_type": "F",
+          "status": "0",
+          "perms": "system:user:add"
+        }
+      ],
+      "row_count": 7
+    },
+    "role_department_scope": {
+      "sql": "SELECT ur.user_id,r.role_id,r.data_scope,rd.dept_id AS custom_dept_id,\n d.dept_name,d.status AS dept_status,d.del_flag AS dept_del_flag\nFROM sys_user_role ur INNER JOIN sys_role r ON ur.role_id=r.role_id\nLEFT JOIN sys_role_dept rd ON r.role_id=rd.role_id\nLEFT JOIN sys_dept d ON rd.dept_id=d.dept_id\nWHERE ur.user_id=@target_user_id ORDER BY r.role_id,rd.dept_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "role_id": 105,
+          "data_scope": "3",
+          "custom_dept_id": null,
+          "dept_name": null,
+          "dept_status": null,
+          "dept_del_flag": null
+        },
+        {
+          "user_id": 168,
+          "role_id": 106,
+          "data_scope": "2",
+          "custom_dept_id": 204,
+          "dept_name": "T25部门B1009",
+          "dept_status": "0",
+          "dept_del_flag": "0"
+        }
+      ],
+      "row_count": 2
+    },
+    "user_post_details": {
+      "sql": "SELECT up.user_id,up.post_id,p.post_code,p.post_name,p.status\nFROM sys_user_post up INNER JOIN sys_post p ON up.post_id=p.post_id\nWHERE up.user_id=@target_user_id ORDER BY up.post_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "post_id": 1,
+          "post_code": "ceo",
+          "post_name": "董事长",
+          "status": "0"
+        }
+      ],
+      "row_count": 1
+    },
+    "left_samples": {
+      "sql": "SELECT u.user_id,u.dept_id,d.dept_id AS matched_dept_id,ur.role_id,r.role_id AS matched_role_id,r.status AS role_status\nFROM sys_user u LEFT JOIN sys_dept d ON u.dept_id=d.dept_id\nLEFT JOIN sys_user_role ur ON u.user_id=ur.user_id LEFT JOIN sys_role r ON ur.role_id=r.role_id\nWHERE u.user_id IN(@target_user_id,126,127) ORDER BY u.user_id,ur.role_id",
+      "rows": [
+        {
+          "user_id": 126,
+          "dept_id": null,
+          "matched_dept_id": null,
+          "role_id": 101,
+          "matched_role_id": 101,
+          "role_status": "0"
+        },
+        {
+          "user_id": 127,
+          "dept_id": 202,
+          "matched_dept_id": 202,
+          "role_id": null,
+          "matched_role_id": null,
+          "role_status": null
+        },
+        {
+          "user_id": 168,
+          "dept_id": 202,
+          "matched_dept_id": 202,
+          "role_id": 105,
+          "matched_role_id": 105,
+          "role_status": "0"
+        },
+        {
+          "user_id": 168,
+          "dept_id": 202,
+          "matched_dept_id": 202,
+          "role_id": 106,
+          "matched_role_id": 106,
+          "role_status": "0"
+        }
+      ],
+      "row_count": 4
+    },
+    "inner_samples": {
+      "sql": "SELECT u.user_id,u.dept_id,d.dept_id AS matched_dept_id,ur.role_id,r.role_id AS matched_role_id,r.status AS role_status\nFROM sys_user u INNER JOIN sys_dept d ON u.dept_id=d.dept_id\nINNER JOIN sys_user_role ur ON u.user_id=ur.user_id INNER JOIN sys_role r ON ur.role_id=r.role_id\nWHERE u.user_id IN(@target_user_id,126,127) ORDER BY u.user_id,ur.role_id",
+      "rows": [
+        {
+          "user_id": 168,
+          "dept_id": 202,
+          "matched_dept_id": 202,
+          "role_id": 105,
+          "matched_role_id": 105,
+          "role_status": "0"
+        },
+        {
+          "user_id": 168,
+          "dept_id": 202,
+          "matched_dept_id": 202,
+          "role_id": 106,
+          "matched_role_id": 106,
+          "role_status": "0"
+        }
+      ],
+      "row_count": 2
+    },
+    "role_status_in_on": {
+      "sql": "SELECT u.user_id,ur.role_id,r.role_id AS matched_role_id,r.status AS role_status\nFROM sys_user u LEFT JOIN sys_user_role ur ON u.user_id=ur.user_id\nLEFT JOIN sys_role r ON ur.role_id=r.role_id AND r.status='0'\nWHERE u.user_id IN(@target_user_id,126,127) ORDER BY u.user_id,ur.role_id",
+      "rows": [
+        {
+          "user_id": 126,
+          "role_id": 101,
+          "matched_role_id": 101,
+          "role_status": "0"
+        },
+        {
+          "user_id": 127,
+          "role_id": null,
+          "matched_role_id": null,
+          "role_status": null
+        },
+        {
+          "user_id": 168,
+          "role_id": 105,
+          "matched_role_id": 105,
+          "role_status": "0"
+        },
+        {
+          "user_id": 168,
+          "role_id": 106,
+          "matched_role_id": 106,
+          "role_status": "0"
+        }
+      ],
+      "row_count": 4
+    },
+    "role_status_in_where": {
+      "sql": "SELECT u.user_id,ur.role_id,r.role_id AS matched_role_id,r.status AS role_status\nFROM sys_user u LEFT JOIN sys_user_role ur ON u.user_id=ur.user_id\nLEFT JOIN sys_role r ON ur.role_id=r.role_id\nWHERE u.user_id IN(@target_user_id,126,127) AND r.status='0' ORDER BY u.user_id,ur.role_id",
+      "rows": [
+        {
+          "user_id": 126,
+          "role_id": 101,
+          "matched_role_id": 101,
+          "role_status": "0"
+        },
+        {
+          "user_id": 168,
+          "role_id": 105,
+          "matched_role_id": 105,
+          "role_status": "0"
+        },
+        {
+          "user_id": 168,
+          "role_id": 106,
+          "matched_role_id": 106,
+          "role_status": "0"
+        }
+      ],
+      "row_count": 3
+    },
+    "result_granularity": {
+      "sql": "SELECT COUNT(*) AS user_role_menu_rows,COUNT(DISTINCT u.user_id) AS users,\n COUNT(DISTINCT ur.role_id) AS roles,COUNT(DISTINCT rm.menu_id) AS menus\nFROM sys_user u INNER JOIN sys_user_role ur ON u.user_id=ur.user_id\nINNER JOIN sys_role_menu rm ON ur.role_id=rm.role_id\nWHERE u.user_id=@target_user_id",
+      "rows": [
+        {
+          "user_role_menu_rows": 7,
+          "users": 1,
+          "roles": 2,
+          "menus": 4
+        }
+      ],
+      "row_count": 1
+    },
+    "reference_integrity": {
+      "sql": "SELECT 'user_department' AS relation_name,COUNT(*) AS missing_count\nFROM sys_user u LEFT JOIN sys_dept d ON u.dept_id=d.dept_id\nWHERE u.user_id IN(@target_user_id,126,127) AND u.dept_id IS NOT NULL AND d.dept_id IS NULL\nUNION ALL\nSELECT 'user_role',COUNT(*) FROM sys_user_role ur LEFT JOIN sys_role r ON ur.role_id=r.role_id\nWHERE ur.user_id IN(@target_user_id,126,127) AND r.role_id IS NULL\nUNION ALL\nSELECT 'role_menu',COUNT(*) FROM sys_role_menu rm LEFT JOIN sys_menu m ON rm.menu_id=m.menu_id\nWHERE rm.role_id IN(105,106) AND m.menu_id IS NULL\nUNION ALL\nSELECT 'role_department',COUNT(*) FROM sys_role_dept rd LEFT JOIN sys_dept d ON rd.dept_id=d.dept_id\nWHERE rd.role_id IN(105,106) AND d.dept_id IS NULL\nUNION ALL\nSELECT 'user_post',COUNT(*) FROM sys_user_post up LEFT JOIN sys_post p ON up.post_id=p.post_id\nWHERE up.user_id=@target_user_id AND p.post_id IS NULL",
+      "rows": [
+        {
+          "relation_name": "user_department",
+          "missing_count": 0
+        },
+        {
+          "relation_name": "user_role",
+          "missing_count": 0
+        },
+        {
+          "relation_name": "role_menu",
+          "missing_count": 0
+        },
+        {
+          "relation_name": "role_department",
+          "missing_count": 0
+        },
+        {
+          "relation_name": "user_post",
+          "missing_count": 0
+        }
+      ],
+      "row_count": 5
+    },
+    "expected_visible": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND dept_id IN(202,204) ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t25_a_add",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 104,
+          "user_name": "t25_b_query",
+          "dept_id": 204,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 108,
+          "user_name": "t25_a_created",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t3_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 111,
+          "user_name": "t310100001",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 112,
+          "user_name": "t3ai_p06_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 113,
+          "user_name": "t3ai_p07_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 114,
+          "user_name": "t3ai_p19_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 115,
+          "user_name": "t3ai_p20_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 116,
+          "user_name": "t3ai_contact_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 117,
+          "user_name": "a1",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 118,
+          "user_name": "a11",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 119,
+          "user_name": "a111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 120,
+          "user_name": "a1111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 121,
+          "user_name": "t3ai_lock_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 122,
+          "user_name": "t3ai_stop_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 125,
+          "user_name": "t3ai_maint_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 127,
+          "user_name": "t3ai_norole_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 128,
+          "user_name": "t3ai_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 129,
+          "user_name": "t34_c_1012",
+          "dept_id": 204,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 130,
+          "user_name": "t34_scopeuser_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 145,
+          "user_name": "t38_reg_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 146,
+          "user_name": "t38_chain_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 168,
+          "user_name": "t541028082458",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 27
+    }
+  },
+  "transaction_closed": true
+}

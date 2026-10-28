@@ -1,0 +1,83 @@
+{
+  "checked_at": "2026-10-28T08:56:26+08:00",
+  "stage": "T5.5",
+  "method": "自动化执行",
+  "status": "执行完成，待用户查看，未验收",
+  "checks": {
+    "dedicated_db_denies_shared": true,
+    "redis_separate": true,
+    "normal_create_and_edit_controls": true,
+    "C08_real_transaction_rollback": true,
+    "M07_real_transaction_rollback": true,
+    "G04_actual_aspect_and_FAIL": true,
+    "BUG003_preserved": true,
+    "BUG004_preserved": true,
+    "recovery_normal_controls": true,
+    "isolated_cleanup": true,
+    "sessions_rejected": true,
+    "source_restored": true,
+    "compiled_markers_removed": true,
+    "builds_successful": true,
+    "services_stopped": true,
+    "shared_protected": true,
+    "cli_6_requests_20_assertions": true,
+    "request_count": true,
+    "sql_hash": true,
+    "T3_current_statistics": true,
+    "excel_opens_normally": true,
+    "test_credentials_cleared": true,
+    "delivery_no_secrets": true,
+    "script_syntax": true,
+    "links_valid": true
+  },
+  "all_checks_ok": true,
+  "fault_cases": {
+    "TC-C08-01": "通过",
+    "TC-M07-02": "通过",
+    "TC-G04-03": "通过"
+  },
+  "known_failures": [
+    "BUG-T3-003",
+    "BUG-T3-004"
+  ],
+  "observation": "禁用后旧会话仍可查询，沿用未决规则",
+  "compiled_class_comparison": {
+    "baseline": {
+      "ruoyi-system": {
+        "marker_present": false,
+        "sha256": "52ab0c04177144e46fa180ee92257da6c6dfa6341f78421a369e4c08ac401e5a"
+      },
+      "ruoyi-framework": {
+        "marker_present": false,
+        "sha256": "910581eb218939806d8253677ee3b010476d9660800e664db263cbde1037640b"
+      }
+    },
+    "fault": {
+      "ruoyi-system": {
+        "marker_present": true,
+        "sha256": "30085591364a8a30793b0b3e1de6dfc764ac8ed2b7bac82be108e3dde868dd84"
+      },
+      "ruoyi-framework": {
+        "marker_present": true,
+        "sha256": "60a8c6dd9fe267c776eac98c5f3e966ed980a27bdda357a88d050808be167469"
+      }
+    },
+    "restored": {
+      "ruoyi-system": {
+        "marker_present": false,
+        "sha256": "52ab0c04177144e46fa180ee92257da6c6dfa6341f78421a369e4c08ac401e5a"
+      },
+      "ruoyi-framework": {
+        "marker_present": false,
+        "sha256": "910581eb218939806d8253677ee3b010476d9660800e664db263cbde1037640b"
+      }
+    }
+  },
+  "leak_files": [],
+  "broken_links": [],
+  "artifact_hashes": {
+    "database_testing_period5\\docs\\T5.5_执行说明.md": "1ee9d67ad455af9c7d357b4be073a9c0e83acce22b96170fb7c18a45a2b1d52c",
+    "database_testing_period5\\sql\\T5.5_隔离核验.sql": "72fe6d416eb0d47655d9196c6f6a45859ea6bf0b247cc665257d445eef6cc748",
+    "functional_testing_period3\\T3逐例执行计划与记录模板.xlsx": "e8fd5fcba75feac16997e6c3b902197bd002d73aa6a526514abc850ae2dfe12c"
+  }
+}

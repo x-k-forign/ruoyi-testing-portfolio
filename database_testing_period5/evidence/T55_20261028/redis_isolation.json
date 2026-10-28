@@ -1,0 +1,23 @@
+{
+  "shared_before": {
+    "redis_version": "7.0.15",
+    "run_id": "3afe9031b978446de3e7dcfc021b28d2fca4e5e5",
+    "process_id": "1172",
+    "tcp_port": "6379"
+  },
+  "isolated": {
+    "redis_version": "7.0.15",
+    "run_id": "234f1ca4c8d750aab4a2674430fe795ce694b8d8",
+    "process_id": "9700",
+    "tcp_port": "16379"
+  },
+  "shared_after": {
+    "redis_version": "7.0.15",
+    "run_id": "3afe9031b978446de3e7dcfc021b28d2fca4e5e5",
+    "process_id": "1172",
+    "tcp_port": "6379"
+  },
+  "empty_on_start": true,
+  "ssh_pid": 21680,
+  "persistence": "save empty, appendonly no; Linux process in memory, config and logs kept on Windows"
+}

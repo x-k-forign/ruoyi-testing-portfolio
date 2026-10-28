@@ -1,0 +1,242 @@
+{
+  "info": {
+    "name": "T5.5 隔离恢复与日志核验",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "管理员身份",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/getInfo",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{adminToken}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://isolated-precondition');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('adminToken'))block('Isolated target and fresh token required');if(pm.request.method!=='GET')block('Read-only verification');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "check('Admin identity',b.user.userId===1);",
+              "console.log('T55_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{userId:b.user.userId}))); "
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "恢复后详情_t3_fault_new",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/system/user/106",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{adminToken}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://isolated-precondition');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('adminToken'))block('Isolated target and fresh token required');if(pm.request.method!=='GET')block('Read-only verification');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "check('Real target',b.data.userId===106&&b.data.userName==='t3_fault_new');check('Restored associations',JSON.stringify(b.roleIds)==='[100]'&&JSON.stringify(b.postIds)==='[1]');",
+              "console.log('T55_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{userId:b.data.userId,roleIds:b.roleIds,postIds:b.postIds}))); "
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "恢复后详情_t3_fault_edit",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/system/user/103",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{adminToken}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://isolated-precondition');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('adminToken'))block('Isolated target and fresh token required');if(pm.request.method!=='GET')block('Read-only verification');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "check('Real target',b.data.userId===103&&b.data.userName==='t3_fault_edit');check('Restored associations',JSON.stringify(b.roleIds)==='[101]'&&JSON.stringify(b.postIds)==='[1]');",
+              "console.log('T55_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{userId:b.data.userId,roleIds:b.roleIds,postIds:b.postIds}))); "
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "故障生成ID无残留",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=10&userId=105",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{adminToken}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://isolated-precondition');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('adminToken'))block('Isolated target and fresh token required');if(pm.request.method!=='GET')block('Read-only verification');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "check('Rolled back ID absent',b.total===0&&b.rows.length===0);",
+              "console.log('T55_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{total:b.total}))); "
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "两次异常操作日志",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/monitor/operlog/list?pageNum=1&pageSize=100&status=1",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{adminToken}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://isolated-precondition');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('adminToken'))block('Isolated target and fresh token required');if(pm.request.method!=='GET')block('Read-only verification');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "var ids=[112, 113];check('Fault logs present',ids.every(id=>b.rows.some(x=>x.operId===id&&x.status===1&&x.errorMsg.includes('T3_FAULT:')&&x.errorMsg.includes('txActive=true'))));",
+              "console.log('T55_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{ids:b.rows.map(x=>x.operId),statuses:b.rows.map(x=>x.status)}))); "
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "登录日志关联",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/monitor/logininfor/list?pageNum=1&pageSize=100&userName=t55_flow_1028",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{adminToken}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://isolated-precondition');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('adminToken'))block('Isolated target and fresh token required');if(pm.request.method!=='GET')block('Read-only verification');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "check('Successful isolated logins',b.rows.length>=3&&b.rows.every(x=>x.userName==='t55_flow_1028'&&x.status==='0'));",
+              "console.log('T55_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{ids:b.rows.map(x=>x.infoId),count:b.rows.length}))); "
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

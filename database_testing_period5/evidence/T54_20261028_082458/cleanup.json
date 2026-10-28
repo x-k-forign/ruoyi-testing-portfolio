@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-28T08:25:53+08:00",
+  "owned_ids": [
+    168
+  ],
+  "checks": {
+    "old_users_unchanged": true,
+    "old_configuration_unchanged": true,
+    "only_owned_rows_added": true,
+    "owned_deleted": true,
+    "owned_relations_empty": true,
+    "sessions_exited": true
+  },
+  "all_ok": true
+}

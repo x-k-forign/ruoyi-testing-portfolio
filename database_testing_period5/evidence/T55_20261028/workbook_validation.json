@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "失败": 5,
+    "待观察": 4,
+    "通过": 85
+  },
+  "total": 94,
+  "formulas_preserved": true,
+  "merged_ranges_filters_freeze_panes_preserved": true,
+  "namespace_declarations_preserved_by_targeted_xml_patch": true,
+  "donor": "artifact-tool-authored values",
+  "backup": "functional_testing_period3\\backups\\T55_20261028_before.xlsx"
+}

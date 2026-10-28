@@ -70,3 +70,22 @@ desktop.ini
 !/api_testing_period4/T4接口用例执行记录.xlsx
 !/api_testing_period4/evidence_t4/**/*_cli.log
 !/functional_testing_period3/T4后续执行入口.md
+
+# T5: publish reviewed deliverables only, never the execution workspace.
+**/.private/
+**/private/
+**/raw_logs/
+*.jar
+*.class
+*.pyc
+/database_testing_period5/*
+!/database_testing_period5/docs/
+!/database_testing_period5/sql/
+!/database_testing_period5/sql/*.sql
+!/database_testing_period5/postman/
+!/database_testing_period5/evidence/
+!/database_testing_period5/evidence/**/*_cli.log
+!/database_testing_period5/evidence/T56_20261028_091948/round1/cli.log
+!/database_testing_period5/evidence/T56_20261028_091948/round2/cli.log
+/sources/independence_enviroment/*
+!/sources/independence_enviroment/隔离与恢复方案.md

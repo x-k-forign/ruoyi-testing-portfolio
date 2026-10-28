@@ -1,0 +1,7 @@
+{
+  "status": "通过",
+  "user_id": 103,
+  "exception": "T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit",
+  "unchanged": true,
+  "changed_request_field": "roleIds only"
+}

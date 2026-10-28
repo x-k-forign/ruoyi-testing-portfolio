@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-28T08:40:38+08:00",
+  "target": "ruoyi_t3_fault_lab",
+  "tables": [
+    {
+      "TABLE_NAME": "gen_table"
+    },
+    {
+      "TABLE_NAME": "gen_table_column"
+    },
+    {
+      "TABLE_NAME": "sys_config"
+    },
+    {
+      "TABLE_NAME": "sys_dept"
+    },
+    {
+      "TABLE_NAME": "sys_dict_data"
+    },
+    {
+      "TABLE_NAME": "sys_dict_type"
+    },
+    {
+      "TABLE_NAME": "sys_job"
+    },
+    {
+      "TABLE_NAME": "sys_job_log"
+    },
+    {
+      "TABLE_NAME": "sys_logininfor"
+    },
+    {
+      "TABLE_NAME": "sys_menu"
+    },
+    {
+      "TABLE_NAME": "sys_notice"
+    },
+    {
+      "TABLE_NAME": "sys_notice_read"
+    },
+    {
+      "TABLE_NAME": "sys_oper_log"
+    },
+    {
+      "TABLE_NAME": "sys_post"
+    },
+    {
+      "TABLE_NAME": "sys_role"
+    },
+    {
+      "TABLE_NAME": "sys_role_dept"
+    },
+    {
+      "TABLE_NAME": "sys_role_menu"
+    },
+    {
+      "TABLE_NAME": "sys_user"
+    },
+    {
+      "TABLE_NAME": "sys_user_post"
+    },
+    {
+      "TABLE_NAME": "sys_user_role"
+    }
+  ],
+  "shared_select_denied_error": 1142,
+  "initialization_source": "固定基线ry_20260417.sql",
+  "initial_parse_issue": "字符串内分号导致预检查拒绝；未执行初始化语句；修复词法分隔后仅恢复新建空库"
+}

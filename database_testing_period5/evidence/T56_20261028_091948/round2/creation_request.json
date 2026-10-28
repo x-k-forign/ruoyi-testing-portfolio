@@ -1,0 +1,19 @@
+{
+  "source_sha256": "e3e650422281bd3c7486a98cc5f9a939cbc5c8cb8bf8907b232d1b8d15d38a89",
+  "method": "POST",
+  "path": "/system/user",
+  "body": {
+    "userName": "t5610280919482",
+    "nickName": "T56两轮复现",
+    "deptId": 200,
+    "roleIds": [
+      100
+    ],
+    "postIds": [
+      1
+    ],
+    "status": "0",
+    "sex": "2",
+    "remark": "t5610280919482"
+  }
+}

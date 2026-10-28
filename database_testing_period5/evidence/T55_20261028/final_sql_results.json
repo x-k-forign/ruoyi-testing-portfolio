@@ -1,0 +1,461 @@
+{
+  "at": "2026-10-28T08:53:21+08:00",
+  "sql_sha256": "72fe6d416eb0d47655d9196c6f6a45859ea6bf0b247cc665257d445eef6cc748",
+  "queries": {
+    "environment": {
+      "sql": "SELECT DATABASE() AS db,VERSION() AS version,CONNECTION_ID() AS connection_id",
+      "rows": [
+        {
+          "db": "ruoyi_t3_fault_lab",
+          "version": "8.4.11",
+          "connection_id": 216
+        }
+      ]
+    },
+    "owned_users": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE LEFT(user_name,4)='t55_' OR user_name IN('t3_fault_new','t3_fault_edit') ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 100,
+          "user_name": "t55_flow_1028",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "2"
+        },
+        {
+          "user_id": 101,
+          "user_name": "t55_other_1028",
+          "dept_id": 201,
+          "status": "0",
+          "del_flag": "2"
+        },
+        {
+          "user_id": 102,
+          "user_name": "t55_new_control",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "2"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t3_fault_edit",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "2"
+        },
+        {
+          "user_id": 104,
+          "user_name": "t55_old_write",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "2"
+        },
+        {
+          "user_id": 106,
+          "user_name": "t3_fault_new",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "2"
+        }
+      ]
+    },
+    "owned_roles": {
+      "sql": "SELECT u.user_id,u.user_name,ur.role_id FROM sys_user u\nLEFT JOIN sys_user_role ur ON u.user_id=ur.user_id\nWHERE LEFT(u.user_name,4)='t55_' OR u.user_name IN('t3_fault_new','t3_fault_edit') ORDER BY u.user_id,ur.role_id",
+      "rows": [
+        {
+          "user_id": 100,
+          "user_name": "t55_flow_1028",
+          "role_id": null
+        },
+        {
+          "user_id": 101,
+          "user_name": "t55_other_1028",
+          "role_id": null
+        },
+        {
+          "user_id": 102,
+          "user_name": "t55_new_control",
+          "role_id": null
+        },
+        {
+          "user_id": 103,
+          "user_name": "t3_fault_edit",
+          "role_id": null
+        },
+        {
+          "user_id": 104,
+          "user_name": "t55_old_write",
+          "role_id": null
+        },
+        {
+          "user_id": 106,
+          "user_name": "t3_fault_new",
+          "role_id": null
+        }
+      ]
+    },
+    "owned_posts": {
+      "sql": "SELECT u.user_id,u.user_name,up.post_id FROM sys_user u\nLEFT JOIN sys_user_post up ON u.user_id=up.user_id\nWHERE LEFT(u.user_name,4)='t55_' OR u.user_name IN('t3_fault_new','t3_fault_edit') ORDER BY u.user_id,up.post_id",
+      "rows": [
+        {
+          "user_id": 100,
+          "user_name": "t55_flow_1028",
+          "post_id": null
+        },
+        {
+          "user_id": 101,
+          "user_name": "t55_other_1028",
+          "post_id": null
+        },
+        {
+          "user_id": 102,
+          "user_name": "t55_new_control",
+          "post_id": null
+        },
+        {
+          "user_id": 103,
+          "user_name": "t3_fault_edit",
+          "post_id": null
+        },
+        {
+          "user_id": 104,
+          "user_name": "t55_old_write",
+          "post_id": null
+        },
+        {
+          "user_id": 106,
+          "user_name": "t3_fault_new",
+          "post_id": null
+        }
+      ]
+    },
+    "rolled_back_generated_id": {
+      "sql": "SELECT (SELECT COUNT(*) FROM sys_user WHERE user_id=105) AS user_rows,\n (SELECT COUNT(*) FROM sys_user_role WHERE user_id=105) AS role_rows,\n (SELECT COUNT(*) FROM sys_user_post WHERE user_id=105) AS post_rows",
+      "rows": [
+        {
+          "user_rows": 0,
+          "role_rows": 0,
+          "post_rows": 0
+        }
+      ]
+    },
+    "fault_operation_logs": {
+      "sql": "SELECT oper_id,oper_name,oper_url,request_method,status,error_msg,oper_time\nFROM sys_oper_log WHERE error_msg LIKE 'T3_FAULT:%' ORDER BY oper_id",
+      "rows": [
+        {
+          "oper_id": 112,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "POST",
+          "status": 1,
+          "error_msg": "T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new",
+          "oper_time": "2026-10-28 08:47:05"
+        },
+        {
+          "oper_id": 113,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 1,
+          "error_msg": "T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit",
+          "oper_time": "2026-10-28 08:47:43"
+        }
+      ]
+    },
+    "normal_operation_logs": {
+      "sql": "SELECT oper_id,oper_name,oper_url,request_method,status,oper_time,\n CASE WHEN JSON_VALID(oper_param) THEN JSON_UNQUOTE(JSON_EXTRACT(oper_param,'$.userName')) ELSE NULL END AS target_name,\n CASE WHEN JSON_VALID(oper_param) THEN JSON_UNQUOTE(JSON_EXTRACT(oper_param,'$.userId')) ELSE NULL END AS target_id\nFROM sys_oper_log WHERE oper_name='admin' ORDER BY oper_id",
+      "rows": [
+        {
+          "oper_id": 100,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "POST",
+          "status": 0,
+          "oper_time": "2026-10-28 08:44:51",
+          "target_name": "t55_flow_1028",
+          "target_id": "100"
+        },
+        {
+          "oper_id": 101,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "POST",
+          "status": 0,
+          "oper_time": "2026-10-28 08:44:52",
+          "target_name": "t55_other_1028",
+          "target_id": "101"
+        },
+        {
+          "oper_id": 102,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "POST",
+          "status": 0,
+          "oper_time": "2026-10-28 08:44:52",
+          "target_name": "t55_new_control",
+          "target_id": "102"
+        },
+        {
+          "oper_id": 103,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "POST",
+          "status": 0,
+          "oper_time": "2026-10-28 08:44:52",
+          "target_name": "t3_fault_edit",
+          "target_id": "103"
+        },
+        {
+          "oper_id": 104,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:44:53",
+          "target_name": "t3_fault_edit",
+          "target_id": "103"
+        },
+        {
+          "oper_id": 105,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:44:53",
+          "target_name": "t3_fault_edit",
+          "target_id": "103"
+        },
+        {
+          "oper_id": 106,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:44:59",
+          "target_name": "t55_flow_1028",
+          "target_id": "100"
+        },
+        {
+          "oper_id": 108,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:45:07",
+          "target_name": "t55_flow_1028",
+          "target_id": "100"
+        },
+        {
+          "oper_id": 109,
+          "oper_name": "admin",
+          "oper_url": "/system/user/changeStatus",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:45:18",
+          "target_name": null,
+          "target_id": "100"
+        },
+        {
+          "oper_id": 110,
+          "oper_name": "admin",
+          "oper_url": "/system/user/changeStatus",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:45:18",
+          "target_name": null,
+          "target_id": "100"
+        },
+        {
+          "oper_id": 111,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:45:18",
+          "target_name": "t55_flow_1028",
+          "target_id": "100"
+        },
+        {
+          "oper_id": 112,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "POST",
+          "status": 1,
+          "oper_time": "2026-10-28 08:47:05",
+          "target_name": "t3_fault_new",
+          "target_id": "105"
+        },
+        {
+          "oper_id": 113,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 1,
+          "oper_time": "2026-10-28 08:47:43",
+          "target_name": "t3_fault_edit",
+          "target_id": "103"
+        },
+        {
+          "oper_id": 114,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "POST",
+          "status": 0,
+          "oper_time": "2026-10-28 08:49:14",
+          "target_name": "t3_fault_new",
+          "target_id": "106"
+        },
+        {
+          "oper_id": 115,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-28 08:49:14",
+          "target_name": "t3_fault_edit",
+          "target_id": "103"
+        },
+        {
+          "oper_id": 116,
+          "oper_name": "admin",
+          "oper_url": "/system/user/100",
+          "request_method": "DELETE",
+          "status": 0,
+          "oper_time": "2026-10-28 08:50:15",
+          "target_name": null,
+          "target_id": null
+        },
+        {
+          "oper_id": 117,
+          "oper_name": "admin",
+          "oper_url": "/system/user/101",
+          "request_method": "DELETE",
+          "status": 0,
+          "oper_time": "2026-10-28 08:50:16",
+          "target_name": null,
+          "target_id": null
+        },
+        {
+          "oper_id": 118,
+          "oper_name": "admin",
+          "oper_url": "/system/user/102",
+          "request_method": "DELETE",
+          "status": 0,
+          "oper_time": "2026-10-28 08:50:16",
+          "target_name": null,
+          "target_id": null
+        },
+        {
+          "oper_id": 119,
+          "oper_name": "admin",
+          "oper_url": "/system/user/103",
+          "request_method": "DELETE",
+          "status": 0,
+          "oper_time": "2026-10-28 08:50:16",
+          "target_name": null,
+          "target_id": null
+        },
+        {
+          "oper_id": 120,
+          "oper_name": "admin",
+          "oper_url": "/system/user/104",
+          "request_method": "DELETE",
+          "status": 0,
+          "oper_time": "2026-10-28 08:50:16",
+          "target_name": null,
+          "target_id": null
+        },
+        {
+          "oper_id": 121,
+          "oper_name": "admin",
+          "oper_url": "/system/user/106",
+          "request_method": "DELETE",
+          "status": 0,
+          "oper_time": "2026-10-28 08:50:17",
+          "target_name": null,
+          "target_id": null
+        }
+      ]
+    },
+    "login_logs": {
+      "sql": "SELECT info_id,user_name,status,msg,login_time FROM sys_logininfor\nWHERE user_name IN('admin','t55_flow_1028') ORDER BY info_id",
+      "rows": [
+        {
+          "info_id": 100,
+          "user_name": "admin",
+          "status": "0",
+          "msg": "登录成功",
+          "login_time": "2026-10-28 08:44:50"
+        },
+        {
+          "info_id": 101,
+          "user_name": "t55_flow_1028",
+          "status": "0",
+          "msg": "登录成功",
+          "login_time": "2026-10-28 08:44:58"
+        },
+        {
+          "info_id": 102,
+          "user_name": "t55_flow_1028",
+          "status": "0",
+          "msg": "登录成功",
+          "login_time": "2026-10-28 08:45:06"
+        },
+        {
+          "info_id": 103,
+          "user_name": "t55_flow_1028",
+          "status": "0",
+          "msg": "登录成功",
+          "login_time": "2026-10-28 08:45:17"
+        },
+        {
+          "info_id": 104,
+          "user_name": "t55_flow_1028",
+          "status": "0",
+          "msg": "退出成功",
+          "login_time": "2026-10-28 08:50:19"
+        },
+        {
+          "info_id": 105,
+          "user_name": "t55_flow_1028",
+          "status": "0",
+          "msg": "退出成功",
+          "login_time": "2026-10-28 08:50:19"
+        },
+        {
+          "info_id": 106,
+          "user_name": "admin",
+          "status": "0",
+          "msg": "退出成功",
+          "login_time": "2026-10-28 08:50:19"
+        },
+        {
+          "info_id": 107,
+          "user_name": "t55_flow_1028",
+          "status": "0",
+          "msg": "退出成功",
+          "login_time": "2026-10-28 08:50:19"
+        }
+      ]
+    },
+    "retained_fixtures": {
+      "sql": "SELECT role_id,role_key,data_scope,status,del_flag FROM sys_role WHERE role_key IN('t55_queryRole','t55_maintRole') ORDER BY role_id",
+      "rows": [
+        {
+          "role_id": 100,
+          "role_key": "t55_queryRole",
+          "data_scope": "3",
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "role_id": 101,
+          "role_key": "t55_maintRole",
+          "data_scope": "3",
+          "status": "0",
+          "del_flag": "0"
+        }
+      ]
+    }
+  }
+}

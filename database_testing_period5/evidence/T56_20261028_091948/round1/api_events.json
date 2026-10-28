@@ -1,0 +1,249 @@
+[
+  {
+    "at": "2026-10-28T09:20:55+08:00",
+    "label": "captcha_r1_admin",
+    "method": "GET",
+    "path": "/captchaImage",
+    "code": 200,
+    "enabled": true
+  },
+  {
+    "at": "2026-10-28T09:21:01+08:00",
+    "finished_at": "2026-10-28T09:21:04+08:00",
+    "label": "login_r1_admin",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "token_present": true,
+    "message": "操作成功",
+    "request_fields": {
+      "username": "admin"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:04+08:00",
+    "finished_at": "2026-10-28T09:21:05+08:00",
+    "label": "identity_r1_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "user": {
+      "userId": 1,
+      "userName": "admin",
+      "deptId": 103,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "admin"
+    ],
+    "permissions": [
+      "*:*:*"
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:05+08:00",
+    "finished_at": "2026-10-28T09:21:05+08:00",
+    "label": "create_batch",
+    "method": "POST",
+    "path": "/system/user",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "request_fields": {
+      "userName": "t5610280919481",
+      "nickName": "T56两轮复现",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2",
+      "remark": "t5610280919481"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:05+08:00",
+    "finished_at": "2026-10-28T09:21:06+08:00",
+    "label": "lookup_batch",
+    "method": "GET",
+    "path": "/system/user/list?userName=t5610280919481&pageNum=1&pageSize=10",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "查询成功",
+    "total": 1,
+    "rows": [
+      {
+        "userId": 107,
+        "userName": "t5610280919481",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:07+08:00",
+    "label": "captcha_r1_user",
+    "method": "GET",
+    "path": "/captchaImage",
+    "code": 200,
+    "enabled": true
+  },
+  {
+    "at": "2026-10-28T09:21:14+08:00",
+    "finished_at": "2026-10-28T09:21:15+08:00",
+    "label": "login_r1_user",
+    "method": "POST",
+    "path": "/login",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "token_present": true,
+    "message": "操作成功",
+    "request_fields": {
+      "username": "t5610280919481"
+    },
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:15+08:00",
+    "finished_at": "2026-10-28T09:21:15+08:00",
+    "label": "identity_r1_user",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "user": {
+      "userId": 107,
+      "userName": "t5610280919481",
+      "deptId": 200,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t55_queryRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:15+08:00",
+    "finished_at": "2026-10-28T09:21:15+08:00",
+    "label": "verify_current_identity",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "user": {
+      "userId": 107,
+      "userName": "t5610280919481",
+      "deptId": 200,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t55_queryRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:36+08:00",
+    "finished_at": "2026-10-28T09:21:36+08:00",
+    "label": "logout_user",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:36+08:00",
+    "finished_at": "2026-10-28T09:21:36+08:00",
+    "label": "expired_user",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:36+08:00",
+    "finished_at": "2026-10-28T09:21:36+08:00",
+    "label": "delete_batch",
+    "method": "DELETE",
+    "path": "/system/user/107",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:36+08:00",
+    "finished_at": "2026-10-28T09:21:36+08:00",
+    "label": "cleanup_api_lookup",
+    "method": "GET",
+    "path": "/system/user/list?userName=t5610280919481&pageNum=1&pageSize=10",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "查询成功",
+    "total": 0,
+    "rows": [],
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:37+08:00",
+    "finished_at": "2026-10-28T09:21:37+08:00",
+    "label": "logout_admin",
+    "method": "POST",
+    "path": "/logout",
+    "http": 200,
+    "code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "passed": true
+  },
+  {
+    "at": "2026-10-28T09:21:37+08:00",
+    "finished_at": "2026-10-28T09:21:37+08:00",
+    "label": "expired_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "http": 200,
+    "code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "passed": true
+  }
+]

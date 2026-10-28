@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-19T19:28:12.321+08:00",
+  "sql_sha256": "7ee61bc1bbb9fe1dabd9d83808a20b67554dae3459fb2b16fdcfcdabdc26250b",
+  "queries": {
+    "owned_rows": {
+      "sql": "SELECT id,run_tag,dept_id,role_id,status,note\nFROM t5_dml_lab\nWHERE (id=1 AND run_tag='T53_20261019_192505_rollback')\n   OR (id=2 AND run_tag='T53_20261019_192505_commit')\n   OR (id=3 AND run_tag='T53_20261019_192505_autocommit')\nORDER BY id",
+      "rows": []
+    },
+    "batch_remaining": {
+      "sql": "SELECT COUNT(*) AS remaining_rows FROM t5_dml_lab\nWHERE run_tag IN ('T53_20261019_192505_rollback',\n                 'T53_20261019_192505_commit',\n                 'T53_20261019_192505_autocommit')",
+      "rows": [
+        {
+          "remaining_rows": 0
+        }
+      ]
+    },
+    "table_remaining": {
+      "sql": "SELECT COUNT(*) AS table_rows FROM t5_dml_lab",
+      "rows": [
+        {
+          "table_rows": 0
+        }
+      ]
+    }
+  },
+  "old_connections_present": []
+}

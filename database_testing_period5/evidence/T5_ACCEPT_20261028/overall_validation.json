@@ -1,0 +1,136 @@
+{
+  "accepted_at": "2026-10-28T09:31:34+08:00",
+  "conclusion": "T5必需内容整体验收通过",
+  "method": "自动化执行成果核对、原理说明与用户查看确认",
+  "user_request": "好的T5.7跳过，先进行总验收",
+  "criteria": [
+    {
+      "item": "环境与结构",
+      "result": "通过",
+      "basis": "T5.1实际结构及权限证据，9表86字段"
+    },
+    {
+      "item": "业务查询",
+      "result": "通过",
+      "basis": "T5.2查询与分组；T5.4关联和集合对照"
+    },
+    {
+      "item": "受控增删改查",
+      "result": "通过",
+      "basis": "T5.3专属表9次DML、同条件预览及实际影响1行"
+    },
+    {
+      "item": "提交与回滚",
+      "result": "通过",
+      "basis": "T5.3连接73/74与提交、回滚、快照、自动提交对照"
+    },
+    {
+      "item": "业务链跨层核验",
+      "result": "通过",
+      "basis": "T5.2/4/5/6本批接口触发、独立SQL和清理"
+    },
+    {
+      "item": "权限状态与日志",
+      "result": "通过",
+      "basis": "T5.5新旧会话与日志，003/004失败和禁用待观察保留"
+    },
+    {
+      "item": "移交事务专项",
+      "result": "通过",
+      "basis": "C08/M07/G04隔离真实异常、回滚、FAIL日志及恢复"
+    },
+    {
+      "item": "两轮复现与清理",
+      "result": "通过",
+      "basis": "T5.6两轮107/108，同SQL与集合、两轮清理及保留审计"
+    },
+    {
+      "item": "记录与脱敏",
+      "result": "通过",
+      "basis": "文件、链接、摘要、台账和私有凭据清理证据"
+    },
+    {
+      "item": "原理说明与理解确认",
+      "result": "通过（按约定方式）",
+      "basis": "按用户约定提供说明，不冒记独立操作；迁移说明见本记录"
+    }
+  ],
+  "sub_stages": {
+    "T5.1": "验收通过",
+    "T5.2": "验收通过",
+    "T5.3": "验收通过",
+    "T5.4": "验收通过",
+    "T5.5": "验收通过",
+    "T5.6": "验收通过"
+  },
+  "optional_T5_7": "按用户要求跳过，不计完成",
+  "checks": {
+    "T51_20261019_delivery": true,
+    "T51_20261019_accepted": true,
+    "T52_20261019_185631_delivery": true,
+    "T52_20261019_185631_frozen_artifacts": true,
+    "T52_20261019_185631_accepted": true,
+    "T53_20261019_192505_delivery": true,
+    "T53_20261019_192505_frozen_artifacts": true,
+    "T53_20261019_192505_accepted": true,
+    "T54_20261028_082458_delivery": true,
+    "T54_20261028_082458_frozen_artifacts": true,
+    "T54_20261028_082458_accepted": true,
+    "T55_20261028_delivery": true,
+    "T55_20261028_accepted": true,
+    "T56_20261028_091948_delivery": true,
+    "T56_20261028_091948_frozen_artifacts": true,
+    "actual_schema": true,
+    "query_sets": true,
+    "transactions": true,
+    "joins": true,
+    "fault_cases": true,
+    "defects_not_hidden": true,
+    "fault_restored": true,
+    "two_round_chain": true,
+    "two_cleanups": true,
+    "two_unique_ids": true,
+    "retained_audits": true,
+    "links": true,
+    "no_credentials_in_deliverables": true,
+    "T57_skipped_not_completed": true,
+    "10_existing_overall_checks": true,
+    "T56_acceptance": true,
+    "final_links_valid": true
+  },
+  "all_checks_ok": true,
+  "broken_links": [],
+  "T3_counts": {
+    "total": 94,
+    "passed": 85,
+    "failed": 5,
+    "observation": 4,
+    "blocked": 0,
+    "not_run": 0
+  },
+  "known_defects_open": [
+    "BUG-T3-001",
+    "BUG-T3-002",
+    "BUG-T3-003",
+    "BUG-T3-004",
+    "BUG-T3-005"
+  ],
+  "limits": [
+    "学习成果验收，不是软件无缺陷或上线批准",
+    "不冒记用户独立操作或独立掌握",
+    "T4选学编码签名加解密仍跳过",
+    "未启动T6",
+    "未推送或同步发布副本"
+  ],
+  "new_business_execution": false,
+  "migration_explanations": [
+    "用户角色菜单查询的一行表示用户、角色与菜单组合。T5.4的7行只有1个用户、2个角色、4个不同菜单。增加角色后，关联行可能增加，需保留明细并按用户ID统计用户数，不能把每行当新用户。",
+    "接口在另一连接已提交的变更，不能被SQL客户端随后ROLLBACK撤销。旧查询仍显示旧值可能是REPEATABLE-READ快照，应核对目标库、连接ID、提交时间、隔离级别和事务状态，再用新事务或新连接读取。T5.3已实际对照。",
+    "管理员SQL查到而普通用户列表没有，须核对del_flag、status、请求筛选、角色范围、分页和时间；T5.4的合法范围排除与T5.5旧会话错误保留原部门分别有证据，不能一概判为缺陷或合理隔离。"
+  ],
+  "final_artifact_hashes": {
+    "若依软件测试学习大纲.md": "51dd9f1aa42cc37152be42b493338fae880d86c74939b12ba52abdcd643e158b",
+    "database_testing_period5\\docs\\T5.6_执行说明.md": "111a392fa4b168c7b241d2a7a3238a5e542284673910702850574c6c7d62274d",
+    "functional_testing_period3\\T3逐例执行计划与记录模板.xlsx": "e8fd5fcba75feac16997e6c3b902197bd002d73aa6a526514abc850ae2dfe12c"
+  }
+}

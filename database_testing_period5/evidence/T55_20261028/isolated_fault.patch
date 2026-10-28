@@ -1,0 +1,52 @@
+--- a/ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java
++++ b/ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java
+@@ -267,6 +267,7 @@
+         insertUserPost(user);
+         // 新增用户与角色管理
+         insertUserRole(user);
++        failForT3("insert-after-all", user);
+         return rows;
+     }
+ 
+@@ -301,7 +302,9 @@
+         userPostMapper.deleteUserPostByUserId(userId);
+         // 新增用户与岗位管理
+         insertUserPost(user);
+-        return userMapper.updateUser(user);
++        int rows = userMapper.updateUser(user);
++        failForT3("update-after-all", user);
++        return rows;
+     }
+ 
+     /**
+@@ -562,4 +565,17 @@
+         }
+         return successMsg.toString();
+     }
++
++    // T5.5 isolated laboratory only. Controlled by exact point and username.
++    private void failForT3(String point, SysUser user)
++    {
++        if (point.equals(System.getProperty("t3.fault.point"))
++                && user.getUserName() != null
++                && user.getUserName().equals(System.getProperty("t3.fault.user")))
++        {
++            boolean active = org.springframework.transaction.support.TransactionSynchronizationManager.isActualTransactionActive();
++            throw new IllegalStateException("T3_FAULT:" + point + ":txActive=" + active
++                    + ":userId=" + user.getUserId() + ":userName=" + user.getUserName());
++        }
++    }
+ }
+--- a/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/LogAspect.java
++++ b/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/LogAspect.java
+@@ -82,6 +82,10 @@
+     @AfterThrowing(value = "@annotation(controllerLog)", throwing = "e")
+     public void doAfterThrowing(JoinPoint joinPoint, Log controllerLog, Exception e)
+     {
++        if (e.getMessage() != null && e.getMessage().startsWith("T3_FAULT:"))
++        {
++            log.warn("T55_LOG_ASPECT doAfterThrowing {}", e.getMessage());
++        }
+         handleLog(joinPoint, controllerLog, e, null);
+     }
+ 

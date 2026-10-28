@@ -1,0 +1,346 @@
+[
+  {
+    "name": "admin_identity",
+    "http": 200,
+    "code": 200,
+    "userId": 1
+  },
+  {
+    "name": "user_identity",
+    "http": 200,
+    "code": 200,
+    "userId": 168,
+    "deptId": 202,
+    "roles": [
+      "t34_r2_1012",
+      "t34_r1_1012"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query",
+      "system:user:add"
+    ]
+  },
+  {
+    "name": "admin_detail",
+    "http": 200,
+    "code": 200,
+    "userId": 168,
+    "deptId": 202,
+    "status": "0",
+    "roleIds": [
+      105,
+      106
+    ],
+    "postIds": [
+      1
+    ]
+  },
+  {
+    "name": "user_detail",
+    "http": 200,
+    "code": 200,
+    "userId": 168,
+    "deptId": 202,
+    "status": "0",
+    "roleIds": [
+      105,
+      106
+    ],
+    "postIds": [
+      1
+    ]
+  },
+  {
+    "name": "role_105",
+    "http": 200,
+    "code": 200,
+    "roleId": 105,
+    "dataScope": "3",
+    "status": "0"
+  },
+  {
+    "name": "role_106",
+    "http": 200,
+    "code": 200,
+    "roleId": 106,
+    "dataScope": "2",
+    "status": "0"
+  },
+  {
+    "name": "visible_p1",
+    "http": 200,
+    "code": 200,
+    "total": 27,
+    "ids": [
+      101,
+      103,
+      104,
+      108,
+      110
+    ],
+    "rows": [
+      {
+        "userId": 101,
+        "userName": "t25_a_query",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 103,
+        "userName": "t25_a_add",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 104,
+        "userName": "t25_b_query",
+        "deptId": 204,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 108,
+        "userName": "t25_a_created",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 110,
+        "userName": "t3_pwd5_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ]
+  },
+  {
+    "name": "visible_p2",
+    "http": 200,
+    "code": 200,
+    "total": 27,
+    "ids": [
+      111,
+      112,
+      113,
+      114,
+      115
+    ],
+    "rows": [
+      {
+        "userId": 111,
+        "userName": "t310100001",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 112,
+        "userName": "t3ai_p06_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 113,
+        "userName": "t3ai_p07_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 114,
+        "userName": "t3ai_p19_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 115,
+        "userName": "t3ai_p20_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ]
+  },
+  {
+    "name": "visible_p3",
+    "http": 200,
+    "code": 200,
+    "total": 27,
+    "ids": [
+      116,
+      117,
+      118,
+      119,
+      120
+    ],
+    "rows": [
+      {
+        "userId": 116,
+        "userName": "t3ai_contact_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 117,
+        "userName": "a1",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 118,
+        "userName": "a11",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 119,
+        "userName": "a111111111111111111",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 120,
+        "userName": "a1111111111111111111",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ]
+  },
+  {
+    "name": "visible_p4",
+    "http": 200,
+    "code": 200,
+    "total": 27,
+    "ids": [
+      121,
+      122,
+      125,
+      127,
+      128
+    ],
+    "rows": [
+      {
+        "userId": 121,
+        "userName": "t3ai_lock_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 122,
+        "userName": "t3ai_stop_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 125,
+        "userName": "t3ai_maint_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 127,
+        "userName": "t3ai_norole_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 128,
+        "userName": "t3ai_pwd5_1010",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ]
+  },
+  {
+    "name": "visible_p5",
+    "http": 200,
+    "code": 200,
+    "total": 27,
+    "ids": [
+      129,
+      130,
+      131,
+      134,
+      145
+    ],
+    "rows": [
+      {
+        "userId": 129,
+        "userName": "t34_c_1012",
+        "deptId": 204,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 130,
+        "userName": "t34_scopeuser_1012",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 131,
+        "userName": "t34_multi_1012",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 134,
+        "userName": "t35_change_1012",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 145,
+        "userName": "t38_reg_1012",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ]
+  },
+  {
+    "name": "visible_p6",
+    "http": 200,
+    "code": 200,
+    "total": 27,
+    "ids": [
+      146,
+      168
+    ],
+    "rows": [
+      {
+        "userId": 146,
+        "userName": "t38_chain_1012",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      },
+      {
+        "userId": 168,
+        "userName": "t541028082458",
+        "deptId": 202,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ]
+  }
+]

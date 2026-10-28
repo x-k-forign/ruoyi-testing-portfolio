@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-19T19:25:06.157+08:00",
+  "remaining_batch_rows": [],
+  "table_row_count": 0,
+  "compensation": [],
+  "original_tables_unchanged": true,
+  "closed_connections": {
+    "A": {
+      "connection_id": 73,
+      "autocommit": 1,
+      "isolation_level": "REPEATABLE-READ",
+      "db": "learning_databases"
+    },
+    "B": {
+      "connection_id": 74,
+      "autocommit": 1,
+      "isolation_level": "REPEATABLE-READ",
+      "db": "learning_databases"
+    }
+  },
+  "failure": null,
+  "retained_table": "learning_databases.t5_dml_lab 空表保留供后续学习",
+  "final_structure": "CREATE TABLE `t5_dml_lab` (\n  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '本次草稿记录ID',\n  `run_tag` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '唯一实验分支标记',\n  `dept_id` bigint NOT NULL COMMENT '模拟若依所属部门，不关联真实业务表',\n  `role_id` bigint NOT NULL COMMENT '模拟若依角色配置，不授予真实权限',\n  `status` char(1) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '模拟账号状态0正常1停用',\n  `note` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '实验步骤说明',\n  PRIMARY KEY (`id`),\n  UNIQUE KEY `uk_t5_run_tag` (`run_tag`)\n) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='T5专用事务练习表，不是若依业务表'"
+}

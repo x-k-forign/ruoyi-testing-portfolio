@@ -1,0 +1,8 @@
+{
+  "owned_names": [],
+  "baseUrl": "http://127.0.0.1:18080",
+  "deptA": 200,
+  "deptB": 201,
+  "queryRole": 100,
+  "maintRole": 101
+}

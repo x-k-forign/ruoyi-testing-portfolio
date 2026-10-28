@@ -1,0 +1,280 @@
+[
+  {
+    "oper_id": 100,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "POST",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:44:51",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 100,
+      "userName": "t55_flow_1028"
+    }
+  },
+  {
+    "oper_id": 101,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "POST",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:44:52",
+    "target": {
+      "deptId": 201,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 101,
+      "userName": "t55_other_1028"
+    }
+  },
+  {
+    "oper_id": 102,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "POST",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:44:52",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 102,
+      "userName": "t55_new_control"
+    }
+  },
+  {
+    "oper_id": 103,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "POST",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:44:52",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 103,
+      "userName": "t3_fault_edit"
+    }
+  },
+  {
+    "oper_id": 104,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "PUT",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:44:53",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 103,
+      "userName": "t3_fault_edit"
+    }
+  },
+  {
+    "oper_id": 105,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "PUT",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:44:53",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 103,
+      "userName": "t3_fault_edit"
+    }
+  },
+  {
+    "oper_id": 106,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "PUT",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:44:59",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 100,
+      "userName": "t55_flow_1028"
+    }
+  },
+  {
+    "oper_id": 107,
+    "oper_name": "t55_flow_1028",
+    "oper_url": "/system/user",
+    "request_method": "POST",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:45:00",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 104,
+      "userName": "t55_old_write"
+    }
+  },
+  {
+    "oper_id": 108,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "PUT",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:45:07",
+    "target": {
+      "deptId": 201,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 100,
+      "userName": "t55_flow_1028"
+    }
+  },
+  {
+    "oper_id": 109,
+    "oper_name": "admin",
+    "oper_url": "/system/user/changeStatus",
+    "request_method": "PUT",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:45:18",
+    "target": {
+      "status": "1",
+      "userId": 100
+    }
+  },
+  {
+    "oper_id": 110,
+    "oper_name": "admin",
+    "oper_url": "/system/user/changeStatus",
+    "request_method": "PUT",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:45:18",
+    "target": {
+      "status": "0",
+      "userId": 100
+    }
+  },
+  {
+    "oper_id": 111,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "PUT",
+    "status": 0,
+    "error_msg": null,
+    "oper_time": "2026-10-28 08:45:18",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 100,
+      "userName": "t55_flow_1028"
+    }
+  },
+  {
+    "oper_id": 112,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "POST",
+    "status": 1,
+    "error_msg": "T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new",
+    "oper_time": "2026-10-28 08:47:05",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        100
+      ],
+      "status": "0",
+      "userId": 105,
+      "userName": "t3_fault_new"
+    }
+  },
+  {
+    "oper_id": 113,
+    "oper_name": "admin",
+    "oper_url": "/system/user",
+    "request_method": "PUT",
+    "status": 1,
+    "error_msg": "T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit",
+    "oper_time": "2026-10-28 08:47:43",
+    "target": {
+      "deptId": 200,
+      "postIds": [
+        1
+      ],
+      "roleIds": [
+        101
+      ],
+      "status": "0",
+      "userId": 103,
+      "userName": "t3_fault_edit"
+    }
+  }
+]

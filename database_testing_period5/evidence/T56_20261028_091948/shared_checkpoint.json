@@ -1,0 +1,51 @@
+{
+  "when": "第一轮期间只读保护检查；不是冒记启动前快照",
+  "matches_last_T55_protected_baseline": true,
+  "data": {
+    "sys_user": {
+      "rows": 71,
+      "columns": "user_id,user_name,nick_name,dept_id,status,del_flag",
+      "sha256": "6d3b47fa1170a3c6ca49e33c0b051a5acabc3664e12c181b8ab081176c4501d4"
+    },
+    "sys_role": {
+      "rows": 12,
+      "columns": "role_id,role_key,data_scope,status,del_flag",
+      "sha256": "593c8c8cf36ff6c64905669290958bcfa4998aabbe6e1f3c2555adf6546708d2"
+    },
+    "sys_dept": {
+      "rows": 18,
+      "columns": "dept_id,parent_id,ancestors,status,del_flag",
+      "sha256": "dc8db7dda7432dc2cae90f4a0d28a247ef8918557e6993138dd45231facd7dca"
+    },
+    "sys_user_role": {
+      "rows": 34,
+      "columns": "user_id,role_id",
+      "sha256": "07ee1d0cc3ff005a4d59bbccaa0d8b516fa4d5041e7edaf3739f26fbff9b1f6f"
+    },
+    "sys_user_post": {
+      "rows": 2,
+      "columns": "user_id,post_id",
+      "sha256": "1c95a4d333072a6b90deeaa5bf701295dbad64fdbc217545064073d60cfc55dd"
+    },
+    "sys_role_menu": {
+      "rows": 119,
+      "columns": "role_id,menu_id",
+      "sha256": "9d77121ee58ade3ead9e1c73a526283bff65eb7514be2391ba6384dd2c8ff252"
+    },
+    "sys_role_dept": {
+      "rows": 4,
+      "columns": "role_id,dept_id",
+      "sha256": "5931dc3227e7c90121fbe4cf87901c8f19a0600b3ce63b15a8364d712ab450e1"
+    },
+    "sys_menu": {
+      "rows": 85,
+      "columns": "menu_id,parent_id,menu_type,status,visible,perms",
+      "sha256": "299b52f93ecf7ae7ceb5dcb39838e1541fa3ab57fa3af7d1c2969d87fec50a1c"
+    },
+    "sys_post": {
+      "rows": 4,
+      "columns": "post_id,post_code,status",
+      "sha256": "92773a91ccea8d7800f7031fe30c4afd2fe73c62ec0109ac65683bb446bebdb1"
+    }
+  }
+}

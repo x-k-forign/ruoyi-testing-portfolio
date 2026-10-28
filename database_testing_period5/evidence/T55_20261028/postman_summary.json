@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "stats": {
+    "requests": {
+      "total": 6,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 20,
+      "failed": 0
+    }
+  },
+  "baseUrl": "http://127.0.0.1:18080",
+  "report_events": false
+}

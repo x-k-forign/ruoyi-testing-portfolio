@@ -1,0 +1,561 @@
+{
+  "info": {
+    "name": "T5.4 关联与身份核验",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "复用T4 GET请求；本轮独立身份、关联与SQL基准断言；原集合不变。只读集合，不创建清理账号。"
+  },
+  "item": [
+    {
+      "name": "admin_identity",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "check('Admin identity',b.user.userId===1);",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{userId:b.user.userId})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/getInfo",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "user_identity",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "check('Batch identity',b.user.userId===Number(pm.environment.get('targetId'))&&b.user.userName===pm.environment.get('targetName'));check('Department',b.user.deptId===exp.deptId);check('Role keys',same(b.roles,exp.roleKeys));check('Permissions',same(b.permissions,exp.permissions));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{userId:b.user.userId,deptId:b.user.deptId,roles:b.roles,permissions:b.permissions})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/getInfo",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "admin_detail",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "check('Target identity',b.data.userId===Number(pm.environment.get('targetId'))&&b.data.userName===pm.environment.get('targetName'));check('Department/status',b.data.deptId===exp.deptId&&b.data.status===exp.status);check('Role IDs',same(b.roleIds,exp.roleIds));check('Post IDs',same(b.postIds,exp.postIds));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{userId:b.data.userId,deptId:b.data.deptId,status:b.data.status,roleIds:b.roleIds,postIds:b.postIds})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/{{targetId}}",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "user_detail",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "check('Target identity',b.data.userId===Number(pm.environment.get('targetId'))&&b.data.userName===pm.environment.get('targetName'));check('Department/status',b.data.deptId===exp.deptId&&b.data.status===exp.status);check('Role IDs',same(b.roleIds,exp.roleIds));check('Post IDs',same(b.postIds,exp.postIds));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{userId:b.data.userId,deptId:b.data.deptId,status:b.data.status,roleIds:b.roleIds,postIds:b.postIds})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/{{targetId}}",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "role_105",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "check('Role metadata',b.data.roleId===105&&b.data.dataScope==='3'&&b.data.status==='0');",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{roleId:b.data.roleId,dataScope:b.data.dataScope,status:b.data.status})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/role/105",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "role_106",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "check('Role metadata',b.data.roleId===106&&b.data.dataScope==='2'&&b.data.status==='0');",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{roleId:b.data.roleId,dataScope:b.data.dataScope,status:b.data.status})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/role/106",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "visible_p1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "var all=JSON.parse(pm.environment.get('expectedRows'));var slice=all.slice(0,5);check('Pagination shape',Array.isArray(b.rows)&&Number.isInteger(b.total));check('Total equals SQL',b.total===all.length);check('Ordered IDs equal SQL',JSON.stringify(b.rows.map(x=>x.userId))===JSON.stringify(slice.map(x=>x.user_id)));check('Fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&u.deptId===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{total:b.total,ids:b.rows.map(x=>x.userId),rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=1&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "visible_p2",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "var all=JSON.parse(pm.environment.get('expectedRows'));var slice=all.slice(5,10);check('Pagination shape',Array.isArray(b.rows)&&Number.isInteger(b.total));check('Total equals SQL',b.total===all.length);check('Ordered IDs equal SQL',JSON.stringify(b.rows.map(x=>x.userId))===JSON.stringify(slice.map(x=>x.user_id)));check('Fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&u.deptId===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{total:b.total,ids:b.rows.map(x=>x.userId),rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=2&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "visible_p3",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "var all=JSON.parse(pm.environment.get('expectedRows'));var slice=all.slice(10,15);check('Pagination shape',Array.isArray(b.rows)&&Number.isInteger(b.total));check('Total equals SQL',b.total===all.length);check('Ordered IDs equal SQL',JSON.stringify(b.rows.map(x=>x.userId))===JSON.stringify(slice.map(x=>x.user_id)));check('Fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&u.deptId===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{total:b.total,ids:b.rows.map(x=>x.userId),rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=3&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "visible_p4",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "var all=JSON.parse(pm.environment.get('expectedRows'));var slice=all.slice(15,20);check('Pagination shape',Array.isArray(b.rows)&&Number.isInteger(b.total));check('Total equals SQL',b.total===all.length);check('Ordered IDs equal SQL',JSON.stringify(b.rows.map(x=>x.userId))===JSON.stringify(slice.map(x=>x.user_id)));check('Fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&u.deptId===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{total:b.total,ids:b.rows.map(x=>x.userId),rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=4&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "visible_p5",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "var all=JSON.parse(pm.environment.get('expectedRows'));var slice=all.slice(20,25);check('Pagination shape',Array.isArray(b.rows)&&Number.isInteger(b.total));check('Total equals SQL',b.total===all.length);check('Ordered IDs equal SQL',JSON.stringify(b.rows.map(x=>x.userId))===JSON.stringify(slice.map(x=>x.user_id)));check('Fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&u.deptId===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{total:b.total,ids:b.rows.map(x=>x.userId),rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=5&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    },
+    {
+      "name": "visible_p6",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));",
+              "function block(m){pm.request.url.update('t4blocked://precondition-failed');postman.setNextRequest(null);throw new Error(m);}",
+              "if(pm.environment.get('baseUrl')!=='http://127.0.0.1:8080'||!pm.environment.get('requestToken')||!pm.environment.get('expected')||!pm.environment.get('targetId'))block('Missing current batch prerequisites');",
+              "if(pm.request.method!=='GET')block('Read-only collection');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}",
+              "var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);",
+              "function same(a,b){return JSON.stringify(a.slice().sort())===JSON.stringify(b.slice().sort());}var exp=JSON.parse(pm.environment.get('expected'));",
+              "var all=JSON.parse(pm.environment.get('expectedRows'));var slice=all.slice(25,30);check('Pagination shape',Array.isArray(b.rows)&&Number.isInteger(b.total));check('Total equals SQL',b.total===all.length);check('Ordered IDs equal SQL',JSON.stringify(b.rows.map(x=>x.userId))===JSON.stringify(slice.map(x=>x.user_id)));check('Fields equal SQL',b.rows.length===slice.length&&b.rows.every((u,i)=>u.userName===slice[i].user_name&&u.deptId===slice[i].dept_id&&u.status===slice[i].status&&u.delFlag===slice[i].del_flag));",
+              "console.log('T54_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,http:pm.response.code,code:b.code},{total:b.total,ids:b.rows.map(x=>x.userId),rows:b.rows.map(u=>({userId:u.userId,userName:u.userName,deptId:u.deptId,status:u.status,delFlag:u.delFlag}))})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum=6&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T54独立核验；缺少前置时阻断，不修改T4。"
+      }
+    }
+  ]
+}

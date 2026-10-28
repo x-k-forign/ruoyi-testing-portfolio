@@ -1,0 +1,974 @@
+[
+  {
+    "step": 1,
+    "at": "2026-10-19T19:25:05.995+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "use_database",
+    "sql": "USE learning_databases",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 2,
+    "at": "2026-10-19T19:25:05.996+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "set_r_tag",
+    "sql": "SET @r_tag='T53_20261019_192505_rollback'",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 3,
+    "at": "2026-10-19T19:25:05.997+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "set_c_tag",
+    "sql": "SET @c_tag='T53_20261019_192505_commit'",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 4,
+    "at": "2026-10-19T19:25:05.999+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "set_a_tag",
+    "sql": "SET @a_tag='T53_20261019_192505_autocommit'",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 5,
+    "at": "2026-10-19T19:25:06.001+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "confirm_r_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@r_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 6,
+    "at": "2026-10-19T19:25:06.002+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "confirm_c_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 7,
+    "at": "2026-10-19T19:25:06.003+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "confirm_a_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@a_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 8,
+    "at": "2026-10-19T19:25:06.004+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "use_database",
+    "sql": "USE learning_databases",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 9,
+    "at": "2026-10-19T19:25:06.004+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "set_r_tag",
+    "sql": "SET @r_tag='T53_20261019_192505_rollback'",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 10,
+    "at": "2026-10-19T19:25:06.005+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "set_c_tag",
+    "sql": "SET @c_tag='T53_20261019_192505_commit'",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 11,
+    "at": "2026-10-19T19:25:06.005+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "set_a_tag",
+    "sql": "SET @a_tag='T53_20261019_192505_autocommit'",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 12,
+    "at": "2026-10-19T19:25:06.006+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "confirm_r_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@r_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 13,
+    "at": "2026-10-19T19:25:06.007+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "confirm_c_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 14,
+    "at": "2026-10-19T19:25:06.008+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "confirm_a_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@a_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 15,
+    "at": "2026-10-19T19:25:06.008+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "rollback_begin",
+    "sql": "START TRANSACTION",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 16,
+    "at": "2026-10-19T19:25:06.010+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "rollback_insert",
+    "sql": "INSERT INTO t5_dml_lab(run_tag,dept_id,role_id,status,note) VALUES(@r_tag,202,101,'0','draft')",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 17,
+    "at": "2026-10-19T19:25:06.010+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "remember_r_id",
+    "sql": "SET @r_id=LAST_INSERT_ID()",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 18,
+    "at": "2026-10-19T19:25:06.011+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "rollback_update_preview",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE id=@r_id AND run_tag=@r_tag",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 1,
+        "run_tag": "T53_20261019_192505_rollback",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "draft"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 19,
+    "at": "2026-10-19T19:25:06.012+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "rollback_update",
+    "sql": "UPDATE t5_dml_lab SET dept_id=204,status='1',note='changed_uncommitted' WHERE id=@r_id AND run_tag=@r_tag",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 20,
+    "at": "2026-10-19T19:25:06.013+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "rollback_A_sees_change",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@r_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 1,
+        "run_tag": "T53_20261019_192505_rollback",
+        "dept_id": 204,
+        "role_id": 101,
+        "status": "1",
+        "note": "changed_uncommitted"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 21,
+    "at": "2026-10-19T19:25:06.014+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "rollback_B_cannot_see",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@r_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 22,
+    "at": "2026-10-19T19:25:06.015+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "rollback_end",
+    "sql": "ROLLBACK",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 23,
+    "at": "2026-10-19T19:25:06.016+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "rollback_A_empty",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@r_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 24,
+    "at": "2026-10-19T19:25:06.017+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "rollback_B_empty",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@r_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 25,
+    "at": "2026-10-19T19:25:06.018+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "commit_begin",
+    "sql": "START TRANSACTION",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 26,
+    "at": "2026-10-19T19:25:06.019+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "commit_insert",
+    "sql": "INSERT INTO t5_dml_lab(run_tag,dept_id,role_id,status,note) VALUES(@c_tag,202,101,'0','draft')",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 27,
+    "at": "2026-10-19T19:25:06.020+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "remember_c_id",
+    "sql": "SET @c_id=LAST_INSERT_ID()",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 28,
+    "at": "2026-10-19T19:25:06.020+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "commit_update_preview",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "draft"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 29,
+    "at": "2026-10-19T19:25:06.021+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "commit_update",
+    "sql": "UPDATE t5_dml_lab SET dept_id=204,status='1',note='saved_configuration' WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 30,
+    "at": "2026-10-19T19:25:06.022+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "commit_A_sees_change",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 204,
+        "role_id": 101,
+        "status": "1",
+        "note": "saved_configuration"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 31,
+    "at": "2026-10-19T19:25:06.023+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "commit_B_before_empty",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 32,
+    "at": "2026-10-19T19:25:06.025+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "commit_end",
+    "sql": "COMMIT",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 33,
+    "at": "2026-10-19T19:25:06.026+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "commit_B_fresh_sees",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 204,
+        "role_id": 101,
+        "status": "1",
+        "note": "saved_configuration"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 34,
+    "at": "2026-10-19T19:25:06.027+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "other_connection_rollback",
+    "sql": "ROLLBACK",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 35,
+    "at": "2026-10-19T19:25:06.027+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "other_connection_rollback_no_effect",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 204,
+        "role_id": 101,
+        "status": "1",
+        "note": "saved_configuration"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 36,
+    "at": "2026-10-19T19:25:06.028+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "snapshot_begin",
+    "sql": "START TRANSACTION",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 37,
+    "at": "2026-10-19T19:25:06.028+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "snapshot_establish",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 204,
+        "role_id": 101,
+        "status": "1",
+        "note": "saved_configuration"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 38,
+    "at": "2026-10-19T19:25:06.029+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "snapshot_writer_begin",
+    "sql": "START TRANSACTION",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 39,
+    "at": "2026-10-19T19:25:06.030+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "snapshot_update_preview",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 204,
+        "role_id": 101,
+        "status": "1",
+        "note": "saved_configuration"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 40,
+    "at": "2026-10-19T19:25:06.031+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "snapshot_update",
+    "sql": "UPDATE t5_dml_lab SET dept_id=202,status='0',note='new_committed_version' WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 41,
+    "at": "2026-10-19T19:25:06.033+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "snapshot_writer_commit",
+    "sql": "COMMIT",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 42,
+    "at": "2026-10-19T19:25:06.034+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "snapshot_still_old",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 204,
+        "role_id": 101,
+        "status": "1",
+        "note": "saved_configuration"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 43,
+    "at": "2026-10-19T19:25:06.035+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "snapshot_end",
+    "sql": "COMMIT",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 44,
+    "at": "2026-10-19T19:25:06.036+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "snapshot_fresh_new",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "new_committed_version"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 45,
+    "at": "2026-10-19T19:25:06.036+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "delete_begin",
+    "sql": "START TRANSACTION",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 46,
+    "at": "2026-10-19T19:25:06.037+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "delete_preview",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "new_committed_version"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 47,
+    "at": "2026-10-19T19:25:06.038+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "delete_uncommitted",
+    "sql": "DELETE FROM t5_dml_lab WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 48,
+    "at": "2026-10-19T19:25:06.039+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "delete_A_empty",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 49,
+    "at": "2026-10-19T19:25:06.039+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "delete_B_still_present",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "new_committed_version"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 50,
+    "at": "2026-10-19T19:25:06.041+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "delete_rollback",
+    "sql": "ROLLBACK",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 51,
+    "at": "2026-10-19T19:25:06.042+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "delete_restored",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "new_committed_version"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 52,
+    "at": "2026-10-19T19:25:06.045+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "autocommit_insert",
+    "sql": "INSERT INTO t5_dml_lab(run_tag,dept_id,role_id,status,note) VALUES(@a_tag,202,101,'0','autocommit_saved')",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 53,
+    "at": "2026-10-19T19:25:06.045+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "remember_a_id",
+    "sql": "SET @a_id=LAST_INSERT_ID()",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 54,
+    "at": "2026-10-19T19:25:06.046+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "autocommit_late_rollback",
+    "sql": "ROLLBACK",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 55,
+    "at": "2026-10-19T19:25:06.047+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "autocommit_B_still_present",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@a_tag ORDER BY id",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 3,
+        "run_tag": "T53_20261019_192505_autocommit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "autocommit_saved"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 56,
+    "at": "2026-10-19T19:25:06.048+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "cleanup_begin",
+    "sql": "START TRANSACTION",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 57,
+    "at": "2026-10-19T19:25:06.048+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "cleanup_c_preview",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 2,
+        "run_tag": "T53_20261019_192505_commit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "new_committed_version"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 58,
+    "at": "2026-10-19T19:25:06.049+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "cleanup_c_delete",
+    "sql": "DELETE FROM t5_dml_lab WHERE id=@c_id AND run_tag=@c_tag",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 59,
+    "at": "2026-10-19T19:25:06.050+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "cleanup_a_preview",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE id=@a_id AND run_tag=@a_tag",
+    "rowcount": 1,
+    "rows": [
+      {
+        "id": 3,
+        "run_tag": "T53_20261019_192505_autocommit",
+        "dept_id": 202,
+        "role_id": 101,
+        "status": "0",
+        "note": "autocommit_saved"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 60,
+    "at": "2026-10-19T19:25:06.051+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "cleanup_a_delete",
+    "sql": "DELETE FROM t5_dml_lab WHERE id=@a_id AND run_tag=@a_tag",
+    "rowcount": 1,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 61,
+    "at": "2026-10-19T19:25:06.053+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "cleanup_commit",
+    "sql": "COMMIT",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 62,
+    "at": "2026-10-19T19:25:06.054+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "final_r_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@r_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 63,
+    "at": "2026-10-19T19:25:06.055+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "final_c_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@c_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 64,
+    "at": "2026-10-19T19:25:06.055+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "final_a_absent",
+    "sql": "SELECT id,run_tag,dept_id,role_id,status,note FROM t5_dml_lab WHERE run_tag=@a_tag ORDER BY id",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 65,
+    "at": "2026-10-19T19:25:06.056+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "close_A_transaction",
+    "sql": "ROLLBACK",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 66,
+    "at": "2026-10-19T19:25:06.057+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "close_B_transaction",
+    "sql": "ROLLBACK",
+    "rowcount": 0,
+    "rows": [],
+    "passed": true,
+    "assertion": false
+  },
+  {
+    "step": 67,
+    "at": "2026-10-19T19:25:06.057+08:00",
+    "connection": "A",
+    "connection_id": 73,
+    "label": "final_session_settings",
+    "sql": "SELECT CONNECTION_ID() AS connection_id,@@autocommit AS autocommit,@@transaction_isolation AS isolation_level",
+    "rowcount": 1,
+    "rows": [
+      {
+        "connection_id": 73,
+        "autocommit": 1,
+        "isolation_level": "REPEATABLE-READ"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  },
+  {
+    "step": 68,
+    "at": "2026-10-19T19:25:06.058+08:00",
+    "connection": "B",
+    "connection_id": 74,
+    "label": "final_session_settings",
+    "sql": "SELECT CONNECTION_ID() AS connection_id,@@autocommit AS autocommit,@@transaction_isolation AS isolation_level",
+    "rowcount": 1,
+    "rows": [
+      {
+        "connection_id": 74,
+        "autocommit": 1,
+        "isolation_level": "REPEATABLE-READ"
+      }
+    ],
+    "passed": true,
+    "assertion": true
+  }
+]

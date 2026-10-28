@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-28T08:50:17+08:00",
+  "rows": [
+    {
+      "user_id": 100,
+      "user_name": "t55_flow_1028",
+      "del_flag": "2"
+    },
+    {
+      "user_id": 101,
+      "user_name": "t55_other_1028",
+      "del_flag": "2"
+    },
+    {
+      "user_id": 102,
+      "user_name": "t55_new_control",
+      "del_flag": "2"
+    },
+    {
+      "user_id": 103,
+      "user_name": "t3_fault_edit",
+      "del_flag": "2"
+    },
+    {
+      "user_id": 104,
+      "user_name": "t55_old_write",
+      "del_flag": "2"
+    },
+    {
+      "user_id": 106,
+      "user_name": "t3_fault_new",
+      "del_flag": "2"
+    }
+  ],
+  "associations_empty": true,
+  "sessions_exited": true
+}

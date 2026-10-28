@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-28T09:24:07+08:00",
+  "isolated_backend_stopped": true,
+  "isolated_redis_stopped": true,
+  "shared_redis_run_id_unchanged": true,
+  "shared_configuration_unchanged": true,
+  "shared_health": {
+    "frontend": {
+      "http": 200,
+      "code": null
+    },
+    "backend": {
+      "http": 200,
+      "code": 401
+    }
+  },
+  "normal_jar_unchanged": true,
+  "retained": "专用库、基线部门角色岗位、逻辑删除用户和审计日志；无故障源码及私有连接配置保留"
+}

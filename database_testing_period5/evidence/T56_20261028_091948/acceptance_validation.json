@@ -1,0 +1,20 @@
+{
+  "accepted_at": "2026-10-28T09:31:05+08:00",
+  "stage": "T5.6",
+  "conclusion": "T5.6验收通过",
+  "method": "自动化执行成果核对与原理说明，按用户约定随T5总验收完成",
+  "user_request": "好的T5.7跳过，先进行总验收",
+  "checks": {
+    "delivery_checks": true,
+    "frozen_sql_and_collection": true,
+    "two_cleanups": true
+  },
+  "all_checks_ok": true,
+  "new_execution": false,
+  "artifact_hashes": {
+    "database_testing_period5\\docs\\T5.6_执行说明.md": "111a392fa4b168c7b241d2a7a3238a5e542284673910702850574c6c7d62274d",
+    "database_testing_period5\\sql\\prepare.sql": "58155c273000f2a2d85422055b2a07bc945aab5381f348c107d73f6259dca257",
+    "database_testing_period5\\sql\\verify.sql": "ba54de469831ee5350e4ca8fbf99bc43100128678efaf865b9942b15cdbd67d3",
+    "database_testing_period5\\sql\\cleanup.sql": "dda4734250f10420c32d290d68dca97a485b659dc52487e5c9e5cf7890309885"
+  }
+}

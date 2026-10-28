@@ -1,0 +1,203 @@
+{
+  "info": {
+    "name": "T5.6 两轮通用只读核验",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "admin_identity",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));function block(m){pm.request.url.update('t4blocked://t56');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('requestToken')||!pm.environment.get('targetId')||!pm.environment.get('expectedRows'))block('Missing isolated round prerequisites');if(pm.request.method!=='GET')block('Read only');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);check('Admin',b.user.userId===1);console.log('T56_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{userId:b.user.userId})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/getInfo",
+        "description": "T56通用只读核验，批次及SQL基准来自当前环境；无业务写入。"
+      }
+    },
+    {
+      "name": "user_identity",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));function block(m){pm.request.url.update('t4blocked://t56');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('requestToken')||!pm.environment.get('targetId')||!pm.environment.get('expectedRows'))block('Missing isolated round prerequisites');if(pm.request.method!=='GET')block('Read only');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);check('Batch identity',b.user.userId===Number(pm.environment.get('targetId'))&&b.user.userName===pm.environment.get('runTag'));check('Role and permissions',JSON.stringify(b.roles)==JSON.stringify([pm.environment.get('roleKey')])&&JSON.stringify(b.permissions.slice().sort())===JSON.stringify(['system:user:list','system:user:query']));console.log('T56_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{userId:b.user.userId,roles:b.roles,permissions:b.permissions})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/getInfo",
+        "description": "T56通用只读核验，批次及SQL基准来自当前环境；无业务写入。"
+      }
+    },
+    {
+      "name": "admin_detail",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('adminToken'));function block(m){pm.request.url.update('t4blocked://t56');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('requestToken')||!pm.environment.get('targetId')||!pm.environment.get('expectedRows'))block('Missing isolated round prerequisites');if(pm.request.method!=='GET')block('Read only');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);check('Target fields',b.data.userId===Number(pm.environment.get('targetId'))&&b.data.deptId===Number(pm.environment.get('deptId'))&&b.data.status==='0');check('Associations',JSON.stringify(b.roleIds)===JSON.stringify([Number(pm.environment.get('roleId'))])&&JSON.stringify(b.postIds)===JSON.stringify([Number(pm.environment.get('postId'))]));console.log('T56_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{userId:b.data.userId,deptId:b.data.deptId,roleIds:b.roleIds,postIds:b.postIds})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/{{targetId}}",
+        "description": "T56通用只读核验，批次及SQL基准来自当前环境；无业务写入。"
+      }
+    },
+    {
+      "name": "user_detail",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));function block(m){pm.request.url.update('t4blocked://t56');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('requestToken')||!pm.environment.get('targetId')||!pm.environment.get('expectedRows'))block('Missing isolated round prerequisites');if(pm.request.method!=='GET')block('Read only');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);check('Target fields',b.data.userId===Number(pm.environment.get('targetId'))&&b.data.deptId===Number(pm.environment.get('deptId'))&&b.data.status==='0');check('Associations',JSON.stringify(b.roleIds)===JSON.stringify([Number(pm.environment.get('roleId'))])&&JSON.stringify(b.postIds)===JSON.stringify([Number(pm.environment.get('postId'))]));console.log('T56_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{userId:b.data.userId,deptId:b.data.deptId,roleIds:b.roleIds,postIds:b.postIds})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/{{targetId}}",
+        "description": "T56通用只读核验，批次及SQL基准来自当前环境；无业务写入。"
+      }
+    },
+    {
+      "name": "user_pages",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set('requestToken',pm.environment.get('userToken'));function block(m){pm.request.url.update('t4blocked://t56');postman.setNextRequest(null);throw new Error(m);}if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('requestToken')||!pm.environment.get('targetId')||!pm.environment.get('expectedRows'))block('Missing isolated round prerequisites');if(pm.request.method!=='GET')block('Read only');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});if(!ok){postman.setNextRequest(null);throw new Error(n);}}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);var ex=JSON.parse(pm.environment.get('expectedRows'));var pg=Number(pm.environment.get('page'));check('Shape',Array.isArray(b.rows)&&Number.isInteger(b.total));check('Total',b.total===ex.length);check('Ordered page IDs',JSON.stringify(b.rows.map(u=>u.userId))===JSON.stringify(ex.slice((pg-1)*5,pg*5).map(u=>u.user_id)));var ids=JSON.parse(pm.environment.get('actualIds'));ids.push(...b.rows.map(u=>u.userId));pm.environment.set('actualIds',JSON.stringify(ids));if(pg*5<b.total){pm.environment.set('page',pg+1);postman.setNextRequest(pm.info.requestName);}else{check('Full ID set without duplicates',JSON.stringify(ids)===JSON.stringify(ex.map(u=>u.user_id))&&new Set(ids).size===ids.length);}console.log('T56_EVENT '+JSON.stringify(Object.assign({name:pm.info.requestName,code:b.code},{page:pg,total:b.total,ids:b.rows.map(u=>u.userId)})));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum={{page}}&pageSize=5&orderByColumn=userId&isAsc=asc",
+        "description": "T56通用只读核验，批次及SQL基准来自当前环境；无业务写入。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "source": "api_testing_period4\\postman\\T4_验收交付.postman_collection.json",
+  "source_sha256": "e3e650422281bd3c7486a98cc5f9a939cbc5c8cb8bf8907b232d1b8d15d38a89",
+  "reused": [
+    "GET /getInfo",
+    "GET /system/user/list",
+    "POST /system/user payload template"
+  ],
+  "adaptation": "原T4不改；T5副本按本轮身份、SQL基准和静态完整分页重设脚本，保留本机目标及非网络阻断。登录/准备/清理由本地辅助程序管理。",
+  "cases": [
+    {
+      "case": "admin_all",
+      "identity": "admin",
+      "filters": {},
+      "sql_key": "admin_all",
+      "expected_total": 36,
+      "page_size": 5,
+      "pages": 8
+    },
+    {
+      "case": "department_tree",
+      "identity": "admin",
+      "filters": {
+        "deptId": 202
+      },
+      "sql_key": "department_tree",
+      "expected_total": 26,
+      "page_size": 5,
+      "pages": 6
+    },
+    {
+      "case": "department_tree_normal",
+      "identity": "admin",
+      "filters": {
+        "deptId": 202,
+        "status": "0"
+      },
+      "sql_key": "department_tree_normal",
+      "expected_total": 26,
+      "page_size": 5,
+      "pages": 6
+    },
+    {
+      "case": "disabled_users",
+      "identity": "admin",
+      "filters": {
+        "status": "1"
+      },
+      "sql_key": "disabled_users",
+      "expected_total": 1,
+      "page_size": 5,
+      "pages": 1
+    },
+    {
+      "case": "batch_like",
+      "identity": "admin",
+      "filters": {
+        "userName": "t521019185631"
+      },
+      "sql_key": "batch_like",
+      "expected_total": 2,
+      "page_size": 5,
+      "pages": 1
+    },
+    {
+      "case": "exact_id",
+      "identity": "admin",
+      "filters": {
+        "userId": 166
+      },
+      "sql_key": "exact_id",
+      "expected_total": 1,
+      "page_size": 5,
+      "pages": 1
+    },
+    {
+      "case": "ordinary_all",
+      "identity": "user",
+      "filters": {},
+      "sql_key": "ordinary_all",
+      "expected_total": 25,
+      "page_size": 5,
+      "pages": 5
+    },
+    {
+      "case": "ordinary_outside",
+      "identity": "user",
+      "filters": {
+        "deptId": 204
+      },
+      "sql_key": "ordinary_outside",
+      "expected_total": 0,
+      "page_size": 5,
+      "pages": 1
+    },
+    {
+      "case": "ordinary_batch",
+      "identity": "user",
+      "filters": {
+        "userName": "t521019185631"
+      },
+      "sql_key": "ordinary_batch",
+      "expected_total": 1,
+      "page_size": 5,
+      "pages": 1
+    }
+  ],
+  "request_definitions": 32
+}

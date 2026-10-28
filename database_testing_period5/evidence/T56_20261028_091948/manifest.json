@@ -1,0 +1,37 @@
+{
+  "batch": "T56_20261028_091948",
+  "evidence_dir": "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\database_testing_period5\\evidence\\T56_20261028_091948",
+  "jar_sha256": "5bc291bf413d6e355e0011bfa3d23692d95174645f7413d920c2ea025bb09271",
+  "rounds": {
+    "1": {
+      "round": 1,
+      "tag": "t5610280919481",
+      "dept": 200,
+      "role": 100,
+      "post": 1,
+      "role_key": "t55_queryRole",
+      "expected_permissions": [
+        "system:user:list",
+        "system:user:query"
+      ],
+      "prepared": true,
+      "user_id": 107
+    },
+    "2": {
+      "round": 2,
+      "tag": "t5610280919482",
+      "dept": 200,
+      "role": 100,
+      "post": 1,
+      "role_key": "t55_queryRole",
+      "expected_permissions": [
+        "system:user:list",
+        "system:user:query"
+      ],
+      "prepared": true,
+      "user_id": 108
+    }
+  },
+  "started_at": "2026-10-28T09:19:48.841916+08:00",
+  "finished_at": "2026-10-28T09:24:07+08:00"
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "name": "admin_identity",
+    "code": 200,
+    "userId": 1
+  },
+  {
+    "name": "user_identity",
+    "code": 200,
+    "userId": 108,
+    "roles": [
+      "t55_queryRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ]
+  },
+  {
+    "name": "admin_detail",
+    "code": 200,
+    "userId": 108,
+    "deptId": 200,
+    "roleIds": [
+      100
+    ],
+    "postIds": [
+      1
+    ]
+  },
+  {
+    "name": "user_detail",
+    "code": 200,
+    "userId": 108,
+    "deptId": 200,
+    "roleIds": [
+      100
+    ],
+    "postIds": [
+      1
+    ]
+  },
+  {
+    "name": "user_pages",
+    "code": 200,
+    "page": 1,
+    "total": 1,
+    "ids": [
+      108
+    ]
+  }
+]

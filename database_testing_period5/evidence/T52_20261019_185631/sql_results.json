@@ -1,0 +1,1376 @@
+{
+  "at": "2026-10-19T18:58:05+08:00",
+  "sql_sha256": "5320a1909f6c073da06fdea5ceac180cf82b91e493475dfdaaee7c4c10e42b3a",
+  "parameters": {
+    "prefix": "t521019185631",
+    "normal_name": "t521019185631a",
+    "stopped_name": "t521019185631b",
+    "normal_id": 166
+  },
+  "queries": {
+    "environment": {
+      "sql": "SELECT DATABASE() AS current_db,VERSION() AS version,CONNECTION_ID() AS connection_id,\n @@autocommit AS autocommit,@@transaction_isolation AS isolation_level,\n NOW() AS database_local_time,UTC_TIMESTAMP() AS database_utc_time,\n TIMESTAMPDIFF(MINUTE,UTC_TIMESTAMP(),NOW()) AS utc_offset_minutes",
+      "rows": [
+        {
+          "current_db": "ruoyi_t2_lab",
+          "version": "8.4.11",
+          "connection_id": 50,
+          "autocommit": 1,
+          "isolation_level": "REPEATABLE-READ",
+          "database_local_time": "2026-10-19 18:58:05",
+          "database_utc_time": "2026-10-19 10:58:05",
+          "utc_offset_minutes": 480
+        }
+      ],
+      "row_count": 1
+    },
+    "batch_exact": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE user_name IN (@normal_name,@stopped_name) ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 167,
+          "user_name": "t521019185631b",
+          "dept_id": 204,
+          "status": "1",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 2
+    },
+    "admin_all": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 1,
+          "user_name": "admin",
+          "dept_id": 103,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 2,
+          "user_name": "ry",
+          "dept_id": 105,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 100,
+          "user_name": "t24_user_1009",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t25_a_add",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 104,
+          "user_name": "t25_b_query",
+          "dept_id": 204,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 105,
+          "user_name": "t25_a_child",
+          "dept_id": 203,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 108,
+          "user_name": "t25_a_created",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 109,
+          "user_name": "t25_log",
+          "dept_id": 201,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t3_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 111,
+          "user_name": "t310100001",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 112,
+          "user_name": "t3ai_p06_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 113,
+          "user_name": "t3ai_p07_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 114,
+          "user_name": "t3ai_p19_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 115,
+          "user_name": "t3ai_p20_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 116,
+          "user_name": "t3ai_contact_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 117,
+          "user_name": "a1",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 118,
+          "user_name": "a11",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 119,
+          "user_name": "a111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 120,
+          "user_name": "a1111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 121,
+          "user_name": "t3ai_lock_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 122,
+          "user_name": "t3ai_stop_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 124,
+          "user_name": "t3ai_dept_1010",
+          "dept_id": 207,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 125,
+          "user_name": "t3ai_maint_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 126,
+          "user_name": "t3ai_nodept_1010",
+          "dept_id": null,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 127,
+          "user_name": "t3ai_norole_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 128,
+          "user_name": "t3ai_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 129,
+          "user_name": "t34_c_1012",
+          "dept_id": 204,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 130,
+          "user_name": "t34_scopeuser_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 139,
+          "user_name": "t36_log_1012",
+          "dept_id": 201,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 145,
+          "user_name": "t38_reg_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 146,
+          "user_name": "t38_chain_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 167,
+          "user_name": "t521019185631b",
+          "dept_id": 204,
+          "status": "1",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 36
+    },
+    "department_exact": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND dept_id=@dept_a ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t25_a_add",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 108,
+          "user_name": "t25_a_created",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t3_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 111,
+          "user_name": "t310100001",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 112,
+          "user_name": "t3ai_p06_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 113,
+          "user_name": "t3ai_p07_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 114,
+          "user_name": "t3ai_p19_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 115,
+          "user_name": "t3ai_p20_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 116,
+          "user_name": "t3ai_contact_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 117,
+          "user_name": "a1",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 118,
+          "user_name": "a11",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 119,
+          "user_name": "a111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 120,
+          "user_name": "a1111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 121,
+          "user_name": "t3ai_lock_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 122,
+          "user_name": "t3ai_stop_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 125,
+          "user_name": "t3ai_maint_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 127,
+          "user_name": "t3ai_norole_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 128,
+          "user_name": "t3ai_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 130,
+          "user_name": "t34_scopeuser_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 145,
+          "user_name": "t38_reg_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 146,
+          "user_name": "t38_chain_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 25
+    },
+    "department_tree": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND (dept_id=@dept_a OR dept_id IN\n (SELECT dept_id FROM sys_dept WHERE FIND_IN_SET(@dept_a,ancestors))) ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t25_a_add",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 105,
+          "user_name": "t25_a_child",
+          "dept_id": 203,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 108,
+          "user_name": "t25_a_created",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t3_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 111,
+          "user_name": "t310100001",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 112,
+          "user_name": "t3ai_p06_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 113,
+          "user_name": "t3ai_p07_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 114,
+          "user_name": "t3ai_p19_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 115,
+          "user_name": "t3ai_p20_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 116,
+          "user_name": "t3ai_contact_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 117,
+          "user_name": "a1",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 118,
+          "user_name": "a11",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 119,
+          "user_name": "a111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 120,
+          "user_name": "a1111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 121,
+          "user_name": "t3ai_lock_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 122,
+          "user_name": "t3ai_stop_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 125,
+          "user_name": "t3ai_maint_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 127,
+          "user_name": "t3ai_norole_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 128,
+          "user_name": "t3ai_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 130,
+          "user_name": "t34_scopeuser_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 145,
+          "user_name": "t38_reg_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 146,
+          "user_name": "t38_chain_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 26
+    },
+    "department_tree_normal": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND status='0' AND (dept_id=@dept_a OR dept_id IN\n (SELECT dept_id FROM sys_dept WHERE FIND_IN_SET(@dept_a,ancestors))) ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t25_a_add",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 105,
+          "user_name": "t25_a_child",
+          "dept_id": 203,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 108,
+          "user_name": "t25_a_created",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t3_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 111,
+          "user_name": "t310100001",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 112,
+          "user_name": "t3ai_p06_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 113,
+          "user_name": "t3ai_p07_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 114,
+          "user_name": "t3ai_p19_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 115,
+          "user_name": "t3ai_p20_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 116,
+          "user_name": "t3ai_contact_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 117,
+          "user_name": "a1",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 118,
+          "user_name": "a11",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 119,
+          "user_name": "a111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 120,
+          "user_name": "a1111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 121,
+          "user_name": "t3ai_lock_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 122,
+          "user_name": "t3ai_stop_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 125,
+          "user_name": "t3ai_maint_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 127,
+          "user_name": "t3ai_norole_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 128,
+          "user_name": "t3ai_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 130,
+          "user_name": "t34_scopeuser_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 145,
+          "user_name": "t38_reg_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 146,
+          "user_name": "t38_chain_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 26
+    },
+    "disabled_users": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND status='1' ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 167,
+          "user_name": "t521019185631b",
+          "dept_id": 204,
+          "status": "1",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 1
+    },
+    "batch_like": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND user_name LIKE CONCAT('%',@batch_prefix,'%') ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 167,
+          "user_name": "t521019185631b",
+          "dept_id": 204,
+          "status": "1",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 2
+    },
+    "exact_id": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND user_id=@normal_id ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 1
+    },
+    "ordinary_all": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND dept_id=@dept_a ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t25_a_add",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 108,
+          "user_name": "t25_a_created",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t3_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 111,
+          "user_name": "t310100001",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 112,
+          "user_name": "t3ai_p06_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 113,
+          "user_name": "t3ai_p07_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 114,
+          "user_name": "t3ai_p19_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 115,
+          "user_name": "t3ai_p20_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 116,
+          "user_name": "t3ai_contact_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 117,
+          "user_name": "a1",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 118,
+          "user_name": "a11",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 119,
+          "user_name": "a111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 120,
+          "user_name": "a1111111111111111111",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 121,
+          "user_name": "t3ai_lock_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 122,
+          "user_name": "t3ai_stop_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 125,
+          "user_name": "t3ai_maint_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 127,
+          "user_name": "t3ai_norole_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 128,
+          "user_name": "t3ai_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 130,
+          "user_name": "t34_scopeuser_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 145,
+          "user_name": "t38_reg_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 146,
+          "user_name": "t38_chain_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 25
+    },
+    "ordinary_outside": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND dept_id=@dept_a AND (dept_id=@dept_b OR dept_id IN\n (SELECT dept_id FROM sys_dept WHERE FIND_IN_SET(@dept_b,ancestors))) ORDER BY user_id",
+      "rows": [],
+      "row_count": 0
+    },
+    "ordinary_batch": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND dept_id=@dept_a AND user_name LIKE CONCAT('%',@batch_prefix,'%') ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 166,
+          "user_name": "t521019185631a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 1
+    },
+    "page_1": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' ORDER BY user_id LIMIT 0,5",
+      "rows": [
+        {
+          "user_id": 1,
+          "user_name": "admin",
+          "dept_id": 103,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 2,
+          "user_name": "ry",
+          "dept_id": 105,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 100,
+          "user_name": "t24_user_1009",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 103,
+          "user_name": "t25_a_add",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 5
+    },
+    "page_2": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' ORDER BY user_id LIMIT 5,5",
+      "rows": [
+        {
+          "user_id": 104,
+          "user_name": "t25_b_query",
+          "dept_id": 204,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 105,
+          "user_name": "t25_a_child",
+          "dept_id": 203,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 108,
+          "user_name": "t25_a_created",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 109,
+          "user_name": "t25_log",
+          "dept_id": 201,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t3_pwd5_1010",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 5
+    },
+    "department_counts": {
+      "sql": "SELECT dept_id,COUNT(*) AS user_count,COUNT(dept_id) AS non_null_dept_count\nFROM sys_user WHERE del_flag='0' GROUP BY dept_id ORDER BY dept_id",
+      "rows": [
+        {
+          "dept_id": null,
+          "user_count": 1,
+          "non_null_dept_count": 0
+        },
+        {
+          "dept_id": 103,
+          "user_count": 1,
+          "non_null_dept_count": 1
+        },
+        {
+          "dept_id": 105,
+          "user_count": 1,
+          "non_null_dept_count": 1
+        },
+        {
+          "dept_id": 200,
+          "user_count": 1,
+          "non_null_dept_count": 1
+        },
+        {
+          "dept_id": 201,
+          "user_count": 2,
+          "non_null_dept_count": 2
+        },
+        {
+          "dept_id": 202,
+          "user_count": 25,
+          "non_null_dept_count": 25
+        },
+        {
+          "dept_id": 203,
+          "user_count": 1,
+          "non_null_dept_count": 1
+        },
+        {
+          "dept_id": 204,
+          "user_count": 3,
+          "non_null_dept_count": 3
+        },
+        {
+          "dept_id": 207,
+          "user_count": 1,
+          "non_null_dept_count": 1
+        }
+      ],
+      "row_count": 9
+    },
+    "department_status_counts": {
+      "sql": "SELECT dept_id,status,COUNT(*) AS user_count FROM sys_user\nWHERE del_flag='0' GROUP BY dept_id,status ORDER BY dept_id,status",
+      "rows": [
+        {
+          "dept_id": null,
+          "status": "0",
+          "user_count": 1
+        },
+        {
+          "dept_id": 103,
+          "status": "0",
+          "user_count": 1
+        },
+        {
+          "dept_id": 105,
+          "status": "0",
+          "user_count": 1
+        },
+        {
+          "dept_id": 200,
+          "status": "0",
+          "user_count": 1
+        },
+        {
+          "dept_id": 201,
+          "status": "0",
+          "user_count": 2
+        },
+        {
+          "dept_id": 202,
+          "status": "0",
+          "user_count": 25
+        },
+        {
+          "dept_id": 203,
+          "status": "0",
+          "user_count": 1
+        },
+        {
+          "dept_id": 204,
+          "status": "0",
+          "user_count": 2
+        },
+        {
+          "dept_id": 204,
+          "status": "1",
+          "user_count": 1
+        },
+        {
+          "dept_id": 207,
+          "status": "0",
+          "user_count": 1
+        }
+      ],
+      "row_count": 10
+    },
+    "having_multiple_users": {
+      "sql": "SELECT dept_id,COUNT(*) AS user_count FROM sys_user\nWHERE del_flag='0' GROUP BY dept_id HAVING COUNT(*)>=2 ORDER BY user_count DESC,dept_id",
+      "rows": [
+        {
+          "dept_id": 202,
+          "user_count": 25
+        },
+        {
+          "dept_id": 204,
+          "user_count": 3
+        },
+        {
+          "dept_id": 201,
+          "user_count": 2
+        }
+      ],
+      "row_count": 3
+    },
+    "null_counts": {
+      "sql": "SELECT COUNT(*) AS user_count,COUNT(dept_id) AS known_dept_count,\n COUNT(DISTINCT dept_id) AS distinct_known_departments,\n SUM(CASE WHEN dept_id IS NULL THEN 1 ELSE 0 END) AS null_dept_count\nFROM sys_user WHERE del_flag='0'",
+      "rows": [
+        {
+          "user_count": 36,
+          "known_dept_count": 35,
+          "distinct_known_departments": 8,
+          "null_dept_count": "1"
+        }
+      ],
+      "row_count": 1
+    },
+    "null_department": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE del_flag='0' AND dept_id IS NULL ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 126,
+          "user_name": "t3ai_nodept_1010",
+          "dept_id": null,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ],
+      "row_count": 1
+    },
+    "deletion_counts": {
+      "sql": "SELECT del_flag,COUNT(*) AS row_count FROM sys_user GROUP BY del_flag ORDER BY del_flag",
+      "rows": [
+        {
+          "del_flag": "0",
+          "row_count": 36
+        },
+        {
+          "del_flag": "2",
+          "row_count": 34
+        }
+      ],
+      "row_count": 2
+    },
+    "historical_deleted": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE user_id IN(151,153) ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 151,
+          "user_name": "t44_1014103013_a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "2"
+        },
+        {
+          "user_id": 153,
+          "user_name": "t44_1014103410_b",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "2"
+        }
+      ],
+      "row_count": 2
+    }
+  },
+  "transaction_closed": true,
+  "finished_at": "2026-10-19T18:58:05+08:00"
+}

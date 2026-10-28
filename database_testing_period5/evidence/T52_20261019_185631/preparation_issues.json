@@ -1,0 +1,25 @@
+{
+  "issues": [
+    {
+      "step": "首次管理员登录",
+      "classification": "执行输入问题",
+      "result": "验证码错误，未产生登录令牌；未进入样本创建",
+      "recovery": "重新取码并识别后登录成功",
+      "product_bug": false
+    },
+    {
+      "step": "首次SQL采集",
+      "classification": "脚本语法问题",
+      "result": "环境查询别名 utc_time 与保留语法冲突，MySQL 1064；只读连接关闭",
+      "recovery": "改为 database_utc_time 后重新执行只读查询",
+      "product_bug": false
+    },
+    {
+      "step": "第二次SQL采集",
+      "classification": "连接字符集排序规则问题",
+      "result": "会话变量使用 utf8mb4_0900_ai_ci，与表列 utf8mb4_unicode_ci 在 IN 比较中冲突，MySQL 1270",
+      "recovery": "仅在本次客户端会话设置 SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci 后再绑定参数；不改表、不改服务全局配置",
+      "product_bug": false
+    }
+  ]
+}

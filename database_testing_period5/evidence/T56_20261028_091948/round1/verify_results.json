@@ -1,0 +1,76 @@
+{
+  "started_at": "2026-10-28T09:21:06+08:00",
+  "file": "verify.sql",
+  "sha256": "ba54de469831ee5350e4ca8fbf99bc43100128678efaf865b9942b15cdbd67d3",
+  "parameters": {
+    "run_tag": "t5610280919481",
+    "target_user_id": 107,
+    "dept_id": 200,
+    "role_id": 100,
+    "post_id": 1
+  },
+  "queries": {
+    "owned_user": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag,remark FROM sys_user\nWHERE user_id=@target_user_id AND user_name=@run_tag AND remark=@run_tag",
+      "rows": [
+        {
+          "user_id": 107,
+          "user_name": "t5610280919481",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "0",
+          "remark": "t5610280919481"
+        }
+      ]
+    },
+    "roles": {
+      "sql": "SELECT user_id,role_id FROM sys_user_role WHERE user_id=@target_user_id ORDER BY role_id",
+      "rows": [
+        {
+          "user_id": 107,
+          "role_id": 100
+        }
+      ]
+    },
+    "posts": {
+      "sql": "SELECT user_id,post_id FROM sys_user_post WHERE user_id=@target_user_id ORDER BY post_id",
+      "rows": [
+        {
+          "user_id": 107,
+          "post_id": 1
+        }
+      ]
+    },
+    "joined": {
+      "sql": "SELECT u.user_id,u.user_name,u.dept_id,d.status AS dept_status,\n r.role_id,r.role_key,r.data_scope,r.status AS role_status,p.post_id,p.status AS post_status\nFROM sys_user u JOIN sys_dept d ON u.dept_id=d.dept_id\nJOIN sys_user_role ur ON u.user_id=ur.user_id JOIN sys_role r ON ur.role_id=r.role_id\nJOIN sys_user_post up ON u.user_id=up.user_id JOIN sys_post p ON up.post_id=p.post_id\nWHERE u.user_id=@target_user_id AND u.user_name=@run_tag ORDER BY r.role_id,p.post_id",
+      "rows": [
+        {
+          "user_id": 107,
+          "user_name": "t5610280919481",
+          "dept_id": 200,
+          "dept_status": "0",
+          "role_id": 100,
+          "role_key": "t55_queryRole",
+          "data_scope": "3",
+          "role_status": "0",
+          "post_id": 1,
+          "post_status": "0"
+        }
+      ]
+    },
+    "expected_visible": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag FROM sys_user\nWHERE dept_id=@dept_id AND del_flag='0' ORDER BY user_id",
+      "rows": [
+        {
+          "user_id": 107,
+          "user_name": "t5610280919481",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-10-28T09:21:06+08:00",
+  "transaction_closed": true
+}

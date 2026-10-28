@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-28T08:53:57+08:00",
+  "isolated_backend_stopped": true,
+  "isolated_redis_stopped": true,
+  "fault_switch_off": true,
+  "temporary_api_tokens_and_passwords_cleared": true,
+  "shared_backend_unauthenticated_code": 401,
+  "jar_sha256": {
+    "baseline.jar": "8efe2475dab5c8a525672dbe02db79223c66931e1182138b85f83e4f8c7e9cc1",
+    "fault.jar": "659c0da002e60677f47fb07e477b89958ef515a9ca8c5a9b672290937b4daa6e",
+    "restored.jar": "5bc291bf413d6e355e0011bfa3d23692d95174645f7413d920c2ea025bb09271"
+  },
+  "persistent_private_connection_config": "只在隔离目录.private保留，供后续启动恢复；不发布",
+  "retained_database": "ruoyi_t3_fault_lab",
+  "retained_fixture_ids": {
+    "deptA": 200,
+    "deptB": 201,
+    "queryRole": 100,
+    "maintRole": 101
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-10-28T09:22:48+08:00",
+  "file": "cleanup.sql",
+  "sha256": "dda4734250f10420c32d290d68dca97a485b659dc52487e5c9e5cf7890309885",
+  "parameters": {
+    "run_tag": "t5610280919482",
+    "target_user_id": 108,
+    "dept_id": 200,
+    "role_id": 100,
+    "post_id": 1
+  },
+  "queries": {
+    "owned_target": {
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag,remark FROM sys_user\nWHERE user_id=@target_user_id AND user_name=@run_tag AND remark=@run_tag",
+      "rows": [
+        {
+          "user_id": 108,
+          "user_name": "t5610280919482",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "2",
+          "remark": "t5610280919482"
+        }
+      ]
+    },
+    "association_counts": {
+      "sql": "SELECT (SELECT COUNT(*) FROM sys_user_role WHERE user_id=@target_user_id) AS role_rows,\n (SELECT COUNT(*) FROM sys_user_post WHERE user_id=@target_user_id) AS post_rows",
+      "rows": [
+        {
+          "role_rows": 0,
+          "post_rows": 0
+        }
+      ]
+    },
+    "visible_batch": {
+      "sql": "SELECT COUNT(*) AS visible_rows FROM sys_user\nWHERE user_id=@target_user_id AND user_name=@run_tag AND remark=@run_tag AND del_flag='0'",
+      "rows": [
+        {
+          "visible_rows": 0
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-10-28T09:22:48+08:00",
+  "transaction_closed": true
+}

@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-19T18:57:09+08:00",
+  "departments": [
+    {
+      "dept_id": 202,
+      "status": "0",
+      "del_flag": "0"
+    },
+    {
+      "dept_id": 204,
+      "status": "0",
+      "del_flag": "0"
+    }
+  ],
+  "roles": [
+    {
+      "role_id": 101,
+      "data_scope": "3",
+      "status": "0",
+      "del_flag": "0"
+    }
+  ]
+}

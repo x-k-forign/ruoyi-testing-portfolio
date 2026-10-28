@@ -1,0 +1,93 @@
+{
+  "started_at": "2026-10-28T09:22:48+08:00",
+  "file": "prepare.sql",
+  "sha256": "58155c273000f2a2d85422055b2a07bc945aab5381f348c107d73f6259dca257",
+  "parameters": {
+    "run_tag": "t5610280919482",
+    "target_user_id": 108,
+    "dept_id": 200,
+    "role_id": 100,
+    "post_id": 1
+  },
+  "queries": {
+    "environment": {
+      "sql": "SELECT DATABASE() AS db,VERSION() AS version,CONNECTION_ID() AS connection_id,\n @@autocommit AS autocommit,@@transaction_isolation AS isolation_level,\n NOW() AS local_time_value,TIMESTAMPDIFF(MINUTE,UTC_TIMESTAMP(),NOW()) AS utc_offset_minutes",
+      "rows": [
+        {
+          "db": "ruoyi_t3_fault_lab",
+          "version": "8.4.11",
+          "connection_id": 307,
+          "autocommit": 1,
+          "isolation_level": "REPEATABLE-READ",
+          "local_time_value": "2026-10-28 09:22:48",
+          "utc_offset_minutes": 480
+        }
+      ]
+    },
+    "batch_gate": {
+      "sql": "SELECT IF(DATABASE()='ruoyi_t3_fault_lab',1,0) AS database_ok,\n IF(@run_tag REGEXP '^[A-Za-z0-9]{8,20}$',1,0) AS tag_ok,\n (SELECT COUNT(*) FROM sys_user WHERE user_name=@run_tag) AS existing_name_rows",
+      "rows": [
+        {
+          "database_ok": 1,
+          "tag_ok": 1,
+          "existing_name_rows": 1
+        }
+      ]
+    },
+    "department": {
+      "sql": "SELECT dept_id,dept_name,status,del_flag FROM sys_dept WHERE dept_id=@dept_id",
+      "rows": [
+        {
+          "dept_id": 200,
+          "dept_name": "T55_deptA",
+          "status": "0",
+          "del_flag": "0"
+        }
+      ]
+    },
+    "role": {
+      "sql": "SELECT role_id,role_key,data_scope,status,del_flag FROM sys_role WHERE role_id=@role_id",
+      "rows": [
+        {
+          "role_id": 100,
+          "role_key": "t55_queryRole",
+          "data_scope": "3",
+          "status": "0",
+          "del_flag": "0"
+        }
+      ]
+    },
+    "post": {
+      "sql": "SELECT post_id,post_code,status FROM sys_post WHERE post_id=@post_id",
+      "rows": [
+        {
+          "post_id": 1,
+          "post_code": "ceo",
+          "status": "0"
+        }
+      ]
+    },
+    "permissions": {
+      "sql": "SELECT rm.menu_id,m.perms,m.status FROM sys_role_menu rm\nJOIN sys_menu m ON rm.menu_id=m.menu_id WHERE rm.role_id=@role_id ORDER BY rm.menu_id",
+      "rows": [
+        {
+          "menu_id": 1,
+          "perms": "",
+          "status": "0"
+        },
+        {
+          "menu_id": 100,
+          "perms": "system:user:list",
+          "status": "0"
+        },
+        {
+          "menu_id": 1000,
+          "perms": "system:user:query",
+          "status": "0"
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-10-28T09:22:48+08:00",
+  "transaction_closed": true
+}

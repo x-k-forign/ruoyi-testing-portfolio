@@ -1,0 +1,59 @@
+{
+  "source_sha256": "e3e650422281bd3c7486a98cc5f9a939cbc5c8cb8bf8907b232d1b8d15d38a89",
+  "request_count": 12,
+  "visible_pages": 6,
+  "expected_ids": [
+    101,
+    103,
+    104,
+    108,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    125,
+    127,
+    128,
+    129,
+    130,
+    131,
+    134,
+    145,
+    146,
+    168
+  ],
+  "expected": {
+    "deptId": 202,
+    "roleIds": [
+      105,
+      106
+    ],
+    "postIds": [
+      1
+    ],
+    "status": "0",
+    "roleKeys": [
+      "t34_r1_1012",
+      "t34_r2_1012"
+    ],
+    "permissions": [
+      "system:user:add",
+      "system:user:list",
+      "system:user:query"
+    ],
+    "visible_departments": [
+      202,
+      204
+    ]
+  },
+  "adaptation": "复制T4 GET定义，在T54副本重设本批前置与关联断言；本机地址和t4blocked保护保留；原T4不改。"
+}

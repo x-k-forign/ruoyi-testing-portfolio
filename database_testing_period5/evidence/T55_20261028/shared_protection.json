@@ -1,0 +1,11 @@
+{
+  "configuration_unchanged": true,
+  "shared_redis_run_id_unchanged": true,
+  "shared_jar_unchanged": true,
+  "shared_redis": {
+    "redis_version": "7.0.15",
+    "run_id": "3afe9031b978446de3e7dcfc021b28d2fca4e5e5",
+    "process_id": "1172",
+    "tcp_port": "6379"
+  }
+}

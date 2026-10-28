@@ -1,0 +1,62 @@
+{
+  "checked_at": "2026-10-28T08:27:37+08:00",
+  "stage": "T5.4",
+  "method": "自动化执行",
+  "status": "执行完成，待用户查看，未验收",
+  "checks": {
+    "15_main_queries": true,
+    "prior_comparisons": true,
+    "request_and_db_role_set": true,
+    "request_and_db_post_set": true,
+    "joined_objects_normal": true,
+    "post_normal": true,
+    "role_menu_pairs_exact": true,
+    "no_duplicate_role_menu_pairs": true,
+    "independent_granularity": true,
+    "absent_link_not_dangling": true,
+    "on_where_difference": true,
+    "cli_12_requests_63_assertions": true,
+    "12_real_events": true,
+    "identity_matches_config": true,
+    "detail_in_both_identities": true,
+    "complete_visible_set": true,
+    "scope_fixture_stable": true,
+    "cleanup_all_ok": true,
+    "independent_cleanup_readback": true,
+    "helper_15_no_failure": true,
+    "old_session_tokens_rejected": true,
+    "main_sql_hash": true,
+    "cleanup_sql_hash": true,
+    "original_T4_unchanged": true,
+    "collection_GET_and_guards": true,
+    "no_runtime_credentials_in_delivery": true,
+    "python_syntax": true,
+    "private_inputs_cleared": true,
+    "local_links_valid": true
+  },
+  "all_checks_ok": true,
+  "main_sql_queries": 15,
+  "cleanup_sql_queries": 3,
+  "cli_requests": 12,
+  "cli_assertions": 63,
+  "helper_requests": 15,
+  "total_http_requests": 27,
+  "versions": {
+    "backend": "13db1fcef36bee9ce45d2d636a1d4e8f5ed5bbc3",
+    "frontend": "838965c5a18d2c61b73ec30c6e288057aaa08b63"
+  },
+  "remaining_fault_cases": [
+    "TC-C08-01",
+    "TC-M07-02",
+    "TC-G04-03"
+  ],
+  "broken_links": [],
+  "artifact_hashes": {
+    "docs\\T5.4_执行说明.md": "a4062feb72bbe5bbbe5d3ae6c9e8fa0ac5f9235bb272dc8b2708f96ccfe6d442",
+    "sql\\T5.4_关联核验.sql": "6e001c2f265a565e3c91c0a069bad9ec542ff7ffad759223b5ebe894bcf3ed3f",
+    "sql\\T5.4_清理复查.sql": "8c8dc8bcec789aa5f1d95ceeca88ae2e363c79881cf275c16cee9f4f84fcb80c",
+    "postman\\T5.4_关联核验.postman_collection.json": "473c9edf2b20ee0865a2b3e290fc6247df0da7b1efbcc7625454f2fa7d497c64",
+    "evidence\\T54_20261028_082458\\sql_results.json": "1e9032a718972f981984b057393ad6cdde57966ba06efaa84f2039f70ddc83e5",
+    "evidence\\T54_20261028_082458\\cli_events.json": "49bb0b0b34e7ce1ca91a266283d3c745a1cf12167bbcc201f7f35d748239f86d"
+  }
+}

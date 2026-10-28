@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-28T09:21:35+08:00",
+  "exit_code": 0,
+  "stats": {
+    "requests": {
+      "total": 5,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 21,
+      "failed": 0
+    }
+  },
+  "collection_sha256": "88402c402223e7fd8a7c624df54b88ed8192752399d926d0ed420bdba403a237",
+  "report_events": false
+}

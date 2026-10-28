@@ -1,0 +1,90 @@
+{
+  "executed_at": "2026-10-19T18:26:44+08:00",
+  "sql_sha256": "49c557b195c3fe60dfd10d3278807d3437031abb1baa9fa23e1b2bc35d22c29b",
+  "method": "自动化执行",
+  "queries": {
+    "time_offset": {
+      "sql": "SELECT NOW() AS database_local_time, UTC_TIMESTAMP() AS database_utc_time,\n       TIMESTAMPDIFF(MINUTE, UTC_TIMESTAMP(), NOW()) AS utc_offset_minutes",
+      "rows": [
+        {
+          "database_local_time": "2026-10-19 18:26:44",
+          "database_utc_time": "2026-10-19 10:26:44",
+          "utc_offset_minutes": 480
+        }
+      ]
+    },
+    "multi_role_user": {
+      "sql": "SELECT u.user_id,u.user_name,u.dept_id,d.dept_name,u.status,u.del_flag,\n       ur.role_id,r.role_name,r.data_scope,r.status AS role_status,r.del_flag AS role_del_flag\nFROM sys_user u\nLEFT JOIN sys_dept d ON u.dept_id=d.dept_id\nLEFT JOIN sys_user_role ur ON u.user_id=ur.user_id\nLEFT JOIN sys_role r ON ur.role_id=r.role_id\nWHERE u.user_id=131 ORDER BY ur.role_id",
+      "rows": [
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "dept_name": "T25部门A1009",
+          "status": "0",
+          "del_flag": "0",
+          "role_id": 105,
+          "role_name": "T34_r1_1012",
+          "data_scope": "3",
+          "role_status": "0",
+          "role_del_flag": "0"
+        },
+        {
+          "user_id": 131,
+          "user_name": "t34_multi_1012",
+          "dept_id": 202,
+          "dept_name": "T25部门A1009",
+          "status": "0",
+          "del_flag": "0",
+          "role_id": 106,
+          "role_name": "T34_r2_1012",
+          "data_scope": "2",
+          "role_status": "0",
+          "role_del_flag": "0"
+        }
+      ]
+    },
+    "sample_after": {
+      "sql": "SELECT u.user_id,u.user_name,u.dept_id,u.status,u.del_flag,\n (SELECT COUNT(*) FROM sys_user_role ur WHERE ur.user_id=u.user_id) AS role_rows,\n (SELECT COUNT(*) FROM sys_user_post up WHERE up.user_id=u.user_id) AS post_rows\nFROM sys_user u WHERE u.user_id IN(101,134,151,153) ORDER BY u.user_id",
+      "rows": [
+        {
+          "user_id": 101,
+          "user_name": "t25_a_query",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0",
+          "role_rows": 1,
+          "post_rows": 0
+        },
+        {
+          "user_id": 134,
+          "user_name": "t35_change_1012",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "0",
+          "role_rows": 1,
+          "post_rows": 0
+        },
+        {
+          "user_id": 151,
+          "user_name": "t44_1014103013_a",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "2",
+          "role_rows": 0,
+          "post_rows": 0
+        },
+        {
+          "user_id": 153,
+          "user_name": "t44_1014103410_b",
+          "dept_id": 202,
+          "status": "0",
+          "del_flag": "2",
+          "role_rows": 0,
+          "post_rows": 0
+        }
+      ]
+    }
+  },
+  "transaction_closed": "ROLLBACK：结束只读事务"
+}

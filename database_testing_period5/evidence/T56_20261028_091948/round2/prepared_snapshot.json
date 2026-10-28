@@ -1,0 +1,1329 @@
+{
+  "at": "2026-10-28T09:22:24+08:00",
+  "data": {
+    "sys_user": [
+      {
+        "user_id": 1,
+        "user_name": "admin",
+        "nick_name": "若依",
+        "dept_id": 103,
+        "status": "0",
+        "del_flag": "0",
+        "remark": "管理员"
+      },
+      {
+        "user_id": 2,
+        "user_name": "ry",
+        "nick_name": "若依",
+        "dept_id": 105,
+        "status": "0",
+        "del_flag": "0",
+        "remark": "测试员"
+      },
+      {
+        "user_id": 100,
+        "user_name": "t55_flow_1028",
+        "nick_name": "T55事务核验",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "2",
+        "remark": null
+      },
+      {
+        "user_id": 101,
+        "user_name": "t55_other_1028",
+        "nick_name": "T55事务核验",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "2",
+        "remark": null
+      },
+      {
+        "user_id": 102,
+        "user_name": "t55_new_control",
+        "nick_name": "T55事务核验",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "2",
+        "remark": null
+      },
+      {
+        "user_id": 103,
+        "user_name": "t3_fault_edit",
+        "nick_name": "T55事务核验",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "2",
+        "remark": null
+      },
+      {
+        "user_id": 104,
+        "user_name": "t55_old_write",
+        "nick_name": "T55事务核验",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "2",
+        "remark": null
+      },
+      {
+        "user_id": 106,
+        "user_name": "t3_fault_new",
+        "nick_name": "T55事务核验",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "2",
+        "remark": null
+      },
+      {
+        "user_id": 107,
+        "user_name": "t5610280919481",
+        "nick_name": "T56两轮复现",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "2",
+        "remark": "t5610280919481"
+      },
+      {
+        "user_id": 108,
+        "user_name": "t5610280919482",
+        "nick_name": "T56两轮复现",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "0",
+        "remark": "t5610280919482"
+      }
+    ],
+    "sys_role": [
+      {
+        "role_id": 1,
+        "role_key": "admin",
+        "data_scope": "1",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "role_id": 2,
+        "role_key": "common",
+        "data_scope": "2",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "role_id": 100,
+        "role_key": "t55_queryRole",
+        "data_scope": "3",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "role_id": 101,
+        "role_key": "t55_maintRole",
+        "data_scope": "3",
+        "status": "0",
+        "del_flag": "0"
+      }
+    ],
+    "sys_dept": [
+      {
+        "dept_id": 100,
+        "parent_id": 0,
+        "ancestors": "0",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 101,
+        "parent_id": 100,
+        "ancestors": "0,100",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 102,
+        "parent_id": 100,
+        "ancestors": "0,100",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 103,
+        "parent_id": 101,
+        "ancestors": "0,100,101",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 104,
+        "parent_id": 101,
+        "ancestors": "0,100,101",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 105,
+        "parent_id": 101,
+        "ancestors": "0,100,101",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 106,
+        "parent_id": 101,
+        "ancestors": "0,100,101",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 107,
+        "parent_id": 101,
+        "ancestors": "0,100,101",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 108,
+        "parent_id": 102,
+        "ancestors": "0,100,102",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 109,
+        "parent_id": 102,
+        "ancestors": "0,100,102",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 200,
+        "parent_id": 100,
+        "ancestors": "0,100",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 201,
+        "parent_id": 100,
+        "ancestors": "0,100",
+        "status": "0",
+        "del_flag": "0"
+      }
+    ],
+    "sys_user_role": [
+      {
+        "user_id": 1,
+        "role_id": 1
+      },
+      {
+        "user_id": 2,
+        "role_id": 2
+      },
+      {
+        "user_id": 108,
+        "role_id": 100
+      }
+    ],
+    "sys_user_post": [
+      {
+        "user_id": 1,
+        "post_id": 1
+      },
+      {
+        "user_id": 2,
+        "post_id": 2
+      },
+      {
+        "user_id": 108,
+        "post_id": 1
+      }
+    ],
+    "sys_role_menu": [
+      {
+        "role_id": 2,
+        "menu_id": 1
+      },
+      {
+        "role_id": 2,
+        "menu_id": 2
+      },
+      {
+        "role_id": 2,
+        "menu_id": 3
+      },
+      {
+        "role_id": 2,
+        "menu_id": 4
+      },
+      {
+        "role_id": 2,
+        "menu_id": 100
+      },
+      {
+        "role_id": 2,
+        "menu_id": 101
+      },
+      {
+        "role_id": 2,
+        "menu_id": 102
+      },
+      {
+        "role_id": 2,
+        "menu_id": 103
+      },
+      {
+        "role_id": 2,
+        "menu_id": 104
+      },
+      {
+        "role_id": 2,
+        "menu_id": 105
+      },
+      {
+        "role_id": 2,
+        "menu_id": 106
+      },
+      {
+        "role_id": 2,
+        "menu_id": 107
+      },
+      {
+        "role_id": 2,
+        "menu_id": 108
+      },
+      {
+        "role_id": 2,
+        "menu_id": 109
+      },
+      {
+        "role_id": 2,
+        "menu_id": 110
+      },
+      {
+        "role_id": 2,
+        "menu_id": 111
+      },
+      {
+        "role_id": 2,
+        "menu_id": 112
+      },
+      {
+        "role_id": 2,
+        "menu_id": 113
+      },
+      {
+        "role_id": 2,
+        "menu_id": 114
+      },
+      {
+        "role_id": 2,
+        "menu_id": 115
+      },
+      {
+        "role_id": 2,
+        "menu_id": 116
+      },
+      {
+        "role_id": 2,
+        "menu_id": 117
+      },
+      {
+        "role_id": 2,
+        "menu_id": 500
+      },
+      {
+        "role_id": 2,
+        "menu_id": 501
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1000
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1001
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1002
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1003
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1004
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1005
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1006
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1007
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1008
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1009
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1010
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1011
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1012
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1013
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1014
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1015
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1016
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1017
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1018
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1019
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1020
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1021
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1022
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1023
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1024
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1025
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1026
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1027
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1028
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1029
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1030
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1031
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1032
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1033
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1034
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1035
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1036
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1037
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1038
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1039
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1040
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1041
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1042
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1043
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1044
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1045
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1046
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1047
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1048
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1049
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1050
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1051
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1052
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1053
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1054
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1055
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1056
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1057
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1058
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1059
+      },
+      {
+        "role_id": 2,
+        "menu_id": 1060
+      },
+      {
+        "role_id": 100,
+        "menu_id": 1
+      },
+      {
+        "role_id": 100,
+        "menu_id": 100
+      },
+      {
+        "role_id": 100,
+        "menu_id": 1000
+      },
+      {
+        "role_id": 101,
+        "menu_id": 1
+      },
+      {
+        "role_id": 101,
+        "menu_id": 100
+      },
+      {
+        "role_id": 101,
+        "menu_id": 1000
+      },
+      {
+        "role_id": 101,
+        "menu_id": 1001
+      }
+    ],
+    "sys_role_dept": [
+      {
+        "role_id": 2,
+        "dept_id": 100
+      },
+      {
+        "role_id": 2,
+        "dept_id": 101
+      },
+      {
+        "role_id": 2,
+        "dept_id": 105
+      }
+    ],
+    "sys_post": [
+      {
+        "post_id": 1,
+        "post_code": "ceo",
+        "status": "0"
+      },
+      {
+        "post_id": 2,
+        "post_code": "se",
+        "status": "0"
+      },
+      {
+        "post_id": 3,
+        "post_code": "hr",
+        "status": "0"
+      },
+      {
+        "post_id": 4,
+        "post_code": "user",
+        "status": "0"
+      }
+    ],
+    "sys_menu": [
+      {
+        "menu_id": 1,
+        "parent_id": 0,
+        "menu_type": "M",
+        "status": "0",
+        "visible": "0",
+        "perms": ""
+      },
+      {
+        "menu_id": 2,
+        "parent_id": 0,
+        "menu_type": "M",
+        "status": "0",
+        "visible": "0",
+        "perms": ""
+      },
+      {
+        "menu_id": 3,
+        "parent_id": 0,
+        "menu_type": "M",
+        "status": "0",
+        "visible": "0",
+        "perms": ""
+      },
+      {
+        "menu_id": 4,
+        "parent_id": 0,
+        "menu_type": "M",
+        "status": "0",
+        "visible": "0",
+        "perms": ""
+      },
+      {
+        "menu_id": 100,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:list"
+      },
+      {
+        "menu_id": 101,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:role:list"
+      },
+      {
+        "menu_id": 102,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:menu:list"
+      },
+      {
+        "menu_id": 103,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dept:list"
+      },
+      {
+        "menu_id": 104,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:post:list"
+      },
+      {
+        "menu_id": 105,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dict:list"
+      },
+      {
+        "menu_id": 106,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:config:list"
+      },
+      {
+        "menu_id": 107,
+        "parent_id": 1,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:notice:list"
+      },
+      {
+        "menu_id": 108,
+        "parent_id": 1,
+        "menu_type": "M",
+        "status": "0",
+        "visible": "0",
+        "perms": ""
+      },
+      {
+        "menu_id": 109,
+        "parent_id": 2,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:online:list"
+      },
+      {
+        "menu_id": 110,
+        "parent_id": 2,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:job:list"
+      },
+      {
+        "menu_id": 111,
+        "parent_id": 2,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:druid:list"
+      },
+      {
+        "menu_id": 112,
+        "parent_id": 2,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:server:list"
+      },
+      {
+        "menu_id": 113,
+        "parent_id": 2,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:cache:list"
+      },
+      {
+        "menu_id": 114,
+        "parent_id": 2,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:cache:list"
+      },
+      {
+        "menu_id": 115,
+        "parent_id": 3,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:build:list"
+      },
+      {
+        "menu_id": 116,
+        "parent_id": 3,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:gen:list"
+      },
+      {
+        "menu_id": 117,
+        "parent_id": 3,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:swagger:list"
+      },
+      {
+        "menu_id": 500,
+        "parent_id": 108,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:operlog:list"
+      },
+      {
+        "menu_id": 501,
+        "parent_id": 108,
+        "menu_type": "C",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:logininfor:list"
+      },
+      {
+        "menu_id": 1000,
+        "parent_id": 100,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:query"
+      },
+      {
+        "menu_id": 1001,
+        "parent_id": 100,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:add"
+      },
+      {
+        "menu_id": 1002,
+        "parent_id": 100,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:edit"
+      },
+      {
+        "menu_id": 1003,
+        "parent_id": 100,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:remove"
+      },
+      {
+        "menu_id": 1004,
+        "parent_id": 100,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:export"
+      },
+      {
+        "menu_id": 1005,
+        "parent_id": 100,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:import"
+      },
+      {
+        "menu_id": 1006,
+        "parent_id": 100,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:user:resetPwd"
+      },
+      {
+        "menu_id": 1007,
+        "parent_id": 101,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:role:query"
+      },
+      {
+        "menu_id": 1008,
+        "parent_id": 101,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:role:add"
+      },
+      {
+        "menu_id": 1009,
+        "parent_id": 101,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:role:edit"
+      },
+      {
+        "menu_id": 1010,
+        "parent_id": 101,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:role:remove"
+      },
+      {
+        "menu_id": 1011,
+        "parent_id": 101,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:role:export"
+      },
+      {
+        "menu_id": 1012,
+        "parent_id": 102,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:menu:query"
+      },
+      {
+        "menu_id": 1013,
+        "parent_id": 102,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:menu:add"
+      },
+      {
+        "menu_id": 1014,
+        "parent_id": 102,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:menu:edit"
+      },
+      {
+        "menu_id": 1015,
+        "parent_id": 102,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:menu:remove"
+      },
+      {
+        "menu_id": 1016,
+        "parent_id": 103,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dept:query"
+      },
+      {
+        "menu_id": 1017,
+        "parent_id": 103,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dept:add"
+      },
+      {
+        "menu_id": 1018,
+        "parent_id": 103,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dept:edit"
+      },
+      {
+        "menu_id": 1019,
+        "parent_id": 103,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dept:remove"
+      },
+      {
+        "menu_id": 1020,
+        "parent_id": 104,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:post:query"
+      },
+      {
+        "menu_id": 1021,
+        "parent_id": 104,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:post:add"
+      },
+      {
+        "menu_id": 1022,
+        "parent_id": 104,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:post:edit"
+      },
+      {
+        "menu_id": 1023,
+        "parent_id": 104,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:post:remove"
+      },
+      {
+        "menu_id": 1024,
+        "parent_id": 104,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:post:export"
+      },
+      {
+        "menu_id": 1025,
+        "parent_id": 105,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dict:query"
+      },
+      {
+        "menu_id": 1026,
+        "parent_id": 105,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dict:add"
+      },
+      {
+        "menu_id": 1027,
+        "parent_id": 105,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dict:edit"
+      },
+      {
+        "menu_id": 1028,
+        "parent_id": 105,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dict:remove"
+      },
+      {
+        "menu_id": 1029,
+        "parent_id": 105,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:dict:export"
+      },
+      {
+        "menu_id": 1030,
+        "parent_id": 106,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:config:query"
+      },
+      {
+        "menu_id": 1031,
+        "parent_id": 106,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:config:add"
+      },
+      {
+        "menu_id": 1032,
+        "parent_id": 106,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:config:edit"
+      },
+      {
+        "menu_id": 1033,
+        "parent_id": 106,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:config:remove"
+      },
+      {
+        "menu_id": 1034,
+        "parent_id": 106,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:config:export"
+      },
+      {
+        "menu_id": 1035,
+        "parent_id": 107,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:notice:query"
+      },
+      {
+        "menu_id": 1036,
+        "parent_id": 107,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:notice:add"
+      },
+      {
+        "menu_id": 1037,
+        "parent_id": 107,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:notice:edit"
+      },
+      {
+        "menu_id": 1038,
+        "parent_id": 107,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "system:notice:remove"
+      },
+      {
+        "menu_id": 1039,
+        "parent_id": 500,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:operlog:query"
+      },
+      {
+        "menu_id": 1040,
+        "parent_id": 500,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:operlog:remove"
+      },
+      {
+        "menu_id": 1041,
+        "parent_id": 500,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:operlog:export"
+      },
+      {
+        "menu_id": 1042,
+        "parent_id": 501,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:logininfor:query"
+      },
+      {
+        "menu_id": 1043,
+        "parent_id": 501,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:logininfor:remove"
+      },
+      {
+        "menu_id": 1044,
+        "parent_id": 501,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:logininfor:export"
+      },
+      {
+        "menu_id": 1045,
+        "parent_id": 501,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:logininfor:unlock"
+      },
+      {
+        "menu_id": 1046,
+        "parent_id": 109,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:online:query"
+      },
+      {
+        "menu_id": 1047,
+        "parent_id": 109,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:online:batchLogout"
+      },
+      {
+        "menu_id": 1048,
+        "parent_id": 109,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:online:forceLogout"
+      },
+      {
+        "menu_id": 1049,
+        "parent_id": 110,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:job:query"
+      },
+      {
+        "menu_id": 1050,
+        "parent_id": 110,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:job:add"
+      },
+      {
+        "menu_id": 1051,
+        "parent_id": 110,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:job:edit"
+      },
+      {
+        "menu_id": 1052,
+        "parent_id": 110,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:job:remove"
+      },
+      {
+        "menu_id": 1053,
+        "parent_id": 110,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:job:changeStatus"
+      },
+      {
+        "menu_id": 1054,
+        "parent_id": 110,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "monitor:job:export"
+      },
+      {
+        "menu_id": 1055,
+        "parent_id": 116,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:gen:query"
+      },
+      {
+        "menu_id": 1056,
+        "parent_id": 116,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:gen:edit"
+      },
+      {
+        "menu_id": 1057,
+        "parent_id": 116,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:gen:remove"
+      },
+      {
+        "menu_id": 1058,
+        "parent_id": 116,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:gen:import"
+      },
+      {
+        "menu_id": 1059,
+        "parent_id": 116,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:gen:preview"
+      },
+      {
+        "menu_id": 1060,
+        "parent_id": 116,
+        "menu_type": "F",
+        "status": "0",
+        "visible": "0",
+        "perms": "tool:gen:code"
+      }
+    ]
+  }
+}

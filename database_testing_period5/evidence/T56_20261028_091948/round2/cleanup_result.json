@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-28T09:22:49+08:00",
+  "checks": {
+    "old_users_unchanged": true,
+    "configuration_unchanged": true,
+    "one_logical_history_added": true,
+    "wrong_id_blocked": true,
+    "duplicate_tag_blocked": true,
+    "visible_zero": true,
+    "associations_zero": true,
+    "sessions_exited": true
+  },
+  "all_ok": true,
+  "guard_probes": "只读探针，两种拒绝均没有发出对应业务写请求"
+}
