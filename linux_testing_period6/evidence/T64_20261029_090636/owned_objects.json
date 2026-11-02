@@ -1,0 +1,22 @@
+{
+  "batch": "T64_20261029_090636",
+  "names": {
+    "actor": "t641029090636a",
+    "controlA": "t641029090636b",
+    "controlB": "t641029090636c"
+  },
+  "ids": {
+    "actor": 109,
+    "controlA": 110,
+    "controlB": 111
+  },
+  "departments": {
+    "actor": 200,
+    "controlA": 200,
+    "controlB": 201
+  },
+  "role": 100,
+  "post": 1,
+  "final_state": "清理完成；三用户逻辑删除、角色岗位关联清空，详见cleanup.json",
+  "state_at_creation": "pending cleanup"
+}

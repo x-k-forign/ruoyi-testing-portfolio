@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-29T09:08:11.984+08:00",
+  "user": [
+    {
+      "user_id": 109,
+      "user_name": "t641029090636a",
+      "nick_name": "T64_actor",
+      "dept_id": 200,
+      "status": "0",
+      "del_flag": "0",
+      "sex": "2",
+      "remark": "T64_20261029_090636"
+    }
+  ],
+  "roles": [
+    {
+      "user_id": 109,
+      "role_id": 100
+    }
+  ],
+  "posts": [
+    {
+      "user_id": 109,
+      "post_id": 1
+    }
+  ]
+}

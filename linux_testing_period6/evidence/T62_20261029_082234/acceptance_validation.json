@@ -1,0 +1,60 @@
+{
+  "accepted_at": "2026-10-29T08:48:36.030149+08:00",
+  "conclusion": "T6.2按约定方式验收通过",
+  "method": "自动化执行成果核对、原理说明与用户理解确认；不作为个人独立作答证明",
+  "user_confirmation": "T6.2的几个关键点我理解了，帮我验收一下，通过后告诉我T6.3具体要做什么，先不要执行。",
+  "criteria": [
+    {
+      "item": "限定范围查找、权限与配置/日志定位",
+      "result": "通过"
+    },
+    {
+      "item": "来源、时间与完整异常上下文",
+      "result": "通过"
+    },
+    {
+      "item": "错误对照、重定向保护与权限恢复",
+      "result": "通过"
+    },
+    {
+      "item": "原理说明与理解确认",
+      "result": "通过（按约定方式）"
+    }
+  ],
+  "checks": {
+    "all_original_13_delivery_checks": true,
+    "source_matches_T61_and_recorded_snapshot": true,
+    "source_metadata_unchanged_during_execution": true,
+    "four_matching_lines_two_events": true,
+    "all_commands_match_expected_exit_codes": true,
+    "no_match_is_1_without_error": true,
+    "missing_and_unreadable_is_2_with_error": true,
+    "permission_demo_restored_and_readable": true,
+    "pipeline_default_and_pipefail_distinguished": true,
+    "fixed_offline_log_handling": true,
+    "configuration_mapping_and_output_redirect": true,
+    "service_protection_as_recorded": true,
+    "four_artifacts_exact_bytes": true,
+    "two_event_ranges_and_full_stacks": true
+  },
+  "all_checks_ok": true,
+  "runtime_operations_during_acceptance": false,
+  "historical_delivery_json_preserved": true,
+  "outline_only_T62_changed": true,
+  "T63_executed": false,
+  "github_commit_or_push": false,
+  "artifact_hashes": {
+    "docs/T6.2_执行记录.md": "266330669ad8620416ae155dbd588c1b517db2ebc91080795ec1e1783ea76a8c",
+    "若依软件测试学习大纲.md": "084074797f3191517e714750276beca949345b508d63b3b911366bf62c830c82",
+    "event_index.txt": "b614179ba9bc473726edf0e145e39dfdb355ad3d1d7f6ee1c6843b39f23d1434",
+    "insert_event.log": "c0fb31b1c5b47efc54f8ebc6a31be224a7b0b4026629ccf2e3c15c1ed02de974",
+    "permission_demo.txt": "c72d87a72aec2e4745f62439848486c04a0bfba9ee077da221b83355bdbc01a7",
+    "update_event.log": "7076701a73892f903bbd9f94d7b8ecfc1f5aa6a514e5df3a8661da1737561c79"
+  },
+  "limits": [
+    "不是整个T6验收",
+    "未评估个人独立操作或独立回答",
+    "未执行T6.3故障闭环",
+    "产品缺陷和选学状态不变"
+  ]
+}

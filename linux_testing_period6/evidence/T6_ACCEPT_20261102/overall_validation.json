@@ -1,0 +1,142 @@
+{
+  "accepted_at": "2026-11-02T17:44:41.704388+08:00",
+  "conclusion": "T6必需内容整体验收通过（按项目既定辅助方式）",
+  "method": "自动化执行成果核对、原理说明与既有理解确认；不作为个人独立操作或独立回答能力证明",
+  "user_request": "好的选学部分跳过，现在请你帮我整体验收",
+  "criteria": [
+    {
+      "item": "环境与边界",
+      "result": "通过",
+      "basis": "T6.1实际Ubuntu/SSH/身份与路径，Windows若依、Linux6379和隔离16379/转发分开；离线日志来源明确"
+    },
+    {
+      "item": "Linux文件与日志操作",
+      "result": "通过",
+      "basis": "T6.2有限find/ls/stat、绝对相对路径、grep上下文及完整事件，0/1/2和权限恢复有实际结果"
+    },
+    {
+      "item": "进程与可用性",
+      "result": "通过",
+      "basis": "T6.1/T6.3新PID、命令、回环监听及HTTP状态和准确页面字节分层核对"
+    },
+    {
+      "item": "可逆Linux故障闭环",
+      "result": "通过",
+      "basis": "T6.3只改变客户端端口，真实拒绝、假设检查、同进程纠正、原操作复验与相关回归及收尾完整"
+    },
+    {
+      "item": "若依跨层调查",
+      "result": "通过",
+      "basis": "T6.4本轮109/110/111、旧A/新B请求、独立SQL、审计129与实际SQL过滤条件关联，已保留BUG-T3-004失败"
+    },
+    {
+      "item": "排查判断",
+      "result": "通过",
+      "basis": "T6.5区分两类案例、实际顺序、失败尝试、排除项、处理和根因限制，不编造修复"
+    },
+    {
+      "item": "恢复与最小回归",
+      "result": "通过",
+      "basis": "T6.3同请求和相关页面恢复证据，T6.4清理与T6.5只读回查相符；共用前后端按新指令保留运行"
+    },
+    {
+      "item": "原理说明与理解确认",
+      "result": "通过（按项目既定辅助方式）",
+      "basis": "T6.1—T6.4关键点确认及T6.5同主题确认引用；本次提供迁移原理说明，不冒记独立回答"
+    }
+  ],
+  "sub_stages": {
+    "T6.1": "验收通过（按既定辅助方式）",
+    "T6.2": "验收通过（按既定辅助方式）",
+    "T6.3": "验收通过（按既定辅助方式）",
+    "T6.4": "验收通过（按既定辅助方式）",
+    "T6.5": "验收通过（按既定辅助方式）"
+  },
+  "optional_T6_6": "已明确跳过，不计完成",
+  "checks": {
+    "T6.1_accepted": true,
+    "T6.1_accepted_document_hash": true,
+    "T6.2_accepted": true,
+    "T6.2_accepted_document_hash": true,
+    "T6.3_accepted": true,
+    "T6.3_accepted_document_hash": true,
+    "T6.4_accepted": true,
+    "T6.4_accepted_document_hash": true,
+    "T6.5_accepted": true,
+    "T6.5_accepted_document_hash": true,
+    "actual_Linux_identity_and_user_evidence": true,
+    "real_offline_log_provenance_and_full_stacks": true,
+    "original_insert.stdout.log_hash": true,
+    "original_update.stdout.log_hash": true,
+    "T62_limited_search_permissions_and_error_results": true,
+    "T62_full_event_bytes_and_frames": true,
+    "T63_same_process_loopback_baseline": true,
+    "T63_single_factor_real_refusal": true,
+    "T63_same_request_recovered_and_regressed": true,
+    "T63_services_and_config_restored": true,
+    "T64_real_new_business_investigation": true,
+    "T64_unchanged_role_and_post": true,
+    "T64_persistence_audit_runtime_SQL_correlation": true,
+    "T64_private_source_still_matches_export": true,
+    "T64_CLI_failures_preserved": true,
+    "T64_collection_guards_preserved": true,
+    "T64_not_claimed_full_root_cause_or_fix": true,
+    "T65_record_and_readbacks_complete": true,
+    "cleanup_and_retained_audit": true,
+    "shared_services_intentional_and_temporary_services_stopped": true,
+    "T65_non_outline_old_sources_preserved": true,
+    "T3_latest_ledger_matches_accepted_T5_snapshot": true,
+    "all_five_known_defects_retained": true,
+    "required_substage_20_boxes_checked": true,
+    "understanding_confirmations_honestly_scoped": true
+  },
+  "all_checks_ok": true,
+  "T3_counts": {
+    "total": 94,
+    "passed": 85,
+    "failed": 5,
+    "observation": 4,
+    "blocked": 0,
+    "not_run": 0
+  },
+  "T3_workbook_sha256": "e8fd5fcba75feac16997e6c3b902197bd002d73aa6a526514abc850ae2dfe12c",
+  "known_defects_open": [
+    "BUG-T3-001",
+    "BUG-T3-002",
+    "BUG-T3-003",
+    "BUG-T3-004",
+    "BUG-T3-005"
+  ],
+  "product_failure_preserved": {
+    "BUG-T3-004": "未修复",
+    "old_A": "失败",
+    "new_B": "通过",
+    "T64_CLI_assertion_executions": 22,
+    "T64_CLI_failed_assertions": 4
+  },
+  "understanding_mode": "提供原理说明和迁移说明，沿用T6.1—T6.4已有关键点理解确认与T6.5引用，不虚构新个人答题",
+  "independent_mastery_assessed": false,
+  "migration_explanations_are_new_business_tests": false,
+  "new_runtime_operations": false,
+  "services_stopped_during_acceptance": false,
+  "T7_started": false,
+  "GitHub_commit_push_or_sync": false,
+  "limits": [
+    "学习项目辅助成果验收，不是产品无缺陷或上线批准",
+    "不认定个人独立操作或独立掌握",
+    "Windows日志副本不证明若依已部署Linux",
+    "真实业务失败和未决需求保留",
+    "未自动进入T7"
+  ],
+  "final_artifact_hashes": {
+    "linux_testing_period6/docs/T6_整体验收记录.md": "b9841bdcd1ec19d2782073b085c7b883f74dacc8cfedece9c73ea4d24bb0d356",
+    "若依软件测试学习大纲.md": "3fa3ecff892ffad313938b82526a479eab5806a082fd695408690937db84ba11",
+    "functional_testing_period3/T3逐例执行计划与记录模板.xlsx": "e8fd5fcba75feac16997e6c3b902197bd002d73aa6a526514abc850ae2dfe12c"
+  },
+  "preservation": {
+    "all_other_input_files_unchanged": true,
+    "T1_T5_and_T61_T65_prefix_bytes_unchanged": true,
+    "T7_and_later_suffix_bytes_unchanged": true,
+    "optional_criteria_not_marked_complete": true
+  }
+}

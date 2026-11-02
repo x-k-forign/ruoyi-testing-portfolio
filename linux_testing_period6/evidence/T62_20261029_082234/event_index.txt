@@ -1,0 +1,5 @@
+6:08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new
+8:java.lang.IllegalStateException: T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new
+157:08:47:43.525 [http-nio-127.0.0.1-18080-exec-3] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit
+159:java.lang.IllegalStateException: T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit
+# extracted_at=2026-10-29T08:22:35+08:00

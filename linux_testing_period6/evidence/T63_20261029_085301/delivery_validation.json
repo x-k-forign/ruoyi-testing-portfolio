@@ -1,0 +1,34 @@
+{
+  "completed_at": "2026-10-29T08:53:10.589443+08:00",
+  "checks": {
+    "ports_verified_before_start": true,
+    "new_PID_command_start_time_confirmed": true,
+    "loopback_only_listener": true,
+    "normal_HTTP_and_exact_body": true,
+    "only_client_port_changed": true,
+    "wrong_port_refused_before_HTTP": true,
+    "service_same_during_failure": true,
+    "wrong_port_no_listener": true,
+    "correction_without_restart": true,
+    "same_request_restored_successfully": true,
+    "minimal_related_regression": true,
+    "client_config_restored": true,
+    "practice_service_stopped": true,
+    "old_logs_and_public_page_unchanged": true,
+    "shared_Redis_observation_unchanged": true,
+    "HTTP_attempt_and_log_counts_distinguished": true,
+    "Windows_listener_observation_unchanged": true
+  },
+  "all_checks_ok": true,
+  "artifact_hashes": {
+    "client_target.json": "cc554647fd73dc5bf9e7d8c6cf17b2306b7340654b44ad5ee2ad31d8a0f4ea21",
+    "http_probe.py": "cb9fb055232a67acb35f6ebc16c6531324706aba0f3d5a7e141ff03ce456fbaa",
+    "http_server.log": "3e057ca84a9385c95adee5fa07294b78410812f268650dea75d3c34b61fc66a2"
+  },
+  "probe_attempts": 4,
+  "successful_HTTP_access_log_entries": 3,
+  "classification": "人为Linux连接故障练习",
+  "acceptance_status": "执行完成，未自动验收",
+  "new_product_defects": 0,
+  "new_RuoYi_business_requests": 0
+}

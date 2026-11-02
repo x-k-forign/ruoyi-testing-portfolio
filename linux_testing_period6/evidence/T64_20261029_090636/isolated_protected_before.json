@@ -1,0 +1,30 @@
+{
+  "users": {
+    "rows": 10,
+    "sha256": "886f549003ca364d0ce9e3c0a4052b1649a916ad526dcc03710c3af4b0776f4f"
+  },
+  "roles": {
+    "rows": 4,
+    "sha256": "514363a8adae3fb17463f89e0dcd1f705bd898ea9ba1a5b935217b95893b6d15"
+  },
+  "depts": {
+    "rows": 12,
+    "sha256": "4d266a34e6652a216dbd96f9632e8e438c33a920fa578c1948643740448905e4"
+  },
+  "user_roles": {
+    "rows": 2,
+    "sha256": "8b32d85ce934c32657c2d856557a00bfe02a6fcb10bf2c9d437996eb66f6643c"
+  },
+  "user_posts": {
+    "rows": 2,
+    "sha256": "1c95a4d333072a6b90deeaa5bf701295dbad64fdbc217545064073d60cfc55dd"
+  },
+  "role_menus": {
+    "rows": 92,
+    "sha256": "689d0a7e0d0d51cbb293e1dee23a4210c93bbb29d70018f1990a816d9f52134d"
+  },
+  "role_depts": {
+    "rows": 3,
+    "sha256": "589f47bc5e61b941b147d2fe983f2dd22765637a42f0c0cb512afacff6f57b20"
+  }
+}

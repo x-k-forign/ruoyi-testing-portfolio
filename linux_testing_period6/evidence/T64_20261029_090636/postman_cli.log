@@ -1,0 +1,108 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+T6.4 新旧会话范围核验（仅18080只读）
+
+Root oldA_pages
+
+  GET http://127.0.0.1:18080/system/user/list?pageNum=1&pageSize=1&orderByColumn=userId&isAsc=asc [200 OK, 1.03 KB, 56 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Shape
+  1. Total follows new department
+  2. Ordered page IDs follow new department
+  3. Every row belongs to new department
+  4. Complete ID set follows new department
+  Pass  No duplicate IDs
+  -
+  | 'T64_EVENT {"session":"oldA","page":1,"total":1,"ids":
+  | [110],"deptIds":[200],"code":200}'
+  -
+
+Root newB_pages
+
+  GET http://127.0.0.1:18080/system/user/list?pageNum=1&pageSize=1&orderByColumn=userId&isAsc=asc [200 OK, 1.05 KB, 36 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Shape
+  Pass  Total follows new department
+  Pass  Ordered page IDs follow new department
+  Pass  Every row belongs to new department
+  -
+  | 'Using "postman.setNextRequest" is deprecated. Use "pm
+  | .execution.setNextRequest()" instead.'
+  | 'T64_EVENT {"session":"newB","page":1,"total":2,"ids":
+  | [109],"deptIds":[201],"code":200}'
+  -
+
+Attempting to set next request to newB_pages
+
+Root newB_pages
+
+  GET http://127.0.0.1:18080/system/user/list?pageNum=2&pageSize=1&orderByColumn=userId&isAsc=asc [200 OK, 1.03 KB, 40 ms]
+  Pass  HTTP 200
+  Pass  Business 200
+  Pass  Shape
+  Pass  Total follows new department
+  Pass  Ordered page IDs follow new department
+  Pass  Every row belongs to new department
+  Pass  Complete ID set follows new department
+  Pass  No duplicate IDs
+  -
+  | 'T64_EVENT {"session":"newB","page":2,"total":2,"ids":
+  | [111],"deptIds":[201],"code":200}'
+  -
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  3 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  3 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  3 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                 22 |                  4 |
+---------------------------------------------------------------------
+| total run duration: 386 ms                                        |
+---------------------------------------------------------------------
+| total data received: 2.15 KB (approx)                             |
+---------------------------------------------------------------------
+| average response time: 44 ms [min: 36 ms, max: 56 ms, s.d.: 8 ms] |
+---------------------------------------------------------------------
+
+  #  failure         detail                                 
+                                                            
+ 1.  AssertionError  Total follows new department           
+                     expected false to equal true           
+                     at assertion:3 in test-script          
+                     inside "oldA_pages"                    
+                                                            
+ 2.  AssertionError  Ordered page IDs follow new department 
+                     expected false to equal true           
+                     at assertion:4 in test-script          
+                     inside "oldA_pages"                    
+                                                            
+ 3.  AssertionError  Every row belongs to new department    
+                     expected false to equal true           
+                     at assertion:5 in test-script          
+                     inside "oldA_pages"                    
+                                                            
+ 4.  AssertionError  Complete ID set follows new department 
+                     expected false to equal true           
+                     at assertion:6 in test-script          
+                     inside "oldA_pages"                    
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command
+
+A new version of Postman CLI is available (v1.82.0). Refer https://go.pstmn.io/cli-release-notes for changelogs.
+To update your Postman CLI, run:
+
+postman update
+
+

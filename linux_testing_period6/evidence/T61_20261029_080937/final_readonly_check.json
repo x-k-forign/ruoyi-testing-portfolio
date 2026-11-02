@@ -1,0 +1,55 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "grep",
+        "-nF",
+        "T3_FAULT",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "exit_code": 0,
+      "stdout": "6:08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n8:java.lang.IllegalStateException: T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n157:08:47:43.525 [http-nio-127.0.0.1-18080-exec-3] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n159:java.lang.IllegalStateException: T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "10613",
+        "-o",
+        "pid=,args="
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "find",
+        "/home/wx-xue/linux_practice/t61_20261029_080937",
+        "-maxdepth",
+        "2",
+        "-type",
+        "f",
+        "-printf",
+        "%P %m %s bytes\n"
+      ],
+      "exit_code": 0,
+      "stdout": "public/index.html 640 159 bytes\nlogs/source.json 640 2242 bytes\nlogs/http_server.log 640 140 bytes\nlogs/ruoyi_t55_offline.log 640 31535 bytes\nservice_identity.json 664 368 bytes\nbaseline_result.json 640 16498 bytes\nservice_identity_attempt1.json 664 368 bytes\n",
+      "stderr": ""
+    }
+  ],
+  "event_marker_matching_lines": 4,
+  "distinct_fault_events": 2,
+  "service_still_stopped": true
+}

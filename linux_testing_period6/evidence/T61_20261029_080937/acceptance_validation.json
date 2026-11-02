@@ -1,0 +1,66 @@
+{
+  "accepted_at": "2026-10-29T08:17:46.780371+08:00",
+  "conclusion": "T6.1按约定方式验收通过",
+  "method": "自动化执行成果核对、原理说明与用户理解确认；不作为独立作答证据",
+  "user_confirmation": "这几个关键点我理解了，帮我验收一下T6.1，通过后告诉我T6.2具体要做什么，先不要执行。",
+  "criteria": [
+    {
+      "item": "Linux系统、终端、身份和路径",
+      "result": "通过"
+    },
+    {
+      "item": "服务位置、共用与隔离边界",
+      "result": "通过"
+    },
+    {
+      "item": "真实日志副本及可控服务正常基线",
+      "result": "通过"
+    },
+    {
+      "item": "原理说明、理解确认与环境保护",
+      "result": "通过（按约定方式）"
+    }
+  ],
+  "evidence_checks": {
+    "original_delivery_checks": true,
+    "local_linux_provenance_hash": true,
+    "log_lines_and_events": true,
+    "full_stack_frames": true,
+    "source_hashes_and_ranges": true,
+    "linux_system_identity_and_time": true,
+    "http_and_exact_content": true,
+    "service_restored_as_recorded": true,
+    "shared_observation_unchanged": true,
+    "attempts_and_limits_preserved": true,
+    "user_screenshots_retained": true
+  },
+  "all_checks_ok": true,
+  "fixed_relative_links": 16,
+  "acceptance_scope": "T6.1 only",
+  "runtime_checks_during_acceptance": false,
+  "T6_2_executed": false,
+  "github_commit_or_push": false,
+  "original_delivery_json_unchanged": true,
+  "artifact_hashes": {
+    "docs/T6.1_执行记录.md": "9962712ca9448d12bbe147234d11cfb088cb10bcbec095e8b06208bcc69d136a",
+    "若依软件测试学习大纲.md": "4ebbae27ebc776488e67af0f2ce3b61d642fe41dfba5349fd594122987856f31",
+    "ruoyi_t55_offline.log": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692"
+  },
+  "limits": [
+    "不是整个T6验收",
+    "未评估个人独立操作或独立作答",
+    "日志来自Windows历史副本，非Linux若依部署",
+    "已知产品缺陷状态不变"
+  ],
+  "acceptance_correction": {
+    "observed": "Windows local copy saved with CRLF, while exported Linux copy uses LF",
+    "cause": "Local exporter used Path.write_text with Windows default newline translation",
+    "before_sha256": "c39738428bcb7bd3ee29bac86fc4a2183e7ec18bc803cd4b3498d28217ae3d26",
+    "CRLF_lines": 306,
+    "action": "Preserve pre-correction copy locally and write UTF-8 LF bytes without changing text",
+    "after_sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+    "linux_recorded_sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+    "no_remote_operation": true,
+    "exporter_fixed": true
+  }
+}

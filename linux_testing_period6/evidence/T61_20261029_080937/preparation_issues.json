@@ -1,0 +1,22 @@
+[
+  {
+    "item": "Windows原始日志解码",
+    "observation": "按严格UTF-8读取整份stdout曾出现UnicodeDecodeError。",
+    "handling": "逐行先用UTF-8，失败行用GB18030；两份原文件各有5行采用回退解码。摘录事件行和完整堆栈，统一输出UTF-8，不修改原日志。",
+    "classification": "采集准备问题，不是若依产品缺陷"
+  },
+  {
+    "item": "凭据扫描误报",
+    "batch": "T61_20261029_080924",
+    "observation": "首次本地导出将Java类名AuthorizationFilter中的authorization误判成凭据。此时未执行远端创建。",
+    "handling": "改为识别Authorization键值、Bearer值等真实凭据形态，继续进行私有配置已知口令/秘密值匹配。保留失败批次只读盘点。",
+    "classification": "采集器规则问题"
+  },
+  {
+    "item": "服务收尾检查误判",
+    "batch": "T61_20261029_080937",
+    "observation": "第一次HTTP正常返回后，已停止新服务并确认端口无监听；立即使用未设置地址复用的socket再次bind返回Errno98。",
+    "handling": "核对旧练习进程已退出、18090无LISTEN；修正为以目标进程退出和监听解除作为收尾证据，区分TIME_WAIT与LISTEN；同一实验目录再次建立正常基线。",
+    "classification": "采集器收尾检查问题，不记为T6.3故障排查闭环"
+  }
+]

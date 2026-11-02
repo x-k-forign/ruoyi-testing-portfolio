@@ -1,0 +1,182 @@
+{
+  "compiled_at": "2026-11-02T17:10:59.327+08:00",
+  "original_execution_date": "2026-10-29",
+  "review_date": "2026-11-02",
+  "index": [
+    {
+      "case": "T63",
+      "purpose": "故障全过程及响应/进程证据",
+      "path": "linux_testing_period6/evidence/T63_20261029_085301/linux_result.json",
+      "sha256": "b96e512b58301c3218fc61ad3dc02d8d675f591fd6a227d60c7795fb492971a0",
+      "bytes": 28513
+    },
+    {
+      "case": "T63",
+      "purpose": "实际时间线",
+      "path": "linux_testing_period6/evidence/T63_20261029_085301/timeline.json",
+      "sha256": "1d4aa1a71107a62e5a5667701e191f905b736da05da7cfc69f53c0dbee2468e3",
+      "bytes": 3128
+    },
+    {
+      "case": "T63",
+      "purpose": "恢复后的客户端配置",
+      "path": "linux_testing_period6/evidence/T63_20261029_085301/client_target.json",
+      "sha256": "cc554647fd73dc5bf9e7d8c6cf17b2306b7340654b44ad5ee2ad31d8a0f4ea21",
+      "bytes": 103
+    },
+    {
+      "case": "T63",
+      "purpose": "三次正常HTTP访问日志",
+      "path": "linux_testing_period6/evidence/T63_20261029_085301/http_server.log",
+      "sha256": "3e057ca84a9385c95adee5fa07294b78410812f268650dea75d3c34b61fc66a2",
+      "bytes": 305
+    },
+    {
+      "case": "T63",
+      "purpose": "当时的最终进程与端口回查",
+      "path": "linux_testing_period6/evidence/T63_20261029_085301/final_readonly_check.json",
+      "sha256": "f7d59f1cc89d7b2bcceb25e8a4c03d092d3e80114a0d4cfc3cf3344fa3ab13c4",
+      "bytes": 797
+    },
+    {
+      "case": "T63",
+      "purpose": "执行与验收方式说明",
+      "path": "linux_testing_period6/docs/T6.3_执行记录.md",
+      "sha256": "5425676daaf1803b9dfb01825eb6864b9e07d90ec89a0f4ae6357777bd510cd7",
+      "bytes": 14074
+    },
+    {
+      "case": "T64",
+      "purpose": "旧A失败、新B通过的真实业务结果",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/BUG-T3-004_reproduction.json",
+      "sha256": "4bb0e81d21d583cdd2a33cf290add1292343636d03fbe33bb4b0305e3e6c25a5",
+      "bytes": 617
+    },
+    {
+      "case": "T64",
+      "purpose": "修改前持久化与关系",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/move_before.json",
+      "sha256": "06b102c4cca10b1c3667463b32420a42d9ffecca26e6b64b5fe9376330498707",
+      "bytes": 457
+    },
+    {
+      "case": "T64",
+      "purpose": "修改后持久化与关系",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/move_after.json",
+      "sha256": "0d6aa6f23b4fef1d9f3d1bfdc1fe2853041bda3fc5cc13f0caacbe77d2ac92ad",
+      "bytes": 457
+    },
+    {
+      "case": "T64",
+      "purpose": "本轮请求及时间、身份、业务状态",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/api_events.json",
+      "sha256": "1deadb84ecc4e74184714728816401553f4fd173d55c47ebd39641cb7937f7c6",
+      "bytes": 13046
+    },
+    {
+      "case": "T64",
+      "purpose": "独立只读SQL与参数、结果",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/sql_events.json",
+      "sha256": "6214d5b10a038ef0dc3bfb824f1e18222f1c20b862f7037ca17ad4a33df59401",
+      "bytes": 12577
+    },
+    {
+      "case": "T64",
+      "purpose": "操作审计目标及时间",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/move_audit.json",
+      "sha256": "91591db4f5ceacf269d037986256c90b94bcf71c3bf9a6bcdc49102fbc7e21a6",
+      "bytes": 410
+    },
+    {
+      "case": "T64",
+      "purpose": "旧新会话实际SQL过滤差异",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/ruoyi_t64_queries.log",
+      "sha256": "4fd866bb05932d768d392657ecb4596b41a35a72f1b1bfbacb25642660eddb95",
+      "bytes": 3919
+    },
+    {
+      "case": "T64",
+      "purpose": "日志来源、原行及请求字节窗口",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/application_log_provenance.json",
+      "sha256": "c8ea8c8c9f0291a0924ba75282f53da184cdefe2f203dd37981f4915a5e3d5af",
+      "bytes": 6326
+    },
+    {
+      "case": "T64",
+      "purpose": "CLI三次请求及22次断言",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/cli_summary.json",
+      "sha256": "2f11956614a2247b445f1c28a94b42fe197310a09f2ae4c6fd00ce05d7828e84",
+      "bytes": 545
+    },
+    {
+      "case": "T64",
+      "purpose": "CLI四个业务失败保留",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/postman_cli.log",
+      "sha256": "f93b44fc0f69434a0005ee9612e8971724a8b08a5021803075c50fc3512f6c76",
+      "bytes": 4715
+    },
+    {
+      "case": "T64",
+      "purpose": "测试用户和会话清理",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/cleanup.json",
+      "sha256": "06cba09989d02864e09299668716e15a0125c0b63ac2368b4c474e8400069832",
+      "bytes": 767
+    },
+    {
+      "case": "T64",
+      "purpose": "共享及隔离资源收尾",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/environment_restoration.json",
+      "sha256": "110dfb9c7af995e80ab2c402f994f32c18645710c474b429cea020b6c531cdb6",
+      "bytes": 905
+    },
+    {
+      "case": "T64",
+      "purpose": "当时的Windows进程回查",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/final_process_check.json",
+      "sha256": "4f2765160bbed0372ae3d2382d9db5157d696a00af51c23292fc6e34ca9d0246",
+      "bytes": 178
+    },
+    {
+      "case": "T64",
+      "purpose": "私有临时资料清理",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/private_cleanup.json",
+      "sha256": "426d70a1dd85e0ffee110df3b3ecd2b1abb89665567baebe1b3bc6ac2d19296e",
+      "bytes": 375
+    },
+    {
+      "case": "T64",
+      "purpose": "源码定位线索及限制",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/source_hints.json",
+      "sha256": "2ae1f90e6e91f824704ce0dd90efb2a7f8af695cc4be1ea31b5518b1fb2fbc44",
+      "bytes": 4061
+    },
+    {
+      "case": "T64",
+      "purpose": "跨层调查与验收方式说明",
+      "path": "linux_testing_period6/docs/T6.4_执行记录.md",
+      "sha256": "ce24c64cb5a6454315a05e2a929b03a59553638c86b71fd6d93c5d5edd8e645b",
+      "bytes": 15055
+    },
+    {
+      "case": "SUPPORT",
+      "purpose": "T6.1混合编码、规则误报和收尾检查历史",
+      "path": "linux_testing_period6/evidence/T61_20261029_080937/preparation_issues.json",
+      "sha256": "22fbfefdeeb8b429f03d0f1664afbb6972d54076f9ef9478597b19c53f96803d",
+      "bytes": 1398
+    },
+    {
+      "case": "SUPPORT",
+      "purpose": "T6.1换行差异修正记录",
+      "path": "linux_testing_period6/evidence/T61_20261029_080937/acceptance_correction.json",
+      "sha256": "a811988035a11dc0486a4310cab7c42926b4572aec804f0a2472dc2ce061d7ab",
+      "bytes": 637
+    },
+    {
+      "case": "SUPPORT",
+      "purpose": "T6.4工具启动问题",
+      "path": "linux_testing_period6/evidence/T64_20261029_090636/preparation_issues.json",
+      "sha256": "98515fc64d40f785795d4daa0d12edc65b707377888047fbb5c70d2e34c73947",
+      "bytes": 443
+    }
+  ]
+}

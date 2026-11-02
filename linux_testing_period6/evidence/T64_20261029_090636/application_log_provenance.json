@@ -1,0 +1,117 @@
+{
+  "at": "2026-10-29T09:10:21.509+08:00",
+  "source_host": "Windows",
+  "source_path": "sources/independence_enviroment/logs/T64_20261029_090636_restored.stdout.log",
+  "source_sha256": "f2ae024bb0caf0bce2c3f611af7a4046b2dd4f927d4e711392c98f4921f29c9d",
+  "source_bytes": 48874,
+  "original_event_date": "20261029",
+  "timezone": "Asia/Shanghai UTC+08:00",
+  "source_encoding": "linewise UTF-8, GB18030 fallback",
+  "selection": "selectUserList Preparing/Parameters/Total lines only inside captured sequential request byte windows; no query results, request bodies or credentials",
+  "offline": true,
+  "lines": 24,
+  "sha256": "4fd866bb05932d768d392657ecb4596b41a35a72f1b1bfbacb25642660eddb95",
+  "ranges": [
+    {
+      "phase": "old_A_after_move",
+      "session": "oldA",
+      "request_window": [
+        "2026-10-29T09:08:12.456+08:00",
+        "2026-10-29T09:08:12.656+08:00"
+      ],
+      "source_byte_range": [
+        29195,
+        30364
+      ],
+      "selected_lines": [
+        {
+          "source_line": 188,
+          "text": "09:08:12.483 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 200)"
+        },
+        {
+          "source_line": 189,
+          "text": "09:08:12.484 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: "
+        },
+        {
+          "source_line": 190,
+          "text": "09:08:12.486 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1"
+        },
+        {
+          "source_line": 191,
+          "text": "09:08:12.489 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 200) order by user_id asc LIMIT ?"
+        },
+        {
+          "source_line": 192,
+          "text": "09:08:12.489 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Integer)"
+        },
+        {
+          "source_line": 193,
+          "text": "09:08:12.491 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1"
+        }
+      ]
+    },
+    {
+      "phase": "new_B_after_move",
+      "session": "newB",
+      "request_window": [
+        "2026-10-29T09:08:17.631+08:00",
+        "2026-10-29T09:08:17.869+08:00"
+      ],
+      "source_byte_range": [
+        34824,
+        37174
+      ],
+      "selected_lines": [
+        {
+          "source_line": 216,
+          "text": "09:08:17.663 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201)"
+        },
+        {
+          "source_line": 217,
+          "text": "09:08:17.664 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: "
+        },
+        {
+          "source_line": 218,
+          "text": "09:08:17.665 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1"
+        },
+        {
+          "source_line": 219,
+          "text": "09:08:17.666 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201) order by user_id asc LIMIT ?"
+        },
+        {
+          "source_line": 220,
+          "text": "09:08:17.668 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Integer)"
+        },
+        {
+          "source_line": 221,
+          "text": "09:08:17.671 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1"
+        },
+        {
+          "source_line": 222,
+          "text": "09:08:17.700 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201)"
+        },
+        {
+          "source_line": 223,
+          "text": "09:08:17.700 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: "
+        },
+        {
+          "source_line": 224,
+          "text": "09:08:17.702 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1"
+        },
+        {
+          "source_line": 225,
+          "text": "09:08:17.704 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201) order by user_id asc LIMIT ?, ?"
+        },
+        {
+          "source_line": 226,
+          "text": "09:08:17.705 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Long), 1(Integer)"
+        },
+        {
+          "source_line": 227,
+          "text": "09:08:17.706 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1"
+        }
+      ]
+    }
+  ],
+  "correlation": "session label, actor109 actual ID, method/path, request windows, byte offsets and mapper SQL; no invented requestId"
+}

@@ -1,0 +1,650 @@
+{
+  "batch": "T62_20261029_082234",
+  "method": "自动化执行",
+  "linux_lab": "/home/wx-xue/linux_practice/t61_20261029_080937",
+  "linux_output_dir": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234",
+  "commands": [
+    {
+      "at": "2026-10-29T08:22:35.669770+08:00",
+      "argv": [
+        "ps",
+        "-C",
+        "redis-server",
+        "-o",
+        "pid=,user=,lstart=,comm="
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "   1150 redis    四 10月 29 07:58:52 2026 redis-server\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.674242+08:00",
+      "argv": [
+        "pwd"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "/home/wx-xue\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.679151+08:00",
+      "argv": [
+        "id"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "uid=1000(wx-xue) gid=1000(wx-xue) 组=1000(wx-xue),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin),123(lxd)\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.683014+08:00",
+      "argv": [
+        "date",
+        "-Is"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "2026-10-29T08:22:35+08:00\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.686258+08:00",
+      "argv": [
+        "grep",
+        "--version"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "grep (GNU grep) 3.11\nCopyright © 2023 Free Software Foundation, Inc.\n许可证 GPLv3+：GNU 通用公共许可证第 3 版或更新版本 <https://gnu.org/licenses/gpl.html>。\n本软件是自由软件：您可以自由修改和重新发布它。\n在法律允许的范围内，不提供任何保证。\n\n由 Mike Haerhtel 等人编写；作者信息请参见\n<https://git.savannah.gnu.org/cgit/grep.git/tree/AUTHORS>。\n\ngrep -P 使用 PCRE2 10.42 2022-12-11\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.692645+08:00",
+      "argv": [
+        "ls",
+        "-ld",
+        "/home/wx-xue/linux_practice/t61_20261029_080937",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "drwxr-x--- 4 wx-xue wx-xue 4096 10月 29 08:10 /home/wx-xue/linux_practice/t61_20261029_080937\ndrwxr-x--- 2 wx-xue wx-xue 4096 10月 29 08:09 /home/wx-xue/linux_practice/t61_20261029_080937/logs\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.697204+08:00",
+      "argv": [
+        "ls",
+        "-l",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "-rw-r----- 1 wx-xue wx-xue 31535 10月 29 08:10 /home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.702712+08:00",
+      "argv": [
+        "stat",
+        "-c",
+        "%F %U %G %a %s %y %n",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "普通文件 wx-xue wx-xue 640 31535 2026-10-29 08:10:32.584679297 +0800 /home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.708945+08:00",
+      "argv": [
+        "find",
+        "/home/wx-xue/linux_practice/t61_20261029_080937",
+        "-maxdepth",
+        "2",
+        "-type",
+        "f",
+        "(",
+        "-name",
+        "*.log",
+        "-o",
+        "-name",
+        "source.json",
+        ")"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "/home/wx-xue/linux_practice/t61_20261029_080937/logs/source.json\n/home/wx-xue/linux_practice/t61_20261029_080937/logs/http_server.log\n/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.714539+08:00",
+      "argv": [
+        "cat",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/source.json"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "{\n  \"exported_at\": \"2026-10-29T08:10:31.569179+08:00\",\n  \"source_host\": \"Windows host\",\n  \"application\": \"RuoYi T5.5 isolated backend 127.0.0.1:18080\",\n  \"original_event_date\": \"2026-10-28\",\n  \"original_timezone\": \"Asia/Shanghai (UTC+08:00)\",\n  \"date_timezone_basis\": \"database_testing_period5/docs/T5.5_执行说明.md and T55_20261028 archived case evidence; text log timestamps contain time-of-day only\",\n  \"sources\": [\n    {\n      \"source_relative_to_project\": \"sources/independence_enviroment/logs/insert.stdout.log\",\n      \"source_sha256\": \"47aaf011145c90054d868cef6c58741e1d712412010fc8813ba925bdd4881499\",\n      \"source_bytes\": 24879,\n      \"original_line_start\": 82,\n      \"original_line_end\": 230,\n      \"exception_line\": 84,\n      \"stack_lines\": 146,\n      \"decoding_counts_whole_file\": {\n        \"utf8\": 228,\n        \"gb18030_fallback\": 5\n      },\n      \"time_first\": \"08:47:05.711\",\n      \"time_last_timestamped_line\": \"08:47:05.749\"\n    },\n    {\n      \"source_relative_to_project\": \"sources/independence_enviroment/logs/update.stdout.log\",\n      \"source_sha256\": \"5d58199bea05f1fbff1e8b631565672ecf8b7553267f77df8b04137bea04bc8b\",\n      \"source_bytes\": 25610,\n      \"original_line_start\": 88,\n      \"original_line_end\": 236,\n      \"exception_line\": 90,\n      \"stack_lines\": 146,\n      \"decoding_counts_whole_file\": {\n        \"utf8\": 234,\n        \"gb18030_fallback\": 5\n      },\n      \"time_first\": \"08:47:43.525\",\n      \"time_last_timestamped_line\": \"08:47:43.551\"\n    }\n  ],\n  \"output_encoding\": \"UTF-8 LF\",\n  \"selection\": \"two fault events: LogAspect line + GlobalExceptionHandler line + exception header + all 146 contiguous stack frames each\",\n  \"redaction_policy\": \"field allowlist by exact event block; excludes request bodies, SQL/audit parameter output and private configs; scans known private password/secret/token values and common credential patterns\",\n  \"added_comments\": \"lines beginning # identify offline source and range\",\n  \"offline\": true,\n  \"not_proven\": [\n    \"current service health\",\n    \"new T6 fault reproduction\",\n    \"Linux RuoYi deployment\",\n    \"database rollback by text log alone\"\n  ],\n  \"excerpt_sha256\": \"4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692\",\n  \"excerpt_lines\": 306\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.719153+08:00",
+      "argv": [
+        "head",
+        "-n",
+        "8",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "# T6.1 offline learning copy: real Windows RuoYi T5.5 application output.\n# Comments beginning # were added during export; original log lines follow unchanged.\n# This is not a Linux RuoYi deployment or a new fault execution.\n\n# OFFLINE EXCERPT | source=insert.stdout.log | original_date=2026-10-28 | timezone=Asia/Shanghai | source_lines=82-230\n08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n08:47:05.749 [http-nio-127.0.0.1-18080-exec-2] ERROR c.r.f.w.e.GlobalExceptionHandler - [handleRuntimeException,100] - 请求地址'/system/user',发生未知异常.\njava.lang.IllegalStateException: T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.768244+08:00",
+      "argv": [
+        "tail",
+        "-n",
+        "5",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)\n\tat java.base/java.lang.Thread.run(Thread.java:840)\n\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.774765+08:00",
+      "argv": [
+        "sha256sum",
+        "logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue/linux_practice/t61_20261029_080937",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692  logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.779837+08:00",
+      "argv": [
+        "sha256sum",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692  /home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.785546+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T3_FAULT",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "6:08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n8:java.lang.IllegalStateException: T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n157:08:47:43.525 [http-nio-127.0.0.1-18080-exec-3] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n159:java.lang.IllegalStateException: T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.790198+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "-C",
+        "8",
+        "--",
+        "T3_FAULT",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "1-# T6.1 offline learning copy: real Windows RuoYi T5.5 application output.\n2-# Comments beginning # were added during export; original log lines follow unchanged.\n3-# This is not a Linux RuoYi deployment or a new fault execution.\n4-\n5-# OFFLINE EXCERPT | source=insert.stdout.log | original_date=2026-10-28 | timezone=Asia/Shanghai | source_lines=82-230\n6:08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n7-08:47:05.749 [http-nio-127.0.0.1-18080-exec-2] ERROR c.r.f.w.e.GlobalExceptionHandler - [handleRuntimeException,100] - 请求地址'/system/user',发生未知异常.\n8:java.lang.IllegalStateException: T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n9-\tat com.ruoyi.system.service.impl.SysUserServiceImpl.failForT3(SysUserServiceImpl.java:578)\n10-\tat com.ruoyi.system.service.impl.SysUserServiceImpl.insertUser(SysUserServiceImpl.java:270)\n11-\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n12-\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n13-\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n14-\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\n15-\tat org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)\n16-\tat org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)\n--\n149-\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)\n150-\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\n151-\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)\n152-\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)\n153-\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)\n154-\tat java.base/java.lang.Thread.run(Thread.java:840)\n155-\n156-# OFFLINE EXCERPT | source=update.stdout.log | original_date=2026-10-28 | timezone=Asia/Shanghai | source_lines=88-236\n157:08:47:43.525 [http-nio-127.0.0.1-18080-exec-3] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n158-08:47:43.551 [http-nio-127.0.0.1-18080-exec-3] ERROR c.r.f.w.e.GlobalExceptionHandler - [handleRuntimeException,100] - 请求地址'/system/user',发生未知异常.\n159:java.lang.IllegalStateException: T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n160-\tat com.ruoyi.system.service.impl.SysUserServiceImpl.failForT3(SysUserServiceImpl.java:578)\n161-\tat com.ruoyi.system.service.impl.SysUserServiceImpl.updateUser(SysUserServiceImpl.java:306)\n162-\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n163-\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n164-\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n165-\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\n166-\tat org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)\n167-\tat org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.796640+08:00",
+      "argv": [
+        "grep",
+        "-nE",
+        "--",
+        "^08:47:(05|43)\\.",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "6:08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n7:08:47:05.749 [http-nio-127.0.0.1-18080-exec-2] ERROR c.r.f.w.e.GlobalExceptionHandler - [handleRuntimeException,100] - 请求地址'/system/user',发生未知异常.\n157:08:47:43.525 [http-nio-127.0.0.1-18080-exec-3] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n158:08:47:43.551 [http-nio-127.0.0.1-18080-exec-3] ERROR c.r.f.w.e.GlobalExceptionHandler - [handleRuntimeException,100] - 请求地址'/system/user',发生未知异常.\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.810897+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "set -o noclobber; grep -nF -- \"T3_FAULT\" \"$1\" > \"$2\" && { printf \"# extracted_at=\" >> \"$2\"; date -Is >> \"$2\"; }",
+        "t62",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/event_index.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.821497+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "set -o noclobber; sed -n \"$1\" \"$2\" > \"$3\"",
+        "t62",
+        "6,154p",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/insert_event.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.833420+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "set -o noclobber; sed -n \"$1\" \"$2\" > \"$3\"",
+        "t62",
+        "157,305p",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/update_event.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.839613+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T62_NO_SUCH_EVENT_T62_20261029_082234",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 1,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.845694+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T3_FAULT",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/intentionally_missing.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 2,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "grep: /home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/intentionally_missing.log: 没有那个文件或目录\n"
+    },
+    {
+      "at": "2026-10-29T08:22:35.849630+08:00",
+      "argv": [
+        "chmod",
+        "000",
+        "--",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.854269+08:00",
+      "argv": [
+        "stat",
+        "-c",
+        "%a %U %G %n",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "0 wx-xue wx-xue /home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.859346+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T62_PERMISSION_DEMO",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 2,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "grep: /home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt: 权限不够\n"
+    },
+    {
+      "at": "2026-10-29T08:22:35.863112+08:00",
+      "argv": [
+        "chmod",
+        "640",
+        "--",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.867544+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T62_PERMISSION_DEMO",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "1:T62_PERMISSION_DEMO | synthetic learning file, not application log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.877580+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "grep -nF -- \"$1\" \"$2\" | head -n 20; printf \"pipeline_exit=%s PIPESTATUS=%s\n\" \"$?\" \"${PIPESTATUS[*]}\"",
+        "t62",
+        "T62_NO_SUCH_EVENT_T62_20261029_082234",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "pipeline_exit=0 PIPESTATUS=1 0\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.887588+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "set -o pipefail; grep -nF -- \"$1\" \"$2\" | head -n 20; printf \"pipeline_exit=%s PIPESTATUS=%s\n\" \"$?\" \"${PIPESTATUS[*]}\"",
+        "t62",
+        "T62_NO_SUCH_EVENT_T62_20261029_082234",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "pipeline_exit=1 PIPESTATUS=1 0\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.915698+08:00",
+      "argv": [
+        "ps",
+        "-C",
+        "redis-server",
+        "-o",
+        "pid=,user=,lstart=,comm="
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "   1150 redis    四 10月 29 07:58:52 2026 redis-server\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:22:35.932171+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    }
+  ],
+  "source_before": {
+    "sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+    "mode": "0o640",
+    "uid": 1000,
+    "gid": 1000,
+    "bytes": 31535,
+    "mtime_ns": 1793232632584679297
+  },
+  "source_after": {
+    "sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+    "mode": "0o640",
+    "uid": 1000,
+    "gid": 1000,
+    "bytes": 31535,
+    "mtime_ns": 1793232632584679297
+  },
+  "events": [
+    {
+      "marker": "insert-after-all",
+      "source_line_start": 6,
+      "source_line_end": 154,
+      "file": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/insert_event.log",
+      "file_lines": 149,
+      "stack_frames": 146,
+      "sha256": "c0fb31b1c5b47efc54f8ebc6a31be224a7b0b4026629ccf2e3c15c1ed02de974"
+    },
+    {
+      "marker": "update-after-all",
+      "source_line_start": 157,
+      "source_line_end": 305,
+      "file": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/update_event.log",
+      "file_lines": 149,
+      "stack_frames": 146,
+      "sha256": "7076701a73892f903bbd9f94d7b8ecfc1f5aa6a514e5df3a8661da1737561c79"
+    }
+  ],
+  "match_line_count": 4,
+  "distinct_events": 2,
+  "context_output_lines": 36,
+  "timestamp_index_lines": 4,
+  "error_cases": {
+    "match": {
+      "at": "2026-10-29T08:22:35.785546+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T3_FAULT",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "6:08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n8:java.lang.IllegalStateException: T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n157:08:47:43.525 [http-nio-127.0.0.1-18080-exec-3] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n159:java.lang.IllegalStateException: T3_FAULT:update-after-all:txActive=true:userId=103:userName=t3_fault_edit\n",
+      "stderr": ""
+    },
+    "no_match": {
+      "at": "2026-10-29T08:22:35.839613+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T62_NO_SUCH_EVENT_T62_20261029_082234",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 1,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    "missing_path": {
+      "at": "2026-10-29T08:22:35.845694+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T3_FAULT",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/intentionally_missing.log"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 2,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "grep: /home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/intentionally_missing.log: 没有那个文件或目录\n"
+    },
+    "permission_denied": {
+      "at": "2026-10-29T08:22:35.859346+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T62_PERMISSION_DEMO",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 2,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "grep: /home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt: 权限不够\n"
+    },
+    "permission_restored": {
+      "at": "2026-10-29T08:22:35.867544+08:00",
+      "argv": [
+        "grep",
+        "-nF",
+        "--",
+        "T62_PERMISSION_DEMO",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt"
+      ],
+      "cwd": "/home/wx-xue",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "1:T62_PERMISSION_DEMO | synthetic learning file, not application log\n",
+      "stderr": ""
+    }
+  },
+  "permission_demo": {
+    "path": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt",
+    "before": {
+      "sha256": "c72d87a72aec2e4745f62439848486c04a0bfba9ee077da221b83355bdbc01a7",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 67,
+      "mtime_ns": 1793233355845928287
+    },
+    "after": {
+      "sha256": "c72d87a72aec2e4745f62439848486c04a0bfba9ee077da221b83355bdbc01a7",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 67,
+      "mtime_ns": 1793233355845928287
+    },
+    "restored": true
+  },
+  "pipeline_demo": {
+    "default": "pipeline_exit=0 PIPESTATUS=1 0\n",
+    "with_pipefail": "pipeline_exit=1 PIPESTATUS=1 0\n"
+  },
+  "offline_log_handling": {
+    "rolling": false,
+    "compressed": false,
+    "tail_follow_used": false,
+    "journalctl_used": false,
+    "reason": "fixed uncompressed Windows historical excerpt on Linux; no live Linux RuoYi unit assumed"
+  },
+  "shared_redis_process_observed_unchanged": true,
+  "http_service_left_stopped": true,
+  "artifacts": [
+    {
+      "name": "event_index.txt",
+      "linux_path": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/event_index.txt",
+      "sha256": "b614179ba9bc473726edf0e145e39dfdb355ad3d1d7f6ee1c6843b39f23d1434"
+    },
+    {
+      "name": "insert_event.log",
+      "linux_path": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/insert_event.log",
+      "sha256": "c0fb31b1c5b47efc54f8ebc6a31be224a7b0b4026629ccf2e3c15c1ed02de974"
+    },
+    {
+      "name": "permission_demo.txt",
+      "linux_path": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt",
+      "sha256": "c72d87a72aec2e4745f62439848486c04a0bfba9ee077da221b83355bdbc01a7"
+    },
+    {
+      "name": "update_event.log",
+      "linux_path": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/update_event.log",
+      "sha256": "7076701a73892f903bbd9f94d7b8ecfc1f5aa6a514e5df3a8661da1737561c79"
+    }
+  ],
+  "checks": {
+    "source_hash_matches_T61": true,
+    "limited_find_and_relative_absolute_paths": true,
+    "permissions_and_metadata_read": true,
+    "four_matching_lines_two_events": true,
+    "context_and_time_index_saved": true,
+    "two_full_event_files": true,
+    "both_stacks_146_frames": true,
+    "exit_code_0_1_2_demonstrated": true,
+    "permission_demo_restored": true,
+    "pipeline_status_distinguished": true,
+    "original_source_unchanged": true,
+    "no_http_service_start": true,
+    "shared_redis_process_observed_unchanged": true
+  },
+  "limits": [
+    "Historical Windows log copy; no new fault or live RuoYi log observation",
+    "No RuoYi business requests or SQL calls",
+    "Timestamp grep only indexes known time prefixes; complete event extraction uses actual source line ranges",
+    "Permission changes apply only to the new synthetic permission_demo.txt",
+    "No user independent understanding or acceptance is recorded"
+  ]
+}

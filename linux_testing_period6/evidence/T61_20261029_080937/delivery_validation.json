@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-29T08:10:34.006905+08:00",
+  "checks": {
+    "log_hash_matches": true,
+    "log_readable": true,
+    "two_complete_stacks": true,
+    "http_baseline": true,
+    "service_stopped": true,
+    "shared_redis_observed_unchanged": true,
+    "windows_observed_listeners_unchanged": true,
+    "original_sources_unchanged": true
+  },
+  "all_checks_ok": true,
+  "acceptance_status": "未验收；等待用户要求验收及理解确认",
+  "new_ruoyi_business_tests": false,
+  "product_defects_changed": false
+}

@@ -1,0 +1,15 @@
+{
+  "shared_config_path": "sources/backend/.local/application-local.yml",
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "ruoyi_t2_lab"
+  },
+  "redis": {
+    "host": "192.168.192.10",
+    "port": 6379
+  },
+  "credentials_exported": false,
+  "database_connectivity_tested": false,
+  "redis_authentication_tested": false
+}

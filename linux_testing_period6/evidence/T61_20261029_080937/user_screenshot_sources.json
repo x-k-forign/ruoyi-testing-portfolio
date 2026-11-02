@@ -1,0 +1,32 @@
+[
+  {
+    "file": "evidence/T61_20261029_080937/user_screenshots/environment_01.png",
+    "source": "本轮用户提交的环境盘点截图",
+    "classification": "用户终端操作截图；不把后续自动化执行冒记为用户独立操作",
+    "capture_time": "截图未完整显示采集时刻；自动化复核另有时间记录"
+  },
+  {
+    "file": "evidence/T61_20261029_080937/user_screenshots/environment_02.png",
+    "source": "本轮用户提交的环境盘点截图",
+    "classification": "用户终端操作截图；不把后续自动化执行冒记为用户独立操作",
+    "capture_time": "截图未完整显示采集时刻；自动化复核另有时间记录"
+  },
+  {
+    "file": "evidence/T61_20261029_080937/user_screenshots/environment_03.png",
+    "source": "本轮用户提交的环境盘点截图",
+    "classification": "用户终端操作截图；不把后续自动化执行冒记为用户独立操作",
+    "capture_time": "截图未完整显示采集时刻；自动化复核另有时间记录"
+  },
+  {
+    "file": "evidence/T61_20261029_080937/user_screenshots/environment_04.png",
+    "source": "本轮用户提交的环境盘点截图",
+    "classification": "用户终端操作截图；不把后续自动化执行冒记为用户独立操作",
+    "capture_time": "截图未完整显示采集时刻；自动化复核另有时间记录"
+  },
+  {
+    "file": "evidence/T61_20261029_080937/user_screenshots/environment_05.png",
+    "source": "本轮用户提交的环境盘点截图",
+    "classification": "用户终端操作截图；不把后续自动化执行冒记为用户独立操作",
+    "capture_time": "截图未完整显示采集时刻；自动化复核另有时间记录"
+  }
+]

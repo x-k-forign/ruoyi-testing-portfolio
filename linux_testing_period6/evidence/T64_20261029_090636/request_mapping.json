@@ -1,0 +1,8 @@
+{
+  "source_collection": "database_testing_period5/postman/T5.6_两轮核验.postman_collection.json",
+  "source_sha256": "88402c402223e7fd8a7c624df54b88ed8192752399d926d0ed420bdba403a237",
+  "source_request": "user_pages",
+  "new_collection": "linux_testing_period6/postman/T6.4_新旧会话范围核验.postman_collection.json",
+  "changes": "two read-only session requests, pageSize1, SQL new-department expectations, same baseUrl/token guards; t4blocked and postman.setNextRequest retained",
+  "preserved_original_collection": true
+}

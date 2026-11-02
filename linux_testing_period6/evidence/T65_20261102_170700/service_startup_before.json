@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-02T17:07:02.509167+08:00",
+  "command": "$ports=@(5173,8080,18080,3306,16379);$rows=@(Get-NetTCPConnection -State Listen -ErrorAction SilentlyContinue | Where-Object {$_.LocalPort -in $ports} | ForEach-Object {$p=Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue; [pscustomobject]@{address=$_.LocalAddress;port=$_.LocalPort;pid=$_.OwningProcess;process=$p.ProcessName}}); ConvertTo-Json -InputObject $rows -Compress",
+  "listeners": [
+    {
+      "address": "::",
+      "port": 3306,
+      "pid": 7292,
+      "process": "mysqld"
+    }
+  ]
+}

@@ -1,0 +1,492 @@
+[
+  {
+    "started_at": "2026-10-29T09:07:52.855+08:00",
+    "label": "captcha_admin",
+    "method": "GET",
+    "path": "/captchaImage",
+    "business_code": 200,
+    "captcha_enabled": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:00.140+08:00",
+    "finished_at": "2026-10-29T09:08:03.432+08:00",
+    "label": "login_admin",
+    "method": "POST",
+    "path": "/login",
+    "actor": null,
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "request_fields": {},
+    "token_present": true,
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:03.451+08:00",
+    "finished_at": "2026-10-29T09:08:03.727+08:00",
+    "label": "identity_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "user": {
+      "userId": 1,
+      "userName": "admin",
+      "deptId": 103,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "admin"
+    ],
+    "permissions": [
+      "*:*:*"
+    ],
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:04.222+08:00",
+    "finished_at": "2026-10-29T09:08:04.531+08:00",
+    "label": "create_actor",
+    "method": "POST",
+    "path": "/system/user",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "request_fields": {
+      "userName": "t641029090636a",
+      "nickName": "T64_actor",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2",
+      "remark": "T64_20261029_090636"
+    },
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:04.619+08:00",
+    "finished_at": "2026-10-29T09:08:04.733+08:00",
+    "label": "create_controlA",
+    "method": "POST",
+    "path": "/system/user",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "request_fields": {
+      "userName": "t641029090636b",
+      "nickName": "T64_controlA",
+      "deptId": 200,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2",
+      "remark": "T64_20261029_090636"
+    },
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:04.837+08:00",
+    "finished_at": "2026-10-29T09:08:04.952+08:00",
+    "label": "create_controlB",
+    "method": "POST",
+    "path": "/system/user",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "request_fields": {
+      "userName": "t641029090636c",
+      "nickName": "T64_controlB",
+      "deptId": 201,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2",
+      "remark": "T64_20261029_090636"
+    },
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:05.374+08:00",
+    "label": "captcha_oldA",
+    "method": "GET",
+    "path": "/captchaImage",
+    "business_code": 200,
+    "captcha_enabled": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:10.559+08:00",
+    "finished_at": "2026-10-29T09:08:10.761+08:00",
+    "label": "login_oldA",
+    "method": "POST",
+    "path": "/login",
+    "actor": null,
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "request_fields": {},
+    "token_present": true,
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:10.777+08:00",
+    "finished_at": "2026-10-29T09:08:10.814+08:00",
+    "label": "identity_oldA",
+    "method": "GET",
+    "path": "/getInfo",
+    "actor": "oldA",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "user": {
+      "userId": 109,
+      "userName": "t641029090636a",
+      "deptId": 200,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t55_queryRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:11.270+08:00",
+    "finished_at": "2026-10-29T09:08:11.449+08:00",
+    "label": "old_A_baseline_p1",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=1&pageSize=1&orderByColumn=userId&isAsc=asc",
+    "actor": "oldA",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "total": 2,
+    "rows": [
+      {
+        "userId": 109,
+        "userName": "t641029090636a",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "message": "查询成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:11.458+08:00",
+    "finished_at": "2026-10-29T09:08:11.478+08:00",
+    "label": "old_A_baseline_p2",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=2&pageSize=1&orderByColumn=userId&isAsc=asc",
+    "actor": "oldA",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "total": 2,
+    "rows": [
+      {
+        "userId": 110,
+        "userName": "t641029090636b",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "message": "查询成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:12.152+08:00",
+    "finished_at": "2026-10-29T09:08:12.219+08:00",
+    "label": "move_actor_200_to_201",
+    "method": "PUT",
+    "path": "/system/user",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "request_fields": {
+      "userId": 109,
+      "userName": "t641029090636a",
+      "nickName": "T64_actor",
+      "deptId": 201,
+      "roleIds": [
+        100
+      ],
+      "postIds": [
+        1
+      ],
+      "status": "0",
+      "sex": "2",
+      "remark": "T64_20261029_090636"
+    },
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:12.456+08:00",
+    "finished_at": "2026-10-29T09:08:12.496+08:00",
+    "label": "old_A_after_move_p1",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=1&pageSize=1&orderByColumn=userId&isAsc=asc",
+    "actor": "oldA",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "total": 1,
+    "rows": [
+      {
+        "userId": 110,
+        "userName": "t641029090636b",
+        "deptId": 200,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "message": "查询成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:13.029+08:00",
+    "label": "captcha_newB",
+    "method": "GET",
+    "path": "/captchaImage",
+    "business_code": 200,
+    "captcha_enabled": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:17.049+08:00",
+    "finished_at": "2026-10-29T09:08:17.277+08:00",
+    "label": "login_newB",
+    "method": "POST",
+    "path": "/login",
+    "actor": null,
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "request_fields": {},
+    "token_present": true,
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:17.293+08:00",
+    "finished_at": "2026-10-29T09:08:17.331+08:00",
+    "label": "identity_newB",
+    "method": "GET",
+    "path": "/getInfo",
+    "actor": "newB",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "user": {
+      "userId": 109,
+      "userName": "t641029090636a",
+      "deptId": 201,
+      "status": "0",
+      "delFlag": "0"
+    },
+    "roles": [
+      "t55_queryRole"
+    ],
+    "permissions": [
+      "system:user:list",
+      "system:user:query"
+    ],
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:17.632+08:00",
+    "finished_at": "2026-10-29T09:08:17.673+08:00",
+    "label": "new_B_after_move_p1",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=1&pageSize=1&orderByColumn=userId&isAsc=asc",
+    "actor": "newB",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "total": 2,
+    "rows": [
+      {
+        "userId": 109,
+        "userName": "t641029090636a",
+        "deptId": 201,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "message": "查询成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:08:17.682+08:00",
+    "finished_at": "2026-10-29T09:08:17.709+08:00",
+    "label": "new_B_after_move_p2",
+    "method": "GET",
+    "path": "/system/user/list?pageNum=2&pageSize=1&orderByColumn=userId&isAsc=asc",
+    "actor": "newB",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "total": 2,
+    "rows": [
+      {
+        "userId": 111,
+        "userName": "t641029090636c",
+        "deptId": 201,
+        "status": "0",
+        "delFlag": "0"
+      }
+    ],
+    "message": "查询成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.484+08:00",
+    "finished_at": "2026-10-29T09:10:15.526+08:00",
+    "label": "logout_oldA",
+    "method": "POST",
+    "path": "/logout",
+    "actor": "oldA",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.536+08:00",
+    "finished_at": "2026-10-29T09:10:15.553+08:00",
+    "label": "token_expired_oldA",
+    "method": "GET",
+    "path": "/getInfo",
+    "actor": "oldA",
+    "http": 200,
+    "business_code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.562+08:00",
+    "finished_at": "2026-10-29T09:10:15.575+08:00",
+    "label": "logout_newB",
+    "method": "POST",
+    "path": "/logout",
+    "actor": "newB",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.585+08:00",
+    "finished_at": "2026-10-29T09:10:15.617+08:00",
+    "label": "token_expired_newB",
+    "method": "GET",
+    "path": "/getInfo",
+    "actor": "newB",
+    "http": 200,
+    "business_code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.664+08:00",
+    "finished_at": "2026-10-29T09:10:15.721+08:00",
+    "label": "cleanup_actor",
+    "method": "DELETE",
+    "path": "/system/user/109",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.755+08:00",
+    "finished_at": "2026-10-29T09:10:15.796+08:00",
+    "label": "cleanup_controlA",
+    "method": "DELETE",
+    "path": "/system/user/110",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.853+08:00",
+    "finished_at": "2026-10-29T09:10:15.903+08:00",
+    "label": "cleanup_controlB",
+    "method": "DELETE",
+    "path": "/system/user/111",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "message": "操作成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.915+08:00",
+    "finished_at": "2026-10-29T09:10:15.926+08:00",
+    "label": "logout_admin",
+    "method": "POST",
+    "path": "/logout",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 200,
+    "expected_business_code": 200,
+    "message": "退出成功",
+    "expected_status_matched": true
+  },
+  {
+    "started_at": "2026-10-29T09:10:15.938+08:00",
+    "finished_at": "2026-10-29T09:10:15.963+08:00",
+    "label": "token_expired_admin",
+    "method": "GET",
+    "path": "/getInfo",
+    "actor": "admin",
+    "http": 200,
+    "business_code": 401,
+    "expected_business_code": 401,
+    "message": "请求访问：/getInfo，认证失败，无法访问系统资源",
+    "expected_status_matched": true
+  }
+]

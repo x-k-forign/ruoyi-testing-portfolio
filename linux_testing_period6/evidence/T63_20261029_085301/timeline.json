@@ -1,0 +1,111 @@
+[
+  {
+    "at": "2026-10-29T08:53:07.689991+08:00",
+    "phase": "start_controlled_service",
+    "detail": {
+      "pid": 11105,
+      "argv": [
+        "python3",
+        "-m",
+        "http.server",
+        "18090",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/public"
+      ],
+      "started_at": "2026-10-29T08:53:07.689896+08:00",
+      "start_ticks": "328686"
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.122714+08:00",
+    "phase": "normal_baseline",
+    "detail": {
+      "url": "http://127.0.0.1:18090/index.html?practice_batch=T63_20261029_085301",
+      "exit_code": 0,
+      "http_status": 200,
+      "error_type": null
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.123093+08:00",
+    "phase": "inject_client_wrong_port",
+    "detail": {
+      "before": {
+        "host": "127.0.0.1",
+        "port": 18090,
+        "path": "/index.html?practice_batch=T63_20261029_085301"
+      },
+      "after": {
+        "host": "127.0.0.1",
+        "port": 18091,
+        "path": "/index.html?practice_batch=T63_20261029_085301"
+      },
+      "changed_fields": [
+        "port"
+      ],
+      "nature": "人为Linux连接故障练习"
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.300667+08:00",
+    "phase": "reproduce_connection_failure",
+    "detail": {
+      "url": "http://127.0.0.1:18091/index.html?practice_batch=T63_20261029_085301",
+      "exit_code": 10,
+      "http_status": null,
+      "error_type": "ConnectionRefusedError"
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.345733+08:00",
+    "phase": "diagnose",
+    "detail": {
+      "evidence": "same PID/start ticks/command and correct listener remain; wrong client port has no listener; numeric loopback URL fails before HTTP",
+      "supported_cause": "client port differs from actual service port",
+      "untested": "cross-machine routing, firewall policy, DNS failures, authentication and RuoYi business"
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.346247+08:00",
+    "phase": "targeted_correction",
+    "detail": {
+      "action": "restore client port only",
+      "target": {
+        "host": "127.0.0.1",
+        "port": 18090,
+        "path": "/index.html?practice_batch=T63_20261029_085301"
+      },
+      "service_restarted": false
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.555696+08:00",
+    "phase": "repeat_original_request_after_correction",
+    "detail": {
+      "url": "http://127.0.0.1:18090/index.html?practice_batch=T63_20261029_085301",
+      "exit_code": 0,
+      "http_status": 200,
+      "error_type": null
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.815187+08:00",
+    "phase": "minimal_related_regression",
+    "detail": {
+      "url": "http://127.0.0.1:18090/?practice_batch=T63_20261029_085301",
+      "exit_code": 0,
+      "http_status": 200,
+      "error_type": null
+    }
+  },
+  {
+    "at": "2026-10-29T08:53:08.931793+08:00",
+    "phase": "cleanup",
+    "detail": {
+      "process_exited": true,
+      "ports_no_listener": true
+    }
+  }
+]

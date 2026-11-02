@@ -1,0 +1,82 @@
+{
+  "reviewed_at": "2026-11-02T17:10:59.335+08:00",
+  "method": "read actual saved outputs, bytes and commands; no HTTP replay",
+  "original_execution_date": "2026-10-29",
+  "checks": {
+    "prior_T63_T64_accepted_with_explicit_understanding_limits": true,
+    "T63_accepted_document_and_artifact_hashes": true,
+    "T64_accepted_document_and_log_hashes": true,
+    "T63_only_client_port_changed": true,
+    "T63_failure_before_HTTP": true,
+    "T63_same_process_before_during_after": true,
+    "T63_original_action_repeated_successfully": true,
+    "T63_related_minimal_regression": true,
+    "T63_configuration_restored_and_service_stopped": true,
+    "T63_original_files_protected": true,
+    "T64_real_old_failure_new_control_retained": true,
+    "T64_persistence_and_audit_match": true,
+    "T64_SQL_filter_difference_and_real_source": true,
+    "T64_CLI_failure_counts_unchanged": true,
+    "T64_owned_objects_and_tokens_cleaned_as_recorded": true,
+    "T64_environment_stopped_as_recorded": true,
+    "T64_unrelated_configuration_protected_as_recorded": true,
+    "T64_runtime_root_cause_not_overclaimed": true,
+    "historical_attempt_counts_not_relabelled_business_cases": true
+  },
+  "all_checks_ok": true,
+  "case_A": {
+    "type": "人为Linux连接故障",
+    "supported_cause": "client port18091 differs from service port18090",
+    "targeted_action": "restore client port only; no restart",
+    "original_action_retest": "same client method/path and parameters after correcting target, HTTP200 exact page",
+    "minimal_regression": "root path HTTP200 exact page",
+    "result": "练习恢复成功，随后按计划停止服务",
+    "not_proven": [
+      "cross-machine routing",
+      "all connection-refused causes",
+      "RuoYi business correctness"
+    ]
+  },
+  "case_B": {
+    "type": "真实产品问题BUG-T3-004",
+    "facts": "DB dept201, old A SQL dept200 and IDs110, new B SQL dept201 and IDs109/111",
+    "supported_clue": "session LoginUser/dept information may be stale; static source and actual query filters support investigation",
+    "product_fix_executed": false,
+    "product_retest_after_fix": false,
+    "new_B_is_fix_validation": false,
+    "result": "旧会话失败，缺陷保留未修复；测试对象和环境收尾完成",
+    "not_proven": [
+      "full runtime cache contents",
+      "complete invalidation mechanism",
+      "repair effectiveness"
+    ]
+  },
+  "preserved_failures": [
+    {
+      "case": "T63",
+      "kind": "预设的连接失败",
+      "evidence": "T63_20261029_085301/linux_result.json",
+      "result": "ConnectionRefusedError/111, handled by correcting port"
+    },
+    {
+      "case": "T64",
+      "kind": "真实业务断言失败",
+      "evidence": "T64_20261029_090636/postman_cli.log",
+      "result": "4 of22 assertion executions fail; retain product failure"
+    }
+  ],
+  "preparation_history": [
+    {
+      "source": "T61_20261029_080937/preparation_issues.json",
+      "scope": "mixed encoding, credential-scanner class-name false positive, bind/TIME_WAIT collector mistake; resolved preparation issues, not product defects"
+    },
+    {
+      "source": "T61_20261029_080937/acceptance_correction.json",
+      "scope": "Windows CRLF vs Linux LF corrected with original retained; real byte checks now match"
+    },
+    {
+      "source": "T64_20261029_090636/preparation_issues.json",
+      "scope": "default Postman wrapper startup timeout, same installation succeeds with existing explicit Node path"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18091"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "11105",
+        "-o",
+        "pid=,args="
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "new_practice_process_absent": true,
+  "both_ports_no_listener": true,
+  "original_log_and_page_unchanged": true
+}

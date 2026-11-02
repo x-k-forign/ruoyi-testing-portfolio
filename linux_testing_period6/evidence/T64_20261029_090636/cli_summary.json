@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-29T09:09:46.390+08:00",
+  "installed_version": "1.73.0",
+  "exit_code": 1,
+  "stats": {
+    "requests": {
+      "total": 3,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 22,
+      "failed": 4
+    }
+  },
+  "collection_sha256": "4256a1efa75f0218638970172e8f6f4b128099c84ce4bc9a3cf1b6aa0c752c63",
+  "report_events": false,
+  "bail": false,
+  "note": "Known business-rule failures deliberately preserved; new-session control continues. CLI request failures and assertion failures are distinct."
+}

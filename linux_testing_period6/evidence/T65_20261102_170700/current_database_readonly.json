@@ -1,0 +1,163 @@
+{
+  "started_at": "2026-11-02T17:11:01.244+08:00",
+  "database": "ruoyi_t3_fault_lab",
+  "mode": "START TRANSACTION READ ONLY; SELECT only; ROLLBACK then close",
+  "new_business_requests": 0,
+  "queries": [
+    {
+      "at": "2026-11-02T17:11:01.284+08:00",
+      "label": "environment",
+      "sql": "SELECT DATABASE() AS database_name,VERSION() AS version,NOW() AS database_local_time,TIMESTAMPDIFF(MINUTE,UTC_TIMESTAMP(),NOW()) AS utc_offset_minutes",
+      "parameters": null,
+      "rows": [
+        {
+          "database_name": "ruoyi_t3_fault_lab",
+          "version": "8.4.11",
+          "database_local_time": "2026-11-02 17:11:01",
+          "utc_offset_minutes": 480
+        }
+      ]
+    },
+    {
+      "at": "2026-11-02T17:11:01.298+08:00",
+      "label": "owned_users",
+      "sql": "SELECT user_id,user_name,dept_id,status,del_flag,remark FROM sys_user WHERE user_id IN(109,110,111) ORDER BY user_id",
+      "parameters": null,
+      "rows": [
+        {
+          "user_id": 109,
+          "user_name": "t641029090636a",
+          "dept_id": 201,
+          "status": "0",
+          "del_flag": "2",
+          "remark": "T64_20261029_090636"
+        },
+        {
+          "user_id": 110,
+          "user_name": "t641029090636b",
+          "dept_id": 200,
+          "status": "0",
+          "del_flag": "2",
+          "remark": "T64_20261029_090636"
+        },
+        {
+          "user_id": 111,
+          "user_name": "t641029090636c",
+          "dept_id": 201,
+          "status": "0",
+          "del_flag": "2",
+          "remark": "T64_20261029_090636"
+        }
+      ]
+    },
+    {
+      "at": "2026-11-02T17:11:01.306+08:00",
+      "label": "roles_empty",
+      "sql": "SELECT user_id,role_id FROM sys_user_role WHERE user_id IN(109,110,111) ORDER BY user_id,role_id",
+      "parameters": null,
+      "rows": []
+    },
+    {
+      "at": "2026-11-02T17:11:01.314+08:00",
+      "label": "posts_empty",
+      "sql": "SELECT user_id,post_id FROM sys_user_post WHERE user_id IN(109,110,111) ORDER BY user_id,post_id",
+      "parameters": null,
+      "rows": []
+    },
+    {
+      "at": "2026-11-02T17:11:01.333+08:00",
+      "label": "audit_129",
+      "sql": "SELECT oper_id,oper_name,oper_url,request_method,status,oper_time,oper_param FROM sys_oper_log WHERE oper_id=129",
+      "parameters": null,
+      "rows": [
+        {
+          "oper_id": 129,
+          "oper_name": "admin",
+          "oper_url": "/system/user",
+          "request_method": "PUT",
+          "status": 0,
+          "oper_time": "2026-10-29 09:08:12",
+          "target": {
+            "userId": 109,
+            "userName": "t641029090636a",
+            "deptId": 201,
+            "roleIds": [
+              100
+            ],
+            "postIds": [
+              1
+            ],
+            "status": "0",
+            "remark": "T64_20261029_090636"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-11-02T17:11:01.343+08:00",
+      "label": "baseline_depts",
+      "sql": "SELECT dept_id,parent_id,status,del_flag FROM sys_dept WHERE dept_id IN(200,201) ORDER BY dept_id",
+      "parameters": null,
+      "rows": [
+        {
+          "dept_id": 200,
+          "parent_id": 100,
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "dept_id": 201,
+          "parent_id": 100,
+          "status": "0",
+          "del_flag": "0"
+        }
+      ]
+    },
+    {
+      "at": "2026-11-02T17:11:01.352+08:00",
+      "label": "baseline_roles",
+      "sql": "SELECT role_id,data_scope,status,del_flag FROM sys_role WHERE role_id IN(100,101) ORDER BY role_id",
+      "parameters": null,
+      "rows": [
+        {
+          "role_id": 100,
+          "data_scope": "3",
+          "status": "0",
+          "del_flag": "0"
+        },
+        {
+          "role_id": 101,
+          "data_scope": "3",
+          "status": "0",
+          "del_flag": "0"
+        }
+      ]
+    },
+    {
+      "at": "2026-11-02T17:11:01.361+08:00",
+      "label": "baseline_post",
+      "sql": "SELECT post_id,status FROM sys_post WHERE post_id=1",
+      "parameters": null,
+      "rows": [
+        {
+          "post_id": 1,
+          "status": "0"
+        }
+      ]
+    }
+  ],
+  "transaction_ended": true,
+  "connection_closed": true,
+  "checks": {
+    "exact_owned_users_still_logically_deleted": true,
+    "role_associations_empty": true,
+    "post_associations_empty": true,
+    "move_audit_retained": true,
+    "baseline_departments_present": true,
+    "baseline_roles_present": true,
+    "baseline_post_present": true
+  },
+  "status": "completed",
+  "all_checks_ok": true,
+  "finished_at": "2026-11-02T17:11:01.362+08:00"
+}

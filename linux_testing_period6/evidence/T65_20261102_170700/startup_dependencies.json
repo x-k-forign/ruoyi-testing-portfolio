@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-02T17:07:02.602534+08:00",
+  "shared_Redis": {
+    "redis_version": "7.0.15",
+    "run_id": "f5ad2d449cf489cf9bb13112dd59e83964cc73c9",
+    "process_id": "1239",
+    "tcp_port": "6379"
+  },
+  "Redis_authenticated_PING": "PONG",
+  "MySQL_readonly": {
+    "database_name": "ruoyi_t2_lab",
+    "server_version": "8.4.11",
+    "database_local_time": "2026-11-02 17:07:02"
+  },
+  "credentials_exported": false
+}

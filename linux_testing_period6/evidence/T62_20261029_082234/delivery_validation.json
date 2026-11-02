@@ -1,0 +1,28 @@
+{
+  "completed_at": "2026-10-29T08:22:35.818010+08:00",
+  "checks": {
+    "source_hash_matches_T61": true,
+    "limited_find_and_relative_absolute_paths": true,
+    "permissions_and_metadata_read": true,
+    "four_matching_lines_two_events": true,
+    "context_and_time_index_saved": true,
+    "two_full_event_files": true,
+    "both_stacks_146_frames": true,
+    "exit_code_0_1_2_demonstrated": true,
+    "permission_demo_restored": true,
+    "pipeline_status_distinguished": true,
+    "original_source_unchanged": true,
+    "no_http_service_start": true,
+    "shared_redis_process_observed_unchanged": true
+  },
+  "all_checks_ok": true,
+  "artifact_hashes": {
+    "event_index.txt": "b614179ba9bc473726edf0e145e39dfdb355ad3d1d7f6ee1c6843b39f23d1434",
+    "insert_event.log": "c0fb31b1c5b47efc54f8ebc6a31be224a7b0b4026629ccf2e3c15c1ed02de974",
+    "permission_demo.txt": "c72d87a72aec2e4745f62439848486c04a0bfba9ee077da221b83355bdbc01a7",
+    "update_event.log": "7076701a73892f903bbd9f94d7b8ecfc1f5aa6a514e5df3a8661da1737561c79"
+  },
+  "acceptance_status": "执行完成待验收；尚未确认理解",
+  "new_business_test_cases": 0,
+  "new_product_defects": 0
+}

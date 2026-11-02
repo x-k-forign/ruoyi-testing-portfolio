@@ -1,0 +1,31 @@
+{
+  "started_at": "2026-10-29T09:08:17.631+08:00",
+  "finished_at": "2026-10-29T09:08:17.869+08:00",
+  "actor_session": "newB",
+  "page_size": 1,
+  "page_count": 2,
+  "ids": [
+    109,
+    111
+  ],
+  "rows": [
+    {
+      "userId": 109,
+      "userName": "t641029090636a",
+      "deptId": 201,
+      "status": "0",
+      "delFlag": "0"
+    },
+    {
+      "userId": 111,
+      "userName": "t641029090636c",
+      "deptId": 201,
+      "status": "0",
+      "delFlag": "0"
+    }
+  ],
+  "application_stdout_byte_range": [
+    34824,
+    37174
+  ]
+}

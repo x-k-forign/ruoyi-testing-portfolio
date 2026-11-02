@@ -1,0 +1,49 @@
+{
+  "linux_dir": "/home/wx-xue/linux_practice/t61_20261029_080937/t64_20261029_090636",
+  "sha256": "4fd866bb05932d768d392657ecb4596b41a35a72f1b1bfbacb25642660eddb95",
+  "commands": [
+    {
+      "argv": [
+        "stat",
+        "-c",
+        "%U %G %a %s %n",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t64_20261029_090636/ruoyi_t64_queries.log"
+      ],
+      "exit_code": 0,
+      "stdout": "wx-xue wx-xue 640 3919 /home/wx-xue/linux_practice/t61_20261029_080937/t64_20261029_090636/ruoyi_t64_queries.log\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sha256sum",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t64_20261029_090636/ruoyi_t64_queries.log"
+      ],
+      "exit_code": 0,
+      "stdout": "4fd866bb05932d768d392657ecb4596b41a35a72f1b1bfbacb25642660eddb95  /home/wx-xue/linux_practice/t61_20261029_080937/t64_20261029_090636/ruoyi_t64_queries.log\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "grep",
+        "-nE",
+        "--",
+        "selectUserList|dept_id",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t64_20261029_090636/ruoyi_t64_queries.log"
+      ],
+      "exit_code": 0,
+      "stdout": "4:09:08:12.483 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 200)\n5:09:08:12.484 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: \n6:09:08:12.486 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1\n7:09:08:12.489 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 200) order by user_id asc LIMIT ?\n8:09:08:12.489 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Integer)\n9:09:08:12.491 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1\n12:09:08:17.663 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201)\n13:09:08:17.664 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: \n14:09:08:17.665 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1\n15:09:08:17.666 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201) order by user_id asc LIMIT ?\n16:09:08:17.668 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Integer)\n17:09:08:17.671 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1\n18:09:08:17.700 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201)\n19:09:08:17.700 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: \n20:09:08:17.702 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1\n21:09:08:17.704 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201) order by user_id asc LIMIT ?, ?\n22:09:08:17.705 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Long), 1(Integer)\n23:09:08:17.706 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ss",
+        "-ltn",
+        "sport = :16379"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    }
+  ],
+  "isolated_remote_Redis_port_stopped": true
+}

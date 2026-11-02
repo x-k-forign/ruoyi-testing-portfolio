@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-29T09:13:47.935+08:00",
+  "removed_batch_private_files": [
+    "admin_captcha.png",
+    "newB_captcha.png",
+    "oldA_captcha.png",
+    "postman.env.json",
+    "postman_raw.log"
+  ],
+  "runtime_tokens_and_test_password_cleared": true,
+  "long_lived_connection_credentials": "retained only in original isolated .private configs; not exported"
+}

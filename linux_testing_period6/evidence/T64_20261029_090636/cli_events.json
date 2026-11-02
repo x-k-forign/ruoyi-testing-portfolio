@@ -1,0 +1,38 @@
+[
+  {
+    "session": "oldA",
+    "page": 1,
+    "total": 1,
+    "ids": [
+      110
+    ],
+    "deptIds": [
+      200
+    ],
+    "code": 200
+  },
+  {
+    "session": "newB",
+    "page": 1,
+    "total": 2,
+    "ids": [
+      109
+    ],
+    "deptIds": [
+      201
+    ],
+    "code": 200
+  },
+  {
+    "session": "newB",
+    "page": 2,
+    "total": 2,
+    "ids": [
+      111
+    ],
+    "deptIds": [
+      201
+    ],
+    "code": 200
+  }
+]

@@ -1,0 +1,493 @@
+[
+  {
+    "at": "2026-10-29T09:06:39.728+08:00",
+    "label": "environment",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT DATABASE() db,VERSION() version,NOW() local_time,TIMESTAMPDIFF(MINUTE,UTC_TIMESTAMP(),NOW()) utc_offset_minutes",
+    "parameters": null,
+    "rows": [
+      {
+        "db": "ruoyi_t3_fault_lab",
+        "version": "8.4.11",
+        "local_time": "2026-10-29 09:06:39",
+        "utc_offset_minutes": 480
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:06:39.786+08:00",
+    "label": "baseline_departments",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT dept_id,parent_id,ancestors,status,del_flag FROM sys_dept WHERE dept_id IN(200,201) ORDER BY dept_id",
+    "parameters": null,
+    "rows": [
+      {
+        "dept_id": 200,
+        "parent_id": 100,
+        "ancestors": "0,100",
+        "status": "0",
+        "del_flag": "0"
+      },
+      {
+        "dept_id": 201,
+        "parent_id": 100,
+        "ancestors": "0,100",
+        "status": "0",
+        "del_flag": "0"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:06:39.849+08:00",
+    "label": "query_role",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT role_id,role_key,data_scope,status,del_flag FROM sys_role WHERE role_id=100",
+    "parameters": null,
+    "rows": [
+      {
+        "role_id": 100,
+        "role_key": "t55_queryRole",
+        "data_scope": "3",
+        "status": "0",
+        "del_flag": "0"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:06:39.917+08:00",
+    "label": "query_permissions",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT m.perms FROM sys_role_menu rm JOIN sys_menu m ON m.menu_id=rm.menu_id WHERE rm.role_id=100",
+    "parameters": null,
+    "rows": [
+      {
+        "perms": ""
+      },
+      {
+        "perms": "system:user:list"
+      },
+      {
+        "perms": "system:user:query"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:04.568+08:00",
+    "label": "created_actor",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,dept_id,status,del_flag,remark FROM sys_user WHERE user_name=%s",
+    "parameters": [
+      "t641029090636a"
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "user_name": "t641029090636a",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "0",
+        "remark": "T64_20261029_090636"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:04.788+08:00",
+    "label": "created_controlA",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,dept_id,status,del_flag,remark FROM sys_user WHERE user_name=%s",
+    "parameters": [
+      "t641029090636b"
+    ],
+    "rows": [
+      {
+        "user_id": 110,
+        "user_name": "t641029090636b",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "0",
+        "remark": "T64_20261029_090636"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:05.010+08:00",
+    "label": "created_controlB",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,dept_id,status,del_flag,remark FROM sys_user WHERE user_name=%s",
+    "parameters": [
+      "t641029090636c"
+    ],
+    "rows": [
+      {
+        "user_id": 111,
+        "user_name": "t641029090636c",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "0",
+        "remark": "T64_20261029_090636"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:11.160+08:00",
+    "label": "before_move_user",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,nick_name,dept_id,status,del_flag,sex,remark FROM sys_user WHERE user_id=%s",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "user_name": "t641029090636a",
+        "nick_name": "T64_actor",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "0",
+        "sex": "2",
+        "remark": "T64_20261029_090636"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:11.219+08:00",
+    "label": "before_move_roles",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,role_id FROM sys_user_role WHERE user_id=%s ORDER BY role_id",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "role_id": 100
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:11.268+08:00",
+    "label": "before_move_posts",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,post_id FROM sys_user_post WHERE user_id=%s ORDER BY post_id",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "post_id": 1
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:11.700+08:00",
+    "label": "expected_before_move",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user WHERE del_flag='0' AND dept_id=200 ORDER BY user_id",
+    "parameters": null,
+    "rows": [
+      {
+        "user_id": 109
+      },
+      {
+        "user_id": 110
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.052+08:00",
+    "label": "move_before_user",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,nick_name,dept_id,status,del_flag,sex,remark FROM sys_user WHERE user_id=%s",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "user_name": "t641029090636a",
+        "nick_name": "T64_actor",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "0",
+        "sex": "2",
+        "remark": "T64_20261029_090636"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.104+08:00",
+    "label": "move_before_roles",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,role_id FROM sys_user_role WHERE user_id=%s ORDER BY role_id",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "role_id": 100
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.149+08:00",
+    "label": "move_before_posts",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,post_id FROM sys_user_post WHERE user_id=%s ORDER BY post_id",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "post_id": 1
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.281+08:00",
+    "label": "move_after_user",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,nick_name,dept_id,status,del_flag,sex,remark FROM sys_user WHERE user_id=%s",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "user_name": "t641029090636a",
+        "nick_name": "T64_actor",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "0",
+        "sex": "2",
+        "remark": "T64_20261029_090636"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.324+08:00",
+    "label": "move_after_roles",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,role_id FROM sys_user_role WHERE user_id=%s ORDER BY role_id",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "role_id": 100
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.375+08:00",
+    "label": "move_after_posts",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,post_id FROM sys_user_post WHERE user_id=%s ORDER BY post_id",
+    "parameters": [
+      109
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "post_id": 1
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.404+08:00",
+    "label": "expected_new_department",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,dept_id FROM sys_user WHERE del_flag='0' AND dept_id=201 ORDER BY user_id",
+    "parameters": null,
+    "rows": [
+      {
+        "user_id": 109,
+        "user_name": "t641029090636a",
+        "dept_id": 201
+      },
+      {
+        "user_id": 111,
+        "user_name": "t641029090636c",
+        "dept_id": 201
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:12.455+08:00",
+    "label": "expected_old_department",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,dept_id FROM sys_user WHERE del_flag='0' AND dept_id=200 ORDER BY user_id",
+    "parameters": null,
+    "rows": [
+      {
+        "user_id": 110,
+        "user_name": "t641029090636b",
+        "dept_id": 200
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:08:17.927+08:00",
+    "label": "expected_after_new_B",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user WHERE del_flag='0' AND dept_id=201 ORDER BY user_id",
+    "parameters": null,
+    "rows": [
+      {
+        "user_id": 109
+      },
+      {
+        "user_id": 111
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:09:38.302+08:00",
+    "label": "CLI_expected_new_department",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,dept_id FROM sys_user WHERE del_flag='0' AND dept_id=201 ORDER BY user_id",
+    "parameters": null,
+    "rows": [
+      {
+        "user_id": 109,
+        "dept_id": 201
+      },
+      {
+        "user_id": 111,
+        "dept_id": 201
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:10:15.088+08:00",
+    "label": "login_audit",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT info_id,user_name,status,msg,login_time FROM sys_logininfor WHERE info_id>%s ORDER BY info_id",
+    "parameters": [
+      115
+    ],
+    "rows": [
+      {
+        "info_id": 116,
+        "user_name": "admin",
+        "status": "0",
+        "msg": "登录成功",
+        "login_time": "2026-10-29 09:08:03"
+      },
+      {
+        "info_id": 117,
+        "user_name": "t641029090636a",
+        "status": "0",
+        "msg": "登录成功",
+        "login_time": "2026-10-29 09:08:10"
+      },
+      {
+        "info_id": 118,
+        "user_name": "t641029090636a",
+        "status": "0",
+        "msg": "登录成功",
+        "login_time": "2026-10-29 09:08:17"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:10:16.015+08:00",
+    "label": "cleanup_users",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id,user_name,dept_id,status,del_flag,remark FROM sys_user WHERE user_id IN(%s,%s,%s) ORDER BY user_id",
+    "parameters": [
+      109,
+      110,
+      111
+    ],
+    "rows": [
+      {
+        "user_id": 109,
+        "user_name": "t641029090636a",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "2",
+        "remark": "T64_20261029_090636"
+      },
+      {
+        "user_id": 110,
+        "user_name": "t641029090636b",
+        "dept_id": 200,
+        "status": "0",
+        "del_flag": "2",
+        "remark": "T64_20261029_090636"
+      },
+      {
+        "user_id": 111,
+        "user_name": "t641029090636c",
+        "dept_id": 201,
+        "status": "0",
+        "del_flag": "2",
+        "remark": "T64_20261029_090636"
+      }
+    ]
+  },
+  {
+    "at": "2026-10-29T09:10:16.043+08:00",
+    "label": "cleanup_roles_109",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user_role WHERE user_id=%s",
+    "parameters": [
+      109
+    ],
+    "rows": []
+  },
+  {
+    "at": "2026-10-29T09:10:16.093+08:00",
+    "label": "cleanup_posts_109",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user_post WHERE user_id=%s",
+    "parameters": [
+      109
+    ],
+    "rows": []
+  },
+  {
+    "at": "2026-10-29T09:10:16.142+08:00",
+    "label": "cleanup_roles_110",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user_role WHERE user_id=%s",
+    "parameters": [
+      110
+    ],
+    "rows": []
+  },
+  {
+    "at": "2026-10-29T09:10:16.188+08:00",
+    "label": "cleanup_posts_110",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user_post WHERE user_id=%s",
+    "parameters": [
+      110
+    ],
+    "rows": []
+  },
+  {
+    "at": "2026-10-29T09:10:16.233+08:00",
+    "label": "cleanup_roles_111",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user_role WHERE user_id=%s",
+    "parameters": [
+      111
+    ],
+    "rows": []
+  },
+  {
+    "at": "2026-10-29T09:10:16.284+08:00",
+    "label": "cleanup_posts_111",
+    "database": "ruoyi_t3_fault_lab",
+    "sql": "SELECT user_id FROM sys_user_post WHERE user_id=%s",
+    "parameters": [
+      111
+    ],
+    "rows": []
+  }
+]

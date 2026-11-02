@@ -1,0 +1,154 @@
+{
+  "at": "2026-11-02T17:11:01.369+08:00",
+  "target": {
+    "host": "192.168.192.10",
+    "port": 22
+  },
+  "mode": "SSH read-only; no service start/stop or file writes",
+  "status": "completed",
+  "commands": [
+    {
+      "at": "2026-11-02T17:11:02.494747+08:00",
+      "argv": [
+        "date",
+        "-Is"
+      ],
+      "exit_code": 0,
+      "stdout": "2026-11-02T17:11:02+08:00\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T17:11:02.503525+08:00",
+      "argv": [
+        "hostname"
+      ],
+      "exit_code": 0,
+      "stdout": "Linux01\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T17:11:02.510659+08:00",
+      "argv": [
+        "id"
+      ],
+      "exit_code": 0,
+      "stdout": "uid=1000(wx-xue) gid=1000(wx-xue) 组=1000(wx-xue),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin),123(lxd)\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T17:11:02.603289+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T17:11:02.621577+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18091"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T17:11:02.644964+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :16379"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T17:11:02.694367+08:00",
+      "argv": [
+        "ps",
+        "-C",
+        "redis-server",
+        "-o",
+        "pid=,user=,lstart=,comm="
+      ],
+      "exit_code": 0,
+      "stdout": "   1239 redis    一 11月  2 16:56:35 2026 redis-server\n",
+      "stderr": ""
+    }
+  ],
+  "files": [
+    {
+      "path": "/home/wx-xue/linux_practice/t61_20261029_080937/public/index.html",
+      "sha256": "81406baae1ca67feae8faf31b808bd9dec804a23254fa86eed5620a8bbaf590c",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 159,
+      "mtime_ns": 1793232632586257690,
+      "matches_recorded_hash_and_permission": true
+    },
+    {
+      "path": "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log",
+      "sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 31535,
+      "mtime_ns": 1793232632584679297,
+      "matches_recorded_hash_and_permission": true
+    },
+    {
+      "path": "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/client_target.json",
+      "sha256": "cc554647fd73dc5bf9e7d8c6cf17b2306b7340654b44ad5ee2ad31d8a0f4ea21",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 103,
+      "mtime_ns": 1793235188879592951,
+      "matches_recorded_hash_and_permission": true
+    },
+    {
+      "path": "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/http_server.log",
+      "sha256": "3e057ca84a9385c95adee5fa07294b78410812f268650dea75d3c34b61fc66a2",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 305,
+      "mtime_ns": 1793235188786955175,
+      "matches_recorded_hash_and_permission": true
+    },
+    {
+      "path": "/home/wx-xue/linux_practice/t61_20261029_080937/t64_20261029_090636/ruoyi_t64_queries.log",
+      "sha256": "4fd866bb05932d768d392657ecb4596b41a35a72f1b1bfbacb25642660eddb95",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 3919,
+      "mtime_ns": 1793236222309009433,
+      "matches_recorded_hash_and_permission": true
+    },
+    {
+      "path": "/home/wx-xue/linux_practice/t61_20261029_080937/t62_20261029_082234/permission_demo.txt",
+      "sha256": "c72d87a72aec2e4745f62439848486c04a0bfba9ee077da221b83355bdbc01a7",
+      "mode": "0o640",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 67,
+      "mtime_ns": 1793233355845928287,
+      "matches_recorded_hash_and_permission": true
+    }
+  ],
+  "checks": {
+    "HTTP_practice_ports_no_listener": true,
+    "isolated_Redis_port_no_listener": true,
+    "six_retained_artifacts_match_recorded_hash_and_mode": true
+  },
+  "all_checks_ok": true,
+  "note": "Current file/port observations only; old PIDs are not reused for stop commands and no old business requests replayed"
+}

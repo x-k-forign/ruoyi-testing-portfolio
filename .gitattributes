@@ -7,3 +7,7 @@ api_testing_period4/evidence_t4/**/*.log -whitespace
 # T5 SQL, collections, documents and evidence retain their recorded byte hashes.
 database_testing_period5/** -text whitespace=cr-at-eol
 database_testing_period5/evidence/** -whitespace
+
+# T6 evidence and accepted documents retain their recorded byte hashes.
+linux_testing_period6/** -text whitespace=cr-at-eol
+linux_testing_period6/evidence/** -whitespace

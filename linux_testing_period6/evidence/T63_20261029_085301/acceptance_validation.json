@@ -1,0 +1,64 @@
+{
+  "accepted_at": "2026-10-29T09:01:40.096686+08:00",
+  "conclusion": "T6.3按约定方式验收通过",
+  "method": "自动化执行成果核对、原理说明与用户理解确认；不作为个人独立作答证明",
+  "user_confirmation": "T6.3的几个关键点我理解了，帮我验收一下，通过后告诉我T6.4具体要做什么，先不要执行。",
+  "criteria": [
+    {
+      "item": "正常服务基线与分层证据",
+      "result": "通过"
+    },
+    {
+      "item": "可逆连接故障闭环",
+      "result": "通过"
+    },
+    {
+      "item": "判断边界、隔离与恢复",
+      "result": "通过"
+    },
+    {
+      "item": "原理说明与理解确认",
+      "result": "通过（按约定方式）"
+    }
+  ],
+  "checks": {
+    "all_17_delivery_checks": true,
+    "three_local_artifacts_match_Linux_bytes": true,
+    "baseline_HTTP_status_and_exact_file_content": true,
+    "PID_command_same_across_fault_and_recovery": true,
+    "loopback_listener_owned_by_same_PID": true,
+    "only_client_port_changed": true,
+    "wrong_port_not_listening_during_failure": true,
+    "failure_is_TCP_refusal_without_HTTP": true,
+    "recovery_repeats_identical_request": true,
+    "minimal_related_regression": true,
+    "client_configuration_restored": true,
+    "practice_process_stopped_and_ports_released": true,
+    "original_log_and_public_page_protected": true,
+    "shared_Redis_observation_unchanged": true,
+    "Windows_observation_unchanged": true,
+    "all_command_exit_codes_match_design": true,
+    "fault_URL_differs_only_in_port": true,
+    "four_attempts_three_HTTP_access_entries": true,
+    "complete_ordered_fault_timeline": true
+  },
+  "all_checks_ok": true,
+  "runtime_operations_during_acceptance": false,
+  "historical_delivery_json_preserved": true,
+  "outline_only_T63_changed": true,
+  "T64_executed": false,
+  "github_commit_or_push": false,
+  "artifact_hashes": {
+    "docs/T6.3_执行记录.md": "5425676daaf1803b9dfb01825eb6864b9e07d90ec89a0f4ae6357777bd510cd7",
+    "若依软件测试学习大纲.md": "0671cbdc7d65006afc32449e563f09ba7dc218c7271d72a057c87b373b7f86a9",
+    "client_target.json": "cc554647fd73dc5bf9e7d8c6cf17b2306b7340654b44ad5ee2ad31d8a0f4ea21",
+    "http_probe.py": "cb9fb055232a67acb35f6ebc16c6531324706aba0f3d5a7e141ff03ce456fbaa",
+    "http_server.log": "3e057ca84a9385c95adee5fa07294b78410812f268650dea75d3c34b61fc66a2"
+  },
+  "limits": [
+    "不是整个T6验收",
+    "未评估个人独立操作或独立回答",
+    "未开始T6.4若依业务跨层调查",
+    "已知产品缺陷与选学状态未变"
+  ]
+}

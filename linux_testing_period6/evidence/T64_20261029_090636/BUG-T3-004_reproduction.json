@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-29T09:08:17.928+08:00",
+  "known_defect": "BUG-T3-004",
+  "expected_rule": "调部门保存后旧、新会话均采用新部门范围",
+  "actor_id": 109,
+  "from_dept": 200,
+  "to_dept": 201,
+  "expected_ids": [
+    109,
+    111
+  ],
+  "old_A_ids": [
+    110
+  ],
+  "new_B_ids": [
+    109,
+    111
+  ],
+  "old_A_passed": false,
+  "new_B_passed": true,
+  "reproduced": true,
+  "changed_request_field": "deptId only; role/post/basic fields preserved",
+  "old_A_identity_refresh_after_change": false,
+  "status": "未修复；本批新增复现证据，不改历史次数"
+}

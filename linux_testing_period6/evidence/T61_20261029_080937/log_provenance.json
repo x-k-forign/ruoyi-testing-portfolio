@@ -1,0 +1,53 @@
+{
+  "exported_at": "2026-10-29T08:10:31.569179+08:00",
+  "source_host": "Windows host",
+  "application": "RuoYi T5.5 isolated backend 127.0.0.1:18080",
+  "original_event_date": "2026-10-28",
+  "original_timezone": "Asia/Shanghai (UTC+08:00)",
+  "date_timezone_basis": "database_testing_period5/docs/T5.5_执行说明.md and T55_20261028 archived case evidence; text log timestamps contain time-of-day only",
+  "sources": [
+    {
+      "source_relative_to_project": "sources/independence_enviroment/logs/insert.stdout.log",
+      "source_sha256": "47aaf011145c90054d868cef6c58741e1d712412010fc8813ba925bdd4881499",
+      "source_bytes": 24879,
+      "original_line_start": 82,
+      "original_line_end": 230,
+      "exception_line": 84,
+      "stack_lines": 146,
+      "decoding_counts_whole_file": {
+        "utf8": 228,
+        "gb18030_fallback": 5
+      },
+      "time_first": "08:47:05.711",
+      "time_last_timestamped_line": "08:47:05.749"
+    },
+    {
+      "source_relative_to_project": "sources/independence_enviroment/logs/update.stdout.log",
+      "source_sha256": "5d58199bea05f1fbff1e8b631565672ecf8b7553267f77df8b04137bea04bc8b",
+      "source_bytes": 25610,
+      "original_line_start": 88,
+      "original_line_end": 236,
+      "exception_line": 90,
+      "stack_lines": 146,
+      "decoding_counts_whole_file": {
+        "utf8": 234,
+        "gb18030_fallback": 5
+      },
+      "time_first": "08:47:43.525",
+      "time_last_timestamped_line": "08:47:43.551"
+    }
+  ],
+  "output_encoding": "UTF-8 LF",
+  "selection": "two fault events: LogAspect line + GlobalExceptionHandler line + exception header + all 146 contiguous stack frames each",
+  "redaction_policy": "field allowlist by exact event block; excludes request bodies, SQL/audit parameter output and private configs; scans known private password/secret/token values and common credential patterns",
+  "added_comments": "lines beginning # identify offline source and range",
+  "offline": true,
+  "not_proven": [
+    "current service health",
+    "new T6 fault reproduction",
+    "Linux RuoYi deployment",
+    "database rollback by text log alone"
+  ],
+  "excerpt_sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+  "excerpt_lines": 306
+}

@@ -1,0 +1,89 @@
+{
+  "accepted_at": "2026-11-02T17:31:13.622602+08:00",
+  "conclusion": "T6.5整体验收通过（按项目既定辅助方式）",
+  "scope": "T6.5 only; not overall T6 acceptance",
+  "user_request": "请开始T6.5的整体验收",
+  "method": "自动化执行成果核对、原理说明及已确认的同主题理解；不认定个人独立作答",
+  "understanding_basis": [
+    {
+      "source": "T63_20261029_085301/acceptance_validation.json",
+      "user_confirmation": "T6.3的几个关键点我理解了，帮我验收一下，通过后告诉我T6.4具体要做什么，先不要执行。",
+      "coverage": "同一因素对照、分层可用性、恢复后原操作重做及收尾区别"
+    },
+    {
+      "source": "T64_20261029_090636/acceptance_validation.json",
+      "user_confirmation": "T6.4的几个关键点我理解了，帮我验收一下，通过后告诉我T6.5具体要做什么，先不要执行。",
+      "coverage": "根因线索与完整证明、环境清理与产品修复区别、失败必须保留"
+    }
+  ],
+  "new_T65_understanding_statement_invented": false,
+  "independent_answers_recorded": false,
+  "criteria": [
+    {
+      "item": "排查记录与判断可追踪",
+      "result": "通过"
+    },
+    {
+      "item": "针对性处理、原操作复验和最小回归",
+      "result": "通过"
+    },
+    {
+      "item": "恢复范围、资料与共用资源保护",
+      "result": "通过"
+    },
+    {
+      "item": "原理说明及同主题理解确认",
+      "result": "通过（按既定辅助方式）"
+    }
+  ],
+  "checks": {
+    "original_16_delivery_checks": true,
+    "original_report_bytes_match_delivery_and_final_check": true,
+    "historical_19_crosschecks": true,
+    "all_63_existing_sources_still_match_manifest": true,
+    "25_indexed_sources_exist_and_match": true,
+    "case_types_and_dates_distinguished": true,
+    "T63_single_factor_and_failure_before_HTTP": true,
+    "T63_same_process_and_targeted_correction": true,
+    "T63_original_action_retest_and_minimal_regression": true,
+    "T63_recovery_and_final_stop_separated": true,
+    "T64_failure_and_positive_control_not_rewritten": true,
+    "T64_CLI_four_failures_retained": true,
+    "T64_product_fix_and_postfix_retest_not_invented": true,
+    "preparation_failures_retained": true,
+    "eight_new_readonly_SQL_queries_and_session_closed": true,
+    "owned_users_associations_and_audit_current_readback": true,
+    "Linux_six_files_hashes_permissions_and_ports": true,
+    "shared_startup_explicit_authorization_and_correct_scope": true,
+    "shared_frontend_backend_proxy_readiness_as_recorded": true,
+    "shared_running_temporary_services_stopped_as_recorded": true,
+    "historical_preservation_status_and_counts_honest": true,
+    "same_topic_understanding_confirmations_available": true,
+    "T65_no_prior_auto_acceptance": true
+  },
+  "all_checks_ok": true,
+  "runtime_operations_during_acceptance": false,
+  "previous_snapshots_preserved": true,
+  "expected_source_changes": [
+    "T6.5报告更新状态并追加验收结论",
+    "大纲仅T6.5四项勾选及辅助验收方式说明"
+  ],
+  "other_62_manifest_sources_unchanged": true,
+  "shared_services_stop_requested_or_performed": false,
+  "overall_T6_acceptance_performed": false,
+  "T66_status_changed": false,
+  "T7_started": false,
+  "GitHub_commit_push_sync": false,
+  "product_result_unchanged": {
+    "BUG-T3-004": "未修复；旧A失败、新B对照通过",
+    "T64_assertions_failed": 4,
+    "other_known_defects": "未关闭"
+  },
+  "artifact_hashes": {
+    "docs/T6.5_排查与恢复记录.md": "79f88da00ea964a526563b72055c76b66cb1092a3b2b683b7cc1136a18cc9e0c",
+    "若依软件测试学习大纲.md": "03f015a53de105fac6641bf571190d7f6198b5b528888aa27f973b47c76db076",
+    "historical_review.json": "6bab9b965d053cfa9a0d60d817f07de7c065d087fe0cb731fb67b0b880baf130",
+    "source_manifest.json": "0738eb8e0ebf1106902a965bc1c2f630ef2bad549397932002a0a522902a8906",
+    "evidence_index.json": "d7b0fb799502d0b00f478ccac9ee6669183d6a31b5bb4981fdf280e7f239dfdc"
+  }
+}

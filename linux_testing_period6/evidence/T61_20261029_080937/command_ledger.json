@@ -1,0 +1,369 @@
+{
+  "method": "自动化执行",
+  "remote_transport": "Windows OpenSSH; existing private SSH credentials and askpass; strict known-host check",
+  "linux_commands": [
+    {
+      "at": "2026-10-29T08:10:32.424690+08:00",
+      "argv": [
+        "ps",
+        "-C",
+        "redis-server",
+        "-o",
+        "pid=,user=,lstart=,comm="
+      ],
+      "exit_code": 0,
+      "stdout": "   1150 redis    四 10月 29 07:58:52 2026 redis-server\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.433483+08:00",
+      "argv": [
+        "ss",
+        "-ltn"
+      ],
+      "exit_code": 0,
+      "stdout": "State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      128         127.0.0.1:6010      0.0.0.0:*          \nLISTEN 0      4096       127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      4096          0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      4096        127.0.0.1:631       0.0.0.0:*          \nLISTEN 0      511    192.168.192.10:6379      0.0.0.0:*          \nLISTEN 0      511         127.0.0.1:6379      0.0.0.0:*          \nLISTEN 0      128             [::1]:6010         [::]:*          \nLISTEN 0      4096             [::]:22           [::]:*          \nLISTEN 0      4096            [::1]:631          [::]:*          \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.438576+08:00",
+      "argv": [
+        "cat",
+        "/etc/os-release"
+      ],
+      "exit_code": 0,
+      "stdout": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.443648+08:00",
+      "argv": [
+        "uname",
+        "-r"
+      ],
+      "exit_code": 0,
+      "stdout": "7.0.0-38-generic\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.447578+08:00",
+      "argv": [
+        "hostname"
+      ],
+      "exit_code": 0,
+      "stdout": "Linux01\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.453502+08:00",
+      "argv": [
+        "id"
+      ],
+      "exit_code": 0,
+      "stdout": "uid=1000(wx-xue) gid=1000(wx-xue) 组=1000(wx-xue),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin),123(lxd)\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.458686+08:00",
+      "argv": [
+        "pwd"
+      ],
+      "exit_code": 0,
+      "stdout": "/home/wx-xue\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.464368+08:00",
+      "argv": [
+        "date",
+        "-Is"
+      ],
+      "exit_code": 0,
+      "stdout": "2026-10-29T08:10:32+08:00\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.469714+08:00",
+      "argv": [
+        "ip",
+        "-br",
+        "addr"
+      ],
+      "exit_code": 0,
+      "stdout": "lo               UNKNOWN        127.0.0.1/8 ::1/128 \nens33            UP             192.168.192.10/24 \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.475073+08:00",
+      "argv": [
+        "ip",
+        "route"
+      ],
+      "exit_code": 0,
+      "stdout": "default via 192.168.192.2 dev ens33 proto static metric 100 \n192.168.192.0/24 dev ens33 proto kernel scope link src 192.168.192.10 metric 100 \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.504711+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "ps -p $$ -o pid=,comm="
+      ],
+      "exit_code": 0,
+      "stdout": "  10601 ps\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.511515+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "command -v redis-server redis-cli python3 curl ss"
+      ],
+      "exit_code": 0,
+      "stdout": "/usr/bin/redis-server\n/usr/bin/redis-cli\n/usr/bin/python3\n/usr/bin/ss\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.515917+08:00",
+      "argv": [
+        "python3",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Python 3.12.3\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.532089+08:00",
+      "argv": [
+        "redis-server",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.548447+08:00",
+      "argv": [
+        "ss",
+        "-ltnp"
+      ],
+      "exit_code": 0,
+      "stdout": "State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      128         127.0.0.1:6010      0.0.0.0:*          \nLISTEN 0      4096       127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      4096          0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      4096        127.0.0.1:631       0.0.0.0:*          \nLISTEN 0      511    192.168.192.10:6379      0.0.0.0:*          \nLISTEN 0      511         127.0.0.1:6379      0.0.0.0:*          \nLISTEN 0      128             [::1]:6010         [::]:*          \nLISTEN 0      4096             [::]:22           [::]:*          \nLISTEN 0      4096            [::1]:631          [::]:*          \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.583161+08:00",
+      "argv": [
+        "dpkg-query",
+        "-W",
+        "-f=${db:Status-Abbrev} ${Version}\n",
+        "curl"
+      ],
+      "exit_code": 0,
+      "stdout": "un  \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.591930+08:00",
+      "argv": [
+        "ls",
+        "-ld",
+        "/home/wx-xue/linux_practice/t61_20261029_080937",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/public"
+      ],
+      "exit_code": 0,
+      "stdout": "drwxr-x--- 4 wx-xue wx-xue 4096 10月 29 08:10 /home/wx-xue/linux_practice/t61_20261029_080937\ndrwxr-x--- 2 wx-xue wx-xue 4096 10月 29 08:09 /home/wx-xue/linux_practice/t61_20261029_080937/logs\ndrwxr-x--- 2 wx-xue wx-xue 4096 10月 29 08:09 /home/wx-xue/linux_practice/t61_20261029_080937/public\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.598163+08:00",
+      "argv": [
+        "ls",
+        "-lh",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "exit_code": 0,
+      "stdout": "-rw-r----- 1 wx-xue wx-xue 31K 10月 29 08:10 /home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.602606+08:00",
+      "argv": [
+        "stat",
+        "-c",
+        "%U %G %a %s %n",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "exit_code": 0,
+      "stdout": "wx-xue wx-xue 640 31535 /home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.607511+08:00",
+      "argv": [
+        "wc",
+        "-l",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "exit_code": 0,
+      "stdout": "306 /home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.612964+08:00",
+      "argv": [
+        "sha256sum",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "exit_code": 0,
+      "stdout": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692  /home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.616885+08:00",
+      "argv": [
+        "head",
+        "-n",
+        "8",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/logs/ruoyi_t55_offline.log"
+      ],
+      "exit_code": 0,
+      "stdout": "# T6.1 offline learning copy: real Windows RuoYi T5.5 application output.\n# Comments beginning # were added during export; original log lines follow unchanged.\n# This is not a Linux RuoYi deployment or a new fault execution.\n\n# OFFLINE EXCERPT | source=insert.stdout.log | original_date=2026-10-28 | timezone=Asia/Shanghai | source_lines=82-230\n08:47:05.711 [http-nio-127.0.0.1-18080-exec-2] WARN  c.r.f.a.LogAspect - [doAfterThrowing,87] - T55_LOG_ASPECT doAfterThrowing T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n08:47:05.749 [http-nio-127.0.0.1-18080-exec-2] ERROR c.r.f.w.e.GlobalExceptionHandler - [handleRuntimeException,100] - 请求地址'/system/user',发生未知异常.\njava.lang.IllegalStateException: T3_FAULT:insert-after-all:txActive=true:userId=105:userName=t3_fault_new\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.854532+08:00",
+      "argv": [
+        "ps",
+        "-p",
+        "10613",
+        "-o",
+        "pid=,ppid=,user=,args="
+      ],
+      "exit_code": 0,
+      "stdout": "  10613   10590 wx-xue   python3 -m http.server 18090 --bind 127.0.0.1 --directory /home/wx-xue/linux_practice/t61_20261029_080937/public\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.870970+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      5          127.0.0.1:18090      0.0.0.0:*    users:((\"python3\",pid=10613,fd=3))\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.943547+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.952070+08:00",
+      "argv": [
+        "ss",
+        "-tan",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State     Recv-Q Send-Q Local Address:Port  Peer Address:Port Process\nTIME-WAIT 0      0          127.0.0.1:18090    127.0.0.1:59924       \nTIME-WAIT 0      0          127.0.0.1:18090    127.0.0.1:59976       \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.978647+08:00",
+      "argv": [
+        "ps",
+        "-C",
+        "redis-server",
+        "-o",
+        "pid=,user=,lstart=,comm="
+      ],
+      "exit_code": 0,
+      "stdout": "   1150 redis    四 10月 29 07:58:52 2026 redis-server\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:10:32.987931+08:00",
+      "argv": [
+        "ss",
+        "-ltn"
+      ],
+      "exit_code": 0,
+      "stdout": "State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      128         127.0.0.1:6010      0.0.0.0:*          \nLISTEN 0      4096       127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      4096          0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      4096        127.0.0.1:631       0.0.0.0:*          \nLISTEN 0      511    192.168.192.10:6379      0.0.0.0:*          \nLISTEN 0      511         127.0.0.1:6379      0.0.0.0:*          \nLISTEN 0      128             [::1]:6010         [::]:*          \nLISTEN 0      4096             [::]:22           [::]:*          \nLISTEN 0      4096            [::1]:631          [::]:*          \n",
+      "stderr": ""
+    }
+  ],
+  "start_process": {
+    "pid": 10613,
+    "argv": [
+      "python3",
+      "-m",
+      "http.server",
+      "18090",
+      "--bind",
+      "127.0.0.1",
+      "--directory",
+      "/home/wx-xue/linux_practice/t61_20261029_080937/public"
+    ],
+    "linux_lab": "/home/wx-xue/linux_practice/t61_20261029_080937",
+    "port": 18090,
+    "start_at": "2026-10-29T08:10:32.618813+08:00",
+    "proc_start_ticks": "73179"
+  },
+  "http_client": "Python standard library urllib.request, proxies disabled",
+  "http_request": {
+    "method": "GET",
+    "url": "http://127.0.0.1:18090/index.html",
+    "checks": {
+      "pid_and_command_confirmed": true,
+      "loopback_only": true,
+      "http_200": true,
+      "exact_expected_file_bytes": true,
+      "batch_marker_matches": true
+    }
+  },
+  "stop_process": {
+    "pid": 10613,
+    "exit_code": -15,
+    "stopped_at": "2026-10-29T08:10:32.928487+08:00",
+    "method": "SIGTERM to the exact newly-created Popen process after PID/start-time/command validation; no name-based termination",
+    "listener_after": {
+      "at": "2026-10-29T08:10:32.943547+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    "port_no_longer_listening": true,
+    "process_exited": true,
+    "tcp_states_after": {
+      "at": "2026-10-29T08:10:32.952070+08:00",
+      "argv": [
+        "ss",
+        "-tan",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "stdout": "State     Recv-Q Send-Q Local Address:Port  Peer Address:Port Process\nTIME-WAIT 0      0          127.0.0.1:18090    127.0.0.1:59924       \nTIME-WAIT 0      0          127.0.0.1:18090    127.0.0.1:59976       \n",
+      "stderr": ""
+    }
+  },
+  "note": "目录创建、文件写入、HTTP客户端调用和PID精确停止由已有Python标准库编排；不冒记为手工执行Shell脚本。Windows命令见windows_before/after.json；最终只读grep/ss/ps/find见final_readonly_check.json。"
+}

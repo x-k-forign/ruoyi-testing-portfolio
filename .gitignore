@@ -89,3 +89,18 @@ desktop.ini
 !/database_testing_period5/evidence/T56_20261028_091948/round2/cli.log
 /sources/independence_enviroment/*
 !/sources/independence_enviroment/隔离与恢复方案.md
+
+# T6 reviewed reports, reusable requests/SQL and necessary sanitized evidence.
+# Runtime credentials, backups and build/publication helpers remain local.
+/linux_testing_period6/*
+!/linux_testing_period6/docs/
+!/linux_testing_period6/postman/
+!/linux_testing_period6/sql/
+!/linux_testing_period6/sql/*.sql
+!/linux_testing_period6/evidence/
+!/linux_testing_period6/evidence/**/ruoyi_t55_offline.log
+!/linux_testing_period6/evidence/**/insert_event.log
+!/linux_testing_period6/evidence/**/update_event.log
+!/linux_testing_period6/evidence/**/http_server.log
+!/linux_testing_period6/evidence/**/postman_cli.log
+!/linux_testing_period6/evidence/**/ruoyi_t64_queries.log

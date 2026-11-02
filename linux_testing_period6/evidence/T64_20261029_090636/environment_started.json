@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-29T09:07:21.594+08:00",
+  "backend_pid": 11648,
+  "backend_argv": [
+    "E:\\software\\jdk-17\\jdk-17.0.10+7\\bin\\java.exe",
+    "-jar",
+    "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\independence_enviroment\\artifacts\\restored.jar",
+    "--spring.config.additional-location=file:E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\independence_enviroment\\.private\\application-isolated.yml"
+  ],
+  "restored_jar_sha256": "5bc291bf413d6e355e0011bfa3d23692d95174645f7413d920c2ea025bb09271",
+  "restored_class_fault_marker": false,
+  "database": "ruoyi_t3_fault_lab",
+  "role": 100,
+  "departments": [
+    200,
+    201
+  ],
+  "redis": {
+    "redis_version": "7.0.15",
+    "run_id": "8c1b48826a04b7e87a5a73a936ad94ae9ac1b34d",
+    "process_id": "11567",
+    "tcp_port": "16379"
+  },
+  "new_resources": "Only processes restarted; existing database and fixture reused; no schema or initialization import"
+}

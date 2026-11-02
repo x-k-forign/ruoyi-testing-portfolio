@@ -1,0 +1,22 @@
+{
+  "oper_id": 129,
+  "oper_name": "admin",
+  "oper_url": "/system/user",
+  "request_method": "PUT",
+  "status": 0,
+  "error_msg": null,
+  "oper_time": "2026-10-29 09:08:12",
+  "target": {
+    "userId": 109,
+    "userName": "t641029090636a",
+    "deptId": 201,
+    "roleIds": [
+      100
+    ],
+    "postIds": [
+      1
+    ],
+    "status": "0",
+    "remark": "T64_20261029_090636"
+  }
+}

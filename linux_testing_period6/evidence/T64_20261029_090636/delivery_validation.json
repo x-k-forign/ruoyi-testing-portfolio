@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-29T09:13:22.411+08:00",
+  "checks": {
+    "restored_build_and_no_fault_injection": true,
+    "isolated_fixture_and_real_owned_IDs": true,
+    "only_department_changed": true,
+    "database_new_department_expected_set": true,
+    "old_session_failure_preserved": true,
+    "fresh_session_positive_control": true,
+    "live_SQL_log_filters_200_and_201": true,
+    "operation_audit_target_and_department": true,
+    "CLI_failures_not_hidden": true,
+    "no_old_session_identity_refresh_during_case": true,
+    "log_export_LF_hash_and_Linux_review": true,
+    "all_owned_users_logically_deleted": true,
+    "associations_and_sessions_cleaned": true,
+    "shared_and_unrelated_isolated_configuration_unchanged": true,
+    "isolated_services_stopped": true,
+    "shared_Redis_run_id_and_shared_build_unchanged": true,
+    "Windows_listener_observation_unchanged": true,
+    "known_private_values_not_in_public_evidence": true
+  },
+  "all_checks_ok": true,
+  "product_result": {
+    "BUG-T3-004": "再次复现，未修复",
+    "old_A": "失败",
+    "new_B": "通过"
+  },
+  "CLI": {
+    "requests": {
+      "total": 3,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 22,
+      "failed": 4
+    }
+  },
+  "recorded_helper_API_requests": 27,
+  "CLI_requests": 3,
+  "recorded_HTTP_requests_excluding_startup_probes": 30,
+  "saved_labeled_SQL_groups": 29,
+  "SQL_limit": "保护摘要及其他辅助读取另计，不称为全部SQL次数",
+  "business_case_total_changed": false,
+  "acceptance_status": "执行完成待验收，未自动验收",
+  "known_defects_closed": false,
+  "previous_artifact_hashes": {
+    "linux_testing_period6/docs/T6.1_执行记录.md": "9962712ca9448d12bbe147234d11cfb088cb10bcbec095e8b06208bcc69d136a",
+    "linux_testing_period6/docs/T6.2_执行记录.md": "266330669ad8620416ae155dbd588c1b517db2ebc91080795ec1e1783ea76a8c",
+    "linux_testing_period6/docs/T6.3_执行记录.md": "5425676daaf1803b9dfb01825eb6864b9e07d90ec89a0f4ae6357777bd510cd7",
+    "若依软件测试学习大纲.md": "0671cbdc7d65006afc32449e563f09ba7dc218c7271d72a057c87b373b7f86a9"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "completed_at": "2026-11-02T17:07:56.625649+08:00",
+  "user_request": "请打开前后端，还没开启",
+  "user_requested_keep_running": true,
+  "processes": [
+    {
+      "label": "backend",
+      "pid": 27048,
+      "argv": [
+        "E:\\software\\jdk-17\\jdk-17.0.10+7\\bin\\java.exe",
+        "-jar",
+        "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\backend\\ruoyi-admin\\target\\ruoyi-admin.jar",
+        "--spring.config.additional-location=file:./.local/application-local.yml"
+      ],
+      "cwd": "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\backend",
+      "stdout_path": "sources/backend/.local/logs/T65_20261102_170700_backend.stdout.log",
+      "stderr_path": "sources/backend/.local/logs/T65_20261102_170700_backend.stderr.log",
+      "started_at": "2026-11-02T17:07:02.761562+08:00"
+    },
+    {
+      "label": "frontend",
+      "pid": 26904,
+      "argv": [
+        "E:\\software\\node.js\\node.exe",
+        "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\frontend\\node_modules\\vite\\bin\\vite.js",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "5173",
+        "--strictPort"
+      ],
+      "cwd": "E:\\cpmputer_jobs\\software_test_learning\\Ruo_Yi\\sources\\frontend",
+      "stdout_path": "sources/backend/.local/logs/T65_20261102_170700_frontend.stdout.log",
+      "stderr_path": "sources/backend/.local/logs/T65_20261102_170700_frontend.stderr.log",
+      "started_at": "2026-11-02T17:07:02.770093+08:00"
+    }
+  ],
+  "readiness": {
+    "backend": {
+      "at": "2026-11-02T17:07:17.006254+08:00",
+      "label": "backend",
+      "url": "http://127.0.0.1:8080/getInfo",
+      "http_status": 200,
+      "bytes": 86,
+      "body_sha256": "51be87277b8317ec72e85503eb4571933c743114c550e3982e52151a0958e521",
+      "content_type": "application/json;charset=utf-8",
+      "business_code": 401,
+      "expected_unauthenticated": true
+    },
+    "frontend_proxy": {
+      "at": "2026-11-02T17:07:40.471634+08:00",
+      "label": "frontend_proxy",
+      "url": "http://127.0.0.1:5173/dev-api/getInfo",
+      "http_status": 200,
+      "bytes": 86,
+      "body_sha256": "51be87277b8317ec72e85503eb4571933c743114c550e3982e52151a0958e521",
+      "content_type": "application/json;charset=utf-8",
+      "business_code": 401,
+      "expected_unauthenticated": true
+    },
+    "frontend": {
+      "at": "2026-11-02T17:07:54.155465+08:00",
+      "label": "frontend",
+      "url": "http://127.0.0.1:5173/login",
+      "http_status": 200,
+      "bytes": 5373,
+      "body_sha256": "2fcb0169636f85642a25bf3c49ca71c241baebcce4e4534d27505099cd006386",
+      "content_type": "text/html",
+      "app_mount_present": true
+    }
+  },
+  "listeners": [
+    {
+      "address": "::",
+      "port": 3306,
+      "pid": 7292,
+      "process": "mysqld"
+    },
+    {
+      "address": "127.0.0.1",
+      "port": 8080,
+      "pid": 27048,
+      "process": "java"
+    },
+    {
+      "address": "127.0.0.1",
+      "port": 5173,
+      "pid": 26904,
+      "process": "node"
+    }
+  ],
+  "protected_config_and_build_hashes": {
+    "sources/backend/.local/application-local.yml": "866ac3b32a7faf260d9c6941150d1213b82d31026b74c47fe68515c9200a72fd",
+    "sources/backend/.local/logback-local.xml": "511df451e48e2f3b11cecd7c343056e5caad1212cfffeb01ae0e269d6d30df32",
+    "sources/frontend/vite.config.js": "940856132f20c5444cca39a71a13339bc6d1b8f1c20fde7270d85d1938424610",
+    "sources/frontend/package.json": "99b2683835459ab213e5ab7cb86bee3c7eef9d823e31940a557ca24dc496536d",
+    "sources/backend/ruoyi-admin/target/ruoyi-admin.jar": "6277e59bf9cb27fc03e75658ce526a9736fad7a6260f85188c3ed4444246d86d"
+  },
+  "config_and_build_unchanged": true,
+  "dependencies": "Existing MySQL and Linux6379; no VM/service restart, package install, initialization SQL or cache flush",
+  "business_scope": "login page and unauthenticated getInfo/proxy readiness only; no login, user mutation or full regression",
+  "leave_shared_services_running": true,
+  "isolated_services_not_started": true
+}

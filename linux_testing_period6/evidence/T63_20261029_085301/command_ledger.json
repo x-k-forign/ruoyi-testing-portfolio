@@ -1,0 +1,412 @@
+{
+  "method": "自动化执行",
+  "linux_commands": [
+    {
+      "at": "2026-10-29T08:53:07.582996+08:00",
+      "argv": [
+        "ps",
+        "-C",
+        "redis-server",
+        "-o",
+        "pid=,user=,lstart=,comm="
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "   1150 redis    四 10月 29 07:58:52 2026 redis-server\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.591365+08:00",
+      "argv": [
+        "ss",
+        "-ltn"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      128         127.0.0.1:6010      0.0.0.0:*          \nLISTEN 0      4096       127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      4096          0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      4096        127.0.0.1:631       0.0.0.0:*          \nLISTEN 0      511    192.168.192.10:6379      0.0.0.0:*          \nLISTEN 0      511         127.0.0.1:6379      0.0.0.0:*          \nLISTEN 0      128             [::1]:6010         [::]:*          \nLISTEN 0      4096             [::]:22           [::]:*          \nLISTEN 0      4096            [::1]:631          [::]:*          \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.596385+08:00",
+      "argv": [
+        "date",
+        "-Is"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "2026-10-29T08:53:07+08:00\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.602756+08:00",
+      "argv": [
+        "id"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "uid=1000(wx-xue) gid=1000(wx-xue) 组=1000(wx-xue),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin),123(lxd)\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.606613+08:00",
+      "argv": [
+        "hostname"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "Linux01\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.620117+08:00",
+      "argv": [
+        "ip",
+        "-br",
+        "addr"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "lo               UNKNOWN        127.0.0.1/8 ::1/128 \nens33            UP             192.168.192.10/24 \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.629999+08:00",
+      "argv": [
+        "ip",
+        "route"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "default via 192.168.192.2 dev ens33 proto static metric 100 \n192.168.192.0/24 dev ens33 proto kernel scope link src 192.168.192.10 metric 100 \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.635340+08:00",
+      "argv": [
+        "ip",
+        "route",
+        "get",
+        "127.0.0.1"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "local 127.0.0.1 dev lo src 127.0.0.1 uid 1000 \n    cache <local> \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.640227+08:00",
+      "argv": [
+        "getent",
+        "ahostsv4",
+        "localhost"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "127.0.0.1       STREAM localhost\n127.0.0.1       DGRAM  \n127.0.0.1       RAW    \n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.646137+08:00",
+      "argv": [
+        "bash",
+        "-c",
+        "command -v python3 curl ss"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "/usr/bin/python3\n/usr/bin/ss\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.652055+08:00",
+      "argv": [
+        "python3",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "Python 3.12.3\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.669651+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.687819+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18091"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.925529+08:00",
+      "argv": [
+        "ps",
+        "-p",
+        "11105",
+        "-o",
+        "pid=,ppid=,user=,args="
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "  11105   11091 wx-xue   python3 -m http.server 18090 --bind 127.0.0.1 --directory /home/wx-xue/linux_practice/t61_20261029_080937/public\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:07.939991+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      5          127.0.0.1:18090      0.0.0.0:*    users:((\"python3\",pid=11105,fd=3))\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.122648+08:00",
+      "argv": [
+        "python3",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/http_probe.py",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/client_target.json",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/public/index.html"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "{\"at\": \"2026-10-29T08:53:08.051814+08:00\", \"method\": \"GET\", \"url\": \"http://127.0.0.1:18090/index.html?practice_batch=T63_20261029_085301\", \"http_status\": 200, \"proxy_used\": false, \"body_sha256\": \"81406baae1ca67feae8faf31b808bd9dec804a23254fa86eed5620a8bbaf590c\", \"body_utf8\": \"<!doctype html><meta charset=\\\"utf-8\\\"><title>T6.1 Linux practice</title><pre>T61 T61_20261029_080937 | Linux controlled HTTP baseline | public data only\\n</pre>\\n\", \"exact_expected_body\": true, \"probe_exit_code\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.139560+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18091"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.300546+08:00",
+      "argv": [
+        "python3",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/http_probe.py",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/client_target.json",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/public/index.html"
+      ],
+      "exit_code": 10,
+      "expected_exit": 10,
+      "stdout": "{\"at\": \"2026-10-29T08:53:08.242795+08:00\", \"method\": \"GET\", \"url\": \"http://127.0.0.1:18091/index.html?practice_batch=T63_20261029_085301\", \"http_status\": null, \"proxy_used\": false, \"error_type\": \"ConnectionRefusedError\", \"os_errno\": 111, \"error\": \"[Errno 111] Connection refused\", \"probe_exit_code\": 10}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.329060+08:00",
+      "argv": [
+        "ps",
+        "-p",
+        "11105",
+        "-o",
+        "pid=,ppid=,user=,args="
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "  11105   11091 wx-xue   python3 -m http.server 18090 --bind 127.0.0.1 --directory /home/wx-xue/linux_practice/t61_20261029_080937/public\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.345476+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      5          127.0.0.1:18090      0.0.0.0:*    users:((\"python3\",pid=11105,fd=3))\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.555605+08:00",
+      "argv": [
+        "python3",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/http_probe.py",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/client_target.json",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/public/index.html"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "{\"at\": \"2026-10-29T08:53:08.464514+08:00\", \"method\": \"GET\", \"url\": \"http://127.0.0.1:18090/index.html?practice_batch=T63_20261029_085301\", \"http_status\": 200, \"proxy_used\": false, \"body_sha256\": \"81406baae1ca67feae8faf31b808bd9dec804a23254fa86eed5620a8bbaf590c\", \"body_utf8\": \"<!doctype html><meta charset=\\\"utf-8\\\"><title>T6.1 Linux practice</title><pre>T61 T61_20261029_080937 | Linux controlled HTTP baseline | public data only\\n</pre>\\n\", \"exact_expected_body\": true, \"probe_exit_code\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.815081+08:00",
+      "argv": [
+        "python3",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/http_probe.py",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/t63_20261029_085301/client_target.json",
+        "/home/wx-xue/linux_practice/t61_20261029_080937/public/index.html",
+        "/?practice_batch=T63_20261029_085301"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "{\"at\": \"2026-10-29T08:53:08.714723+08:00\", \"method\": \"GET\", \"url\": \"http://127.0.0.1:18090/?practice_batch=T63_20261029_085301\", \"http_status\": 200, \"proxy_used\": false, \"body_sha256\": \"81406baae1ca67feae8faf31b808bd9dec804a23254fa86eed5620a8bbaf590c\", \"body_utf8\": \"<!doctype html><meta charset=\\\"utf-8\\\"><title>T6.1 Linux practice</title><pre>T61 T61_20261029_080937 | Linux controlled HTTP baseline | public data only\\n</pre>\\n\", \"exact_expected_body\": true, \"probe_exit_code\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.853072+08:00",
+      "argv": [
+        "ps",
+        "-p",
+        "11105",
+        "-o",
+        "pid=,ppid=,user=,args="
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "  11105   11091 wx-xue   python3 -m http.server 18090 --bind 127.0.0.1 --directory /home/wx-xue/linux_practice/t61_20261029_080937/public\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.879197+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      5          127.0.0.1:18090      0.0.0.0:*    users:((\"python3\",pid=11105,fd=3))\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.907201+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.931718+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18091"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.970782+08:00",
+      "argv": [
+        "ps",
+        "-C",
+        "redis-server",
+        "-o",
+        "pid=,user=,lstart=,comm="
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "   1150 redis    四 10月 29 07:58:52 2026 redis-server\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-29T08:53:08.982184+08:00",
+      "argv": [
+        "ss",
+        "-ltn"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      128         127.0.0.1:6010      0.0.0.0:*          \nLISTEN 0      4096       127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      4096          0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      4096        127.0.0.1:631       0.0.0.0:*          \nLISTEN 0      511    192.168.192.10:6379      0.0.0.0:*          \nLISTEN 0      511         127.0.0.1:6379      0.0.0.0:*          \nLISTEN 0      128             [::1]:6010         [::]:*          \nLISTEN 0      4096             [::]:22           [::]:*          \nLISTEN 0      4096            [::1]:631          [::]:*          \n",
+      "stderr": ""
+    }
+  ],
+  "service_start": {
+    "pid": 11105,
+    "argv": [
+      "python3",
+      "-m",
+      "http.server",
+      "18090",
+      "--bind",
+      "127.0.0.1",
+      "--directory",
+      "/home/wx-xue/linux_practice/t61_20261029_080937/public"
+    ],
+    "started_at": "2026-10-29T08:53:07.689896+08:00",
+    "start_ticks": "328686"
+  },
+  "service_stop": {
+    "pid": 11105,
+    "stopped_at": "2026-10-29T08:53:08.884700+08:00",
+    "exit_code": -15,
+    "method": "SIGTERM only to exact newly-created process after PID/start ticks/command checks",
+    "process_exited": true,
+    "correct_port_after": {
+      "at": "2026-10-29T08:53:08.907201+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18090"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    "wrong_port_after": {
+      "at": "2026-10-29T08:53:08.931718+08:00",
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport = :18091"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    "both_ports_no_listener": true
+  },
+  "fault_configuration": {
+    "normal": {
+      "host": "127.0.0.1",
+      "port": 18090,
+      "path": "/index.html?practice_batch=T63_20261029_085301"
+    },
+    "fault": {
+      "host": "127.0.0.1",
+      "port": 18091,
+      "path": "/index.html?practice_batch=T63_20261029_085301"
+    },
+    "changed_fields": [
+      "port"
+    ]
+  },
+  "probe_helper": "http_probe.py is a small Python standard-library diagnostic helper; no new dependency or testing framework",
+  "Windows_commands": "windows_before.json and windows_after.json"
+}

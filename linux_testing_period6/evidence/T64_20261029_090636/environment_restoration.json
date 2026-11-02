@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-29T09:10:20.744+08:00",
+  "isolated_backend_stopped": true,
+  "Windows_stop_method": "Stop-Process on exact isolated PID after command and restored-JAR identity verification; business requests completed beforehand",
+  "stopped_backend_pid": 11648,
+  "isolated_Redis_shutdown": "AUTH then run_id verified SHUTDOWN NOSAVE; no shared Redis key command",
+  "isolated_run_id": "8c1b48826a04b7e87a5a73a936ad94ae9ac1b34d",
+  "shared_redis_before": {
+    "redis_version": "7.0.15",
+    "run_id": "10c54866f4ea72b92c33f35df0aa0a1d25e80a2b",
+    "process_id": "1150",
+    "tcp_port": "6379"
+  },
+  "shared_redis_after": {
+    "redis_version": "7.0.15",
+    "run_id": "10c54866f4ea72b92c33f35df0aa0a1d25e80a2b",
+    "process_id": "1150",
+    "tcp_port": "6379"
+  },
+  "ports_18080_16379_no_listener": true,
+  "shared_jar_unchanged": true,
+  "restored_jar_unchanged": true
+}

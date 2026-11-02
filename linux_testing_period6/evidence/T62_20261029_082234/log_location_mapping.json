@@ -1,0 +1,490 @@
+{
+  "at": "2026-10-29T08:22:34.839830+08:00",
+  "method": "read-only XML field allowlist and existing log filename metadata; private configs not copied",
+  "configuration": [
+    {
+      "config_relative_to_project": "sources/backend/.local/logback-local.xml",
+      "config_sha256": "511df451e48e2f3b11cecd7c343056e5caad1212cfffeb01ae0e269d6d30df32",
+      "properties": [
+        {
+          "name": "log.path",
+          "value": "E:/cpmputer_jobs/software_test_learning/Ruo_Yi/sources/backend/.local/logs"
+        },
+        {
+          "name": "log.pattern",
+          "value": "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"
+        }
+      ],
+      "appenders": [
+        {
+          "name": "console",
+          "class": "ch.qos.logback.core.ConsoleAppender",
+          "file": null,
+          "rolling_pattern": null
+        },
+        {
+          "name": "file_info",
+          "class": "ch.qos.logback.core.rolling.RollingFileAppender",
+          "file": "${log.path}/sys-info.log",
+          "rolling_pattern": "${log.path}/sys-info.%d{yyyy-MM-dd}.log"
+        },
+        {
+          "name": "file_error",
+          "class": "ch.qos.logback.core.rolling.RollingFileAppender",
+          "file": "${log.path}/sys-error.log",
+          "rolling_pattern": "${log.path}/sys-error.%d{yyyy-MM-dd}.log"
+        },
+        {
+          "name": "sys-user",
+          "class": "ch.qos.logback.core.rolling.RollingFileAppender",
+          "file": "${log.path}/sys-user.log",
+          "rolling_pattern": "${log.path}/sys-user.%d{yyyy-MM-dd}.log"
+        }
+      ],
+      "existing_log_files": [
+        {
+          "name": "backend_20261019_172821.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "backend_20261019_172821.stdout.log",
+          "bytes": 207142
+        },
+        {
+          "name": "backend_20261028_080841.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "backend_20261028_080841.stdout.log",
+          "bytes": 42957
+        },
+        {
+          "name": "backend_20261028_171152.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "backend_20261028_171152.stdout.log",
+          "bytes": 14574
+        },
+        {
+          "name": "backend_20261029_080314.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "backend_20261029_080314.stdout.log",
+          "bytes": 6214
+        },
+        {
+          "name": "frontend_20261019_172821.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "frontend_20261019_172821.stdout.log",
+          "bytes": 110
+        },
+        {
+          "name": "frontend_20261028_080841.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "frontend_20261028_080841.stdout.log",
+          "bytes": 110
+        },
+        {
+          "name": "frontend_20261028_171152.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "frontend_20261028_171152.stdout.log",
+          "bytes": 110
+        },
+        {
+          "name": "frontend_20261029_080314.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "frontend_20261029_080314.stdout.log",
+          "bytes": 110
+        },
+        {
+          "name": "startup_20261013_151808_backend.log",
+          "bytes": 6213
+        },
+        {
+          "name": "startup_20261013_151808_backend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261013_151808_frontend.log",
+          "bytes": 110
+        },
+        {
+          "name": "startup_20261013_151808_frontend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261013_162902_backend.log",
+          "bytes": 63609
+        },
+        {
+          "name": "startup_20261013_162902_backend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261013_162902_frontend.log",
+          "bytes": 109
+        },
+        {
+          "name": "startup_20261013_162902_frontend_err.log",
+          "bytes": 322
+        },
+        {
+          "name": "startup_20261013_185545_backend.log",
+          "bytes": 158150
+        },
+        {
+          "name": "startup_20261013_185545_backend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261013_185545_frontend.log",
+          "bytes": 109
+        },
+        {
+          "name": "startup_20261013_185545_frontend_err.log",
+          "bytes": 483
+        },
+        {
+          "name": "startup_20261014_080652_backend.log",
+          "bytes": 220364
+        },
+        {
+          "name": "startup_20261014_080652_backend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261014_080652_frontend.log",
+          "bytes": 110
+        },
+        {
+          "name": "startup_20261014_080652_frontend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261014_102232_backend.log",
+          "bytes": 467661
+        },
+        {
+          "name": "startup_20261014_102232_backend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261014_102232_frontend.log",
+          "bytes": 109
+        },
+        {
+          "name": "startup_20261014_102232_frontend_err.log",
+          "bytes": 1288
+        },
+        {
+          "name": "startup_20261014_144009_backend.log",
+          "bytes": 55521
+        },
+        {
+          "name": "startup_20261014_144009_backend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261014_144009_frontend.log",
+          "bytes": 110
+        },
+        {
+          "name": "startup_20261014_144009_frontend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261014_162513_backend.log",
+          "bytes": 90038
+        },
+        {
+          "name": "startup_20261014_162513_backend_err.log",
+          "bytes": 0
+        },
+        {
+          "name": "startup_20261014_162513_frontend.log",
+          "bytes": 109
+        },
+        {
+          "name": "startup_20261014_162513_frontend_err.log",
+          "bytes": 161
+        },
+        {
+          "name": "sys-error.2026-09-30.log",
+          "bytes": 0
+        },
+        {
+          "name": "sys-error.2026-10-09.log",
+          "bytes": 278360
+        },
+        {
+          "name": "sys-error.2026-10-10.log",
+          "bytes": 374794
+        },
+        {
+          "name": "sys-error.2026-10-11.log",
+          "bytes": 33325
+        },
+        {
+          "name": "sys-error.2026-10-12.log",
+          "bytes": 216017
+        },
+        {
+          "name": "sys-error.2026-10-13.log",
+          "bytes": 33317
+        },
+        {
+          "name": "sys-error.2026-10-14.log",
+          "bytes": 393680
+        },
+        {
+          "name": "sys-error.log",
+          "bytes": 11101
+        },
+        {
+          "name": "sys-info.2026-09-30.log",
+          "bytes": 2497
+        },
+        {
+          "name": "sys-info.2026-10-09.log",
+          "bytes": 23628
+        },
+        {
+          "name": "sys-info.2026-10-10.log",
+          "bytes": 24619
+        },
+        {
+          "name": "sys-info.2026-10-11.log",
+          "bytes": 4626
+        },
+        {
+          "name": "sys-info.2026-10-12.log",
+          "bytes": 28752
+        },
+        {
+          "name": "sys-info.2026-10-13.log",
+          "bytes": 84508
+        },
+        {
+          "name": "sys-info.2026-10-14.log",
+          "bytes": 25359
+        },
+        {
+          "name": "sys-info.2026-10-19.log",
+          "bytes": 59589
+        },
+        {
+          "name": "sys-info.2026-10-28.log",
+          "bytes": 9954
+        },
+        {
+          "name": "sys-info.log",
+          "bytes": 2497
+        },
+        {
+          "name": "sys-user.2026-09-30.log",
+          "bytes": 0
+        },
+        {
+          "name": "sys-user.2026-10-09.log",
+          "bytes": 6841
+        },
+        {
+          "name": "sys-user.2026-10-10.log",
+          "bytes": 7971
+        },
+        {
+          "name": "sys-user.2026-10-11.log",
+          "bytes": 1347
+        },
+        {
+          "name": "sys-user.2026-10-12.log",
+          "bytes": 16956
+        },
+        {
+          "name": "sys-user.2026-10-13.log",
+          "bytes": 749
+        },
+        {
+          "name": "sys-user.2026-10-14.log",
+          "bytes": 7432
+        },
+        {
+          "name": "sys-user.2026-10-19.log",
+          "bytes": 536
+        },
+        {
+          "name": "sys-user.log",
+          "bytes": 430
+        },
+        {
+          "name": "t41_backend_stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "t41_backend_stdout.log",
+          "bytes": 14144
+        },
+        {
+          "name": "t41_frontend_stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "t41_frontend_stdout.log",
+          "bytes": 110
+        }
+      ]
+    },
+    {
+      "config_relative_to_project": "sources/independence_enviroment/.private/logback-isolated.xml",
+      "config_sha256": "de768743e94b364b07f691b68e37a36abeb13579b9f46f70f65f38ed43ae3915",
+      "properties": [
+        {
+          "name": "log.path",
+          "value": "E:/cpmputer_jobs/software_test_learning/Ruo_Yi/sources/independence_enviroment/logs"
+        },
+        {
+          "name": "log.pattern",
+          "value": "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"
+        }
+      ],
+      "appenders": [
+        {
+          "name": "console",
+          "class": "ch.qos.logback.core.ConsoleAppender",
+          "file": null,
+          "rolling_pattern": null
+        },
+        {
+          "name": "file_info",
+          "class": "ch.qos.logback.core.rolling.RollingFileAppender",
+          "file": "${log.path}/sys-info.log",
+          "rolling_pattern": "${log.path}/sys-info.%d{yyyy-MM-dd}.log"
+        },
+        {
+          "name": "file_error",
+          "class": "ch.qos.logback.core.rolling.RollingFileAppender",
+          "file": "${log.path}/sys-error.log",
+          "rolling_pattern": "${log.path}/sys-error.%d{yyyy-MM-dd}.log"
+        },
+        {
+          "name": "sys-user",
+          "class": "ch.qos.logback.core.rolling.RollingFileAppender",
+          "file": "${log.path}/sys-user.log",
+          "rolling_pattern": "${log.path}/sys-user.%d{yyyy-MM-dd}.log"
+        }
+      ],
+      "existing_log_files": [
+        {
+          "name": "baseline.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "baseline.stdout.log",
+          "bytes": 65003
+        },
+        {
+          "name": "baseline_build.log",
+          "bytes": 3039
+        },
+        {
+          "name": "baseline_build_retry.log",
+          "bytes": 10281
+        },
+        {
+          "name": "fault_build.log",
+          "bytes": 9776
+        },
+        {
+          "name": "insert.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "insert.stdout.log",
+          "bytes": 24879
+        },
+        {
+          "name": "redis.stderr.log",
+          "bytes": 120
+        },
+        {
+          "name": "redis.stdout.log",
+          "bytes": 1269
+        },
+        {
+          "name": "restored.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "restored.stdout.log",
+          "bytes": 36416
+        },
+        {
+          "name": "restored_build.log",
+          "bytes": 9775
+        },
+        {
+          "name": "sys-error.log",
+          "bytes": 31120
+        },
+        {
+          "name": "sys-info.log",
+          "bytes": 16659
+        },
+        {
+          "name": "sys-user.log",
+          "bytes": 1740
+        },
+        {
+          "name": "T56_20261028_091948_redis.stderr.log",
+          "bytes": 60
+        },
+        {
+          "name": "T56_20261028_091948_redis.stdout.log",
+          "bytes": 1269
+        },
+        {
+          "name": "T56_restored.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "T56_restored.stdout.log",
+          "bytes": 56847
+        },
+        {
+          "name": "update.stderr.log",
+          "bytes": 0
+        },
+        {
+          "name": "update.stdout.log",
+          "bytes": 25610
+        }
+      ]
+    }
+  ],
+  "stdout_redirect_source": {
+    "file": "sources/independence_enviroment/switch_backend.ps1",
+    "sha256": "5bc25d610cb8107cf505073288e8f7a7d9245d2c62dc5520335db5561e092f77",
+    "relevant_lines": [
+      {
+        "line": 23,
+        "text": "$p=Start-Process -FilePath 'E:\\software\\jdk-17\\jdk-17.0.10+7\\bin\\java.exe' -ArgumentList $argsList -WorkingDirectory (Join-Path $iso 'backend') -WindowStyle Hidden -RedirectStandardOutput (Join-Path $iso \"logs\\$logName.stdout.log\") -RedirectStandardError (Join-Path $iso \"logs\\$logName.stderr.log\") -PassThru"
+      }
+    ]
+  },
+  "limits": [
+    "Config files describe file appenders, not proof every log received this event",
+    "T5 stdout redirection is an archived startup method, not proof current live process parameters",
+    "No RuoYi deployment or log directory assumed on Linux",
+    "No runtime config change"
+  ]
+}

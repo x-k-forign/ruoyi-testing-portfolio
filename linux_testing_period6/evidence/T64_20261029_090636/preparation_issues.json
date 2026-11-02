@@ -1,0 +1,8 @@
+[
+  {
+    "item": "Postman默认包装器启动超时",
+    "observation": "首次postman.cmd --version在10秒内未返回。",
+    "handling": "通过本机既有E:/software/node.js/node.exe调用同一已安装postman-cli/bin/postman.js，--version实际返回1.73.0；同路径集合执行完成。未升级、替换或绑定云工作区。",
+    "classification": "工具启动问题，已解决，不是接口产品缺陷"
+  }
+]

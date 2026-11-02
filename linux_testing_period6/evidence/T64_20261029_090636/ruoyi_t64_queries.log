@@ -1,0 +1,24 @@
+# Real Windows restored RuoYi application SQL logs, offline UTF-8 copy.
+# Lines beginning # are export metadata, not application-generated request IDs.
+# OFFLINE T64 | phase=old_A_after_move | session=oldA | request_window=2026-10-29T09:08:12.456+08:00..2026-10-29T09:08:12.656+08:00
+09:08:12.483 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 200)
+09:08:12.484 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: 
+09:08:12.486 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1
+09:08:12.489 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 200) order by user_id asc LIMIT ?
+09:08:12.489 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Integer)
+09:08:12.491 [http-nio-127.0.0.1-18080-exec-14] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1
+
+# OFFLINE T64 | phase=new_B_after_move | session=newB | request_window=2026-10-29T09:08:17.631+08:00..2026-10-29T09:08:17.869+08:00
+09:08:17.663 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201)
+09:08:17.664 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: 
+09:08:17.665 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1
+09:08:17.666 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201) order by user_id asc LIMIT ?
+09:08:17.668 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Integer)
+09:08:17.671 [http-nio-127.0.0.1-18080-exec-18] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1
+09:08:17.700 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==>  Preparing: SELECT count(0) FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201)
+09:08:17.700 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - ==> Parameters: 
+09:08:17.702 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList_COUNT - [debug,135] - <==      Total: 1
+09:08:17.704 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==>  Preparing: SELECT u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id = d.dept_id WHERE u.del_flag = '0' AND (d.dept_id = 201) order by user_id asc LIMIT ?, ?
+09:08:17.705 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - ==> Parameters: 1(Long), 1(Integer)
+09:08:17.706 [http-nio-127.0.0.1-18080-exec-19] DEBUG c.r.s.m.S.selectUserList - [debug,135] - <==      Total: 1
+

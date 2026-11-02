@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-29T09:10:16.285+08:00",
+  "users": [
+    {
+      "user_id": 109,
+      "user_name": "t641029090636a",
+      "dept_id": 201,
+      "status": "0",
+      "del_flag": "2",
+      "remark": "T64_20261029_090636"
+    },
+    {
+      "user_id": 110,
+      "user_name": "t641029090636b",
+      "dept_id": 200,
+      "status": "0",
+      "del_flag": "2",
+      "remark": "T64_20261029_090636"
+    },
+    {
+      "user_id": 111,
+      "user_name": "t641029090636c",
+      "dept_id": 201,
+      "status": "0",
+      "del_flag": "2",
+      "remark": "T64_20261029_090636"
+    }
+  ],
+  "role_and_post_associations_empty": true,
+  "three_sessions_logged_out_and_invalid": true,
+  "logical_delete_and_audit_history_retained": true
+}

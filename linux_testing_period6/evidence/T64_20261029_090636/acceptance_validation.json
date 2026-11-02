@@ -1,0 +1,71 @@
+{
+  "accepted_at": "2026-10-29T09:16:57.679192+08:00",
+  "conclusion": "T6.4按约定方式验收通过",
+  "method": "自动化执行成果核对、原理说明与用户理解确认；不作为个人独立作答证明",
+  "user_confirmation": "T6.4的几个关键点我理解了，帮我验收一下，通过后告诉我T6.5具体要做什么，先不要执行。",
+  "criteria": [
+    {
+      "item": "本轮实际若依跨层调查",
+      "result": "通过"
+    },
+    {
+      "item": "来源与多层关联",
+      "result": "通过"
+    },
+    {
+      "item": "证据与根因判断边界",
+      "result": "通过"
+    },
+    {
+      "item": "原理说明与理解确认",
+      "result": "通过（按约定方式）"
+    }
+  ],
+  "checks": {
+    "original_18_delivery_checks": true,
+    "fresh_owned_objects_and_department_only_change": true,
+    "before_change_positive_baseline": true,
+    "old_failure_and_new_control_preserved": true,
+    "independent_SQL_expected_ID_set": true,
+    "method_target_audit_match": true,
+    "no_explicit_old_department_request_filter": true,
+    "full_pagination_not_only_counts": true,
+    "no_old_A_identity_refresh_during_observation": true,
+    "runtime_log_filter_difference": true,
+    "export_local_Linux_hashes_match": true,
+    "source_file_unchanged_since_export": true,
+    "CLI_3_requests_22_assertions_4_failures": true,
+    "request_SQL_totals_not_business_case_counts": true,
+    "all_batch_users_and_sessions_cleaned": true,
+    "isolated_backend_SSH_and_Redis_stopped": true,
+    "shared_and_unrelated_configuration_protected": true,
+    "private_cleanup_recorded": true,
+    "source_hints_keep_runtime_limit": true,
+    "raw_log_lines_and_request_windows_traceable": true,
+    "collection_retains_guards_and_original_source": true
+  },
+  "all_checks_ok": true,
+  "product_result_unchanged": {
+    "BUG-T3-004": "未修复",
+    "old_A": "失败",
+    "new_B": "通过",
+    "CLI_failed_assertions": 4
+  },
+  "runtime_operations_during_acceptance": false,
+  "historical_delivery_JSON_preserved": true,
+  "outline_only_T64_changed": true,
+  "T65_executed": false,
+  "github_commit_or_push": false,
+  "artifact_hashes": {
+    "docs/T6.4_执行记录.md": "ce24c64cb5a6454315a05e2a929b03a59553638c86b71fd6d93c5d5edd8e645b",
+    "若依软件测试学习大纲.md": "9a3faf43395cede73e151689f627eb7171f2b2d5645701be236bfff06491c1d3",
+    "ruoyi_t64_queries.log": "4fd866bb05932d768d392657ecb4596b41a35a72f1b1bfbacb25642660eddb95",
+    "collection": "4256a1efa75f0218638970172e8f6f4b128099c84ce4bc9a3cf1b6aa0c752c63"
+  },
+  "limits": [
+    "不是整个T6验收",
+    "未评估个人独立操作或独立回答",
+    "产品缺陷和四次CLI断言失败保持原样",
+    "未开始T6.5"
+  ]
+}

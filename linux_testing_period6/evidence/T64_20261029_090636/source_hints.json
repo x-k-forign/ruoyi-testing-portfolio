@@ -1,0 +1,95 @@
+{
+  "purpose": "静态定位线索，与本轮实际SQL条件对照；不是完整运行时根因证明",
+  "hints": [
+    {
+      "path": "sources/backend/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/TokenService.java",
+      "sha256": "83c38e99ddd9aab113300486a9a88bdbd06e71e733d0d4aada3cdab8dff0f951",
+      "ranges": [
+        {
+          "start": 63,
+          "end": 79,
+          "lines": [
+            "    public LoginUser getLoginUser(HttpServletRequest request)",
+            "    {",
+            "        // 获取请求携带的令牌",
+            "        String token = getToken(request);",
+            "        if (StringUtils.isNotEmpty(token))",
+            "        {",
+            "            try",
+            "            {",
+            "                Claims claims = parseToken(token);",
+            "                // 解析对应的权限以及用户信息",
+            "                String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);",
+            "                String userKey = getTokenKey(uuid);",
+            "                LoginUser user = redisCache.getCacheObject(userKey);",
+            "                return user;",
+            "            }",
+            "            catch (Exception e)",
+            "            {"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "sources/backend/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/DataScopeAspect.java",
+      "sha256": "c65c7e663c66b00480e972f22581c5331892f16c8567bf224f5622e47e8adbd4",
+      "ranges": [
+        {
+          "start": 43,
+          "end": 54,
+          "lines": [
+            "    {",
+            "        // 获取当前的用户",
+            "        LoginUser loginUser = SecurityUtils.getLoginUser();",
+            "        if (StringUtils.isNotNull(loginUser))",
+            "        {",
+            "            SysUser currentUser = loginUser.getUser();",
+            "            // 如果是超级管理员，则不过滤数据",
+            "            if (StringUtils.isNotNull(currentUser) && !currentUser.isAdmin())",
+            "            {",
+            "                String permission = StringUtils.defaultIfEmpty(controllerDataScope.permission(), PermissionContextHolder.getContext());",
+            "                dataScopeFilter(joinPoint, currentUser, controllerDataScope.userAlias(), controllerDataScope.deptAlias(), controllerDataScope.userField(), controllerDataScope.deptField(), permission);",
+            "            }"
+          ]
+        },
+        {
+          "start": 108,
+          "end": 111,
+          "lines": [
+            "            else if (Constants.Dept.DATA_SCOPE_DEPT.equals(dataScope))",
+            "            {",
+            "                sqlString.append(StringUtils.format(\" OR {}.{} = {} \", deptAlias, deptField, user.getDeptId()));",
+            "            }"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "sources/backend/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "sha256": "39d5bc599a82624d23d5aa505ce74d1c8397a638c39de7da68aa5ad71d0dcfc1",
+      "ranges": [
+        {
+          "start": 152,
+          "end": 157,
+          "lines": [
+            "    public AjaxResult edit(@Validated @RequestBody SysUser user)",
+            "    {",
+            "        userService.checkUserAllowed(user);",
+            "        userService.checkUserDataScope(user.getUserId());",
+            "        deptService.checkDeptDataScope(user.getDeptId());",
+            "        roleService.checkRoleDataScope(user.getRoleIds());"
+          ]
+        },
+        {
+          "start": 170,
+          "end": 171,
+          "lines": [
+            "        user.setUpdateBy(getUsername());",
+            "        return toAjax(userService.updateUser(user));"
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": "未读取Redis会话对象、未做运行时调用链跟踪或修复验证"
+}

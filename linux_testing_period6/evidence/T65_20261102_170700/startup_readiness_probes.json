@@ -1,0 +1,142 @@
+[
+  {
+    "at": "2026-11-02T17:07:04.811364+08:00",
+    "label": "backend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:06.850840+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:08.890926+08:00",
+    "label": "frontend_proxy",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:11.932114+08:00",
+    "label": "backend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:13.960888+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:16.005507+08:00",
+    "label": "frontend_proxy",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:17.006254+08:00",
+    "label": "backend",
+    "url": "http://127.0.0.1:8080/getInfo",
+    "http_status": 200,
+    "bytes": 86,
+    "body_sha256": "51be87277b8317ec72e85503eb4571933c743114c550e3982e52151a0958e521",
+    "content_type": "application/json;charset=utf-8",
+    "business_code": 401,
+    "expected_unauthenticated": true
+  },
+  {
+    "at": "2026-11-02T17:07:19.125976+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:21.175257+08:00",
+    "label": "frontend_proxy",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:24.219654+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:26.252296+08:00",
+    "label": "frontend_proxy",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:29.297063+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:31.331364+08:00",
+    "label": "frontend_proxy",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:34.386221+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:36.432531+08:00",
+    "label": "frontend_proxy",
+    "result": "not_ready",
+    "error_type": "URLError"
+  },
+  {
+    "at": "2026-11-02T17:07:40.471597+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "TimeoutError"
+  },
+  {
+    "at": "2026-11-02T17:07:40.471634+08:00",
+    "label": "frontend_proxy",
+    "url": "http://127.0.0.1:5173/dev-api/getInfo",
+    "http_status": 200,
+    "bytes": 86,
+    "body_sha256": "51be87277b8317ec72e85503eb4571933c743114c550e3982e52151a0958e521",
+    "content_type": "application/json;charset=utf-8",
+    "business_code": 401,
+    "expected_unauthenticated": true
+  },
+  {
+    "at": "2026-11-02T17:07:45.095203+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "TimeoutError"
+  },
+  {
+    "at": "2026-11-02T17:07:49.122153+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "TimeoutError"
+  },
+  {
+    "at": "2026-11-02T17:07:53.155303+08:00",
+    "label": "frontend",
+    "result": "not_ready",
+    "error_type": "TimeoutError"
+  },
+  {
+    "at": "2026-11-02T17:07:54.155465+08:00",
+    "label": "frontend",
+    "url": "http://127.0.0.1:5173/login",
+    "http_status": 200,
+    "bytes": 5373,
+    "body_sha256": "2fcb0169636f85642a25bf3c49ca71c241baebcce4e4534d27505099cd006386",
+    "content_type": "text/html",
+    "app_mount_present": true
+  }
+]

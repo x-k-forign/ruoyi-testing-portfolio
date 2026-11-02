@@ -1,0 +1,11 @@
+{
+  "observed": "Windows local copy saved with CRLF, while exported Linux copy uses LF",
+  "cause": "Local exporter used Path.write_text with Windows default newline translation",
+  "before_sha256": "c39738428bcb7bd3ee29bac86fc4a2183e7ec18bc803cd4b3498d28217ae3d26",
+  "CRLF_lines": 306,
+  "action": "Preserve pre-correction copy locally and write UTF-8 LF bytes without changing text",
+  "after_sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+  "linux_recorded_sha256": "4558bfa4fb924a4e883579f17c29bde5a8459827ec67c993c2550175ce1c9692",
+  "no_remote_operation": true,
+  "exporter_fixed": true
+}

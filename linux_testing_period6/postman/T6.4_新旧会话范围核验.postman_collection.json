@@ -1,0 +1,86 @@
+{
+  "info": {
+    "name": "T6.4 新旧会话范围核验（仅18080只读）",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "oldA_pages",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://t64');postman.setNextRequest(null);throw new Error(m);}pm.environment.set('requestToken',pm.environment.get('oldAToken'));if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('requestToken')||!pm.environment.get('expectedRows')||!pm.environment.get('targetId'))block('Missing isolated prerequisites');if(pm.request.method!=='GET')block('Read only');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);var shape=Array.isArray(b.rows)&&Number.isInteger(b.total);check('Shape',shape);if(!shape||pm.response.code!==200||b.code!==200){postman.setNextRequest(null);throw new Error('Structural response failed');}var ex=JSON.parse(pm.environment.get('expectedRows'));var pg=Number(pm.environment.get('oldAPage'));var ids=b.rows.map(u=>u.userId);check('Total follows new department',b.total===ex.length);check('Ordered page IDs follow new department',JSON.stringify(ids)===JSON.stringify(ex.slice(pg-1,pg).map(u=>u.user_id)));check('Every row belongs to new department',b.rows.every(u=>u.deptId===201));var all=JSON.parse(pm.environment.get('oldAIds'));all.push(...ids);pm.environment.set('oldAIds',JSON.stringify(all));if(pg<b.total){pm.environment.set('oldAPage',pg+1);postman.setNextRequest(pm.info.requestName);}else{check('Complete ID set follows new department',JSON.stringify(all)===JSON.stringify(ex.map(u=>u.user_id)));check('No duplicate IDs',new Set(all).size===all.length);}console.log('T64_EVENT '+JSON.stringify({session:'oldA',page:pg,total:b.total,ids:ids,deptIds:b.rows.map(u=>u.deptId),code:b.code}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum={{oldAPage}}&pageSize=1&orderByColumn=userId&isAsc=asc",
+        "description": "复用T5.6请求定义。调部门后按新部门SQL基准断言；旧会话错误结果保留失败，不刷新getInfo。"
+      }
+    },
+    {
+      "name": "newB_pages",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function block(m){pm.request.url.update('t4blocked://t64');postman.setNextRequest(null);throw new Error(m);}pm.environment.set('requestToken',pm.environment.get('newBToken'));if(pm.environment.get('baseUrl')!=='http://127.0.0.1:18080'||!pm.environment.get('requestToken')||!pm.environment.get('expectedRows')||!pm.environment.get('targetId'))block('Missing isolated prerequisites');if(pm.request.method!=='GET')block('Read only');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function check(n,ok){pm.test(n,function(){pm.expect(Boolean(ok)).to.equal(true);});}var b=pm.response.json();check('HTTP 200',pm.response.code===200);check('Business 200',b.code===200);var shape=Array.isArray(b.rows)&&Number.isInteger(b.total);check('Shape',shape);if(!shape||pm.response.code!==200||b.code!==200){postman.setNextRequest(null);throw new Error('Structural response failed');}var ex=JSON.parse(pm.environment.get('expectedRows'));var pg=Number(pm.environment.get('newBPage'));var ids=b.rows.map(u=>u.userId);check('Total follows new department',b.total===ex.length);check('Ordered page IDs follow new department',JSON.stringify(ids)===JSON.stringify(ex.slice(pg-1,pg).map(u=>u.user_id)));check('Every row belongs to new department',b.rows.every(u=>u.deptId===201));var all=JSON.parse(pm.environment.get('newBIds'));all.push(...ids);pm.environment.set('newBIds',JSON.stringify(all));if(pg<b.total){pm.environment.set('newBPage',pg+1);postman.setNextRequest(pm.info.requestName);}else{check('Complete ID set follows new department',JSON.stringify(all)===JSON.stringify(ex.map(u=>u.user_id)));check('No duplicate IDs',new Set(all).size===all.length);}console.log('T64_EVENT '+JSON.stringify({session:'newB',page:pg,total:b.total,ids:ids,deptIds:b.rows.map(u=>u.deptId),code:b.code}));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{requestToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/system/user/list?pageNum={{newBPage}}&pageSize=1&orderByColumn=userId&isAsc=asc",
+        "description": "复用T5.6请求定义。调部门后按新部门SQL基准断言；旧会话错误结果保留失败，不刷新getInfo。"
+      }
+    }
+  ]
+}
