@@ -1,0 +1,190 @@
+{
+  "tc": "TC-M07-01",
+  "stage": "T7.6",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "yaml_contributions": [
+    {
+      "case_id": "TC-M07-01_t76",
+      "name": "无修改权限用户不能改变账号状态及关联",
+      "source": "tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml",
+      "source_tcs": [
+        "TC-M07-01"
+      ],
+      "status": "passed",
+      "business_status": "通过",
+      "message": "",
+      "batch_tag": "t760e1a0621928a",
+      "known_issue": "",
+      "run_summary": "cases/t760e1a0621928a/run_summary.json",
+      "cleanup_ok": true,
+      "cleanup": [
+        {
+          "username": "t760e1a0621928at",
+          "user_ids": [
+            306
+          ],
+          "phase": "teardown",
+          "creation_observed": true,
+          "delete_requested": true,
+          "cleanup_state": "deleted",
+          "deleted": true,
+          "post_cleanup_matches": 0,
+          "absence_verified": true,
+          "deletion_verified": true
+        },
+        {
+          "username": "t760e1a0621928ao",
+          "user_ids": [
+            307
+          ],
+          "phase": "teardown",
+          "creation_observed": true,
+          "delete_requested": true,
+          "cleanup_state": "deleted",
+          "deleted": true,
+          "post_cleanup_matches": 0,
+          "absence_verified": true,
+          "deletion_verified": true
+        },
+        {
+          "username": "t760e1a0621928au",
+          "user_ids": [
+            308
+          ],
+          "phase": "teardown",
+          "creation_observed": true,
+          "delete_requested": true,
+          "cleanup_state": "deleted",
+          "deleted": true,
+          "post_cleanup_matches": 0,
+          "absence_verified": true,
+          "deletion_verified": true
+        }
+      ],
+      "cleanup_history": [
+        {
+          "username": "t760e1a0621928at",
+          "user_ids": [
+            306
+          ],
+          "phase": "teardown",
+          "creation_observed": true,
+          "delete_requested": true,
+          "cleanup_state": "deleted",
+          "deleted": true,
+          "post_cleanup_matches": 0,
+          "absence_verified": true,
+          "deletion_verified": true
+        },
+        {
+          "username": "t760e1a0621928ao",
+          "user_ids": [
+            307
+          ],
+          "phase": "teardown",
+          "creation_observed": true,
+          "delete_requested": true,
+          "cleanup_state": "deleted",
+          "deleted": true,
+          "post_cleanup_matches": 0,
+          "absence_verified": true,
+          "deletion_verified": true
+        },
+        {
+          "username": "t760e1a0621928au",
+          "user_ids": [
+            308
+          ],
+          "phase": "teardown",
+          "creation_observed": true,
+          "delete_requested": true,
+          "cleanup_state": "deleted",
+          "deleted": true,
+          "post_cleanup_matches": 0,
+          "absence_verified": true,
+          "deletion_verified": true
+        }
+      ],
+      "session_cleanup": [
+        {
+          "actor": "本例用户#2",
+          "phase": "teardown",
+          "logged_out": true,
+          "old_token_rejected": true
+        },
+        {
+          "actor": "管理员#1",
+          "phase": "teardown",
+          "logged_out": true,
+          "old_token_rejected": true
+        }
+      ],
+      "captcha": {
+        "mode": "redis",
+        "enabled": true,
+        "answers_read": 2,
+        "refreshes": 0,
+        "login_retries": 0
+      },
+      "input_evidence": [],
+      "permission_matrix": {
+        "subject_user_id": 308,
+        "initial_roles": [
+          134
+        ],
+        "initial_dept": 235,
+        "dept_a": 235,
+        "dept_b": 236,
+        "scope": "3",
+        "target_ids": [
+          306,
+          307
+        ],
+        "fixture_spec": {}
+      },
+      "collections": [],
+      "set_checks": [],
+      "checkpoints": {},
+      "pending_requirement": null,
+      "business_verdict": "passed",
+      "resource_cleanup": [
+        {
+          "kind": "role",
+          "id": 134,
+          "absent": true
+        },
+        {
+          "kind": "dept",
+          "id": 236,
+          "absent": true
+        },
+        {
+          "kind": "dept",
+          "id": 235,
+          "absent": true
+        }
+      ],
+      "restorations": [
+        {
+          "userId": 306,
+          "restored": true,
+          "was_unchanged": true
+        }
+      ],
+      "http_requests": 63,
+      "business_steps_completed": true
+    }
+  ],
+  "execution_summary": "execution_summary.json",
+  "allure_raw_archive": null,
+  "junit": null,
+  "cleanup_ok": true,
+  "publication_scope": {
+    "excluded_references": [
+      "allure_raw_archive",
+      "junit"
+    ],
+    "reason": "完整历史报告、源码包、原始结果ZIP、JUnit及运行日志未随本次发布；业务结果和必要逐例证据保留"
+  }
+}

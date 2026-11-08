@@ -1,0 +1,11 @@
+{
+  "environment": "shared",
+  "base_url": "http://127.0.0.1:8080",
+  "connect_timeout": 3,
+  "read_timeout": 10,
+  "dept_id": 202,
+  "role_id": 101,
+  "post_ids": [],
+  "admin_username": "admin",
+  "admin_password": ""
+}

@@ -1,0 +1,27 @@
+# 原用例：TC-T4-AUTH-01
+# T7.5：公共前置由夹具none提供；每例账号与会话独立，统一回查清理。
+name: 未登录时拒绝查询用户身份
+mark:
+  - user_access
+
+steps:
+  # 业务动作：GET /getInfo
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      params: {}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      headers:
+        Content-Type: application/json*
+      json:
+        code: 401
+      absent:
+        - user
+        - token
+  # 提取本次真实响应变量，后续请求动态关联
+  - extract:
+      rejected_code:
+        - json
+        - $.code

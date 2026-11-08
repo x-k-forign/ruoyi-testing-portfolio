@@ -1,0 +1,137 @@
+{
+  "tc": "TC-C09-06",
+  "stage": "T7.8",
+  "status": "失败",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-C09-06_pwd21",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "source_tcs": [
+        "TC-C09-06"
+      ],
+      "known_issue": "BUG-T3-002",
+      "batch_tag": "t78ad8ca26188d3",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "passed",
+          "duration": 0.372867,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "failed",
+          "duration": 0.130603,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "业务码不符：HTTP=200，预期code=500，实际code=200",
+          "location": {
+            "file": "commons/assert_utils.py",
+            "line": 57,
+            "function": "assert_response"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "passed",
+          "duration": 0.085452,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 500,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 21,
+          "expected_input_length": 21,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:16.216487+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "cleanup_ok": true,
+      "case_index": "cases/t78ad8ca26188d3/case_index.json",
+      "http_evidence": "cases/t78ad8ca26188d3/http.jsonl",
+      "cleanup_evidence": "cases/t78ad8ca26188d3/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-06_pwd21 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "functional_testing_period3/docs/T3_缺陷记录.md"
+        ]
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

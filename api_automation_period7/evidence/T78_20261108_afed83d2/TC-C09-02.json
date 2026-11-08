@@ -1,0 +1,131 @@
+{
+  "tc": "TC-C09-02",
+  "stage": "T7.8",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-C09-02_pwd06",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+      "name": "创建密码6位：允许创建且关联正确",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+      "source_tcs": [
+        "TC-C09-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78a1559211d432",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+          "case_id": "TC-C09-02_pwd06",
+          "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+          "source_tcs": [
+            "TC-C09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78a1559211d432",
+          "outcome": "passed",
+          "duration": 0.393078,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+          "case_id": "TC-C09-02_pwd06",
+          "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+          "source_tcs": [
+            "TC-C09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78a1559211d432",
+          "outcome": "passed",
+          "duration": 0.21209,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+          "case_id": "TC-C09-02_pwd06",
+          "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+          "source_tcs": [
+            "TC-C09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78a1559211d432",
+          "outcome": "passed",
+          "duration": 0.081568,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 7,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 6,
+          "expected_input_length": 6,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": true,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:14.868538+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78a1559211d432/case_index.json",
+      "http_evidence": "cases/t78a1559211d432/http.jsonl",
+      "cleanup_evidence": "cases/t78a1559211d432/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-02_pwd06 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

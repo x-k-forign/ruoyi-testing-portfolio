@@ -1,0 +1,265 @@
+{
+  "tc": "TC-M02-01",
+  "stage": "T7.7",
+  "status": "失败",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-M02-01_t76",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "batch_tag": "t7755ad6b83b6db",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t7755ad6b83b6db/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_revoke": {
+          "name": "old_a_after_revoke",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:21:32.475963+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": false
+        },
+        "new_b_after_revoke": {
+          "name": "new_b_after_revoke",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:21:32.783380+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "old_a_no_write": {
+          "name": "old_a_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:21:32.794721+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "passed": false
+        },
+        "new_b_no_write": {
+          "name": "new_b_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:21:32.804867+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-M02-01_t76",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "batch_tag": "t77ac34b2c564e5",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t77ac34b2c564e5/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_revoke": {
+          "name": "old_a_after_revoke",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:22:46.416322+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": false
+        },
+        "new_b_after_revoke": {
+          "name": "new_b_after_revoke",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:22:46.710548+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "old_a_no_write": {
+          "name": "old_a_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:22:46.722420+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "passed": false
+        },
+        "new_b_no_write": {
+          "name": "new_b_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:22:46.733773+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-M02-01_t76",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "batch_tag": "t77a80de26cbf4a",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t77a80de26cbf4a/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_revoke": {
+          "name": "old_a_after_revoke",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:43:37.557416+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": false
+        },
+        "new_b_after_revoke": {
+          "name": "new_b_after_revoke",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:43:37.905974+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "old_a_no_write": {
+          "name": "old_a_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:43:37.919466+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "passed": false
+        },
+        "new_b_no_write": {
+          "name": "new_b_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:43:37.931252+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-M02-01_t76",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "batch_tag": "t77109323c4a44a",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t77109323c4a44a/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_revoke": {
+          "name": "old_a_after_revoke",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:45:01.914639+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": false
+        },
+        "new_b_after_revoke": {
+          "name": "new_b_after_revoke",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:45:02.247475+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "old_a_no_write": {
+          "name": "old_a_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:45:02.260859+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "passed": false
+        },
+        "new_b_no_write": {
+          "name": "new_b_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:45:02.274312+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

@@ -1,0 +1,29 @@
+{
+  "tc": "TC-M05-01",
+  "stage": "T7.4",
+  "executed_at": "2026-11-08T13:10:23.150058+08:00",
+  "status": "passed",
+  "test_name": "账号禁用后拒绝新登录，恢复状态可回查",
+  "test_source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+  "batch_tag": "t74c35528a8e7e8",
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 3,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "cleanup_ok": true,
+  "message": "",
+  "run_summary": "cases/t74c35528a8e7e8/run_summary.json",
+  "allure_raw_archive": null,
+  "junit": null,
+  "tester": "x-k-forign（项目测试负责人）",
+  "publication_scope": {
+    "excluded_references": [
+      "allure_raw_archive",
+      "junit"
+    ],
+    "reason": "完整历史报告、源码包、原始结果ZIP、JUnit及运行日志未随本次发布；业务结果和必要逐例证据保留"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "tc": "TC-T75-CLEAN-01",
+  "stage": "T7.8",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-T75-CLEAN-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+      "name": "创建用户后准备中断，账号和原会话仍能清理",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+      "source_tcs": [
+        "TC-T75-CLEAN-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7837a9db0d4228",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+          "case_id": "TC-T75-CLEAN-01",
+          "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+          "source_tcs": [
+            "TC-T75-CLEAN-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7837a9db0d4228",
+          "outcome": "passed",
+          "duration": 1.417797,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+          "case_id": "TC-T75-CLEAN-01",
+          "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+          "source_tcs": [
+            "TC-T75-CLEAN-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7837a9db0d4228",
+          "outcome": "passed",
+          "duration": 0.038825,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+          "case_id": "TC-T75-CLEAN-01",
+          "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+          "source_tcs": [
+            "TC-T75-CLEAN-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7837a9db0d4228",
+          "outcome": "passed",
+          "duration": 0.039712,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 6,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 401,
+        "actual_business_code": 401,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7837a9db0d4228/case_index.json",
+      "http_evidence": "cases/t7837a9db0d4228/http.jsonl",
+      "cleanup_evidence": "cases/t7837a9db0d4228/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-T75-CLEAN-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

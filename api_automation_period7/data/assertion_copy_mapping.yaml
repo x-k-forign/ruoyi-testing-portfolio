@@ -1,0 +1,211 @@
+# 副本只继承原TC用于对照，不新增业务编号；默认不进入正式回归。
+tests/断言失败副本测试/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml:
+  origin: tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml
+  origin_case_id: TC-M09-01_t76
+  origin_sha256: bcc840d7df0c0ccb69e2746a6bf404e17653bd1e258531cf607d6b8b5aafba1f
+  copy_sha256: bcc840d7df0c0ccb69e2746a6bf404e17653bd1e258531cf607d6b8b5aafba1f
+tests/断言失败副本测试/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml:
+  origin: tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml
+  origin_case_id: TC-M09-03_t76
+  origin_sha256: 8c87f2953921278c4b059292064db17b4ce2836e56c181d6a965d08750540c81
+  copy_sha256: 8c87f2953921278c4b059292064db17b4ce2836e56c181d6a965d08750540c81
+tests/断言失败副本测试/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml:
+  origin: tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml
+  origin_case_id: TC-M09-02_t76
+  origin_sha256: b6a241dd856404ff431d69287baa3b94a271ea2d1f200af97e07cdebc8813095
+  copy_sha256: b6a241dd856404ff431d69287baa3b94a271ea2d1f200af97e07cdebc8813095
+tests/断言失败副本测试/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml:
+  origin: tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml
+  origin_case_id: TC-M01-01
+  origin_sha256: 697aea0415a9268a2a273716b1c15591ef074aa83bac09165b8a083c95c26a49
+  copy_sha256: 697aea0415a9268a2a273716b1c15591ef074aa83bac09165b8a083c95c26a49
+tests/断言失败副本测试/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml:
+  origin: tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml
+  origin_case_id: TC-M02-01_t76
+  origin_sha256: b4d3a95d9eb7a5ca28b885d102ececc4fa983a44e28fb900a3f9a0a43221ddf7
+  copy_sha256: b4d3a95d9eb7a5ca28b885d102ececc4fa983a44e28fb900a3f9a0a43221ddf7
+tests/断言失败副本测试/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml:
+  origin: tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml
+  origin_case_id: TC-M07-01_t76
+  origin_sha256: 10a05530f11d5dac979ae9613bfe878c4122958900f1fe0aea30ca7bfed338f8
+  copy_sha256: 10a05530f11d5dac979ae9613bfe878c4122958900f1fe0aea30ca7bfed338f8
+tests/断言失败副本测试/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml:
+  origin: tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml
+  origin_case_id: TC-M08-01_t76
+  origin_sha256: fe8fe4f9e08d1cd02ad051806a4fde3d15302fba76574b8039cc9d8a421a43b1
+  copy_sha256: fe8fe4f9e08d1cd02ad051806a4fde3d15302fba76574b8039cc9d8a421a43b1
+tests/断言失败副本测试/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml:
+  origin: tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml
+  origin_case_id: TC-M08-02_t76
+  origin_sha256: cace11b488f337d70e308a09af73bfb59d6c6e76ac1ae9c64b6da4d0dc6c041a
+  copy_sha256: cace11b488f337d70e308a09af73bfb59d6c6e76ac1ae9c64b6da4d0dc6c041a
+tests/断言失败副本测试/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml:
+  origin: tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml
+  origin_case_id: TC-M04-01_t76
+  origin_sha256: eebc2b617f93f8e3590550858a57a447e763489cae6e9163887a04a027af7d2d
+  copy_sha256: eebc2b617f93f8e3590550858a57a447e763489cae6e9163887a04a027af7d2d
+tests/断言失败副本测试/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml:
+  origin: tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml
+  origin_case_id: TC-M04-02_t76
+  origin_sha256: f85f4b3786ad59686354915f07162a9ee4a6937e2cefd39fd77c58e8f17d58a9
+  copy_sha256: f85f4b3786ad59686354915f07162a9ee4a6937e2cefd39fd77c58e8f17d58a9
+tests/断言失败副本测试/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml:
+  origin: tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml
+  origin_case_id: TC-M05-01
+  origin_sha256: 8ab3a877357ba1e7ea562d23376fc736264ca794f31dfe4a82fff8211c124f13
+  copy_sha256: 8ab3a877357ba1e7ea562d23376fc736264ca794f31dfe4a82fff8211c124f13
+tests/断言失败副本测试/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml:
+  origin: tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml
+  origin_case_id: TC-M06-01_t76
+  origin_sha256: f31f9386379c2687013d78e24e215068eab987217270e3ebba6dc41712675452
+  copy_sha256: f31f9386379c2687013d78e24e215068eab987217270e3ebba6dc41712675452
+tests/断言失败副本测试/新用户登录/未登录访问控制/01_未登录查询身份.yaml:
+  origin: tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml
+  origin_case_id: TC-T4-AUTH-01
+  origin_sha256: fcf8ea6f10fba28f873c4a2842b11ad0a12a0e75474a3a9d43e0630330e8f60f
+  copy_sha256: fcf8ea6f10fba28f873c4a2842b11ad0a12a0e75474a3a9d43e0630330e8f60f
+tests/断言失败副本测试/新用户登录/登录与退出/01_新用户登录与退出.yaml:
+  origin: tests/新用户登录/登录与退出/01_新用户登录与退出.yaml
+  origin_case_id: TC-L01-01_new_user_logout
+  origin_sha256: 7aac1f35af111bc02700b11390ab271f3834d716827db186cc153c454d0bf016
+  copy_sha256: 7aac1f35af111bc02700b11390ab271f3834d716827db186cc153c454d0bf016
+tests/断言失败副本测试/新用户登录/登录与退出/02_管理员登录与退出.yaml:
+  origin: tests/新用户登录/登录与退出/02_管理员登录与退出.yaml
+  origin_case_id: TC-T4-AUTH-03
+  origin_sha256: 85652216ea4f979b5380e42a59396e6ee08f3e7ab080123c55b51fd77853dec7
+  copy_sha256: 85652216ea4f979b5380e42a59396e6ee08f3e7ab080123c55b51fd77853dec7
+tests/断言失败副本测试/新用户登录/登录异常/01_错误密码与失败后访问.yaml:
+  origin: tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml
+  origin_case_id: TC-L03-02
+  origin_sha256: 3d98e866eed6e55a459f26582863aac799d84a7377e3606758e72ead7e8de619
+  copy_sha256: 3d98e866eed6e55a459f26582863aac799d84a7377e3606758e72ead7e8de619
+tests/断言失败副本测试/用户创建与授权/创建参数校验/01_登录名为空.yaml:
+  origin: tests/用户创建与授权/创建参数校验/01_登录名为空.yaml
+  origin_case_id: TC-C02-01
+  origin_sha256: 017b1526bf9b14b9881627eb150bd75623091131d0c877e450681752f6e4f8dd
+  copy_sha256: 017b1526bf9b14b9881627eb150bd75623091131d0c877e450681752f6e4f8dd
+tests/断言失败副本测试/用户创建与授权/创建参数校验/02_登录名重复.yaml:
+  origin: tests/用户创建与授权/创建参数校验/02_登录名重复.yaml
+  origin_case_id: TC-C03-01
+  origin_sha256: 89b2ef8896b86a3810835152264396576bdf42839fcd812e7e7b13e1ef2c11cc
+  copy_sha256: 89b2ef8896b86a3810835152264396576bdf42839fcd812e7e7b13e1ef2c11cc
+tests/断言失败副本测试/用户创建与授权/创建密码边界/01_密码5位.yaml:
+  origin: tests/用户创建与授权/创建密码边界/01_密码5位.yaml
+  origin_case_id: TC-C09-01_pwd05
+  origin_sha256: ba5b18b4d76a891cbbee028a911ae0e7c3f4af57b4c759617e735ddbaf4fcd71
+  copy_sha256: ba5b18b4d76a891cbbee028a911ae0e7c3f4af57b4c759617e735ddbaf4fcd71
+tests/断言失败副本测试/用户创建与授权/创建密码边界/02_密码6位.yaml:
+  origin: tests/用户创建与授权/创建密码边界/02_密码6位.yaml
+  origin_case_id: TC-C09-02_pwd06
+  origin_sha256: fcf429a2dea07f3744b74b920b5e4e47935e88349aa810dc25f14a8b2105bb9d
+  copy_sha256: fcf429a2dea07f3744b74b920b5e4e47935e88349aa810dc25f14a8b2105bb9d
+tests/断言失败副本测试/用户创建与授权/创建密码边界/03_密码20位.yaml:
+  origin: tests/用户创建与授权/创建密码边界/03_密码20位.yaml
+  origin_case_id: TC-C09-05_pwd20
+  origin_sha256: 47f042e81c25e79fbfeb2b4c305e8168856e623b6211272a0442e31cff2b9466
+  copy_sha256: 47f042e81c25e79fbfeb2b4c305e8168856e623b6211272a0442e31cff2b9466
+tests/断言失败副本测试/用户创建与授权/创建密码边界/04_密码21位.yaml:
+  origin: tests/用户创建与授权/创建密码边界/04_密码21位.yaml
+  origin_case_id: TC-C09-06_pwd21
+  origin_sha256: 20d4bf50f5c83e4c0398d0f0bd5b9b4197e064aa524c7450b0eb27dec5db7279
+  copy_sha256: 20d4bf50f5c83e4c0398d0f0bd5b9b4197e064aa524c7450b0eb27dec5db7279
+tests/断言失败副本测试/用户创建与授权/创建授权/01_创建授权.yaml:
+  origin: tests/用户创建与授权/创建授权/01_创建授权.yaml
+  origin_case_id: TC-C01-01
+  origin_sha256: e15adc3186dddb539abee644c3d30ccf0721edadedf9679e755af2315a8c6bed
+  copy_sha256: e15adc3186dddb539abee644c3d30ccf0721edadedf9679e755af2315a8c6bed
+tests/断言失败副本测试/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml:
+  origin: tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml
+  origin_case_id: TC-T75-CLEAN-01
+  origin_sha256: 68f655ef3c3f45325109211446dbf524c0be43d59faf0eea1f7408d35c1b82dc
+  copy_sha256: 68f655ef3c3f45325109211446dbf524c0be43d59faf0eea1f7408d35c1b82dc
+tests/断言失败副本测试/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml:
+  origin: tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml
+  origin_case_id: reference_dept_role
+  origin_sha256: 518d9f8b5a172c6804f5ac7291dc9fc15ac3d58c113b2eb1ec17625dc8476600
+  copy_sha256: 518d9f8b5a172c6804f5ac7291dc9fc15ac3d58c113b2eb1ec17625dc8476600
+tests/断言失败副本测试/相关日志核对/登录日志/01_本轮成功登录日志.yaml:
+  origin: tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml
+  origin_case_id: TC-G01-01
+  origin_sha256: bc10d8b5ec7a10394691fd020ebede90b97e77b339c10952121ab09f7a077db7
+  copy_sha256: bc10d8b5ec7a10394691fd020ebede90b97e77b339c10952121ab09f7a077db7
+tests/断言失败副本测试/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml:
+  origin: tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml
+  origin_case_id: TC-C05-01
+  origin_sha256: 8c95336afb52d14703e7b2e1cd2a43ac265b102cbfe5fb5207c4dd6ff47ee2fe
+  copy_sha256: 8c95336afb52d14703e7b2e1cd2a43ac265b102cbfe5fb5207c4dd6ff47ee2fe
+tests/断言失败副本测试/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml:
+  origin: tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml
+  origin_case_id: TC-A02-01_t76
+  origin_sha256: 3eb2722e948def0a8b230bffadd48253502fa080368fcde1b834f833051790e4
+  copy_sha256: 3eb2722e948def0a8b230bffadd48253502fa080368fcde1b834f833051790e4
+tests/断言失败副本测试/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml:
+  origin: tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml
+  origin_case_id: TC-A11-01_t76
+  origin_sha256: 27c9ab608e4b15839edd5655414817d59669f4df637fa80acd3cac38d867f9ed
+  copy_sha256: 27c9ab608e4b15839edd5655414817d59669f4df637fa80acd3cac38d867f9ed
+tests/断言失败副本测试/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml:
+  origin: tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml
+  origin_case_id: TC-A11-02_t76
+  origin_sha256: e8152b2fdbbc0188ae75c3df99e7b12c82082bfdd739ff2ced0506bbb0f2999b
+  copy_sha256: e8152b2fdbbc0188ae75c3df99e7b12c82082bfdd739ff2ced0506bbb0f2999b
+tests/断言失败副本测试/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml:
+  origin: tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml
+  origin_case_id: TC-A04-01
+  origin_sha256: 82c13f5c7aa6a3d54efe30e62207a794d914ebb4460285c2dbc7cfba102d0e7d
+  fault:
+    response_step: 2
+    correct_http_status: 200
+    injected_http_status: 999
+    purpose: 只读响应断言错误；不创建业务账号，核对管理员会话收尾
+  copy_sha256: 09d81313080a25314e7b4f300e6e6320108c44fcdeafe7725de854b4cacb152c
+tests/断言失败副本测试/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml:
+  origin: tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml
+  origin_case_id: TC-A04-01_t76
+  origin_sha256: 4d0f6e0a5c5811e0b50e7624516cc75d41aa23c7135be0095dbd542862411e98
+  fault:
+    response_step: 2
+    correct_http_status: 200
+    injected_http_status: 999
+    purpose: 账号、角色、部门已准备后断言失败，核对资源仍清理
+  copy_sha256: 7a235ce8f0fbd48a60d0962897ecc7f2e7501fdf109f4323a34dde542e412ecc
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/01_本部门A.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml
+  origin_case_id: TC-A05-01_t76
+  origin_sha256: 840ecfa799668c2ade406730db050153ad3e59e3f5c03e7de8755c1714fd6bf3
+  copy_sha256: 840ecfa799668c2ade406730db050153ad3e59e3f5c03e7de8755c1714fd6bf3
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/02_本部门B.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml
+  origin_case_id: TC-A05-02_t76
+  origin_sha256: 2b204d73091945a6340bbc1dc4de1904c6358c6ff5500dd7b8f96e498ba25e79
+  copy_sha256: 2b204d73091945a6340bbc1dc4de1904c6358c6ff5500dd7b8f96e498ba25e79
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml
+  origin_case_id: TC-A06-01_t76
+  origin_sha256: a002f079ffc366a1cd7a34f399c8604f3e6f3f8d410d45730ef5c2a465362bd0
+  copy_sha256: a002f079ffc366a1cd7a34f399c8604f3e6f3f8d410d45730ef5c2a465362bd0
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/04_仅本人.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml
+  origin_case_id: TC-A07-01_t76
+  origin_sha256: 5625af92d7f9b3a4e29d98dcf2bd5365d08f46dd7540b8c285bc81d549fb83f8
+  copy_sha256: 5625af92d7f9b3a4e29d98dcf2bd5365d08f46dd7540b8c285bc81d549fb83f8
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml
+  origin_case_id: TC-A08-01_t76
+  origin_sha256: 9d9fa1ee9e94062949af23141f3ac86b2052e7cd5a79549cb20df1a4af28b04d
+  copy_sha256: 9d9fa1ee9e94062949af23141f3ac86b2052e7cd5a79549cb20df1a4af28b04d
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/06_全部数据.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml
+  origin_case_id: TC-A09-01_t76
+  origin_sha256: 676433f3e2cf53e5f4b18180aaa332927c15ba3a847950f72e7d65cd33a67c76
+  copy_sha256: 676433f3e2cf53e5f4b18180aaa332927c15ba3a847950f72e7d65cd33a67c76
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml
+  origin_case_id: TC-A10-01_t76
+  origin_sha256: 70a583c159aabbbff27a933002c4e7a478d5d88f1a1607abf8d78ae50f6f90a6
+  copy_sha256: 70a583c159aabbbff27a933002c4e7a478d5d88f1a1607abf8d78ae50f6f90a6
+tests/断言失败副本测试/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml:
+  origin: tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml
+  origin_case_id: TC-A10-02_t76
+  origin_sha256: 95718621350dfe9aa26fc531ed9b3492e1a1ce91f09fd5955ac6888900a180b2
+  copy_sha256: 95718621350dfe9aa26fc531ed9b3492e1a1ce91f09fd5955ac6888900a180b2

@@ -1,0 +1,266 @@
+# 原用例：TC-M09-02
+# 公共前置只准备专属数据；以下步骤执行目标业务并保留真实结果。
+name: 增授后旧A实际权限与新B获准新增的真实对照
+mark:
+- auth
+
+steps:
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${before_token}
+      json:
+        userName: ${denied_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 403
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${denied_username}
+        pageNum: 1
+        pageSize: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 0
+        rows: []
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: PUT
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userId: ${new_user_id}
+        userName: ${new_username}
+        nickName: ${new_nickname}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        - ${extra_role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${new_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${new_user_id}
+          deptId: ${dept_a}
+          status: '0'
+          nickName: ${new_nickname}
+          remark: ${batch_tag}
+        roleIds:
+        - ${role_id}
+        - ${extra_role_id}
+        postIds: ${post_ids}
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${before_token}
+      json:
+        userName: ${new_denied_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      old_grant_code:
+      - json
+      - $.code
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      checkpoint:
+        name: grant_old_a
+        pending: 用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${new_denied_username}
+        pageNum: 1
+        pageSize: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      old_grant_matches:
+      - json
+      - $.total
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      checkpoint:
+        name: grant_old_a_write
+        pending: 用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察
+        details:
+          operation_business_code: ${old_grant_code}
+          post_write_matches: ${old_grant_matches}
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/captchaImage
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/login
+      json:
+        username: ${new_username}
+        password: ${new_password}
+        code: ${captcha_code}
+        uuid: ${captcha_uuid}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      present:
+      - token
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      after_token:
+      - json
+      - $.token
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${after_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        user:
+          userId: ${new_user_id}
+          userName: ${new_username}
+          deptId: ${dept_id}
+      contains:
+        $.permissions:
+        - system:user:list
+        - system:user:query
+        - system:user:add
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${after_token}
+      json:
+        userName: ${allowed_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      checkpoint:
+        name: grant_new_b
+        code: 200
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${allowed_username}
+        pageNum: 1
+        pageSize: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 1
+        rows:
+        - userName: ${allowed_username}
+          remark: ${batch_tag}
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      created_target_id:
+      - json
+      - $.rows[0].userId
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${created_target_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${created_target_id}
+          userName: ${allowed_username}
+          deptId: ${dept_a}
+          status: '0'
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      checkpoints:
+      - grant_old_a
+      - grant_new_b

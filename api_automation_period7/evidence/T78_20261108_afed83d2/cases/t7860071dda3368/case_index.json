@@ -1,0 +1,102 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+  "case_id": "TC-A04-01",
+  "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+  "source_tcs": [
+    "TC-A04-01"
+  ],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t7860071dda3368",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+      "case_id": "TC-A04-01",
+      "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+      "source_tcs": [
+        "TC-A04-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t7860071dda3368",
+      "outcome": "passed",
+      "duration": 0.41789,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+      "case_id": "TC-A04-01",
+      "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+      "source_tcs": [
+        "TC-A04-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t7860071dda3368",
+      "outcome": "passed",
+      "duration": 0.021714,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+      "case_id": "TC-A04-01",
+      "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+      "source_tcs": [
+        "TC-A04-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t7860071dda3368",
+      "outcome": "passed",
+      "duration": 0.019993,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 2,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 200,
+    "actual_business_code": 200,
+    "checkpoints": []
+  },
+  "input_evidence": [],
+  "checkpoints": {},
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [],
+  "resource_cleanup": [],
+  "restorations": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "d246fbf31d4aeb39"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A04-01 -v",
+  "current_report_evidence": "evidence/cases/t7860071dda3368"
+}

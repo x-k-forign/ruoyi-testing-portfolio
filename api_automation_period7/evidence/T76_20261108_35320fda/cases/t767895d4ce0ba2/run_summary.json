@@ -1,0 +1,1357 @@
+{
+  "batch_tag": "t767895d4ce0ba2",
+  "case_name": "附加角色停用后新登录仅保留有效角色范围与查询权限",
+  "stage": "T7.6",
+  "case_id": "TC-A11-02_t76",
+  "case_source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+  "source_tcs": [
+    "TC-A11-02"
+  ],
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 25,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "preparation": {
+    "profile": "permission",
+    "status": "ready"
+  },
+  "setup_error_type": null,
+  "scenario": {},
+  "cleanup": [
+    {
+      "username": "t767895d4ce0ba2t",
+      "user_ids": [
+        345
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t767895d4ce0ba2o",
+      "user_ids": [
+        346
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t767895d4ce0ba2u",
+      "user_ids": [
+        347
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t767895d4ce0ba2d",
+      "user_ids": [],
+      "phase": "teardown",
+      "creation_observed": false,
+      "delete_requested": false,
+      "cleanup_state": "not_created",
+      "deleted": false,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": false
+    }
+  ],
+  "cleanup_history": [
+    {
+      "username": "t767895d4ce0ba2t",
+      "user_ids": [
+        345
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t767895d4ce0ba2o",
+      "user_ids": [
+        346
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t767895d4ce0ba2u",
+      "user_ids": [
+        347
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t767895d4ce0ba2d",
+      "user_ids": [],
+      "phase": "teardown",
+      "creation_observed": false,
+      "delete_requested": false,
+      "cleanup_state": "not_created",
+      "deleted": false,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": false
+    }
+  ],
+  "session_cleanup": [
+    {
+      "actor": "本例用户#3",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true
+    },
+    {
+      "actor": "本例用户#2",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true
+    },
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 95,
+  "http_events": [
+    {
+      "at": "2026-11-08T19:39:14.895348+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:14.914330+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:14.944139+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.136987+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.139098+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.144089+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.148938+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/202",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.153918+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.155641+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/menu/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.162983+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.169439+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.175218+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.178253+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/system/dept",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.189852+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.191374+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.197243+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.200197+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.205658+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.208644+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/system/dept",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.219501+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.221072+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.226777+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.229768+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.237282+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.240629+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/system/role",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.256596+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.258264+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.267936+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.271153+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/145",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.277513+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.279190+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.286202+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.289802+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/system/role",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.304990+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.306750+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.316274+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.320794+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/146",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.326801+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.328316+08:00",
+      "actor": "管理员#1",
+      "method": "PUT",
+      "path": "/system/role/dataScope",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.342204+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.343690+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/deptTree/146",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.355349+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.357283+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/146",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.362781+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.364325+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.374119+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.376839+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.492790+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.495210+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.505242+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.510255+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/345",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.528915+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.532019+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.539683+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.543362+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.646316+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.648980+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.660040+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.664383+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/346",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.679565+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.682614+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.690061+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.693430+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.784083+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.785707+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.795711+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.798945+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/347",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.812912+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.815794+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:15.835070+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:15.841610+08:00",
+      "actor": "本例用户#2",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.045141+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.047428+08:00",
+      "actor": "本例用户#2",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.058820+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.063769+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.074161+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.076665+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.086043+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.088698+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.098954+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.103464+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.115411+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.119382+08:00",
+      "actor": "本例用户#2",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.135019+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.137116+08:00",
+      "actor": "本例用户#2",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.148971+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.153052+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/146",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.158492+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.160219+08:00",
+      "actor": "管理员#1",
+      "method": "PUT",
+      "path": "/system/role/changeStatus",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.167844+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.169935+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/146",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.175556+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.178268+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.196764+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.215897+08:00",
+      "actor": "本例用户#3",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.429279+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.431409+08:00",
+      "actor": "本例用户#3",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.442313+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.445567+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.457206+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.459751+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.470885+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.473635+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.485224+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.489320+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.500336+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.503696+08:00",
+      "actor": "本例用户#3",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.524177+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.531785+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.540496+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.545352+08:00",
+      "actor": "本例用户#3",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.551197+08:00",
+      "business_code": 403
+    },
+    {
+      "at": "2026-11-08T19:39:16.554501+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.563781+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.576354+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.587321+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.589106+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/345",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.608795+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.611552+08:00",
+      "actor": "管理员#1",
+      "method": "DELETE",
+      "path": "/system/user/345",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.630656+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.633303+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.644821+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.650441+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.663179+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.665371+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/346",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.680781+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.684083+08:00",
+      "actor": "管理员#1",
+      "method": "DELETE",
+      "path": "/system/user/346",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.707112+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.709555+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.718276+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.723166+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.737493+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.740293+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/347",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.757591+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.760509+08:00",
+      "actor": "管理员#1",
+      "method": "DELETE",
+      "path": "/system/user/347",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.775805+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.778498+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.787447+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.791728+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.799489+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.800950+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.809536+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.813995+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.828841+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.830557+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/authUser/allocatedList",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.837815+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.839880+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/145",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.845824+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.847426+08:00",
+      "actor": "管理员#1",
+      "method": "DELETE",
+      "path": "/system/role/145",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.871644+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.873680+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.897244+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.899176+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:16.974534+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:16.980749+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/authUser/allocatedList",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.061294+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.064243+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/146",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.070792+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.072833+08:00",
+      "actor": "管理员#1",
+      "method": "DELETE",
+      "path": "/system/role/146",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.091611+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.093541+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.101824+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.103659+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.111366+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.113247+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/252",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.124150+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.126160+08:00",
+      "actor": "管理员#1",
+      "method": "DELETE",
+      "path": "/system/dept/252",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.138625+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.140118+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.146039+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.148335+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.155314+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.157253+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/251",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.162968+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.165531+08:00",
+      "actor": "管理员#1",
+      "method": "DELETE",
+      "path": "/system/dept/251",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.178084+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.179970+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/list",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.186334+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.187955+08:00",
+      "actor": "本例用户#3",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.191816+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.191916+08:00",
+      "actor": "本例用户#3",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.195222+08:00",
+      "business_code": 401
+    },
+    {
+      "at": "2026-11-08T19:39:17.195694+08:00",
+      "actor": "本例用户#2",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.198937+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.199002+08:00",
+      "actor": "本例用户#2",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.201773+08:00",
+      "business_code": 401
+    },
+    {
+      "at": "2026-11-08T19:39:17.202175+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.206044+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T19:39:17.206134+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T19:39:17.209053+08:00",
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 3,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": [],
+  "permission_matrix": {
+    "subject_user_id": 347,
+    "initial_roles": [
+      145,
+      146
+    ],
+    "initial_dept": 251,
+    "dept_a": 251,
+    "dept_b": 252,
+    "scope": "3",
+    "target_ids": [
+      345,
+      346
+    ],
+    "fixture_spec": {
+      "extra": "custom_add",
+      "assigned_extra": true
+    }
+  },
+  "collections": [
+    {
+      "actor": "管理员#1",
+      "pages": [
+        {
+          "page": 1,
+          "ids": [
+            1,
+            2,
+            100,
+            101,
+            103,
+            104,
+            105,
+            108,
+            109,
+            110
+          ],
+          "total": 37
+        },
+        {
+          "page": 2,
+          "ids": [
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+          ],
+          "total": 37
+        },
+        {
+          "page": 3,
+          "ids": [
+            121,
+            122,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131
+          ],
+          "total": 37
+        },
+        {
+          "page": 4,
+          "ids": [
+            134,
+            139,
+            145,
+            146,
+            345,
+            346,
+            347
+          ],
+          "total": 37
+        }
+      ],
+      "complete": true,
+      "ids": [
+        1,
+        2,
+        100,
+        101,
+        103,
+        104,
+        105,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        134,
+        139,
+        145,
+        146,
+        345,
+        346,
+        347
+      ]
+    },
+    {
+      "actor": "本例用户#2",
+      "pages": [
+        {
+          "page": 1,
+          "ids": [
+            345,
+            346
+          ],
+          "total": 3
+        },
+        {
+          "page": 2,
+          "ids": [
+            347
+          ],
+          "total": 3
+        }
+      ],
+      "complete": true,
+      "ids": [
+        345,
+        346,
+        347
+      ]
+    },
+    {
+      "actor": "管理员#1",
+      "pages": [
+        {
+          "page": 1,
+          "ids": [
+            1,
+            2,
+            100,
+            101,
+            103,
+            104,
+            105,
+            108,
+            109,
+            110
+          ],
+          "total": 37
+        },
+        {
+          "page": 2,
+          "ids": [
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+          ],
+          "total": 37
+        },
+        {
+          "page": 3,
+          "ids": [
+            121,
+            122,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131
+          ],
+          "total": 37
+        },
+        {
+          "page": 4,
+          "ids": [
+            134,
+            139,
+            145,
+            146,
+            345,
+            346,
+            347
+          ],
+          "total": 37
+        }
+      ],
+      "complete": true,
+      "ids": [
+        1,
+        2,
+        100,
+        101,
+        103,
+        104,
+        105,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        134,
+        139,
+        145,
+        146,
+        345,
+        346,
+        347
+      ]
+    },
+    {
+      "actor": "本例用户#3",
+      "pages": [
+        {
+          "page": 1,
+          "ids": [
+            345,
+            347
+          ],
+          "total": 2
+        }
+      ],
+      "complete": true,
+      "ids": [
+        345,
+        347
+      ]
+    }
+  ],
+  "set_checks": [
+    {
+      "expected_ids": [
+        345,
+        346,
+        347
+      ],
+      "actual_ids": [
+        345,
+        346,
+        347
+      ],
+      "missing_ids": [],
+      "extra_ids": [],
+      "page_count": 2,
+      "passed": true
+    },
+    {
+      "expected_ids": [
+        345,
+        347
+      ],
+      "actual_ids": [
+        345,
+        347
+      ],
+      "missing_ids": [],
+      "extra_ids": [],
+      "page_count": 1,
+      "passed": true
+    }
+  ],
+  "checkpoints": {},
+  "pending_requirement": null,
+  "business_verdict": "passed",
+  "resource_cleanup": [
+    {
+      "kind": "role",
+      "id": 145,
+      "absent": true
+    },
+    {
+      "kind": "role",
+      "id": 146,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 252,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 251,
+      "absent": true
+    }
+  ],
+  "restorations": []
+}

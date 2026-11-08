@@ -1,0 +1,126 @@
+{
+  "batch_tag": "t7860071dda3368",
+  "case_name": "管理员可以通过动态用户ID查询本人资料",
+  "stage": "T7.8",
+  "case_id": "TC-A04-01",
+  "case_source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+  "source_tcs": [
+    "TC-A04-01"
+  ],
+  "origin_source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+  "known_issue": "",
+  "case_kind": "business",
+  "exercise": {},
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 2,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 200,
+    "actual_business_code": 200,
+    "checkpoints": []
+  },
+  "preparation": {
+    "profile": "admin",
+    "status": "ready"
+  },
+  "setup_error_type": null,
+  "scenario": {},
+  "cleanup": [],
+  "cleanup_history": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "d246fbf31d4aeb39"
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 6,
+  "http_events": [
+    {
+      "at": "2026-11-08T21:43:29.964201+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "phase": "setup",
+      "http_status": 200,
+      "completed_at": "2026-11-08T21:43:30.018435+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T21:43:30.039928+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/login",
+      "phase": "setup",
+      "http_status": 200,
+      "completed_at": "2026-11-08T21:43:30.361754+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T21:43:30.365013+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "phase": "setup",
+      "http_status": 200,
+      "completed_at": "2026-11-08T21:43:30.376176+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T21:43:30.383134+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/1",
+      "phase": "call",
+      "http_status": 200,
+      "completed_at": "2026-11-08T21:43:30.393562+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T21:43:30.412187+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/logout",
+      "phase": "teardown",
+      "http_status": 200,
+      "completed_at": "2026-11-08T21:43:30.415931+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T21:43:30.419518+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "phase": "teardown",
+      "http_status": 200,
+      "completed_at": "2026-11-08T21:43:30.422274+08:00",
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": [],
+  "permission_matrix": {},
+  "collections": [],
+  "set_checks": [],
+  "checkpoints": {},
+  "pending_requirement": null,
+  "business_verdict": "passed",
+  "resource_cleanup": [],
+  "restorations": []
+}

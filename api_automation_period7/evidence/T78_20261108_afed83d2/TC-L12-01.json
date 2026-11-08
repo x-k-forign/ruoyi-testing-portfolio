@@ -1,0 +1,115 @@
+{
+  "tc": "TC-L12-01",
+  "stage": "T7.8",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-L03-02",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+      "name": "密码错误不获得新身份，受保护接口继续拒绝访问",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "source_tcs": [
+        "TC-L03-02",
+        "TC-L12-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7823b4a2ae186e",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+          "case_id": "TC-L03-02",
+          "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+          "source_tcs": [
+            "TC-L03-02",
+            "TC-L12-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7823b4a2ae186e",
+          "outcome": "passed",
+          "duration": 0.561283,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+          "case_id": "TC-L03-02",
+          "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+          "source_tcs": [
+            "TC-L03-02",
+            "TC-L12-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7823b4a2ae186e",
+          "outcome": "passed",
+          "duration": 0.251672,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+          "case_id": "TC-L03-02",
+          "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+          "source_tcs": [
+            "TC-L03-02",
+            "TC-L12-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7823b4a2ae186e",
+          "outcome": "passed",
+          "duration": 0.088703,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 6,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 401,
+        "actual_business_code": 401,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7823b4a2ae186e/case_index.json",
+      "http_evidence": "cases/t7823b4a2ae186e/http.jsonl",
+      "cleanup_evidence": "cases/t7823b4a2ae186e/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-L03-02 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

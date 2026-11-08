@@ -1,0 +1,21 @@
+# 公开模板；本机已有 .private/t74.local.json 可继续使用，不需要把密码复制到这里。
+environment: shared
+base_url: http://127.0.0.1:8080
+connect_timeout: 3
+read_timeout: 10
+dept_id: 202
+role_id: 101
+# 本批撤权场景先使用维护角色102，再改为查询角色role_id；执行前会回查角色状态。
+maintainer_role_id: 102
+post_ids: []
+admin_username: admin
+admin_password: ""
+# 登录用例的实际Redis连接写在.private/t74.local.json；公开模板不填写凭据。
+captcha:
+  max_attempts: 3
+  redis:
+    host: ""
+    port: 6379
+    db: 0
+    username: ""
+    password: ""

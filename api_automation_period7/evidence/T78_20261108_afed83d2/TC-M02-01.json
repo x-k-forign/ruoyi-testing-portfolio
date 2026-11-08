@@ -1,0 +1,187 @@
+{
+  "tc": "TC-M02-01",
+  "stage": "T7.8",
+  "status": "失败",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-M02-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "source_tcs": [
+        "TC-M02-01"
+      ],
+      "known_issue": "BUG-T3-003",
+      "batch_tag": "t780a9afd170c8b",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "passed",
+          "duration": 1.364734,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "failed",
+          "duration": 0.702949,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+          "location": {
+            "file": "commons/permission_assertions.py",
+            "line": 158,
+            "function": "assert_checkpoints"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "passed",
+          "duration": 0.600944,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 31,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "old_a_after_revoke",
+          "new_b_after_revoke",
+          "old_a_no_write",
+          "new_b_no_write"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "old_a_after_revoke": {
+          "name": "old_a_after_revoke",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:42:55.101406+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": false
+        },
+        "new_b_after_revoke": {
+          "name": "new_b_after_revoke",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:42:55.440364+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "old_a_no_write": {
+          "name": "old_a_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:55.459273+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "value_comparisons": [
+            {
+              "actual": 1,
+              "expected": 0,
+              "passed": false
+            }
+          ],
+          "passed": false
+        },
+        "new_b_no_write": {
+          "name": "new_b_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:55.472813+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "value_comparisons": [
+            {
+              "actual": 0,
+              "expected": 0,
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      },
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "cleanup_ok": true,
+      "case_index": "cases/t780a9afd170c8b/case_index.json",
+      "http_evidence": "cases/t780a9afd170c8b/http.jsonl",
+      "cleanup_evidence": "cases/t780a9afd170c8b/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M02-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "database_testing_period5/docs/T5.5_执行说明.md"
+        ]
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

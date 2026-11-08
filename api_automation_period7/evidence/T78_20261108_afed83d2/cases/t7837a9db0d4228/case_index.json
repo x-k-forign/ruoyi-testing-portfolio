@@ -1,0 +1,131 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+  "case_id": "TC-T75-CLEAN-01",
+  "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+  "source_tcs": [
+    "TC-T75-CLEAN-01"
+  ],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t7837a9db0d4228",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+      "case_id": "TC-T75-CLEAN-01",
+      "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+      "source_tcs": [
+        "TC-T75-CLEAN-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t7837a9db0d4228",
+      "outcome": "passed",
+      "duration": 1.417797,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+      "case_id": "TC-T75-CLEAN-01",
+      "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+      "source_tcs": [
+        "TC-T75-CLEAN-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t7837a9db0d4228",
+      "outcome": "passed",
+      "duration": 0.038825,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+      "case_id": "TC-T75-CLEAN-01",
+      "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+      "source_tcs": [
+        "TC-T75-CLEAN-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t7837a9db0d4228",
+      "outcome": "passed",
+      "duration": 0.039712,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 6,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 401,
+    "actual_business_code": 401,
+    "checkpoints": []
+  },
+  "input_evidence": [],
+  "checkpoints": {},
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t7837a9db0d4228u",
+      "user_ids": [
+        1585
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": false,
+      "cleanup_state": "already_absent",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    }
+  ],
+  "resource_cleanup": [],
+  "restorations": [],
+  "session_cleanup": [
+    {
+      "actor": "本例用户#2",
+      "phase": "setup_compensation",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "7cb4bbc13fe3bc76"
+    },
+    {
+      "actor": "管理员#1",
+      "phase": "setup_compensation",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "b1fdbe9f9d25f062"
+    },
+    {
+      "actor": "管理员#3",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "d8acff990f045e0c"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-T75-CLEAN-01 -v",
+  "current_report_evidence": "evidence/cases/t7837a9db0d4228"
+}

@@ -1,0 +1,94 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+  "case_id": "TC-T4-AUTH-01",
+  "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+  "source_tcs": [
+    "TC-T4-AUTH-01"
+  ],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t783fcb1a69dba0",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+      "case_id": "TC-T4-AUTH-01",
+      "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+      "source_tcs": [
+        "TC-T4-AUTH-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t783fcb1a69dba0",
+      "outcome": "passed",
+      "duration": 0.003323,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+      "case_id": "TC-T4-AUTH-01",
+      "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+      "source_tcs": [
+        "TC-T4-AUTH-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t783fcb1a69dba0",
+      "outcome": "passed",
+      "duration": 0.028287,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+      "case_id": "TC-T4-AUTH-01",
+      "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+      "source_tcs": [
+        "TC-T4-AUTH-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t783fcb1a69dba0",
+      "outcome": "passed",
+      "duration": 0.008674,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 3,
+    "action": "extract"
+  },
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 401,
+    "actual_business_code": 401,
+    "checkpoints": []
+  },
+  "input_evidence": [],
+  "checkpoints": {},
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [],
+  "resource_cleanup": [],
+  "restorations": [],
+  "session_cleanup": [],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-T4-AUTH-01 -v",
+  "current_report_evidence": "evidence/cases/t783fcb1a69dba0"
+}

@@ -1,0 +1,35 @@
+{
+  "batch_tag": "t74666207087388",
+  "case_name": "未登录时拒绝查询用户身份",
+  "case_source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+  "source_tcs": [
+    "TC-T4-AUTH-01"
+  ],
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 3,
+    "action": "extract"
+  },
+  "cleanup_ok": true,
+  "cleanup": [],
+  "cleanup_error_types": [],
+  "http_request_count": 1,
+  "http_events": [
+    {
+      "at": "2026-11-08T13:09:12.828354+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "not_used",
+    "enabled": null,
+    "answers_read": 0,
+    "refreshes": 0,
+    "login_retries": 0
+  }
+}

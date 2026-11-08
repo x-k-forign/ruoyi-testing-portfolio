@@ -1,0 +1,143 @@
+# 原用例：TC-M09-03
+# 公共前置只准备专属数据；以下步骤执行目标业务并保留真实结果。
+name: 只增加无新增授权的角色，新登录仍拒绝新增且保持查询能力
+mark:
+- auth
+
+steps:
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: PUT
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userId: ${new_user_id}
+        userName: ${new_username}
+        nickName: ${new_nickname}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        - ${extra_role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${new_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${new_user_id}
+          deptId: ${dept_a}
+          status: '0'
+          nickName: ${new_nickname}
+          remark: ${batch_tag}
+        roleIds:
+        - ${role_id}
+        - ${extra_role_id}
+        postIds: ${post_ids}
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/captchaImage
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/login
+      json:
+        username: ${new_username}
+        password: ${new_password}
+        code: ${captcha_code}
+        uuid: ${captcha_uuid}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      present:
+      - token
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      after_token:
+      - json
+      - $.token
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${after_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        user:
+          userId: ${new_user_id}
+          userName: ${new_username}
+          deptId: ${dept_id}
+      contains:
+        $.permissions:
+        - system:user:list
+        - system:user:query
+      not_contains:
+        $.permissions:
+        - system:user:add
+        - '*:*:*'
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${after_token}
+      json:
+        userName: ${denied_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 403
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${denied_username}
+        pageNum: 1
+        pageSize: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 0
+        rows: []

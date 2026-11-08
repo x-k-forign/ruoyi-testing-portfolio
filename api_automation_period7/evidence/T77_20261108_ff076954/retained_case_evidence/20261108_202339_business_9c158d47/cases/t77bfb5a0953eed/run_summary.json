@@ -1,0 +1,58 @@
+{
+  "batch_tag": "t77bfb5a0953eed",
+  "case_name": "未登录时拒绝查询用户身份",
+  "stage": "T7.7",
+  "case_id": "TC-T4-AUTH-01",
+  "case_source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+  "source_tcs": [
+    "TC-T4-AUTH-01"
+  ],
+  "origin_source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+  "case_kind": "business",
+  "exercise": {},
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 3,
+    "action": "extract"
+  },
+  "cleanup_ok": true,
+  "preparation": {
+    "profile": "none",
+    "status": "ready"
+  },
+  "setup_error_type": null,
+  "scenario": {},
+  "cleanup": [],
+  "cleanup_history": [],
+  "session_cleanup": [],
+  "cleanup_error_types": [],
+  "http_request_count": 1,
+  "http_events": [
+    {
+      "at": "2026-11-08T20:22:59.401467+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:22:59.404341+08:00",
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "not_used",
+    "enabled": null,
+    "answers_read": 0,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": [],
+  "permission_matrix": {},
+  "collections": [],
+  "set_checks": [],
+  "checkpoints": {},
+  "pending_requirement": null,
+  "business_verdict": "passed",
+  "resource_cleanup": [],
+  "restorations": []
+}

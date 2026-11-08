@@ -1,0 +1,186 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+  "case_id": "TC-A07-01_t76",
+  "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+  "source_tcs": [
+    "TC-A07-01"
+  ],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t786787f3acabb9",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+      "case_id": "TC-A07-01_t76",
+      "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+      "source_tcs": [
+        "TC-A07-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t786787f3acabb9",
+      "outcome": "passed",
+      "duration": 1.380473,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+      "case_id": "TC-A07-01_t76",
+      "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+      "source_tcs": [
+        "TC-A07-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t786787f3acabb9",
+      "outcome": "passed",
+      "duration": 0.085852,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+      "case_id": "TC-A07-01_t76",
+      "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+      "source_tcs": [
+        "TC-A07-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t786787f3acabb9",
+      "outcome": "passed",
+      "duration": 0.402638,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 5,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 200,
+    "actual_business_code": 200,
+    "checkpoints": []
+  },
+  "input_evidence": [],
+  "checkpoints": {},
+  "set_checks": [
+    {
+      "expected_ids": [
+        1615
+      ],
+      "actual_ids": [
+        1615
+      ],
+      "missing_ids": [],
+      "extra_ids": [],
+      "page_count": 1,
+      "passed": true
+    }
+  ],
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t786787f3acabb9t",
+      "user_ids": [
+        1613
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t786787f3acabb9o",
+      "user_ids": [
+        1614
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t786787f3acabb9u",
+      "user_ids": [
+        1615
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    }
+  ],
+  "resource_cleanup": [
+    {
+      "kind": "role",
+      "id": 632,
+      "absent": true
+    },
+    {
+      "kind": "role",
+      "id": 633,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 901,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 900,
+      "absent": true
+    }
+  ],
+  "restorations": [],
+  "session_cleanup": [
+    {
+      "actor": "本例用户#2",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "635edf5a231ca149"
+    },
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "6f03173eb8441024"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A07-01_t76 -v",
+  "current_report_evidence": "evidence/cases/t786787f3acabb9"
+}

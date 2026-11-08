@@ -1,0 +1,73 @@
+{
+  "batch_tag": "t749e55ad44ba41",
+  "case_name": "管理员能够查询配置中的部门和角色",
+  "case_source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+  "source_tcs": [],
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 9,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "cleanup": [],
+  "cleanup_error_types": [],
+  "http_request_count": 6,
+  "http_events": [
+    {
+      "at": "2026-11-08T13:09:16.066861+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.116294+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.262579+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/dept/202",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.269873+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/role/101",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.278155+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.282127+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  }
+}

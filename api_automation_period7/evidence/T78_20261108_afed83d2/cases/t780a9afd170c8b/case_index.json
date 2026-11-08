@@ -1,0 +1,300 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+  "case_id": "TC-M02-01_t76",
+  "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+  "source_tcs": [
+    "TC-M02-01"
+  ],
+  "known_issue": "BUG-T3-003",
+  "kind": "business",
+  "batch_tag": "t780a9afd170c8b",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+      "case_id": "TC-M02-01_t76",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "source_tcs": [
+        "TC-M02-01"
+      ],
+      "known_issue": "BUG-T3-003",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t780a9afd170c8b",
+      "outcome": "passed",
+      "duration": 1.364734,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+      "case_id": "TC-M02-01_t76",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "source_tcs": [
+        "TC-M02-01"
+      ],
+      "known_issue": "BUG-T3-003",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t780a9afd170c8b",
+      "outcome": "failed",
+      "duration": 0.702949,
+      "category": "known_product_expectation",
+      "error_type": "AssertionError",
+      "message": "权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "location": {
+        "file": "commons/permission_assertions.py",
+        "line": 158,
+        "function": "assert_checkpoints"
+      }
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+      "case_id": "TC-M02-01_t76",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "source_tcs": [
+        "TC-M02-01"
+      ],
+      "known_issue": "BUG-T3-003",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t780a9afd170c8b",
+      "outcome": "passed",
+      "duration": 0.600944,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 31,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": null,
+    "actual_http": 200,
+    "expected_business_code": null,
+    "actual_business_code": 200,
+    "checkpoints": [
+      "old_a_after_revoke",
+      "new_b_after_revoke",
+      "old_a_no_write",
+      "new_b_no_write"
+    ]
+  },
+  "input_evidence": [],
+  "checkpoints": {
+    "old_a_after_revoke": {
+      "name": "old_a_after_revoke",
+      "actor": "本例用户#2",
+      "at": "2026-11-08T21:42:55.101406+08:00",
+      "http_status": 200,
+      "actual_code": 200,
+      "checks": [
+        false
+      ],
+      "pending": false,
+      "expected_code": 403,
+      "passed": false
+    },
+    "new_b_after_revoke": {
+      "name": "new_b_after_revoke",
+      "actor": "本例用户#3",
+      "at": "2026-11-08T21:42:55.440364+08:00",
+      "http_status": 200,
+      "actual_code": 403,
+      "checks": [
+        true
+      ],
+      "pending": false,
+      "expected_code": 403,
+      "passed": true
+    },
+    "old_a_no_write": {
+      "name": "old_a_no_write",
+      "actor": "管理员#1",
+      "at": "2026-11-08T21:42:55.459273+08:00",
+      "http_status": 200,
+      "actual_code": 200,
+      "checks": [
+        false
+      ],
+      "pending": false,
+      "value_comparisons": [
+        {
+          "actual": 1,
+          "expected": 0,
+          "passed": false
+        }
+      ],
+      "passed": false
+    },
+    "new_b_no_write": {
+      "name": "new_b_no_write",
+      "actor": "管理员#1",
+      "at": "2026-11-08T21:42:55.472813+08:00",
+      "http_status": 200,
+      "actual_code": 200,
+      "checks": [
+        true
+      ],
+      "pending": false,
+      "value_comparisons": [
+        {
+          "actual": 0,
+          "expected": 0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  },
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t780a9afd170c8bt",
+      "user_ids": [
+        1553
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t780a9afd170c8bo",
+      "user_ids": [
+        1554
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t780a9afd170c8bu",
+      "user_ids": [
+        1555
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t780a9afd170c8ba",
+      "user_ids": [
+        1556
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t780a9afd170c8bd",
+      "user_ids": [
+        1557
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t780a9afd170c8be",
+      "user_ids": [],
+      "phase": "teardown",
+      "creation_observed": false,
+      "delete_requested": false,
+      "cleanup_state": "not_created",
+      "deleted": false,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": false
+    }
+  ],
+  "resource_cleanup": [
+    {
+      "kind": "role",
+      "id": 612,
+      "absent": true
+    },
+    {
+      "kind": "role",
+      "id": 613,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 872,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 871,
+      "absent": true
+    }
+  ],
+  "restorations": [
+    {
+      "userId": 1555,
+      "restored": true,
+      "was_unchanged": false
+    }
+  ],
+  "session_cleanup": [
+    {
+      "actor": "本例用户#3",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "359e3a375a614be1"
+    },
+    {
+      "actor": "本例用户#2",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "7b5ae1d8fb0f8ca7"
+    },
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "c901970fcaa0d048"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M02-01_t76 -v",
+  "current_report_evidence": "evidence/cases/t780a9afd170c8b"
+}

@@ -1,0 +1,160 @@
+{
+  "tc": "TC-M09-02",
+  "stage": "T7.8",
+  "status": "待观察",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-M09-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "business_verdict": "pending_requirement",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M09-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7880a41b110154",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "passed",
+          "duration": 1.546047,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "skipped",
+          "duration": 0.914104,
+          "category": "pending_requirement",
+          "error_type": "Skipped",
+          "message": "已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "location": {
+            "file": ".venv/Lib/site-packages/_pytest/outcomes.py",
+            "line": 138,
+            "function": "__call__"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "passed",
+          "duration": 0.833397,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 30,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "grant_old_a",
+          "grant_new_b"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "grant_old_a": {
+          "name": "grant_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:42:50.014120+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "passed": null
+        },
+        "grant_old_a_write": {
+          "name": "grant_old_a_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:50.029909+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "details": {
+            "operation_business_code": 403,
+            "post_write_matches": 0
+          },
+          "passed": null
+        },
+        "grant_new_b": {
+          "name": "grant_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:42:50.753672+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        }
+      },
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "cleanup_ok": true,
+      "case_index": "cases/t7880a41b110154/case_index.json",
+      "http_evidence": "cases/t7880a41b110154/http.jsonl",
+      "cleanup_evidence": "cases/t7880a41b110154/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M09-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

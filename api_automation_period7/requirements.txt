@@ -1,0 +1,14 @@
+# Requests + pytest + YAML 数据驱动框架；仅安装到本项目 .venv。
+requests==2.34.2
+pytest==9.2.0
+PyYAML==6.0.3
+jsonpath==0.82.2
+responses-validator==0.3.0
+lxml==6.1.3
+allure-pytest==2.16.2
+pytest-html==4.2.0
+pytest-rerunfailures==16.7
+pytest-result-log==1.2.2
+pytest-xdist==3.8.0
+# 与后端相同的测试Redis，仅GET本次uuid对应验证码；验证码保持开启。
+redis==5.3.1

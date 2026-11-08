@@ -1,0 +1,104 @@
+# 原用例：TC-M05-01、TC-L04-01
+# T7.5：公共前置由夹具query_session提供；每例账号与会话独立，统一回查清理。
+name: 账号禁用后拒绝新登录，恢复状态可回查
+mark:
+  - auth
+
+steps:
+  # 业务动作：PUT /system/user/changeStatus
+  - request:
+      method: PUT
+      url: ${base_url}/system/user/changeStatus
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userId: ${new_user_id}
+        status: '1'
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：GET /system/user/${new_user_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${new_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${new_user_id}
+          userName: ${new_username}
+          deptId: ${dept_id}
+          nickName: ${new_nickname}
+          status: '1'
+          remark: ${batch_tag}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+  # 业务动作：GET /captchaImage
+  - request:
+      method: GET
+      url: ${base_url}/captchaImage
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：POST /login
+  - request:
+      method: POST
+      url: ${base_url}/login
+      json:
+        username: ${new_username}
+        password: ${new_password}
+        code: ${captcha_code}
+        uuid: ${captcha_uuid}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 500
+        msg: 用户已封禁，请联系管理员
+      absent:
+        - token
+        - user
+  # 业务动作：PUT /system/user/changeStatus
+  - request:
+      method: PUT
+      url: ${base_url}/system/user/changeStatus
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userId: ${new_user_id}
+        status: '0'
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：GET /system/user/${new_user_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${new_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${new_user_id}
+          userName: ${new_username}
+          deptId: ${dept_id}
+          nickName: ${new_nickname}
+          status: '0'
+          remark: ${batch_tag}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}

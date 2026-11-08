@@ -1,0 +1,99 @@
+{
+  "batch_tag": "t75777f3dba8740",
+  "case_name": "管理员能够查询配置中的部门和角色",
+  "stage": "T7.5",
+  "case_id": "reference_dept_role",
+  "case_source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+  "source_tcs": [],
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 4,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "preparation": {
+    "profile": "admin",
+    "status": "ready"
+  },
+  "setup_error_type": null,
+  "scenario": {},
+  "cleanup": [],
+  "cleanup_history": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 7,
+  "http_events": [
+    {
+      "at": "2026-11-08T17:00:16.405780+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:16.480871+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:16.702147+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:16.710508+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/202",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:16.718598+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/101",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:16.727867+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:16.731646+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": []
+}

@@ -1,0 +1,118 @@
+{
+  "batch_tag": "t77179ac0e9c33a",
+  "case_name": "管理员能够查询配置中的部门和角色",
+  "stage": "T7.7",
+  "case_id": "reference_dept_role",
+  "case_source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+  "source_tcs": [],
+  "origin_source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+  "case_kind": "business",
+  "exercise": {},
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 4,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "preparation": {
+    "profile": "admin",
+    "status": "ready"
+  },
+  "setup_error_type": null,
+  "scenario": {},
+  "cleanup": [],
+  "cleanup_history": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "1f508a95e630cdb2"
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 7,
+  "http_events": [
+    {
+      "at": "2026-11-08T20:23:06.747769+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:23:06.761418+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:23:06.779290+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:23:07.058723+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:23:07.060210+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:23:07.069181+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:23:07.071146+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/dept/202",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:23:07.077796+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:23:07.079248+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/role/101",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:23:07.085314+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:23:07.088986+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:23:07.094220+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:23:07.094251+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:23:07.097041+08:00",
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": [],
+  "permission_matrix": {},
+  "collections": [],
+  "set_checks": [],
+  "checkpoints": {},
+  "pending_requirement": null,
+  "business_verdict": "passed",
+  "resource_cleanup": [],
+  "restorations": []
+}

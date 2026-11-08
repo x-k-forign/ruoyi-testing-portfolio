@@ -1,0 +1,99 @@
+# 原用例：TC-G01-01
+# T7.5：公共前置由夹具prepared_user提供；每例账号与会话独立，统一回查清理。
+name: 成功登录日志能关联本轮账号、时间及结果
+mark:
+  - log
+
+steps:
+  # 业务动作：GET /captchaImage
+  - request:
+      method: GET
+      url: ${base_url}/captchaImage
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：POST /login
+  - request:
+      method: POST
+      url: ${base_url}/login
+      json:
+        username: ${new_username}
+        password: ${new_password}
+        code: ${captcha_code}
+        uuid: ${captcha_uuid}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      present:
+        - token
+  # 提取本次真实响应变量，后续请求动态关联
+  - extract:
+      user_token:
+        - json
+        - $.token
+  # 业务动作：GET /getInfo
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${user_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        user:
+          userName: ${new_username}
+          userId: ${new_user_id}
+          deptId: ${dept_id}
+      contains:
+        $.permissions:
+          - system:user:list
+          - system:user:query
+  # 业务动作：GET /monitor/logininfor/list
+  - request:
+      method: GET
+      url: ${base_url}/monitor/logininfor/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${new_username}
+        status: '0'
+        params[beginTime]: ${login_begin_time}
+        params[endTime]: ${login_end_time}
+        pageNum: 1
+        pageSize: 20
+      poll:
+        attempts: 6
+        interval: 0.5
+        until:
+          status_code: 200
+          json:
+            code: 200
+            total: 1
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 1
+        rows:
+          - userName: ${new_username}
+            status: '0'
+            msg: 登录成功
+      within:
+        $.rows[0].loginTime:
+          - ${login_begin_time}
+          - ${login_end_time}
+  # 提取本次真实响应变量，后续请求动态关联
+  - extract:
+      login_log_id:
+        - json
+        - $.rows[0].infoId
+      login_log_time:
+        - json
+        - $.rows[0].loginTime

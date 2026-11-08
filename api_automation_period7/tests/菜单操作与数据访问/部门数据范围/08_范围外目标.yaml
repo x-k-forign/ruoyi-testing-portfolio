@@ -1,0 +1,60 @@
+# 原用例：TC-A10-02
+# 公共前置只准备专属数据；以下步骤执行目标业务并保留真实结果。
+name: 范围外真实存在的目标账号不向普通用户泄漏
+mark:
+- menu_and_data
+
+steps:
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      pagination:
+        page_size: 10
+        max_pages: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      baseline_rows:
+      - pages
+      - rows
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${other_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${other_user_id}
+          userName: ${other_username}
+          deptId: ${dept_b}
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${before_token}
+      params:
+        userName: ${other_username}
+      pagination:
+        page_size: 2
+        max_pages: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      user_ids:
+        baseline: ${baseline_rows}
+        empty: true

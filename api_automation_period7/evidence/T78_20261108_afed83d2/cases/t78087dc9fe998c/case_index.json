@@ -1,0 +1,128 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+  "case_id": "TC-M05-01",
+  "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+  "source_tcs": [
+    "TC-M05-01",
+    "TC-L04-01"
+  ],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t78087dc9fe998c",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+      "case_id": "TC-M05-01",
+      "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+      "source_tcs": [
+        "TC-M05-01",
+        "TC-L04-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t78087dc9fe998c",
+      "outcome": "passed",
+      "duration": 0.854362,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+      "case_id": "TC-M05-01",
+      "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+      "source_tcs": [
+        "TC-M05-01",
+        "TC-L04-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t78087dc9fe998c",
+      "outcome": "passed",
+      "duration": 0.207587,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+      "case_id": "TC-M05-01",
+      "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+      "source_tcs": [
+        "TC-M05-01",
+        "TC-L04-01"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t78087dc9fe998c",
+      "outcome": "passed",
+      "duration": 0.089277,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 12,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 200,
+    "actual_business_code": 200,
+    "checkpoints": []
+  },
+  "input_evidence": [],
+  "checkpoints": {},
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t78087dc9fe998cu",
+      "user_ids": [
+        1573
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    }
+  ],
+  "resource_cleanup": [],
+  "restorations": [],
+  "session_cleanup": [
+    {
+      "actor": "本例用户#2",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "4ba5a6bef084f0ac"
+    },
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "6d4547d9bb83b27a"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M05-01 -v",
+  "current_report_evidence": "evidence/cases/t78087dc9fe998c"
+}

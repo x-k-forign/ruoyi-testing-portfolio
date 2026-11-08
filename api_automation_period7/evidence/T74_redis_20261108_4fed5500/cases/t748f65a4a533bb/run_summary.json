@@ -1,0 +1,136 @@
+{
+  "batch_tag": "t748f65a4a533bb",
+  "case_name": "创建密码21位：应拒绝且不产生账号",
+  "case_source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+  "source_tcs": [
+    "TC-C09-06"
+  ],
+  "business_steps_completed": false,
+  "business_error_type": "AssertionError",
+  "last_step": {
+    "number": 13,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t748f65a4a533bbu",
+      "deleted": true
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 13,
+  "http_events": [
+    {
+      "at": "2026-11-08T13:09:15.706613+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:15.750911+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:15.894436+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:15.901939+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/dept/202",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:15.910562+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/role/101",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:15.917672+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:15.926771+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.007728+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.019540+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/190",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.032692+08:00",
+      "actor": "管理员",
+      "method": "DELETE",
+      "path": "/system/user/190",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.044558+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.052964+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:16.056766+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "batch_tag": "t74b34b6a5e1496",
+  "case_name": "重复登录名被拒绝，原账号及授权保持不变",
+  "case_source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+  "source_tcs": [
+    "TC-C03-01"
+  ],
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 24,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t74b34b6a5e1496u",
+      "deleted": true
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 20,
+  "http_events": [
+    {
+      "at": "2026-11-08T13:09:13.876475+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:13.910991+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.052153+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.061035+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/dept/202",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.079862+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/role/101",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.088458+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.098286+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.191545+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.202469+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/186",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.215460+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "business_code": 500
+    },
+    {
+      "at": "2026-11-08T13:09:14.223784+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.233240+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/186",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.245735+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.255841+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/186",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.268939+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.278922+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/186",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.290644+08:00",
+      "actor": "管理员",
+      "method": "DELETE",
+      "path": "/system/user/186",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.303395+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.312684+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:14.316169+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  }
+}

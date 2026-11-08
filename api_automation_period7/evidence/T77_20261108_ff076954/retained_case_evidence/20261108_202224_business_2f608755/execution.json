@@ -1,0 +1,750 @@
+{
+  "stage": "T7.7",
+  "kind": "business",
+  "run_label": "round1",
+  "run_token": "8357eb5f49cd49f28e0bd469e8b9c796",
+  "started_at": "2026-11-08T20:21:22.430009+08:00",
+  "finished_at": "2026-11-08T20:22:24.286181+08:00",
+  "selection": {
+    "groups": [],
+    "mark": null,
+    "keyword": null,
+    "captcha_mode": "redis"
+  },
+  "pytest_exit_code": 1,
+  "report_exit_code": 0,
+  "counts": {
+    "passed": 34,
+    "failed": 4,
+    "skipped": 2
+  },
+  "case_count": 40,
+  "missing_case_summaries": [],
+  "python": "3.13.12",
+  "requests": "2.34.2",
+  "pytest": "9.2.0",
+  "all_cleanup_ok": true,
+  "results": [
+    {
+      "case_id": "TC-C02-01",
+      "name": "登录名为空时拒绝创建，且本批无新增账号",
+      "status": "passed",
+      "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+      "origin_source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+      "batch_tag": "t77d00cb29fb96d",
+      "message": "",
+      "start": 1794140508075,
+      "stop": 1794140508099,
+      "source_tcs": [
+        "TC-C02-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77d00cb29fb96d/run_summary.json"
+    },
+    {
+      "case_id": "TC-C01-01",
+      "name": "创建用户成功，部门角色与岗位关联保存一致",
+      "status": "passed",
+      "source": "tests/用户创建与授权/创建授权/01_创建授权.yaml",
+      "origin_source": "tests/用户创建与授权/创建授权/01_创建授权.yaml",
+      "batch_tag": "t771c43aa47cf79",
+      "message": "",
+      "start": 1794140513874,
+      "stop": 1794140513983,
+      "source_tcs": [
+        "TC-C01-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t771c43aa47cf79/run_summary.json"
+    },
+    {
+      "case_id": "TC-A06-01_t76",
+      "name": "本部门及以下范围包含本部门和下级部门完整记录",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml",
+      "batch_tag": "t77797ab7b33018",
+      "message": "",
+      "start": 1794140528340,
+      "stop": 1794140528432,
+      "source_tcs": [
+        "TC-A06-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77797ab7b33018/run_summary.json"
+    },
+    {
+      "case_id": "TC-T4-AUTH-03",
+      "name": "管理员登录后能查询身份，退出后原Token失效",
+      "status": "passed",
+      "source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+      "origin_source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+      "batch_tag": "t77aa7616deabf2",
+      "message": "",
+      "start": 1794140506700,
+      "stop": 1794140507074,
+      "source_tcs": [
+        "TC-T4-AUTH-03"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77aa7616deabf2/run_summary.json"
+    },
+    {
+      "case_id": "TC-C09-06_pwd21",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "origin_source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "batch_tag": "t771f53de1e098b",
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "start": 1794140512803,
+      "stop": 1794140513163,
+      "source_tcs": [
+        "TC-C09-06"
+      ],
+      "business_verdict": "failed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t771f53de1e098b/run_summary.json"
+    },
+    {
+      "case_id": "TC-A09-01_t76",
+      "name": "全部数据范围与管理员当前完整ID基准一致",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml",
+      "batch_tag": "t7706920f78dd25",
+      "message": "",
+      "start": 1794140533092,
+      "stop": 1794140533362,
+      "source_tcs": [
+        "TC-A09-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7706920f78dd25/run_summary.json"
+    },
+    {
+      "case_id": "TC-A05-02_t76",
+      "name": "部门B普通用户完整查询仅返回本部门记录",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml",
+      "batch_tag": "t77988ea58141c2",
+      "message": "",
+      "start": 1794140526642,
+      "stop": 1794140526697,
+      "source_tcs": [
+        "TC-A05-02"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77988ea58141c2/run_summary.json"
+    },
+    {
+      "case_id": "TC-C09-05_pwd20",
+      "name": "创建密码20位：允许创建且关联正确",
+      "status": "passed",
+      "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+      "origin_source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+      "batch_tag": "t777919f4f547f4",
+      "message": "",
+      "start": 1794140510713,
+      "stop": 1794140511388,
+      "source_tcs": [
+        "TC-C09-05"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t777919f4f547f4/run_summary.json"
+    },
+    {
+      "case_id": "TC-G01-01",
+      "name": "成功登录日志能关联本轮账号、时间及结果",
+      "status": "passed",
+      "source": "tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml",
+      "origin_source": "tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml",
+      "batch_tag": "t778074780fd284",
+      "message": "",
+      "start": 1794140515825,
+      "stop": 1794140516089,
+      "source_tcs": [
+        "TC-G01-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t778074780fd284/run_summary.json"
+    },
+    {
+      "case_id": "TC-M06-01_t76",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "origin_source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "batch_tag": "t774b6cf56596b2",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "start": 1794140505264,
+      "stop": 1794140505415,
+      "source_tcs": [
+        "TC-M06-01"
+      ],
+      "business_verdict": "pending_requirement",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t774b6cf56596b2/run_summary.json"
+    },
+    {
+      "case_id": "TC-M08-02_t76",
+      "name": "正常调整部门后仍可登录，实际身份与新部门正确",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml",
+      "origin_source": "tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml",
+      "batch_tag": "t7742da3c03eff9",
+      "message": "",
+      "start": 1794140498057,
+      "stop": 1794140498438,
+      "source_tcs": [
+        "TC-M08-02"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7742da3c03eff9/run_summary.json"
+    },
+    {
+      "case_id": "TC-M05-01",
+      "name": "账号禁用后拒绝新登录，恢复状态可回查",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+      "origin_source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+      "batch_tag": "t773009d8ad5ccf",
+      "message": "",
+      "start": 1794140503717,
+      "stop": 1794140503847,
+      "source_tcs": [
+        "TC-M05-01",
+        "TC-L04-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t773009d8ad5ccf/run_summary.json"
+    },
+    {
+      "case_id": "TC-A11-01_t76",
+      "name": "多角色均有效时范围合并正确，新增按授权部门获准",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml",
+      "origin_source": "tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml",
+      "batch_tag": "t779678b30d8abb",
+      "message": "",
+      "start": 1794140520218,
+      "stop": 1794140520443,
+      "source_tcs": [
+        "TC-A11-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t779678b30d8abb/run_summary.json"
+    },
+    {
+      "case_id": "TC-M09-01_t76",
+      "name": "增加有效新增角色后，新登录获准新增且原查询权限仍可用",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml",
+      "origin_source": "tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml",
+      "batch_tag": "t773e62b28414a4",
+      "message": "",
+      "start": 1794140484370,
+      "stop": 1794140484833,
+      "source_tcs": [
+        "TC-M09-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t773e62b28414a4/run_summary.json"
+    },
+    {
+      "case_id": "TC-M09-03_t76",
+      "name": "只增加无新增授权的角色，新登录仍拒绝新增且保持查询能力",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml",
+      "origin_source": "tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml",
+      "batch_tag": "t7729b89c840c61",
+      "message": "",
+      "start": 1794140486369,
+      "stop": 1794140486701,
+      "source_tcs": [
+        "TC-M09-03"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7729b89c840c61/run_summary.json"
+    },
+    {
+      "case_id": "TC-A08-01_t76",
+      "name": "自定义数据范围只返回明确授权的部门",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml",
+      "batch_tag": "t77f84f03120517",
+      "message": "",
+      "start": 1794140531545,
+      "stop": 1794140531596,
+      "source_tcs": [
+        "TC-A08-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77f84f03120517/run_summary.json"
+    },
+    {
+      "case_id": "TC-M04-01_t76",
+      "name": "调部门即时生效：旧A与新B均应采用新部门完整范围",
+      "status": "failed",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "origin_source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "batch_tag": "t77afae453a68bd",
+      "message": "AssertionError: 权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+      "start": 1794140500062,
+      "stop": 1794140500535,
+      "source_tcs": [
+        "TC-M04-01"
+      ],
+      "business_verdict": "failed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77afae453a68bd/run_summary.json"
+    },
+    {
+      "case_id": "TC-M01-01",
+      "name": "撤销新增角色后，新登录会话按新权限拒绝新增",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml",
+      "origin_source": "tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml",
+      "batch_tag": "t777fc9d5ef9984",
+      "message": "",
+      "start": 1794140490246,
+      "stop": 1794140490827,
+      "source_tcs": [
+        "TC-M01-01",
+        "TC-M03-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t777fc9d5ef9984/run_summary.json"
+    },
+    {
+      "case_id": "TC-T75-CLEAN-01",
+      "name": "创建用户后准备中断，账号和原会话仍能清理",
+      "status": "passed",
+      "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+      "origin_source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+      "batch_tag": "t77e6d67d41a1dc",
+      "message": "",
+      "start": 1794140515082,
+      "stop": 1794140515105,
+      "source_tcs": [
+        "TC-T75-CLEAN-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77e6d67d41a1dc/run_summary.json"
+    },
+    {
+      "case_id": "TC-C03-01",
+      "name": "重复登录名被拒绝，原账号及授权保持不变",
+      "status": "passed",
+      "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+      "origin_source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+      "batch_tag": "t774649c7fbc57a",
+      "message": "",
+      "start": 1794140508668,
+      "stop": 1794140508741,
+      "source_tcs": [
+        "TC-C03-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t774649c7fbc57a/run_summary.json"
+    },
+    {
+      "case_id": "TC-A10-02_t76",
+      "name": "范围外真实存在的目标账号不向普通用户泄漏",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+      "batch_tag": "t779c5fc936ef72",
+      "message": "",
+      "start": 1794140536450,
+      "stop": 1794140536523,
+      "source_tcs": [
+        "TC-A10-02"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t779c5fc936ef72/run_summary.json"
+    },
+    {
+      "case_id": "TC-A02-01_t76",
+      "name": "同部门权限对照：查询用户拒绝新增，维护用户新增成功",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml",
+      "origin_source": "tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml",
+      "batch_tag": "t777c7fe49c11f8",
+      "message": "",
+      "start": 1794140518407,
+      "stop": 1794140518607,
+      "source_tcs": [
+        "TC-A02-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t777c7fe49c11f8/run_summary.json"
+    },
+    {
+      "case_id": "TC-A07-01_t76",
+      "name": "仅本人数据范围只返回当前用户自身",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+      "batch_tag": "t77a78b9d7048d5",
+      "message": "",
+      "start": 1794140529960,
+      "stop": 1794140530016,
+      "source_tcs": [
+        "TC-A07-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77a78b9d7048d5/run_summary.json"
+    },
+    {
+      "case_id": "TC-M07-01_t76",
+      "name": "无修改权限用户不能改变账号状态及关联",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml",
+      "origin_source": "tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml",
+      "batch_tag": "t7741b3f706d17a",
+      "message": "",
+      "start": 1794140494559,
+      "stop": 1794140494595,
+      "source_tcs": [
+        "TC-M07-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7741b3f706d17a/run_summary.json"
+    },
+    {
+      "case_id": "TC-A05-01_t76",
+      "name": "部门A普通用户完整查询仅返回本部门记录",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml",
+      "batch_tag": "t77e5491fde7554",
+      "message": "",
+      "start": 1794140525277,
+      "stop": 1794140525327,
+      "source_tcs": [
+        "TC-A05-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77e5491fde7554/run_summary.json"
+    },
+    {
+      "case_id": "TC-A10-01_t76",
+      "name": "有列表权限但无匹配账号时正常返回空列表",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml",
+      "origin_source": "tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml",
+      "batch_tag": "t77e8b1adb79f1d",
+      "message": "",
+      "start": 1794140534814,
+      "stop": 1794140534879,
+      "source_tcs": [
+        "TC-A10-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77e8b1adb79f1d/run_summary.json"
+    },
+    {
+      "case_id": "reference_dept_role",
+      "name": "管理员能够查询配置中的部门和角色",
+      "status": "passed",
+      "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+      "origin_source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+      "batch_tag": "t77bad79c3bf3c9",
+      "message": "",
+      "start": 1794140515400,
+      "stop": 1794140515412,
+      "source_tcs": [],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77bad79c3bf3c9/run_summary.json"
+    },
+    {
+      "case_id": "TC-L03-02",
+      "name": "密码错误不获得新身份，受保护接口继续拒绝访问",
+      "status": "passed",
+      "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "origin_source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "batch_tag": "t772002b5635ddd",
+      "message": "",
+      "start": 1794140507584,
+      "stop": 1794140507708,
+      "source_tcs": [
+        "TC-L03-02",
+        "TC-L12-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t772002b5635ddd/run_summary.json"
+    },
+    {
+      "case_id": "TC-M04-02_t76",
+      "name": "调部门后新登录采用新范围，包含迁入本人且不返回原部门数据",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml",
+      "origin_source": "tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml",
+      "batch_tag": "t775a921d29058e",
+      "message": "",
+      "start": 1794140502093,
+      "stop": 1794140502529,
+      "source_tcs": [
+        "TC-M04-02"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t775a921d29058e/run_summary.json"
+    },
+    {
+      "case_id": "TC-M09-02_t76",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "origin_source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "batch_tag": "t77d9f6ba8ef770",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "start": 1794140488370,
+      "stop": 1794140488928,
+      "source_tcs": [
+        "TC-M09-02"
+      ],
+      "business_verdict": "pending_requirement",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77d9f6ba8ef770/run_summary.json"
+    },
+    {
+      "case_id": "TC-M02-01_t76",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "origin_source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "batch_tag": "t7755ad6b83b6db",
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "start": 1794140492138,
+      "stop": 1794140492809,
+      "source_tcs": [
+        "TC-M02-01"
+      ],
+      "business_verdict": "failed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7755ad6b83b6db/run_summary.json"
+    },
+    {
+      "case_id": "TC-C09-01_pwd05",
+      "name": "创建密码5位：应拒绝且不产生账号",
+      "status": "failed",
+      "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+      "origin_source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+      "batch_tag": "t7747186c309852",
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "start": 1794140509174,
+      "stop": 1794140509326,
+      "source_tcs": [
+        "TC-C09-01"
+      ],
+      "business_verdict": "failed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7747186c309852/run_summary.json"
+    },
+    {
+      "case_id": "TC-A11-02_t76",
+      "name": "附加角色停用后新登录仅保留有效角色范围与查询权限",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+      "origin_source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+      "batch_tag": "t7738eb587be9cc",
+      "message": "",
+      "start": 1794140521869,
+      "stop": 1794140522272,
+      "source_tcs": [
+        "TC-A11-02"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7738eb587be9cc/run_summary.json"
+    },
+    {
+      "case_id": "TC-T4-AUTH-01",
+      "name": "未登录时拒绝查询用户身份",
+      "status": "passed",
+      "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+      "origin_source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+      "batch_tag": "t77ed9b137ede36",
+      "message": "",
+      "start": 1794140505733,
+      "stop": 1794140505763,
+      "source_tcs": [
+        "TC-T4-AUTH-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77ed9b137ede36/run_summary.json"
+    },
+    {
+      "case_id": "TC-L01-01_new_user_logout",
+      "name": "新建用户登录身份正确，获准访问且退出后原令牌失效",
+      "status": "passed",
+      "source": "tests/新用户登录/登录与退出/01_新用户登录与退出.yaml",
+      "origin_source": "tests/新用户登录/登录与退出/01_新用户登录与退出.yaml",
+      "batch_tag": "t775240cf959ac2",
+      "message": "",
+      "start": 1794140506363,
+      "stop": 1794140506623,
+      "source_tcs": [
+        "TC-L01-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t775240cf959ac2/run_summary.json"
+    },
+    {
+      "case_id": "TC-M08-01_t76",
+      "name": "正常修改角色后仍可登录，身份与新角色权限正确",
+      "status": "passed",
+      "source": "tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml",
+      "origin_source": "tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml",
+      "batch_tag": "t77db2da90be563",
+      "message": "",
+      "start": 1794140496127,
+      "stop": 1794140496468,
+      "source_tcs": [
+        "TC-M08-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77db2da90be563/run_summary.json"
+    },
+    {
+      "case_id": "TC-C05-01",
+      "name": "已登录的查询用户无新增权限，拒绝后不产生账号",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml",
+      "origin_source": "tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml",
+      "batch_tag": "t77c10b0f37167d",
+      "message": "",
+      "start": 1794140516798,
+      "stop": 1794140516851,
+      "source_tcs": [
+        "TC-C05-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77c10b0f37167d/run_summary.json"
+    },
+    {
+      "case_id": "TC-A04-01_t76",
+      "name": "普通查询用户读取获准目标，资料与角色岗位关联正确",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml",
+      "origin_source": "tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml",
+      "batch_tag": "t77c413c2576ff0",
+      "message": "",
+      "start": 1794140523938,
+      "stop": 1794140523953,
+      "source_tcs": [
+        "TC-A04-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77c413c2576ff0/run_summary.json"
+    },
+    {
+      "case_id": "TC-C09-02_pwd06",
+      "name": "创建密码6位：允许创建且关联正确",
+      "status": "passed",
+      "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+      "origin_source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+      "batch_tag": "t77331dc0f9415f",
+      "message": "",
+      "start": 1794140509848,
+      "stop": 1794140510061,
+      "source_tcs": [
+        "TC-C09-02"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t77331dc0f9415f/run_summary.json"
+    },
+    {
+      "case_id": "TC-A04-01",
+      "name": "管理员可以通过动态用户ID查询本人资料",
+      "status": "passed",
+      "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+      "origin_source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+      "batch_tag": "t7750de13656195",
+      "message": "",
+      "start": 1794140522847,
+      "stop": 1794140522858,
+      "source_tcs": [
+        "TC-A04-01"
+      ],
+      "business_verdict": "passed",
+      "cleanup_ok": true,
+      "exercise": {},
+      "run_summary": "cases/t7750de13656195/run_summary.json"
+    }
+  ]
+}

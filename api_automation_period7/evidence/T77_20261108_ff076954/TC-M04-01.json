@@ -1,0 +1,305 @@
+{
+  "tc": "TC-M04-01",
+  "stage": "T7.7",
+  "status": "失败",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-M04-01_t76",
+      "name": "调部门即时生效：旧A与新B均应采用新部门完整范围",
+      "status": "failed",
+      "batch_tag": "t77afae453a68bd",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t77afae453a68bd/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_move": {
+          "name": "old_a_after_move",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:21:40.201968+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            false
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              595,
+              596
+            ],
+            "actual_ids": [
+              594
+            ],
+            "missing_ids": [
+              595,
+              596
+            ],
+            "extra_ids": [
+              594
+            ],
+            "page_count": 1,
+            "passed": false
+          },
+          "passed": false
+        },
+        "new_b_after_move": {
+          "name": "new_b_after_move",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:21:40.531910+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              595,
+              596
+            ],
+            "actual_ids": [
+              595,
+              596
+            ],
+            "missing_ids": [],
+            "extra_ids": [],
+            "page_count": 1,
+            "passed": true
+          },
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-M04-01_t76",
+      "name": "调部门即时生效：旧A与新B均应采用新部门完整范围",
+      "status": "failed",
+      "batch_tag": "t77029fc6cb7436",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t77029fc6cb7436/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_move": {
+          "name": "old_a_after_move",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:22:54.030976+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            false
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              683,
+              684
+            ],
+            "actual_ids": [
+              682
+            ],
+            "missing_ids": [
+              683,
+              684
+            ],
+            "extra_ids": [
+              682
+            ],
+            "page_count": 1,
+            "passed": false
+          },
+          "passed": false
+        },
+        "new_b_after_move": {
+          "name": "new_b_after_move",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:22:54.278869+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              683,
+              684
+            ],
+            "actual_ids": [
+              683,
+              684
+            ],
+            "missing_ids": [],
+            "extra_ids": [],
+            "page_count": 1,
+            "passed": true
+          },
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-M04-01_t76",
+      "name": "调部门即时生效：旧A与新B均应采用新部门完整范围",
+      "status": "failed",
+      "batch_tag": "t77b2a35a990b0a",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t77b2a35a990b0a/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_move": {
+          "name": "old_a_after_move",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:43:45.515856+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            false
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1126,
+              1127
+            ],
+            "actual_ids": [
+              1125
+            ],
+            "missing_ids": [
+              1126,
+              1127
+            ],
+            "extra_ids": [
+              1125
+            ],
+            "page_count": 1,
+            "passed": false
+          },
+          "passed": false
+        },
+        "new_b_after_move": {
+          "name": "new_b_after_move",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:43:45.863552+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1126,
+              1127
+            ],
+            "actual_ids": [
+              1126,
+              1127
+            ],
+            "missing_ids": [],
+            "extra_ids": [],
+            "page_count": 1,
+            "passed": true
+          },
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-M04-01_t76",
+      "name": "调部门即时生效：旧A与新B均应采用新部门完整范围",
+      "status": "failed",
+      "batch_tag": "t776b9d768e2d5e",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t776b9d768e2d5e/run_summary.json",
+      "message": "AssertionError: 权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+      "checkpoints": {
+        "old_a_after_move": {
+          "name": "old_a_after_move",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:45:10.768738+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            false
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1214,
+              1215
+            ],
+            "actual_ids": [
+              1213
+            ],
+            "missing_ids": [
+              1214,
+              1215
+            ],
+            "extra_ids": [
+              1213
+            ],
+            "page_count": 1,
+            "passed": false
+          },
+          "passed": false
+        },
+        "new_b_after_move": {
+          "name": "new_b_after_move",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:45:11.090526+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1214,
+              1215
+            ],
+            "actual_ids": [
+              1214,
+              1215
+            ],
+            "missing_ids": [],
+            "extra_ids": [],
+            "page_count": 1,
+            "passed": true
+          },
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

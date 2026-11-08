@@ -1,0 +1,884 @@
+{
+  "failures": [
+    {
+      "case_id": "TC-M04-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+      "name": "调部门即时生效：旧A与新B均应采用新部门完整范围",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "source_tcs": [
+        "TC-M04-01"
+      ],
+      "known_issue": "BUG-T3-004",
+      "batch_tag": "t785669064955fa",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+          "case_id": "TC-M04-01_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-01"
+          ],
+          "known_issue": "BUG-T3-004",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t785669064955fa",
+          "outcome": "passed",
+          "duration": 1.308107,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+          "case_id": "TC-M04-01_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-01"
+          ],
+          "known_issue": "BUG-T3-004",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t785669064955fa",
+          "outcome": "failed",
+          "duration": 0.541421,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+          "location": {
+            "file": "commons/permission_assertions.py",
+            "line": 158,
+            "function": "assert_checkpoints"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+          "case_id": "TC-M04-01_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-01"
+          ],
+          "known_issue": "BUG-T3-004",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t785669064955fa",
+          "outcome": "passed",
+          "duration": 0.385196,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 24,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "old_a_after_move",
+          "new_b_after_move"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "old_a_after_move": {
+          "name": "old_a_after_move",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:43:03.964073+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            false
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1568,
+              1569
+            ],
+            "actual_ids": [
+              1567
+            ],
+            "missing_ids": [
+              1568,
+              1569
+            ],
+            "extra_ids": [
+              1567
+            ],
+            "page_count": 1,
+            "passed": false
+          },
+          "passed": false
+        },
+        "new_b_after_move": {
+          "name": "new_b_after_move",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:43:04.301938+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1568,
+              1569
+            ],
+            "actual_ids": [
+              1568,
+              1569
+            ],
+            "missing_ids": [],
+            "extra_ids": [],
+            "page_count": 1,
+            "passed": true
+          },
+          "passed": true
+        }
+      },
+      "message": "AssertionError: 权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+      "cleanup_ok": true,
+      "case_index": "cases/t785669064955fa/case_index.json",
+      "http_evidence": "cases/t785669064955fa/http.jsonl",
+      "cleanup_evidence": "cases/t785669064955fa/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M04-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "linux_testing_period6/docs/T6.4_执行记录.md"
+        ]
+      }
+    },
+    {
+      "case_id": "TC-C09-06_pwd21",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "source_tcs": [
+        "TC-C09-06"
+      ],
+      "known_issue": "BUG-T3-002",
+      "batch_tag": "t78ad8ca26188d3",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "passed",
+          "duration": 0.372867,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "failed",
+          "duration": 0.130603,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "业务码不符：HTTP=200，预期code=500，实际code=200",
+          "location": {
+            "file": "commons/assert_utils.py",
+            "line": 57,
+            "function": "assert_response"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "passed",
+          "duration": 0.085452,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 500,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 21,
+          "expected_input_length": 21,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:16.216487+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "cleanup_ok": true,
+      "case_index": "cases/t78ad8ca26188d3/case_index.json",
+      "http_evidence": "cases/t78ad8ca26188d3/http.jsonl",
+      "cleanup_evidence": "cases/t78ad8ca26188d3/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-06_pwd21 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "functional_testing_period3/docs/T3_缺陷记录.md"
+        ]
+      }
+    },
+    {
+      "case_id": "TC-C09-01_pwd05",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+      "name": "创建密码5位：应拒绝且不产生账号",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+      "source_tcs": [
+        "TC-C09-01"
+      ],
+      "known_issue": "BUG-T3-002",
+      "batch_tag": "t78fbe0679d9e3b",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+          "case_id": "TC-C09-01_pwd05",
+          "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+          "source_tcs": [
+            "TC-C09-01"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78fbe0679d9e3b",
+          "outcome": "passed",
+          "duration": 0.40592,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+          "case_id": "TC-C09-01_pwd05",
+          "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+          "source_tcs": [
+            "TC-C09-01"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78fbe0679d9e3b",
+          "outcome": "failed",
+          "duration": 0.119232,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "业务码不符：HTTP=200，预期code=500，实际code=200",
+          "location": {
+            "file": "commons/assert_utils.py",
+            "line": 57,
+            "function": "assert_response"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+          "case_id": "TC-C09-01_pwd05",
+          "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+          "source_tcs": [
+            "TC-C09-01"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78fbe0679d9e3b",
+          "outcome": "passed",
+          "duration": 0.066923,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 500,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 5,
+          "expected_input_length": 5,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:14.257746+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "cleanup_ok": true,
+      "case_index": "cases/t78fbe0679d9e3b/case_index.json",
+      "http_evidence": "cases/t78fbe0679d9e3b/http.jsonl",
+      "cleanup_evidence": "cases/t78fbe0679d9e3b/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-01_pwd05 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "functional_testing_period3/docs/T3_缺陷记录.md"
+        ]
+      }
+    },
+    {
+      "case_id": "TC-M02-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "source_tcs": [
+        "TC-M02-01"
+      ],
+      "known_issue": "BUG-T3-003",
+      "batch_tag": "t780a9afd170c8b",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "passed",
+          "duration": 1.364734,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "failed",
+          "duration": 0.702949,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+          "location": {
+            "file": "commons/permission_assertions.py",
+            "line": 158,
+            "function": "assert_checkpoints"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "passed",
+          "duration": 0.600944,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 31,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "old_a_after_revoke",
+          "new_b_after_revoke",
+          "old_a_no_write",
+          "new_b_no_write"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "old_a_after_revoke": {
+          "name": "old_a_after_revoke",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:42:55.101406+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": false
+        },
+        "new_b_after_revoke": {
+          "name": "new_b_after_revoke",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:42:55.440364+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "old_a_no_write": {
+          "name": "old_a_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:55.459273+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "value_comparisons": [
+            {
+              "actual": 1,
+              "expected": 0,
+              "passed": false
+            }
+          ],
+          "passed": false
+        },
+        "new_b_no_write": {
+          "name": "new_b_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:55.472813+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "value_comparisons": [
+            {
+              "actual": 0,
+              "expected": 0,
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      },
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "cleanup_ok": true,
+      "case_index": "cases/t780a9afd170c8b/case_index.json",
+      "http_evidence": "cases/t780a9afd170c8b/http.jsonl",
+      "cleanup_evidence": "cases/t780a9afd170c8b/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M02-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "database_testing_period5/docs/T5.5_执行说明.md"
+        ]
+      }
+    }
+  ],
+  "pending_requirements": [
+    {
+      "case_id": "TC-M06-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "business_verdict": "pending_requirement",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M06-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t788e0033fd3994",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "passed",
+          "duration": 1.327035,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "skipped",
+          "duration": 0.222055,
+          "category": "pending_requirement",
+          "error_type": "Skipped",
+          "message": "已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "location": {
+            "file": ".venv/Lib/site-packages/_pytest/outcomes.py",
+            "line": 138,
+            "function": "__call__"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "passed",
+          "duration": 0.415026,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 17,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 500,
+        "checkpoints": [
+          "disabled_old_a",
+          "disabled_new_b"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "disabled_old_a": {
+          "name": "disabled_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:43:09.664623+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "actual_ids": [
+            1574,
+            1576
+          ],
+          "passed": null
+        },
+        "disabled_new_b": {
+          "name": "disabled_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:43:09.741142+08:00",
+          "http_status": 200,
+          "actual_code": 500,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 500,
+          "passed": true
+        }
+      },
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "cleanup_ok": true,
+      "case_index": "cases/t788e0033fd3994/case_index.json",
+      "http_evidence": "cases/t788e0033fd3994/http.jsonl",
+      "cleanup_evidence": "cases/t788e0033fd3994/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M06-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M09-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "business_verdict": "pending_requirement",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M09-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7880a41b110154",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "passed",
+          "duration": 1.546047,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "skipped",
+          "duration": 0.914104,
+          "category": "pending_requirement",
+          "error_type": "Skipped",
+          "message": "已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "location": {
+            "file": ".venv/Lib/site-packages/_pytest/outcomes.py",
+            "line": 138,
+            "function": "__call__"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "passed",
+          "duration": 0.833397,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 30,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "grant_old_a",
+          "grant_new_b"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "grant_old_a": {
+          "name": "grant_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:42:50.014120+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "passed": null
+        },
+        "grant_old_a_write": {
+          "name": "grant_old_a_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:50.029909+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "details": {
+            "operation_business_code": 403,
+            "post_write_matches": 0
+          },
+          "passed": null
+        },
+        "grant_new_b": {
+          "name": "grant_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:42:50.753672+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        }
+      },
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "cleanup_ok": true,
+      "case_index": "cases/t7880a41b110154/case_index.json",
+      "http_evidence": "cases/t7880a41b110154/http.jsonl",
+      "cleanup_evidence": "cases/t7880a41b110154/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M09-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ]
+}

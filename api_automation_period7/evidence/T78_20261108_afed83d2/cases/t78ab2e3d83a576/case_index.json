@@ -1,0 +1,137 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+  "case_id": "TC-C09-05_pwd20",
+  "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+  "source_tcs": [
+    "TC-C09-05"
+  ],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t78ab2e3d83a576",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+      "case_id": "TC-C09-05_pwd20",
+      "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+      "source_tcs": [
+        "TC-C09-05"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t78ab2e3d83a576",
+      "outcome": "passed",
+      "duration": 0.351761,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+      "case_id": "TC-C09-05_pwd20",
+      "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+      "source_tcs": [
+        "TC-C09-05"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t78ab2e3d83a576",
+      "outcome": "passed",
+      "duration": 0.179023,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+      "case_id": "TC-C09-05_pwd20",
+      "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+      "source_tcs": [
+        "TC-C09-05"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t78ab2e3d83a576",
+      "outcome": "passed",
+      "duration": 0.069734,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 7,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 200,
+    "actual_business_code": 200,
+    "checkpoints": []
+  },
+  "input_evidence": [
+    {
+      "request_step": 1,
+      "method": "POST",
+      "path": "/system/user",
+      "actual_password_length": 20,
+      "expected_input_length": 20,
+      "ascii_only": true,
+      "input_contract_passed": true,
+      "allowed_length_range": [
+        6,
+        20
+      ],
+      "within_allowed_range": true,
+      "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+      "measured_at": "2026-11-08T21:43:15.558451+08:00",
+      "http_response_received": true,
+      "http_status": 200,
+      "business_code": 200
+    }
+  ],
+  "checkpoints": {},
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t78ab2e3d83a576u",
+      "user_ids": [
+        1582
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    }
+  ],
+  "resource_cleanup": [],
+  "restorations": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "2d988a16fb683889"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-05_pwd20 -v",
+  "current_report_evidence": "evidence/cases/t78ab2e3d83a576"
+}

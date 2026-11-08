@@ -1,0 +1,35 @@
+# 原用例：前置基础资料检查
+# T7.5：公共前置由夹具admin提供；每例账号与会话独立，统一回查清理。
+name: 管理员能够查询配置中的部门和角色
+mark:
+  - user_create
+
+steps:
+  # 业务动作：GET /system/dept/${dept_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/dept/${dept_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          deptId: ${dept_id}
+          status: '0'
+  # 业务动作：GET /system/role/${role_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/role/${role_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          roleId: ${role_id}
+          status: '0'

@@ -1,0 +1,4370 @@
+{
+  "evidence_schema": "T78_whitelist_v1",
+  "stage": "T7.8",
+  "run_label": "T78_formal_40",
+  "run_token": "e0bb77e66bb34933b20423a13d511073",
+  "kind": "business",
+  "started_at": "2026-11-08T21:42:38.323671+08:00",
+  "finished_at": "2026-11-08T21:44:10.095134+08:00",
+  "pytest_exit_code": 1,
+  "allure_exit_code": 0,
+  "case_count": 40,
+  "parameter_instances": 40,
+  "unique_original_tc_count": 41,
+  "counts": {
+    "failed": 4,
+    "passed": 34,
+    "skipped": 2
+  },
+  "phase_event_counts": {
+    "setup": 40,
+    "call": 40,
+    "teardown": 40
+  },
+  "failed_phase_events": 4,
+  "pending_requirement_cases": 2,
+  "http_requests": 2059,
+  "assertion_count": null,
+  "assertion_count_note": "未对所有内嵌断言计数，不把请求数或阶段事件数作为断言数",
+  "all_cleanup_ok": true,
+  "results": [
+    {
+      "case_id": "TC-M04-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+      "name": "调部门即时生效：旧A与新B均应采用新部门完整范围",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+      "source_tcs": [
+        "TC-M04-01"
+      ],
+      "known_issue": "BUG-T3-004",
+      "batch_tag": "t785669064955fa",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+          "case_id": "TC-M04-01_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-01"
+          ],
+          "known_issue": "BUG-T3-004",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t785669064955fa",
+          "outcome": "passed",
+          "duration": 1.308107,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+          "case_id": "TC-M04-01_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-01"
+          ],
+          "known_issue": "BUG-T3-004",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t785669064955fa",
+          "outcome": "failed",
+          "duration": 0.541421,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+          "location": {
+            "file": "commons/permission_assertions.py",
+            "line": 158,
+            "function": "assert_checkpoints"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76]",
+          "case_id": "TC-M04-01_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-01"
+          ],
+          "known_issue": "BUG-T3-004",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t785669064955fa",
+          "outcome": "passed",
+          "duration": 0.385196,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 24,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "old_a_after_move",
+          "new_b_after_move"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "old_a_after_move": {
+          "name": "old_a_after_move",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:43:03.964073+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            false
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1568,
+              1569
+            ],
+            "actual_ids": [
+              1567
+            ],
+            "missing_ids": [
+              1568,
+              1569
+            ],
+            "extra_ids": [
+              1567
+            ],
+            "page_count": 1,
+            "passed": false
+          },
+          "passed": false
+        },
+        "new_b_after_move": {
+          "name": "new_b_after_move",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:43:04.301938+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true,
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "set_comparison": {
+            "expected_ids": [
+              1568,
+              1569
+            ],
+            "actual_ids": [
+              1568,
+              1569
+            ],
+            "missing_ids": [],
+            "extra_ids": [],
+            "page_count": 1,
+            "passed": true
+          },
+          "passed": true
+        }
+      },
+      "message": "AssertionError: 权限对照不符：old_a_after_move；A/B结果及集合差异已留证",
+      "cleanup_ok": true,
+      "case_index": "cases/t785669064955fa/case_index.json",
+      "http_evidence": "cases/t785669064955fa/http.jsonl",
+      "cleanup_evidence": "cases/t785669064955fa/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M04-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "linux_testing_period6/docs/T6.4_执行记录.md"
+        ]
+      }
+    },
+    {
+      "case_id": "TC-C05-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C05-01]",
+      "name": "已登录的查询用户无新增权限，拒绝后不产生账号",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml",
+      "source_tcs": [
+        "TC-C05-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78fcb2297845d6",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C05-01]",
+          "case_id": "TC-C05-01",
+          "source": "tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml",
+          "source_tcs": [
+            "TC-C05-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78fcb2297845d6",
+          "outcome": "passed",
+          "duration": 0.990275,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C05-01]",
+          "case_id": "TC-C05-01",
+          "source": "tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml",
+          "source_tcs": [
+            "TC-C05-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78fcb2297845d6",
+          "outcome": "passed",
+          "duration": 0.093833,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C05-01]",
+          "case_id": "TC-C05-01",
+          "source": "tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml",
+          "source_tcs": [
+            "TC-C05-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78fcb2297845d6",
+          "outcome": "passed",
+          "duration": 0.12668,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 4,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78fcb2297845d6/case_index.json",
+      "http_evidence": "cases/t78fcb2297845d6/http.jsonl",
+      "cleanup_evidence": "cases/t78fcb2297845d6/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C05-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A11-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-01_t76]",
+      "name": "多角色均有效时范围合并正确，新增按授权部门获准",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml",
+      "source_tcs": [
+        "TC-A11-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7831b9a45af234",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-01_t76]",
+          "case_id": "TC-A11-01_t76",
+          "source": "tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml",
+          "source_tcs": [
+            "TC-A11-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7831b9a45af234",
+          "outcome": "passed",
+          "duration": 1.64847,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-01_t76]",
+          "case_id": "TC-A11-01_t76",
+          "source": "tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml",
+          "source_tcs": [
+            "TC-A11-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7831b9a45af234",
+          "outcome": "passed",
+          "duration": 0.312522,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-01_t76]",
+          "case_id": "TC-A11-01_t76",
+          "source": "tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml",
+          "source_tcs": [
+            "TC-A11-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7831b9a45af234",
+          "outcome": "passed",
+          "duration": 0.469962,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 12,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7831b9a45af234/case_index.json",
+      "http_evidence": "cases/t7831b9a45af234/http.jsonl",
+      "cleanup_evidence": "cases/t7831b9a45af234/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A11-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A04-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+      "name": "管理员可以通过动态用户ID查询本人资料",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+      "source_tcs": [
+        "TC-A04-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7860071dda3368",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+          "case_id": "TC-A04-01",
+          "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+          "source_tcs": [
+            "TC-A04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7860071dda3368",
+          "outcome": "passed",
+          "duration": 0.41789,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+          "case_id": "TC-A04-01",
+          "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+          "source_tcs": [
+            "TC-A04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7860071dda3368",
+          "outcome": "passed",
+          "duration": 0.021714,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01]",
+          "case_id": "TC-A04-01",
+          "source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+          "source_tcs": [
+            "TC-A04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7860071dda3368",
+          "outcome": "passed",
+          "duration": 0.019993,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7860071dda3368/case_index.json",
+      "http_evidence": "cases/t7860071dda3368/http.jsonl",
+      "cleanup_evidence": "cases/t7860071dda3368/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A04-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M04-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-02_t76]",
+      "name": "调部门后新登录采用新范围，包含迁入本人且不返回原部门数据",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml",
+      "source_tcs": [
+        "TC-M04-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t782ee1817b9467",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-02_t76]",
+          "case_id": "TC-M04-02_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t782ee1817b9467",
+          "outcome": "passed",
+          "duration": 1.346409,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-02_t76]",
+          "case_id": "TC-M04-02_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t782ee1817b9467",
+          "outcome": "passed",
+          "duration": 0.44416,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M04-02_t76]",
+          "case_id": "TC-M04-02_t76",
+          "source": "tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml",
+          "source_tcs": [
+            "TC-M04-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t782ee1817b9467",
+          "outcome": "passed",
+          "duration": 0.402272,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 16,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t782ee1817b9467/case_index.json",
+      "http_evidence": "cases/t782ee1817b9467/http.jsonl",
+      "cleanup_evidence": "cases/t782ee1817b9467/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M04-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M08-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-02_t76]",
+      "name": "正常调整部门后仍可登录，实际身份与新部门正确",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml",
+      "source_tcs": [
+        "TC-M08-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t789984588c7450",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-02_t76]",
+          "case_id": "TC-M08-02_t76",
+          "source": "tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml",
+          "source_tcs": [
+            "TC-M08-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t789984588c7450",
+          "outcome": "passed",
+          "duration": 1.286257,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-02_t76]",
+          "case_id": "TC-M08-02_t76",
+          "source": "tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml",
+          "source_tcs": [
+            "TC-M08-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t789984588c7450",
+          "outcome": "passed",
+          "duration": 0.385362,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-02_t76]",
+          "case_id": "TC-M08-02_t76",
+          "source": "tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml",
+          "source_tcs": [
+            "TC-M08-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t789984588c7450",
+          "outcome": "passed",
+          "duration": 0.455891,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 11,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t789984588c7450/case_index.json",
+      "http_evidence": "cases/t789984588c7450/http.jsonl",
+      "cleanup_evidence": "cases/t789984588c7450/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M08-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A06-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A06-01_t76]",
+      "name": "本部门及以下范围包含本部门和下级部门完整记录",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml",
+      "source_tcs": [
+        "TC-A06-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t783402ae00cd3d",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A06-01_t76]",
+          "case_id": "TC-A06-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml",
+          "source_tcs": [
+            "TC-A06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t783402ae00cd3d",
+          "outcome": "passed",
+          "duration": 1.655602,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A06-01_t76]",
+          "case_id": "TC-A06-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml",
+          "source_tcs": [
+            "TC-A06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t783402ae00cd3d",
+          "outcome": "passed",
+          "duration": 0.103039,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A06-01_t76]",
+          "case_id": "TC-A06-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml",
+          "source_tcs": [
+            "TC-A06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t783402ae00cd3d",
+          "outcome": "passed",
+          "duration": 0.523654,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 5,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t783402ae00cd3d/case_index.json",
+      "http_evidence": "cases/t783402ae00cd3d/http.jsonl",
+      "cleanup_evidence": "cases/t783402ae00cd3d/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A06-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-T4-AUTH-03",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-03]",
+      "name": "管理员登录后能查询身份，退出后原Token失效",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+      "source_tcs": [
+        "TC-T4-AUTH-03"
+      ],
+      "known_issue": "",
+      "batch_tag": "t782777155521b3",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-03]",
+          "case_id": "TC-T4-AUTH-03",
+          "source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+          "source_tcs": [
+            "TC-T4-AUTH-03"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t782777155521b3",
+          "outcome": "passed",
+          "duration": 0.001661,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-03]",
+          "case_id": "TC-T4-AUTH-03",
+          "source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+          "source_tcs": [
+            "TC-T4-AUTH-03"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t782777155521b3",
+          "outcome": "passed",
+          "duration": 0.350989,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-03]",
+          "case_id": "TC-T4-AUTH-03",
+          "source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+          "source_tcs": [
+            "TC-T4-AUTH-03"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t782777155521b3",
+          "outcome": "passed",
+          "duration": 0.010524,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 12,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 401,
+        "actual_business_code": 401,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t782777155521b3/case_index.json",
+      "http_evidence": "cases/t782777155521b3/http.jsonl",
+      "cleanup_evidence": "cases/t782777155521b3/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-T4-AUTH-03 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M06-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "business_verdict": "pending_requirement",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M06-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t788e0033fd3994",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "passed",
+          "duration": 1.327035,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "skipped",
+          "duration": 0.222055,
+          "category": "pending_requirement",
+          "error_type": "Skipped",
+          "message": "已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "location": {
+            "file": ".venv/Lib/site-packages/_pytest/outcomes.py",
+            "line": 138,
+            "function": "__call__"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "passed",
+          "duration": 0.415026,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 17,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 500,
+        "checkpoints": [
+          "disabled_old_a",
+          "disabled_new_b"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "disabled_old_a": {
+          "name": "disabled_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:43:09.664623+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "actual_ids": [
+            1574,
+            1576
+          ],
+          "passed": null
+        },
+        "disabled_new_b": {
+          "name": "disabled_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:43:09.741142+08:00",
+          "http_status": 200,
+          "actual_code": 500,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 500,
+          "passed": true
+        }
+      },
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "cleanup_ok": true,
+      "case_index": "cases/t788e0033fd3994/case_index.json",
+      "http_evidence": "cases/t788e0033fd3994/http.jsonl",
+      "cleanup_evidence": "cases/t788e0033fd3994/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M06-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A09-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A09-01_t76]",
+      "name": "全部数据范围与管理员当前完整ID基准一致",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml",
+      "source_tcs": [
+        "TC-A09-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78c6f136c2d3e0",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A09-01_t76]",
+          "case_id": "TC-A09-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml",
+          "source_tcs": [
+            "TC-A09-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78c6f136c2d3e0",
+          "outcome": "passed",
+          "duration": 1.413231,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A09-01_t76]",
+          "case_id": "TC-A09-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml",
+          "source_tcs": [
+            "TC-A09-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78c6f136c2d3e0",
+          "outcome": "passed",
+          "duration": 0.343413,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A09-01_t76]",
+          "case_id": "TC-A09-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml",
+          "source_tcs": [
+            "TC-A09-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78c6f136c2d3e0",
+          "outcome": "passed",
+          "duration": 0.426231,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 5,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78c6f136c2d3e0/case_index.json",
+      "http_evidence": "cases/t78c6f136c2d3e0/http.jsonl",
+      "cleanup_evidence": "cases/t78c6f136c2d3e0/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A09-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M01-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M01-01]",
+      "name": "撤销新增角色后，新登录会话按新权限拒绝新增",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml",
+      "source_tcs": [
+        "TC-M01-01",
+        "TC-M03-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78b28afeaeffa3",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M01-01]",
+          "case_id": "TC-M01-01",
+          "source": "tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml",
+          "source_tcs": [
+            "TC-M01-01",
+            "TC-M03-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78b28afeaeffa3",
+          "outcome": "passed",
+          "duration": 0.856479,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M01-01]",
+          "case_id": "TC-M01-01",
+          "source": "tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml",
+          "source_tcs": [
+            "TC-M01-01",
+            "TC-M03-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78b28afeaeffa3",
+          "outcome": "passed",
+          "duration": 0.618797,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M01-01]",
+          "case_id": "TC-M01-01",
+          "source": "tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml",
+          "source_tcs": [
+            "TC-M01-01",
+            "TC-M03-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78b28afeaeffa3",
+          "outcome": "passed",
+          "duration": 0.173762,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 20,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78b28afeaeffa3/case_index.json",
+      "http_evidence": "cases/t78b28afeaeffa3/http.jsonl",
+      "cleanup_evidence": "cases/t78b28afeaeffa3/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M01-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A07-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+      "name": "仅本人数据范围只返回当前用户自身",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+      "source_tcs": [
+        "TC-A07-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t786787f3acabb9",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+          "case_id": "TC-A07-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+          "source_tcs": [
+            "TC-A07-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t786787f3acabb9",
+          "outcome": "passed",
+          "duration": 1.380473,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+          "case_id": "TC-A07-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+          "source_tcs": [
+            "TC-A07-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t786787f3acabb9",
+          "outcome": "passed",
+          "duration": 0.085852,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A07-01_t76]",
+          "case_id": "TC-A07-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml",
+          "source_tcs": [
+            "TC-A07-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t786787f3acabb9",
+          "outcome": "passed",
+          "duration": 0.402638,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 5,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t786787f3acabb9/case_index.json",
+      "http_evidence": "cases/t786787f3acabb9/http.jsonl",
+      "cleanup_evidence": "cases/t786787f3acabb9/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A07-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "reference_dept_role",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+      "name": "管理员能够查询配置中的部门和角色",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+      "source_tcs": [],
+      "known_issue": "",
+      "batch_tag": "t78aa16fcc66eb0",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+          "case_id": "reference_dept_role",
+          "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+          "source_tcs": [],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78aa16fcc66eb0",
+          "outcome": "passed",
+          "duration": 0.414312,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+          "case_id": "reference_dept_role",
+          "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+          "source_tcs": [],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78aa16fcc66eb0",
+          "outcome": "passed",
+          "duration": 0.018469,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+          "case_id": "reference_dept_role",
+          "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+          "source_tcs": [],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78aa16fcc66eb0",
+          "outcome": "passed",
+          "duration": 0.022799,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 4,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78aa16fcc66eb0/case_index.json",
+      "http_evidence": "cases/t78aa16fcc66eb0/http.jsonl",
+      "cleanup_evidence": "cases/t78aa16fcc66eb0/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id reference_dept_role -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-C09-02_pwd06",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+      "name": "创建密码6位：允许创建且关联正确",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+      "source_tcs": [
+        "TC-C09-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78a1559211d432",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+          "case_id": "TC-C09-02_pwd06",
+          "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+          "source_tcs": [
+            "TC-C09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78a1559211d432",
+          "outcome": "passed",
+          "duration": 0.393078,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+          "case_id": "TC-C09-02_pwd06",
+          "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+          "source_tcs": [
+            "TC-C09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78a1559211d432",
+          "outcome": "passed",
+          "duration": 0.21209,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-02_pwd06]",
+          "case_id": "TC-C09-02_pwd06",
+          "source": "tests/用户创建与授权/创建密码边界/02_密码6位.yaml",
+          "source_tcs": [
+            "TC-C09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78a1559211d432",
+          "outcome": "passed",
+          "duration": 0.081568,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 7,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 6,
+          "expected_input_length": 6,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": true,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:14.868538+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78a1559211d432/case_index.json",
+      "http_evidence": "cases/t78a1559211d432/http.jsonl",
+      "cleanup_evidence": "cases/t78a1559211d432/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-02_pwd06 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-L01-01_new_user_logout",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L01-01_new_user_logout]",
+      "name": "新建用户登录身份正确，获准访问且退出后原令牌失效",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/新用户登录/登录与退出/01_新用户登录与退出.yaml",
+      "source_tcs": [
+        "TC-L01-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7892fe87ba546d",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L01-01_new_user_logout]",
+          "case_id": "TC-L01-01_new_user_logout",
+          "source": "tests/新用户登录/登录与退出/01_新用户登录与退出.yaml",
+          "source_tcs": [
+            "TC-L01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7892fe87ba546d",
+          "outcome": "passed",
+          "duration": 0.482804,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L01-01_new_user_logout]",
+          "case_id": "TC-L01-01_new_user_logout",
+          "source": "tests/新用户登录/登录与退出/01_新用户登录与退出.yaml",
+          "source_tcs": [
+            "TC-L01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7892fe87ba546d",
+          "outcome": "passed",
+          "duration": 0.368842,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L01-01_new_user_logout]",
+          "case_id": "TC-L01-01_new_user_logout",
+          "source": "tests/新用户登录/登录与退出/01_新用户登录与退出.yaml",
+          "source_tcs": [
+            "TC-L01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7892fe87ba546d",
+          "outcome": "passed",
+          "duration": 0.097512,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 13,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 401,
+        "actual_business_code": 401,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7892fe87ba546d/case_index.json",
+      "http_evidence": "cases/t7892fe87ba546d/http.jsonl",
+      "cleanup_evidence": "cases/t7892fe87ba546d/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-L01-01_new_user_logout -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-C01-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C01-01]",
+      "name": "创建用户成功，部门角色与岗位关联保存一致",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建授权/01_创建授权.yaml",
+      "source_tcs": [
+        "TC-C01-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t780bb906002201",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C01-01]",
+          "case_id": "TC-C01-01",
+          "source": "tests/用户创建与授权/创建授权/01_创建授权.yaml",
+          "source_tcs": [
+            "TC-C01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t780bb906002201",
+          "outcome": "passed",
+          "duration": 0.440681,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C01-01]",
+          "case_id": "TC-C01-01",
+          "source": "tests/用户创建与授权/创建授权/01_创建授权.yaml",
+          "source_tcs": [
+            "TC-C01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t780bb906002201",
+          "outcome": "passed",
+          "duration": 0.196884,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C01-01]",
+          "case_id": "TC-C01-01",
+          "source": "tests/用户创建与授权/创建授权/01_创建授权.yaml",
+          "source_tcs": [
+            "TC-C01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t780bb906002201",
+          "outcome": "passed",
+          "duration": 0.067547,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 7,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t780bb906002201/case_index.json",
+      "http_evidence": "cases/t780bb906002201/http.jsonl",
+      "cleanup_evidence": "cases/t780bb906002201/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C01-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A04-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01_t76]",
+      "name": "普通查询用户读取获准目标，资料与角色岗位关联正确",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml",
+      "source_tcs": [
+        "TC-A04-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78b9ee440dd792",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01_t76]",
+          "case_id": "TC-A04-01_t76",
+          "source": "tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml",
+          "source_tcs": [
+            "TC-A04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78b9ee440dd792",
+          "outcome": "passed",
+          "duration": 1.406098,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01_t76]",
+          "case_id": "TC-A04-01_t76",
+          "source": "tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml",
+          "source_tcs": [
+            "TC-A04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78b9ee440dd792",
+          "outcome": "passed",
+          "duration": 0.016228,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A04-01_t76]",
+          "case_id": "TC-A04-01_t76",
+          "source": "tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml",
+          "source_tcs": [
+            "TC-A04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78b9ee440dd792",
+          "outcome": "passed",
+          "duration": 0.386705,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78b9ee440dd792/case_index.json",
+      "http_evidence": "cases/t78b9ee440dd792/http.jsonl",
+      "cleanup_evidence": "cases/t78b9ee440dd792/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A04-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-T75-CLEAN-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+      "name": "创建用户后准备中断，账号和原会话仍能清理",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+      "source_tcs": [
+        "TC-T75-CLEAN-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7837a9db0d4228",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+          "case_id": "TC-T75-CLEAN-01",
+          "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+          "source_tcs": [
+            "TC-T75-CLEAN-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7837a9db0d4228",
+          "outcome": "passed",
+          "duration": 1.417797,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+          "case_id": "TC-T75-CLEAN-01",
+          "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+          "source_tcs": [
+            "TC-T75-CLEAN-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7837a9db0d4228",
+          "outcome": "passed",
+          "duration": 0.038825,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T75-CLEAN-01]",
+          "case_id": "TC-T75-CLEAN-01",
+          "source": "tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml",
+          "source_tcs": [
+            "TC-T75-CLEAN-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7837a9db0d4228",
+          "outcome": "passed",
+          "duration": 0.039712,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 6,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 401,
+        "actual_business_code": 401,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7837a9db0d4228/case_index.json",
+      "http_evidence": "cases/t7837a9db0d4228/http.jsonl",
+      "cleanup_evidence": "cases/t7837a9db0d4228/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-T75-CLEAN-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M09-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "business_verdict": "pending_requirement",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M09-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7880a41b110154",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "passed",
+          "duration": 1.546047,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "skipped",
+          "duration": 0.914104,
+          "category": "pending_requirement",
+          "error_type": "Skipped",
+          "message": "已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "location": {
+            "file": ".venv/Lib/site-packages/_pytest/outcomes.py",
+            "line": 138,
+            "function": "__call__"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+          "case_id": "TC-M09-02_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M09-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7880a41b110154",
+          "outcome": "passed",
+          "duration": 0.833397,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 30,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "grant_old_a",
+          "grant_new_b"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "grant_old_a": {
+          "name": "grant_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:42:50.014120+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "passed": null
+        },
+        "grant_old_a_write": {
+          "name": "grant_old_a_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:50.029909+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "details": {
+            "operation_business_code": 403,
+            "post_write_matches": 0
+          },
+          "passed": null
+        },
+        "grant_new_b": {
+          "name": "grant_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:42:50.753672+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        }
+      },
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "cleanup_ok": true,
+      "case_index": "cases/t7880a41b110154/case_index.json",
+      "http_evidence": "cases/t7880a41b110154/http.jsonl",
+      "cleanup_evidence": "cases/t7880a41b110154/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M09-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A08-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A08-01_t76]",
+      "name": "自定义数据范围只返回明确授权的部门",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml",
+      "source_tcs": [
+        "TC-A08-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78577f571f52ee",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A08-01_t76]",
+          "case_id": "TC-A08-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml",
+          "source_tcs": [
+            "TC-A08-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78577f571f52ee",
+          "outcome": "passed",
+          "duration": 1.463211,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A08-01_t76]",
+          "case_id": "TC-A08-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml",
+          "source_tcs": [
+            "TC-A08-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78577f571f52ee",
+          "outcome": "passed",
+          "duration": 0.096605,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A08-01_t76]",
+          "case_id": "TC-A08-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml",
+          "source_tcs": [
+            "TC-A08-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78577f571f52ee",
+          "outcome": "passed",
+          "duration": 0.405853,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 5,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78577f571f52ee/case_index.json",
+      "http_evidence": "cases/t78577f571f52ee/http.jsonl",
+      "cleanup_evidence": "cases/t78577f571f52ee/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A08-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-C09-06_pwd21",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "source_tcs": [
+        "TC-C09-06"
+      ],
+      "known_issue": "BUG-T3-002",
+      "batch_tag": "t78ad8ca26188d3",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "passed",
+          "duration": 0.372867,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "failed",
+          "duration": 0.130603,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "业务码不符：HTTP=200，预期code=500，实际code=200",
+          "location": {
+            "file": "commons/assert_utils.py",
+            "line": 57,
+            "function": "assert_response"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21]",
+          "case_id": "TC-C09-06_pwd21",
+          "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+          "source_tcs": [
+            "TC-C09-06"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78ad8ca26188d3",
+          "outcome": "passed",
+          "duration": 0.085452,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 500,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 21,
+          "expected_input_length": 21,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:16.216487+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "cleanup_ok": true,
+      "case_index": "cases/t78ad8ca26188d3/case_index.json",
+      "http_evidence": "cases/t78ad8ca26188d3/http.jsonl",
+      "cleanup_evidence": "cases/t78ad8ca26188d3/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-06_pwd21 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "functional_testing_period3/docs/T3_缺陷记录.md"
+        ]
+      }
+    },
+    {
+      "case_id": "TC-M05-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+      "name": "账号禁用后拒绝新登录，恢复状态可回查",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+      "source_tcs": [
+        "TC-M05-01",
+        "TC-L04-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78087dc9fe998c",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+          "case_id": "TC-M05-01",
+          "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+          "source_tcs": [
+            "TC-M05-01",
+            "TC-L04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78087dc9fe998c",
+          "outcome": "passed",
+          "duration": 0.854362,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+          "case_id": "TC-M05-01",
+          "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+          "source_tcs": [
+            "TC-M05-01",
+            "TC-L04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78087dc9fe998c",
+          "outcome": "passed",
+          "duration": 0.207587,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M05-01]",
+          "case_id": "TC-M05-01",
+          "source": "tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml",
+          "source_tcs": [
+            "TC-M05-01",
+            "TC-L04-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78087dc9fe998c",
+          "outcome": "passed",
+          "duration": 0.089277,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 12,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78087dc9fe998c/case_index.json",
+      "http_evidence": "cases/t78087dc9fe998c/http.jsonl",
+      "cleanup_evidence": "cases/t78087dc9fe998c/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M05-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-C02-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C02-01]",
+      "name": "登录名为空时拒绝创建，且本批无新增账号",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+      "source_tcs": [
+        "TC-C02-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t787af3efad820f",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C02-01]",
+          "case_id": "TC-C02-01",
+          "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+          "source_tcs": [
+            "TC-C02-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t787af3efad820f",
+          "outcome": "passed",
+          "duration": 0.389756,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C02-01]",
+          "case_id": "TC-C02-01",
+          "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+          "source_tcs": [
+            "TC-C02-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t787af3efad820f",
+          "outcome": "passed",
+          "duration": 0.036336,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C02-01]",
+          "case_id": "TC-C02-01",
+          "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+          "source_tcs": [
+            "TC-C02-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t787af3efad820f",
+          "outcome": "passed",
+          "duration": 0.07363,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 500,
+        "actual_business_code": 500,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t787af3efad820f/case_index.json",
+      "http_evidence": "cases/t787af3efad820f/http.jsonl",
+      "cleanup_evidence": "cases/t787af3efad820f/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C02-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-C03-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C03-01]",
+      "name": "重复登录名被拒绝，原账号及授权保持不变",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+      "source_tcs": [
+        "TC-C03-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t785551fc29c4af",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C03-01]",
+          "case_id": "TC-C03-01",
+          "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+          "source_tcs": [
+            "TC-C03-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t785551fc29c4af",
+          "outcome": "passed",
+          "duration": 0.534968,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C03-01]",
+          "case_id": "TC-C03-01",
+          "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+          "source_tcs": [
+            "TC-C03-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t785551fc29c4af",
+          "outcome": "passed",
+          "duration": 0.081241,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C03-01]",
+          "case_id": "TC-C03-01",
+          "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+          "source_tcs": [
+            "TC-C03-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t785551fc29c4af",
+          "outcome": "passed",
+          "duration": 0.082126,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 6,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t785551fc29c4af/case_index.json",
+      "http_evidence": "cases/t785551fc29c4af/http.jsonl",
+      "cleanup_evidence": "cases/t785551fc29c4af/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C03-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M07-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M07-01_t76]",
+      "name": "无修改权限用户不能改变账号状态及关联",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml",
+      "source_tcs": [
+        "TC-M07-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7831474ce72cdf",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M07-01_t76]",
+          "case_id": "TC-M07-01_t76",
+          "source": "tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml",
+          "source_tcs": [
+            "TC-M07-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7831474ce72cdf",
+          "outcome": "passed",
+          "duration": 1.290948,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M07-01_t76]",
+          "case_id": "TC-M07-01_t76",
+          "source": "tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml",
+          "source_tcs": [
+            "TC-M07-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7831474ce72cdf",
+          "outcome": "passed",
+          "duration": 0.036834,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M07-01_t76]",
+          "case_id": "TC-M07-01_t76",
+          "source": "tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml",
+          "source_tcs": [
+            "TC-M07-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7831474ce72cdf",
+          "outcome": "passed",
+          "duration": 0.312192,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 4,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7831474ce72cdf/case_index.json",
+      "http_evidence": "cases/t7831474ce72cdf/http.jsonl",
+      "cleanup_evidence": "cases/t7831474ce72cdf/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M07-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M09-03_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-03_t76]",
+      "name": "只增加无新增授权的角色，新登录仍拒绝新增且保持查询能力",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml",
+      "source_tcs": [
+        "TC-M09-03"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78130aaf2ecba2",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-03_t76]",
+          "case_id": "TC-M09-03_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml",
+          "source_tcs": [
+            "TC-M09-03"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78130aaf2ecba2",
+          "outcome": "passed",
+          "duration": 1.514499,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-03_t76]",
+          "case_id": "TC-M09-03_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml",
+          "source_tcs": [
+            "TC-M09-03"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78130aaf2ecba2",
+          "outcome": "passed",
+          "duration": 0.423796,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-03_t76]",
+          "case_id": "TC-M09-03_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml",
+          "source_tcs": [
+            "TC-M09-03"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78130aaf2ecba2",
+          "outcome": "passed",
+          "duration": 0.454428,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 15,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78130aaf2ecba2/case_index.json",
+      "http_evidence": "cases/t78130aaf2ecba2/http.jsonl",
+      "cleanup_evidence": "cases/t78130aaf2ecba2/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M09-03_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A02-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A02-01_t76]",
+      "name": "同部门权限对照：查询用户拒绝新增，维护用户新增成功",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml",
+      "source_tcs": [
+        "TC-A02-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7896f25c9a58b2",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A02-01_t76]",
+          "case_id": "TC-A02-01_t76",
+          "source": "tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml",
+          "source_tcs": [
+            "TC-A02-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7896f25c9a58b2",
+          "outcome": "passed",
+          "duration": 2.095825,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A02-01_t76]",
+          "case_id": "TC-A02-01_t76",
+          "source": "tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml",
+          "source_tcs": [
+            "TC-A02-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7896f25c9a58b2",
+          "outcome": "passed",
+          "duration": 0.246451,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A02-01_t76]",
+          "case_id": "TC-A02-01_t76",
+          "source": "tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml",
+          "source_tcs": [
+            "TC-A02-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7896f25c9a58b2",
+          "outcome": "passed",
+          "duration": 0.562225,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 14,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "query_denied",
+          "maintainer_allowed",
+          "denied_no_write"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "query_denied": {
+          "name": "query_denied",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:43:23.769493+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "maintainer_allowed": {
+          "name": "maintainer_allowed",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:43:23.938487+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        },
+        "denied_no_write": {
+          "name": "denied_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:43:23.960185+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "value_comparisons": [
+            {
+              "actual": 0,
+              "expected": 0,
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      },
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7896f25c9a58b2/case_index.json",
+      "http_evidence": "cases/t7896f25c9a58b2/http.jsonl",
+      "cleanup_evidence": "cases/t7896f25c9a58b2/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A02-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-L03-02",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+      "name": "密码错误不获得新身份，受保护接口继续拒绝访问",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "source_tcs": [
+        "TC-L03-02",
+        "TC-L12-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7823b4a2ae186e",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+          "case_id": "TC-L03-02",
+          "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+          "source_tcs": [
+            "TC-L03-02",
+            "TC-L12-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7823b4a2ae186e",
+          "outcome": "passed",
+          "duration": 0.561283,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+          "case_id": "TC-L03-02",
+          "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+          "source_tcs": [
+            "TC-L03-02",
+            "TC-L12-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7823b4a2ae186e",
+          "outcome": "passed",
+          "duration": 0.251672,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-L03-02]",
+          "case_id": "TC-L03-02",
+          "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+          "source_tcs": [
+            "TC-L03-02",
+            "TC-L12-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7823b4a2ae186e",
+          "outcome": "passed",
+          "duration": 0.088703,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 6,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 401,
+        "actual_business_code": 401,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7823b4a2ae186e/case_index.json",
+      "http_evidence": "cases/t7823b4a2ae186e/http.jsonl",
+      "cleanup_evidence": "cases/t7823b4a2ae186e/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-L03-02 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-T4-AUTH-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+      "name": "未登录时拒绝查询用户身份",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+      "source_tcs": [
+        "TC-T4-AUTH-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t783fcb1a69dba0",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+          "case_id": "TC-T4-AUTH-01",
+          "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+          "source_tcs": [
+            "TC-T4-AUTH-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t783fcb1a69dba0",
+          "outcome": "passed",
+          "duration": 0.003323,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+          "case_id": "TC-T4-AUTH-01",
+          "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+          "source_tcs": [
+            "TC-T4-AUTH-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t783fcb1a69dba0",
+          "outcome": "passed",
+          "duration": 0.028287,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-T4-AUTH-01]",
+          "case_id": "TC-T4-AUTH-01",
+          "source": "tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml",
+          "source_tcs": [
+            "TC-T4-AUTH-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t783fcb1a69dba0",
+          "outcome": "passed",
+          "duration": 0.008674,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 3,
+        "action": "extract"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 401,
+        "actual_business_code": 401,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t783fcb1a69dba0/case_index.json",
+      "http_evidence": "cases/t783fcb1a69dba0/http.jsonl",
+      "cleanup_evidence": "cases/t783fcb1a69dba0/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-T4-AUTH-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A10-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-01_t76]",
+      "name": "有列表权限但无匹配账号时正常返回空列表",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml",
+      "source_tcs": [
+        "TC-A10-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t786f3bd34ceb7d",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-01_t76]",
+          "case_id": "TC-A10-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml",
+          "source_tcs": [
+            "TC-A10-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t786f3bd34ceb7d",
+          "outcome": "passed",
+          "duration": 1.34259,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-01_t76]",
+          "case_id": "TC-A10-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml",
+          "source_tcs": [
+            "TC-A10-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t786f3bd34ceb7d",
+          "outcome": "passed",
+          "duration": 0.096922,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-01_t76]",
+          "case_id": "TC-A10-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml",
+          "source_tcs": [
+            "TC-A10-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t786f3bd34ceb7d",
+          "outcome": "passed",
+          "duration": 0.384171,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 5,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t786f3bd34ceb7d/case_index.json",
+      "http_evidence": "cases/t786f3bd34ceb7d/http.jsonl",
+      "cleanup_evidence": "cases/t786f3bd34ceb7d/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A10-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-G01-01",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-G01-01]",
+      "name": "成功登录日志能关联本轮账号、时间及结果",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml",
+      "source_tcs": [
+        "TC-G01-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t787376c82127bf",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-G01-01]",
+          "case_id": "TC-G01-01",
+          "source": "tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml",
+          "source_tcs": [
+            "TC-G01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t787376c82127bf",
+          "outcome": "passed",
+          "duration": 0.638391,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-G01-01]",
+          "case_id": "TC-G01-01",
+          "source": "tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml",
+          "source_tcs": [
+            "TC-G01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t787376c82127bf",
+          "outcome": "passed",
+          "duration": 0.346315,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-G01-01]",
+          "case_id": "TC-G01-01",
+          "source": "tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml",
+          "source_tcs": [
+            "TC-G01-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t787376c82127bf",
+          "outcome": "passed",
+          "duration": 0.095928,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 10,
+        "action": "extract"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t787376c82127bf/case_index.json",
+      "http_evidence": "cases/t787376c82127bf/http.jsonl",
+      "cleanup_evidence": "cases/t787376c82127bf/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-G01-01 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M08-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-01_t76]",
+      "name": "正常修改角色后仍可登录，身份与新角色权限正确",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml",
+      "source_tcs": [
+        "TC-M08-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78fe5a96822992",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-01_t76]",
+          "case_id": "TC-M08-01_t76",
+          "source": "tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml",
+          "source_tcs": [
+            "TC-M08-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78fe5a96822992",
+          "outcome": "passed",
+          "duration": 1.438774,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-01_t76]",
+          "case_id": "TC-M08-01_t76",
+          "source": "tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml",
+          "source_tcs": [
+            "TC-M08-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78fe5a96822992",
+          "outcome": "passed",
+          "duration": 0.321407,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M08-01_t76]",
+          "case_id": "TC-M08-01_t76",
+          "source": "tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml",
+          "source_tcs": [
+            "TC-M08-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78fe5a96822992",
+          "outcome": "passed",
+          "duration": 0.518461,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 11,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78fe5a96822992/case_index.json",
+      "http_evidence": "cases/t78fe5a96822992/http.jsonl",
+      "cleanup_evidence": "cases/t78fe5a96822992/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M08-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-C09-01_pwd05",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+      "name": "创建密码5位：应拒绝且不产生账号",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+      "source_tcs": [
+        "TC-C09-01"
+      ],
+      "known_issue": "BUG-T3-002",
+      "batch_tag": "t78fbe0679d9e3b",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+          "case_id": "TC-C09-01_pwd05",
+          "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+          "source_tcs": [
+            "TC-C09-01"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78fbe0679d9e3b",
+          "outcome": "passed",
+          "duration": 0.40592,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+          "case_id": "TC-C09-01_pwd05",
+          "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+          "source_tcs": [
+            "TC-C09-01"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78fbe0679d9e3b",
+          "outcome": "failed",
+          "duration": 0.119232,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "业务码不符：HTTP=200，预期code=500，实际code=200",
+          "location": {
+            "file": "commons/assert_utils.py",
+            "line": 57,
+            "function": "assert_response"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05]",
+          "case_id": "TC-C09-01_pwd05",
+          "source": "tests/用户创建与授权/创建密码边界/01_密码5位.yaml",
+          "source_tcs": [
+            "TC-C09-01"
+          ],
+          "known_issue": "BUG-T3-002",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78fbe0679d9e3b",
+          "outcome": "passed",
+          "duration": 0.066923,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 2,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 500,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 5,
+          "expected_input_length": 5,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:14.257746+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "cleanup_ok": true,
+      "case_index": "cases/t78fbe0679d9e3b/case_index.json",
+      "http_evidence": "cases/t78fbe0679d9e3b/http.jsonl",
+      "cleanup_evidence": "cases/t78fbe0679d9e3b/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-01_pwd05 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "functional_testing_period3/docs/T3_缺陷记录.md"
+        ]
+      }
+    },
+    {
+      "case_id": "TC-A05-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-01_t76]",
+      "name": "部门A普通用户完整查询仅返回本部门记录",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml",
+      "source_tcs": [
+        "TC-A05-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78a0b8c5467b05",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-01_t76]",
+          "case_id": "TC-A05-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml",
+          "source_tcs": [
+            "TC-A05-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78a0b8c5467b05",
+          "outcome": "passed",
+          "duration": 2.262331,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-01_t76]",
+          "case_id": "TC-A05-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml",
+          "source_tcs": [
+            "TC-A05-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78a0b8c5467b05",
+          "outcome": "passed",
+          "duration": 0.085572,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-01_t76]",
+          "case_id": "TC-A05-01_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml",
+          "source_tcs": [
+            "TC-A05-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78a0b8c5467b05",
+          "outcome": "passed",
+          "duration": 0.338807,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 5,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78a0b8c5467b05/case_index.json",
+      "http_evidence": "cases/t78a0b8c5467b05/http.jsonl",
+      "cleanup_evidence": "cases/t78a0b8c5467b05/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A05-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A11-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-02_t76]",
+      "name": "附加角色停用后新登录仅保留有效角色范围与查询权限",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+      "source_tcs": [
+        "TC-A11-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t7899799315ebe1",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-02_t76]",
+          "case_id": "TC-A11-02_t76",
+          "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+          "source_tcs": [
+            "TC-A11-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t7899799315ebe1",
+          "outcome": "passed",
+          "duration": 1.654077,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-02_t76]",
+          "case_id": "TC-A11-02_t76",
+          "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+          "source_tcs": [
+            "TC-A11-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t7899799315ebe1",
+          "outcome": "passed",
+          "duration": 0.678992,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A11-02_t76]",
+          "case_id": "TC-A11-02_t76",
+          "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+          "source_tcs": [
+            "TC-A11-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t7899799315ebe1",
+          "outcome": "passed",
+          "duration": 0.428253,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 25,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t7899799315ebe1/case_index.json",
+      "http_evidence": "cases/t7899799315ebe1/http.jsonl",
+      "cleanup_evidence": "cases/t7899799315ebe1/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A11-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-C09-05_pwd20",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+      "name": "创建密码20位：允许创建且关联正确",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+      "source_tcs": [
+        "TC-C09-05"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78ab2e3d83a576",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+          "case_id": "TC-C09-05_pwd20",
+          "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+          "source_tcs": [
+            "TC-C09-05"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78ab2e3d83a576",
+          "outcome": "passed",
+          "duration": 0.351761,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+          "case_id": "TC-C09-05_pwd20",
+          "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+          "source_tcs": [
+            "TC-C09-05"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78ab2e3d83a576",
+          "outcome": "passed",
+          "duration": 0.179023,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-C09-05_pwd20]",
+          "case_id": "TC-C09-05_pwd20",
+          "source": "tests/用户创建与授权/创建密码边界/03_密码20位.yaml",
+          "source_tcs": [
+            "TC-C09-05"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78ab2e3d83a576",
+          "outcome": "passed",
+          "duration": 0.069734,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 7,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "actual_password_length": 20,
+          "expected_input_length": 20,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": true,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T21:43:15.558451+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78ab2e3d83a576/case_index.json",
+      "http_evidence": "cases/t78ab2e3d83a576/http.jsonl",
+      "cleanup_evidence": "cases/t78ab2e3d83a576/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-C09-05_pwd20 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M09-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-01_t76]",
+      "name": "增加有效新增角色后，新登录获准新增且原查询权限仍可用",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml",
+      "source_tcs": [
+        "TC-M09-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t785ff8eac32e10",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-01_t76]",
+          "case_id": "TC-M09-01_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml",
+          "source_tcs": [
+            "TC-M09-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t785ff8eac32e10",
+          "outcome": "passed",
+          "duration": 1.653732,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-01_t76]",
+          "case_id": "TC-M09-01_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml",
+          "source_tcs": [
+            "TC-M09-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t785ff8eac32e10",
+          "outcome": "passed",
+          "duration": 0.599973,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-01_t76]",
+          "case_id": "TC-M09-01_t76",
+          "source": "tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml",
+          "source_tcs": [
+            "TC-M09-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t785ff8eac32e10",
+          "outcome": "passed",
+          "duration": 0.493374,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 18,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t785ff8eac32e10/case_index.json",
+      "http_evidence": "cases/t785ff8eac32e10/http.jsonl",
+      "cleanup_evidence": "cases/t785ff8eac32e10/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M09-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-A10-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+      "name": "范围外真实存在的目标账号不向普通用户泄漏",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+      "source_tcs": [
+        "TC-A10-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78bef7cedb6a8a",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+          "case_id": "TC-A10-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+          "source_tcs": [
+            "TC-A10-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78bef7cedb6a8a",
+          "outcome": "passed",
+          "duration": 1.369008,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+          "case_id": "TC-A10-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+          "source_tcs": [
+            "TC-A10-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78bef7cedb6a8a",
+          "outcome": "passed",
+          "duration": 0.108504,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+          "case_id": "TC-A10-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+          "source_tcs": [
+            "TC-A10-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78bef7cedb6a8a",
+          "outcome": "passed",
+          "duration": 0.355962,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 7,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78bef7cedb6a8a/case_index.json",
+      "http_evidence": "cases/t78bef7cedb6a8a/http.jsonl",
+      "cleanup_evidence": "cases/t78bef7cedb6a8a/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A10-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    },
+    {
+      "case_id": "TC-M02-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+      "name": "撤权即时生效：旧A与新B均应拒绝新增且无非法写入",
+      "status": "failed",
+      "business_verdict": "failed",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+      "source_tcs": [
+        "TC-M02-01"
+      ],
+      "known_issue": "BUG-T3-003",
+      "batch_tag": "t780a9afd170c8b",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "passed",
+          "duration": 1.364734,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "failed",
+          "duration": 0.702949,
+          "category": "known_product_expectation",
+          "error_type": "AssertionError",
+          "message": "权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+          "location": {
+            "file": "commons/permission_assertions.py",
+            "line": 158,
+            "function": "assert_checkpoints"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76]",
+          "case_id": "TC-M02-01_t76",
+          "source": "tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml",
+          "source_tcs": [
+            "TC-M02-01"
+          ],
+          "known_issue": "BUG-T3-003",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t780a9afd170c8b",
+          "outcome": "passed",
+          "duration": 0.600944,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 31,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 200,
+        "checkpoints": [
+          "old_a_after_revoke",
+          "new_b_after_revoke",
+          "old_a_no_write",
+          "new_b_no_write"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "old_a_after_revoke": {
+          "name": "old_a_after_revoke",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:42:55.101406+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": false
+        },
+        "new_b_after_revoke": {
+          "name": "new_b_after_revoke",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:42:55.440364+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 403,
+          "passed": true
+        },
+        "old_a_no_write": {
+          "name": "old_a_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:55.459273+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            false
+          ],
+          "pending": false,
+          "value_comparisons": [
+            {
+              "actual": 1,
+              "expected": 0,
+              "passed": false
+            }
+          ],
+          "passed": false
+        },
+        "new_b_no_write": {
+          "name": "new_b_no_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T21:42:55.472813+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "value_comparisons": [
+            {
+              "actual": 0,
+              "expected": 0,
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      },
+      "message": "AssertionError: 权限对照不符：old_a_after_revoke、old_a_no_write；A/B结果及集合差异已留证",
+      "cleanup_ok": true,
+      "case_index": "cases/t780a9afd170c8b/case_index.json",
+      "http_evidence": "cases/t780a9afd170c8b/http.jsonl",
+      "cleanup_evidence": "cases/t780a9afd170c8b/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M02-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": [
+          "database_testing_period5/docs/T5.5_执行说明.md"
+        ]
+      }
+    },
+    {
+      "case_id": "TC-A05-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-02_t76]",
+      "name": "部门B普通用户完整查询仅返回本部门记录",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml",
+      "source_tcs": [
+        "TC-A05-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t787109c56faa5c",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-02_t76]",
+          "case_id": "TC-A05-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml",
+          "source_tcs": [
+            "TC-A05-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t787109c56faa5c",
+          "outcome": "passed",
+          "duration": 2.449606,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-02_t76]",
+          "case_id": "TC-A05-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml",
+          "source_tcs": [
+            "TC-A05-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t787109c56faa5c",
+          "outcome": "passed",
+          "duration": 0.084668,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A05-02_t76]",
+          "case_id": "TC-A05-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml",
+          "source_tcs": [
+            "TC-A05-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t787109c56faa5c",
+          "outcome": "passed",
+          "duration": 0.314157,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 5,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t787109c56faa5c/case_index.json",
+      "http_evidence": "cases/t787109c56faa5c/http.jsonl",
+      "cleanup_evidence": "cases/t787109c56faa5c/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A05-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ]
+}

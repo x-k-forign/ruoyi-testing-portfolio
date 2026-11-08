@@ -1,0 +1,111 @@
+{
+  "tc": "TC-A10-02",
+  "stage": "T7.8",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-A10-02_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+      "name": "范围外真实存在的目标账号不向普通用户泄漏",
+      "status": "passed",
+      "business_verdict": "passed",
+      "kind": "business",
+      "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+      "source_tcs": [
+        "TC-A10-02"
+      ],
+      "known_issue": "",
+      "batch_tag": "t78bef7cedb6a8a",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+          "case_id": "TC-A10-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+          "source_tcs": [
+            "TC-A10-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t78bef7cedb6a8a",
+          "outcome": "passed",
+          "duration": 1.369008,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+          "case_id": "TC-A10-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+          "source_tcs": [
+            "TC-A10-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t78bef7cedb6a8a",
+          "outcome": "passed",
+          "duration": 0.108504,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-A10-02_t76]",
+          "case_id": "TC-A10-02_t76",
+          "source": "tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml",
+          "source_tcs": [
+            "TC-A10-02"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t78bef7cedb6a8a",
+          "outcome": "passed",
+          "duration": 0.355962,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 7,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": 200,
+        "actual_http": 200,
+        "expected_business_code": 200,
+        "actual_business_code": 200,
+        "checkpoints": []
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {},
+      "message": "",
+      "cleanup_ok": true,
+      "case_index": "cases/t78bef7cedb6a8a/case_index.json",
+      "http_evidence": "cases/t78bef7cedb6a8a/http.jsonl",
+      "cleanup_evidence": "cases/t78bef7cedb6a8a/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-A10-02_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

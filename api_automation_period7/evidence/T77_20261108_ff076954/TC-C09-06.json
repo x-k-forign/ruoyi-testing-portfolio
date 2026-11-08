@@ -1,0 +1,145 @@
+{
+  "tc": "TC-C09-06",
+  "stage": "T7.7",
+  "status": "失败",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-C09-06_pwd21",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "batch_tag": "t771f53de1e098b",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t771f53de1e098b/run_summary.json",
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "checkpoints": {},
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "password": "***",
+          "actual_password_length": 21,
+          "expected_input_length": 21,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T20:21:52.803416+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ]
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-C09-06_pwd21",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "batch_tag": "t779dea935c1625",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t779dea935c1625/run_summary.json",
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "checkpoints": {},
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "password": "***",
+          "actual_password_length": 21,
+          "expected_input_length": 21,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T20:23:04.772503+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ]
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-C09-06_pwd21",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "batch_tag": "t775b90c8caf06c",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t775b90c8caf06c/run_summary.json",
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "checkpoints": {},
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "password": "***",
+          "actual_password_length": 21,
+          "expected_input_length": 21,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T20:43:57.304853+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ]
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-C09-06_pwd21",
+      "name": "创建密码21位：应拒绝且不产生账号",
+      "status": "failed",
+      "batch_tag": "t77eceb7a0a72f6",
+      "source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t77eceb7a0a72f6/run_summary.json",
+      "message": "AssertionError: 业务码不符：HTTP=200，预期code=500，实际code=200",
+      "checkpoints": {},
+      "input_evidence": [
+        {
+          "request_step": 1,
+          "method": "POST",
+          "path": "/system/user",
+          "password": "***",
+          "actual_password_length": 21,
+          "expected_input_length": 21,
+          "ascii_only": true,
+          "input_contract_passed": true,
+          "allowed_length_range": [
+            6,
+            20
+          ],
+          "within_allowed_range": false,
+          "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+          "measured_at": "2026-11-08T20:45:22.810488+08:00",
+          "http_response_received": true,
+          "http_status": 200,
+          "business_code": 200
+        }
+      ]
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

@@ -1,0 +1,20 @@
+{
+  "users": {
+    "count": 34,
+    "before_digest": "3a155fc0ed3ef5b7e1e75e4a273c0b0d58ce9cacd651fcc58b7a6c8c194e5c13",
+    "after_digest": "3a155fc0ed3ef5b7e1e75e4a273c0b0d58ce9cacd651fcc58b7a6c8c194e5c13",
+    "same": true
+  },
+  "roles": {
+    "count": 12,
+    "before_digest": "dcba95e04ce410e210eeabfc015020e9944cb602028a6fa80635e13bb45c5890",
+    "after_digest": "dcba95e04ce410e210eeabfc015020e9944cb602028a6fa80635e13bb45c5890",
+    "same": true
+  },
+  "departments": {
+    "count": 17,
+    "before_digest": "99b7746e9421737e93d85b6d74cdc93926988a83cf19a2783e1e029d8cc537f3",
+    "after_digest": "99b7746e9421737e93d85b6d74cdc93926988a83cf19a2783e1e029d8cc537f3",
+    "same": true
+  }
+}

@@ -1,0 +1,28 @@
+# T7.7断言失败练习副本：原文件不改；200→999用于验证断言和失败收尾。
+# 原用例：TC-A04-01
+# 公共前置只准备专属数据；以下步骤执行目标业务并保留真实结果。
+name: 普通查询用户读取获准目标，资料与角色岗位关联正确
+mark:
+- menu_and_data
+
+steps:
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${target_user_id}
+      headers:
+        Authorization: Bearer ${before_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 999  # 人为错误：正式用例此处应为200，仅在副本中保留
+      json:
+        code: 200
+        data:
+          userId: ${target_user_id}
+          userName: ${target_username}
+          deptId: ${dept_a}
+          remark: ${batch_tag}
+          status: '0'
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}

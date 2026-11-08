@@ -1,0 +1,31 @@
+# 原用例：TC-C02-01
+# T7.5：公共前置由夹具creation_ready提供；每例账号与会话独立，统一回查清理。
+name: 登录名为空时拒绝创建，且本批无新增账号
+mark:
+  - user_create
+
+steps:
+  # 业务动作：POST /system/user
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userName: ''
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_id}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 500
+        msg: 用户账号不能为空
+      owned_users: 0

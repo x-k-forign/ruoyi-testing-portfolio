@@ -11,3 +11,8 @@ database_testing_period5/evidence/** -whitespace
 # T6 evidence and accepted documents retain their recorded byte hashes.
 linux_testing_period6/** -text whitespace=cr-at-eol
 linux_testing_period6/evidence/** -whitespace
+
+# Preserve reviewed T7 source and evidence bytes; workbooks remain native packages.
+api_automation_period7/** -text whitespace=cr-at-eol
+api_automation_period7/evidence/** -whitespace
+docs/*.xlsx binary

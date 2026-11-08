@@ -1,0 +1,345 @@
+# 原TC与公共前置映射；T7.6新增权限业务，未决规则按用户确认记录待确认。
+tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml:
+  source_tcs: []
+  note: 创建授权前的基础资料检查，不单独冒充原业务TC。
+  preparation: admin
+  case_id: reference_dept_role
+tests/新用户登录/未登录访问控制/01_未登录查询身份.yaml:
+  source_tcs:
+  - TC-T4-AUTH-01
+  preparation: none
+  case_id: TC-T4-AUTH-01
+tests/新用户登录/登录与退出/02_管理员登录与退出.yaml:
+  source_tcs:
+  - TC-T4-AUTH-03
+  note: 映射退出后凭证失效部分；管理员登录不代替新用户登录TC。
+  preparation: none
+  case_id: TC-T4-AUTH-03
+tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml:
+  source_tcs:
+  - TC-A04-01
+  note: 仅映射接口详情检查部分。
+  preparation: admin
+  case_id: TC-A04-01
+tests/用户创建与授权/创建参数校验/01_登录名为空.yaml:
+  source_tcs:
+  - TC-C02-01
+  note: ''
+  known_issue: ''
+  preparation: creation_ready
+  case_id: TC-C02-01
+tests/用户创建与授权/创建参数校验/02_登录名重复.yaml:
+  source_tcs:
+  - TC-C03-01
+  note: ''
+  known_issue: ''
+  preparation: prepared_user
+  case_id: TC-C03-01
+tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml:
+  source_tcs:
+  - TC-L03-02
+  - TC-L12-01
+  note: ''
+  known_issue: ''
+  preparation: prepared_user
+  case_id: TC-L03-02
+tests/菜单操作与数据访问/功能操作权限/01_无新增权限.yaml:
+  source_tcs:
+  - TC-C05-01
+  note: ''
+  known_issue: ''
+  preparation: query_session
+  case_id: TC-C05-01
+tests/授权变更与账号禁用/撤权后新会话/01_撤权后拒绝新增.yaml:
+  source_tcs:
+  - TC-M01-01
+  - TC-M03-01
+  note: ''
+  known_issue: ''
+  preparation: maintainer_session
+  case_id: TC-M01-01
+tests/授权变更与账号禁用/账号禁用/01_禁用后拒绝新登录.yaml:
+  source_tcs:
+  - TC-M05-01
+  - TC-L04-01
+  note: ''
+  known_issue: ''
+  preparation: query_session
+  case_id: TC-M05-01
+tests/相关日志核对/登录日志/01_本轮成功登录日志.yaml:
+  source_tcs:
+  - TC-G01-01
+  note: ''
+  known_issue: ''
+  preparation: prepared_user
+  case_id: TC-G01-01
+tests/用户创建与授权/创建密码边界/01_密码5位.yaml:
+  source_tcs:
+  - TC-C09-01
+  note: 使用项目已确认的6～20位规则；保留原页面测试结论，接口结果单独记录。
+  known_issue: BUG-T3-002
+  preparation: creation_ready
+  case_id: TC-C09-01
+  scenario: TC-C09-01
+tests/用户创建与授权/创建密码边界/02_密码6位.yaml:
+  source_tcs:
+  - TC-C09-02
+  note: 使用项目已确认的6～20位规则；保留原页面测试结论，接口结果单独记录。
+  known_issue: ''
+  preparation: creation_ready
+  case_id: TC-C09-02
+  scenario: TC-C09-02
+tests/用户创建与授权/创建密码边界/03_密码20位.yaml:
+  source_tcs:
+  - TC-C09-05
+  note: 使用项目已确认的6～20位规则；保留原页面测试结论，接口结果单独记录。
+  known_issue: ''
+  preparation: creation_ready
+  case_id: TC-C09-05
+  scenario: TC-C09-05
+tests/用户创建与授权/创建密码边界/04_密码21位.yaml:
+  source_tcs:
+  - TC-C09-06
+  note: 使用项目已确认的6～20位规则；保留原页面测试结论，接口结果单独记录。
+  known_issue: BUG-T3-002
+  preparation: creation_ready
+  case_id: TC-C09-06
+  scenario: TC-C09-06
+tests/用户创建与授权/创建授权/01_创建授权.yaml:
+  source_tcs:
+  - TC-C01-01
+  case_id: TC-C01-01
+  preparation: creation_ready
+  note: 本例仅验证创建及关联保存；账号由本例创建，结束由夹具清理。
+tests/新用户登录/登录与退出/01_新用户登录与退出.yaml:
+  source_tcs:
+  - TC-L01-01
+  case_id: TC-L01-01_new_user_logout
+  preparation: prepared_user
+  note: 夹具独立创建本例账号；业务步骤验证新用户登录、获准查询、退出和旧令牌失效，不依赖创建用例先执行。
+tests/用户创建与授权/创建授权/02_创建后准备中断并清理.yaml:
+  source_tcs:
+  - TC-T75-CLEAN-01
+  case_id: TC-T75-CLEAN-01
+  preparation: interrupted
+  note: 真实创建账号并取得会话后，由测试端在准备函数yield前注入已声明的中断；验证补偿删除与旧会话失效，不作为后端事务回滚证据。
+  expected_preparation:
+    error_type: ControlledPreparationFailure
+    failure_point: after_account_and_session_ready
+    before_yield: true
+tests/菜单操作与数据访问/功能操作权限/02_同部门不同角色新增对照.yaml:
+  source_tcs:
+  - TC-A02-01
+  case_id: TC-A02-01_t76
+  preparation: permission
+  permission_fixture:
+    maintainer: true
+    second_maintainer: true
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/用户详情查询/02_普通用户查询获准资料.yaml:
+  source_tcs:
+  - TC-A04-01
+  case_id: TC-A04-01_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/授权变更与账号禁用/操作权限校验/01_无修改权限不能改状态.yaml:
+  source_tcs:
+  - TC-M07-01
+  case_id: TC-M07-01_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/01_本部门A.yaml:
+  source_tcs:
+  - TC-A05-01
+  case_id: TC-A05-01_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/02_本部门B.yaml:
+  source_tcs:
+  - TC-A05-02
+  case_id: TC-A05-02_t76
+  preparation: permission
+  permission_fixture:
+    subject_dept: B
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/03_本部门及下级.yaml:
+  source_tcs:
+  - TC-A06-01
+  case_id: TC-A06-01_t76
+  preparation: permission
+  permission_fixture:
+    scope: '4'
+    child: true
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/04_仅本人.yaml:
+  source_tcs:
+  - TC-A07-01
+  case_id: TC-A07-01_t76
+  preparation: permission
+  permission_fixture:
+    scope: '5'
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/05_自定义部门.yaml:
+  source_tcs:
+  - TC-A08-01
+  case_id: TC-A08-01_t76
+  preparation: permission
+  permission_fixture:
+    scope: '2'
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/06_全部数据.yaml:
+  source_tcs:
+  - TC-A09-01
+  case_id: TC-A09-01_t76
+  preparation: permission
+  permission_fixture:
+    scope: '1'
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/07_无匹配记录.yaml:
+  source_tcs:
+  - TC-A10-01
+  case_id: TC-A10-01_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/部门数据范围/08_范围外目标.yaml:
+  source_tcs:
+  - TC-A10-02
+  case_id: TC-A10-02_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/多角色权限/01_有效角色范围并集.yaml:
+  source_tcs:
+  - TC-A11-01
+  case_id: TC-A11-01_t76
+  preparation: permission
+  permission_fixture:
+    extra: custom_add
+    assigned_extra: true
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml:
+  source_tcs:
+  - TC-A11-02
+  case_id: TC-A11-02_t76
+  preparation: permission
+  permission_fixture:
+    extra: custom_add
+    assigned_extra: true
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/授权变更与账号禁用/撤权后旧会话/01_撤权后旧会话与新会话对照.yaml:
+  source_tcs:
+  - TC-M02-01
+  case_id: TC-M02-01_t76
+  preparation: permission
+  permission_fixture:
+    maintainer: true
+    subject_role: maintainer
+  known_issue: BUG-T3-003
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。 旧A不退出、不刷新getInfo；沿用已确认的即时生效要求，先采集A/B再统一断言。
+tests/授权变更与账号禁用/调部门与新旧会话/01_调部门后旧会话范围.yaml:
+  source_tcs:
+  - TC-M04-01
+  case_id: TC-M04-01_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: BUG-T3-004
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。 旧A不退出、不刷新getInfo；沿用已确认的即时生效要求，先采集A/B再统一断言。
+tests/授权变更与账号禁用/调部门与新旧会话/02_调部门后新会话范围.yaml:
+  source_tcs:
+  - TC-M04-02
+  case_id: TC-M04-02_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/授权变更与账号禁用/正常变更后登录/01_角色变更后登录.yaml:
+  source_tcs:
+  - TC-M08-01
+  case_id: TC-M08-01_t76
+  preparation: permission
+  permission_fixture:
+    maintainer: true
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/授权变更与账号禁用/正常变更后登录/02_部门变更后登录.yaml:
+  source_tcs:
+  - TC-M08-02
+  case_id: TC-M08-02_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/授权变更与账号禁用/增授与新旧会话/01_新会话获得新增授权.yaml:
+  source_tcs:
+  - TC-M09-01
+  case_id: TC-M09-01_t76
+  preparation: permission
+  permission_fixture:
+    extra: add
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/授权变更与账号禁用/增授与新旧会话/02_增加普通角色仍拒绝新增.yaml:
+  source_tcs:
+  - TC-M09-03
+  case_id: TC-M09-03_t76
+  preparation: permission
+  permission_fixture:
+    extra: query
+  known_issue: ''
+  requirement_status: confirmed
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。
+tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml:
+  source_tcs:
+  - TC-M06-01
+  case_id: TC-M06-01_t76
+  preparation: permission
+  permission_fixture: {}
+  known_issue: ''
+  requirement_status: pending
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。 用户确认规则暂不确定：实际完成A/B请求并留证，结束以待确认状态呈现，不计业务通过。
+tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml:
+  source_tcs:
+  - TC-M09-02
+  case_id: TC-M09-02_t76
+  preparation: permission
+  permission_fixture:
+    extra: add
+  known_issue: ''
+  requirement_status: pending
+  note: T7.6按原TC的接口部分回归；本例独立数据与会话，真实分页及写后回查，页面结论单独保留。 用户确认规则暂不确定：实际完成A/B请求并留证，结束以待确认状态呈现，不计业务通过。

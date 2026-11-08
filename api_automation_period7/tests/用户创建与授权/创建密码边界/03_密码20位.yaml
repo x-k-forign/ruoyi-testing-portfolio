@@ -1,0 +1,75 @@
+# 原用例：TC-C09-05
+# T7.5：公共前置由夹具creation_ready提供；每例账号与会话独立，统一回查清理。
+name: 创建密码20位：允许创建且关联正确
+mark:
+  - user_create
+
+steps:
+  # 业务动作：POST /system/user
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userName: ${new_username}
+        nickName: ${new_nickname}
+        password: ${password_20}
+        deptId: ${dept_id}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: ${expected_business_code}
+      owned_users: ${expected_owned_users}
+  # 业务动作：GET /system/user/list
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${new_username}
+        pageNum: 1
+        pageSize: 20
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 1
+        rows:
+          - userName: ${new_username}
+            remark: ${batch_tag}
+  # 提取本次真实响应变量，后续请求动态关联
+  - extract:
+      new_user_id:
+        - json
+        - $.rows[0].userId
+  # 业务动作：GET /system/user/${new_user_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${new_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${new_user_id}
+          userName: ${new_username}
+          deptId: ${dept_id}
+          nickName: ${new_nickname}
+          status: '0'
+          remark: ${batch_tag}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}

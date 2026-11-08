@@ -1,0 +1,49 @@
+# 原用例：TC-L03-02、TC-L12-01
+# T7.5：公共前置由夹具prepared_user提供；每例账号与会话独立，统一回查清理。
+name: 密码错误不获得新身份，受保护接口继续拒绝访问
+mark:
+  - user_access
+
+steps:
+  # 业务动作：GET /captchaImage
+  - request:
+      method: GET
+      url: ${base_url}/captchaImage
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：POST /login
+  - request:
+      method: POST
+      url: ${base_url}/login
+      json:
+        username: ${new_username}
+        password: ${wrong_password}
+        code: ${captcha_code}
+        uuid: ${captcha_uuid}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 500
+        msg: 用户不存在/密码错误
+      absent:
+        - token
+        - user
+  # 业务动作：GET /system/user/list
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      params:
+        pageNum: 1
+        pageSize: 10
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 401
+      absent:
+        - token
+        - user

@@ -1,0 +1,273 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+  "case_id": "TC-M09-02_t76",
+  "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+  "source_tcs": [
+    "TC-M09-02"
+  ],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t7880a41b110154",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+      "case_id": "TC-M09-02_t76",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M09-02"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t7880a41b110154",
+      "outcome": "passed",
+      "duration": 1.546047,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+      "case_id": "TC-M09-02_t76",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M09-02"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t7880a41b110154",
+      "outcome": "skipped",
+      "duration": 0.914104,
+      "category": "pending_requirement",
+      "error_type": "Skipped",
+      "message": "已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "location": {
+        "file": ".venv/Lib/site-packages/_pytest/outcomes.py",
+        "line": 138,
+        "function": "__call__"
+      }
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M09-02_t76]",
+      "case_id": "TC-M09-02_t76",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M09-02"
+      ],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t7880a41b110154",
+      "outcome": "passed",
+      "duration": 0.833397,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 30,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": null,
+    "actual_http": 200,
+    "expected_business_code": null,
+    "actual_business_code": 200,
+    "checkpoints": [
+      "grant_old_a",
+      "grant_new_b"
+    ]
+  },
+  "input_evidence": [],
+  "checkpoints": {
+    "grant_old_a": {
+      "name": "grant_old_a",
+      "actor": "本例用户#2",
+      "at": "2026-11-08T21:42:50.014120+08:00",
+      "http_status": 200,
+      "actual_code": 403,
+      "checks": [],
+      "pending": true,
+      "rule_status": "待确认",
+      "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "passed": null
+    },
+    "grant_old_a_write": {
+      "name": "grant_old_a_write",
+      "actor": "管理员#1",
+      "at": "2026-11-08T21:42:50.029909+08:00",
+      "http_status": 200,
+      "actual_code": 200,
+      "checks": [],
+      "pending": true,
+      "rule_status": "待确认",
+      "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "details": {
+        "operation_business_code": 403,
+        "post_write_matches": 0
+      },
+      "passed": null
+    },
+    "grant_new_b": {
+      "name": "grant_new_b",
+      "actor": "本例用户#3",
+      "at": "2026-11-08T21:42:50.753672+08:00",
+      "http_status": 200,
+      "actual_code": 200,
+      "checks": [
+        true
+      ],
+      "pending": false,
+      "expected_code": 200,
+      "passed": true
+    }
+  },
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t7880a41b110154t",
+      "user_ids": [
+        1547
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t7880a41b110154o",
+      "user_ids": [
+        1548
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t7880a41b110154u",
+      "user_ids": [
+        1549
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    },
+    {
+      "username": "t7880a41b110154d",
+      "user_ids": [],
+      "phase": "teardown",
+      "creation_observed": false,
+      "delete_requested": false,
+      "cleanup_state": "not_created",
+      "deleted": false,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": false
+    },
+    {
+      "username": "t7880a41b110154e",
+      "user_ids": [],
+      "phase": "teardown",
+      "creation_observed": false,
+      "delete_requested": false,
+      "cleanup_state": "not_created",
+      "deleted": false,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": false
+    },
+    {
+      "username": "t7880a41b110154a",
+      "user_ids": [
+        1550
+      ],
+      "phase": "teardown",
+      "creation_observed": true,
+      "delete_requested": true,
+      "cleanup_state": "deleted",
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "absence_verified": true,
+      "deletion_verified": true
+    }
+  ],
+  "resource_cleanup": [
+    {
+      "kind": "role",
+      "id": 610,
+      "absent": true
+    },
+    {
+      "kind": "role",
+      "id": 611,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 870,
+      "absent": true
+    },
+    {
+      "kind": "dept",
+      "id": 869,
+      "absent": true
+    }
+  ],
+  "restorations": [
+    {
+      "userId": 1549,
+      "restored": true,
+      "was_unchanged": false
+    }
+  ],
+  "session_cleanup": [
+    {
+      "actor": "本例用户#3",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "1601d9b0d0a401cc"
+    },
+    {
+      "actor": "本例用户#2",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "527383e991a85e8a"
+    },
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "8785dd2524e33fc9"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M09-02_t76 -v",
+  "current_report_evidence": "evidence/cases/t7880a41b110154"
+}

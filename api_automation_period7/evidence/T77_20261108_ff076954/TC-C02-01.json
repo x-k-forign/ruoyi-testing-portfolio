@@ -1,0 +1,61 @@
+{
+  "tc": "TC-C02-01",
+  "stage": "T7.7",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-C02-01",
+      "name": "登录名为空时拒绝创建，且本批无新增账号",
+      "status": "passed",
+      "batch_tag": "t77d00cb29fb96d",
+      "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t77d00cb29fb96d/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-C02-01",
+      "name": "登录名为空时拒绝创建，且本批无新增账号",
+      "status": "passed",
+      "batch_tag": "t77fef812bdcd08",
+      "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t77fef812bdcd08/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-C02-01",
+      "name": "登录名为空时拒绝创建，且本批无新增账号",
+      "status": "passed",
+      "batch_tag": "t77bc556af103d9",
+      "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t77bc556af103d9/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-C02-01",
+      "name": "登录名为空时拒绝创建，且本批无新增账号",
+      "status": "passed",
+      "batch_tag": "t7740a95c2a4372",
+      "source": "tests/用户创建与授权/创建参数校验/01_登录名为空.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t7740a95c2a4372/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

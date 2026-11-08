@@ -1,0 +1,229 @@
+{
+  "tc": "TC-M09-02",
+  "stage": "T7.7",
+  "status": "待观察",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-M09-02_t76",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "batch_tag": "t77d9f6ba8ef770",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t77d9f6ba8ef770/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "grant_old_a": {
+          "name": "grant_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:21:28.438793+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "passed": null
+        },
+        "grant_old_a_write": {
+          "name": "grant_old_a_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:21:28.449399+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "details": {
+            "operation_business_code": 403,
+            "post_write_matches": 0
+          },
+          "passed": null
+        },
+        "grant_new_b": {
+          "name": "grant_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:21:28.893517+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-M09-02_t76",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "batch_tag": "t772f93f17841fe",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t772f93f17841fe/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "grant_old_a": {
+          "name": "grant_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:22:42.336775+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "passed": null
+        },
+        "grant_old_a_write": {
+          "name": "grant_old_a_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:22:42.344085+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "details": {
+            "operation_business_code": 403,
+            "post_write_matches": 0
+          },
+          "passed": null
+        },
+        "grant_new_b": {
+          "name": "grant_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:22:42.803397+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-M09-02_t76",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "batch_tag": "t7764b8a3955167",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t7764b8a3955167/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "grant_old_a": {
+          "name": "grant_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:43:33.339288+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "passed": null
+        },
+        "grant_old_a_write": {
+          "name": "grant_old_a_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:43:33.350637+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "details": {
+            "operation_business_code": 403,
+            "post_write_matches": 0
+          },
+          "passed": null
+        },
+        "grant_new_b": {
+          "name": "grant_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:43:33.792588+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-M09-02_t76",
+      "name": "增授后旧A实际权限与新B获准新增的真实对照",
+      "status": "skipped",
+      "batch_tag": "t7760c7e3453ca7",
+      "source": "tests/授权变更与账号禁用/增授与新旧会话/03_增授后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t7760c7e3453ca7/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "grant_old_a": {
+          "name": "grant_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:44:57.195922+08:00",
+          "http_status": 200,
+          "actual_code": 403,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "passed": null
+        },
+        "grant_old_a_write": {
+          "name": "grant_old_a_write",
+          "actor": "管理员#1",
+          "at": "2026-11-08T20:44:57.212958+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察",
+          "details": {
+            "operation_business_code": 403,
+            "post_write_matches": 0
+          },
+          "passed": null
+        },
+        "grant_new_b": {
+          "name": "grant_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:44:57.716292+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 200,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

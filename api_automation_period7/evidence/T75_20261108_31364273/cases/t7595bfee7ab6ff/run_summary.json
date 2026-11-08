@@ -1,0 +1,93 @@
+{
+  "batch_tag": "t7595bfee7ab6ff",
+  "case_name": "管理员可以通过动态用户ID查询本人资料",
+  "stage": "T7.5",
+  "case_id": "TC-A04-01",
+  "case_source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+  "source_tcs": [
+    "TC-A04-01"
+  ],
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 2,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "preparation": {
+    "profile": "admin",
+    "status": "ready"
+  },
+  "setup_error_type": null,
+  "scenario": {},
+  "cleanup": [],
+  "cleanup_history": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 6,
+  "http_events": [
+    {
+      "at": "2026-11-08T17:00:18.226214+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:18.287738+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:18.469548+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:18.479786+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/system/user/1",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:18.493739+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T17:00:18.497149+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": []
+}

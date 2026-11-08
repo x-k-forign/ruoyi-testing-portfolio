@@ -1,0 +1,61 @@
+{
+  "tc": "TC-L12-01",
+  "stage": "T7.7",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-L03-02",
+      "name": "密码错误不获得新身份，受保护接口继续拒绝访问",
+      "status": "passed",
+      "batch_tag": "t772002b5635ddd",
+      "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t772002b5635ddd/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-L03-02",
+      "name": "密码错误不获得新身份，受保护接口继续拒绝访问",
+      "status": "passed",
+      "batch_tag": "t773e16a4d092fb",
+      "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t773e16a4d092fb/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-L03-02",
+      "name": "密码错误不获得新身份，受保护接口继续拒绝访问",
+      "status": "passed",
+      "batch_tag": "t7793d1533b572d",
+      "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t7793d1533b572d/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-L03-02",
+      "name": "密码错误不获得新身份，受保护接口继续拒绝访问",
+      "status": "passed",
+      "batch_tag": "t77fc144aadcbe7",
+      "source": "tests/新用户登录/登录异常/01_错误密码与失败后访问.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t77fc144aadcbe7/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

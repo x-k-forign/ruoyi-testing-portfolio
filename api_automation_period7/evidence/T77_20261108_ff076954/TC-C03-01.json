@@ -1,0 +1,61 @@
+{
+  "tc": "TC-C03-01",
+  "stage": "T7.7",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-C03-01",
+      "name": "重复登录名被拒绝，原账号及授权保持不变",
+      "status": "passed",
+      "batch_tag": "t774649c7fbc57a",
+      "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t774649c7fbc57a/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-C03-01",
+      "name": "重复登录名被拒绝，原账号及授权保持不变",
+      "status": "passed",
+      "batch_tag": "t77d749a5a25fd6",
+      "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t77d749a5a25fd6/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-C03-01",
+      "name": "重复登录名被拒绝，原账号及授权保持不变",
+      "status": "passed",
+      "batch_tag": "t7734c77cdb0262",
+      "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t7734c77cdb0262/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-C03-01",
+      "name": "重复登录名被拒绝，原账号及授权保持不变",
+      "status": "passed",
+      "batch_tag": "t77cd6571af4db3",
+      "source": "tests/用户创建与授权/创建参数校验/02_登录名重复.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t77cd6571af4db3/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

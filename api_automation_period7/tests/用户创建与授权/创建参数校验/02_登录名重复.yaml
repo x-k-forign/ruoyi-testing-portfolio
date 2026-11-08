@@ -1,0 +1,71 @@
+# 原用例：TC-C03-01
+# T7.5：公共前置由夹具prepared_user提供；每例账号与会话独立，统一回查清理。
+name: 重复登录名被拒绝，原账号及授权保持不变
+mark:
+  - user_create
+
+steps:
+  # 业务动作：POST /system/user
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userName: ${new_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_id}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+        status: '1'
+        sex: '2'
+        remark: ${batch_tag}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 500
+        msg: 新增用户'${new_username}'失败，登录账号已存在
+      owned_users: 1
+  # 业务动作：GET /system/user/list
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${new_username}
+        pageNum: 1
+        pageSize: 20
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 1
+        rows:
+          - userName: ${new_username}
+            remark: ${batch_tag}
+  # 业务动作：GET /system/user/${new_user_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${new_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${new_user_id}
+          userName: ${new_username}
+          deptId: ${dept_id}
+          nickName: ${new_nickname}
+          status: '0'
+          remark: ${batch_tag}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}

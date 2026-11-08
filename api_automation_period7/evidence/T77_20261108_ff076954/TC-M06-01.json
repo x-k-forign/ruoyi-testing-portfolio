@@ -1,0 +1,181 @@
+{
+  "tc": "TC-M06-01",
+  "stage": "T7.7",
+  "status": "待观察",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-M06-01_t76",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "batch_tag": "t774b6cf56596b2",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t774b6cf56596b2/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "disabled_old_a": {
+          "name": "disabled_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:21:45.363455+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "actual_ids": [
+            601,
+            603
+          ],
+          "passed": null
+        },
+        "disabled_new_b": {
+          "name": "disabled_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:21:45.410380+08:00",
+          "http_status": 200,
+          "actual_code": 500,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 500,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-M06-01_t76",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "batch_tag": "t7702b7d4ea3fbf",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t7702b7d4ea3fbf/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "disabled_old_a": {
+          "name": "disabled_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:22:59.002084+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "actual_ids": [
+            689,
+            691
+          ],
+          "passed": null
+        },
+        "disabled_new_b": {
+          "name": "disabled_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:22:59.071536+08:00",
+          "http_status": 200,
+          "actual_code": 500,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 500,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-M06-01_t76",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "batch_tag": "t776ce021051f9a",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t776ce021051f9a/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "disabled_old_a": {
+          "name": "disabled_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:43:50.830991+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "actual_ids": [
+            1132,
+            1134
+          ],
+          "passed": null
+        },
+        "disabled_new_b": {
+          "name": "disabled_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:43:50.929494+08:00",
+          "http_status": 200,
+          "actual_code": 500,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 500,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-M06-01_t76",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "batch_tag": "t77c1291a932d08",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t77c1291a932d08/run_summary.json",
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "checkpoints": {
+        "disabled_old_a": {
+          "name": "disabled_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T20:45:16.264360+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "actual_ids": [
+            1220,
+            1222
+          ],
+          "passed": null
+        },
+        "disabled_new_b": {
+          "name": "disabled_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T20:45:16.373875+08:00",
+          "http_status": 200,
+          "actual_code": 500,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 500,
+          "passed": true
+        }
+      },
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}

@@ -1,0 +1,75 @@
+{
+  "batch_tag": "t74f73527663401",
+  "case_name": "管理员可以通过动态用户ID查询本人资料",
+  "case_source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+  "source_tcs": [
+    "TC-A04-01"
+  ],
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 10,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "cleanup": [],
+  "cleanup_error_types": [],
+  "http_request_count": 6,
+  "http_events": [
+    {
+      "at": "2026-11-08T13:09:18.288728+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:18.343410+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:18.491644+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:18.498791+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/1",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:18.513086+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:09:18.517394+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  }
+}

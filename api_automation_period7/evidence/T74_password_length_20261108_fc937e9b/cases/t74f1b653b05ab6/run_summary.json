@@ -1,0 +1,183 @@
+{
+  "batch_tag": "t74f1b653b05ab6",
+  "case_name": "创建密码21位：应拒绝且不产生账号",
+  "case_source": "tests/用户创建与授权/创建密码边界/04_密码21位.yaml",
+  "source_tcs": [
+    "TC-C09-06"
+  ],
+  "business_steps_completed": false,
+  "business_error_type": "AssertionError",
+  "last_step": {
+    "number": 13,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "cleanup": [
+    {
+      "username": "t74f1b653b05ab6u",
+      "user_ids": [
+        219
+      ],
+      "deleted": true,
+      "post_cleanup_matches": 0,
+      "deletion_verified": true
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 13,
+  "http_events": [
+    {
+      "at": "2026-11-08T13:43:45.627401+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:45.687827+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:45.864681+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:45.874173+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/dept/202",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:45.880413+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/role/101",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:45.888205+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:45.898248+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/system/user",
+      "http_status": 200,
+      "business_code": 200,
+      "input_evidence": {
+        "request_step": 12,
+        "method": "POST",
+        "path": "/system/user",
+        "password": "***",
+        "actual_password_length": 21,
+        "expected_input_length": 21,
+        "ascii_only": true,
+        "input_contract_passed": true,
+        "allowed_length_range": [
+          6,
+          20
+        ],
+        "within_allowed_range": false,
+        "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+        "measured_at": "2026-11-08T13:43:45.887543+08:00",
+        "http_response_received": true,
+        "http_status": 200,
+        "business_code": 200
+      }
+    },
+    {
+      "at": "2026-11-08T13:43:45.993799+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:46.004620+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/219",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:46.018341+08:00",
+      "actor": "管理员",
+      "method": "DELETE",
+      "path": "/system/user/219",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:46.033467+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/system/user/list",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:46.041638+08:00",
+      "actor": "管理员",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T13:43:46.044954+08:00",
+      "actor": "管理员",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": [
+    {
+      "request_step": 12,
+      "method": "POST",
+      "path": "/system/user",
+      "password": "***",
+      "actual_password_length": 21,
+      "expected_input_length": 21,
+      "ascii_only": true,
+      "input_contract_passed": true,
+      "allowed_length_range": [
+        6,
+        20
+      ],
+      "within_allowed_range": false,
+      "measurement_source": "变量替换后的实际请求参数，在发送前计算len(password)",
+      "measured_at": "2026-11-08T13:43:45.887543+08:00",
+      "http_response_received": true,
+      "http_status": 200,
+      "business_code": 200
+    }
+  ]
+}

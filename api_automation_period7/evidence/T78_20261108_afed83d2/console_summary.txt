@@ -1,0 +1,14 @@
+本文件为实际控制台摘录，省略重复的捕获日志。
+platform win32 -- Python 3.13.12, pytest-9.2.0, pluggy-1.7.0 -- E:\cpmputer_jobs\software_test_learning\Ruo_Yi\api_automation_period7\.venv\Scripts\python.exe
+rootdir: E:\cpmputer_jobs\software_test_learning\Ruo_Yi\api_automation_period7
+SKIPPED (已执...)
+SKIPPED (已执...)
+SKIPPED [1] commons\runner_utils.py:215: 已执行A/B请求并留证；业务规则待确认：用户确认增授对旧会话的生效时效尚未确定，保留真实A/B观察
+SKIPPED [1] commons\runner_utils.py:215: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察
+FAILED tests/test_yaml_case.py::test_yaml_case[TC-M02-01_t76] - AssertionErro...
+FAILED tests/test_yaml_case.py::test_yaml_case[TC-M04-01_t76] - AssertionErro...
+FAILED tests/test_yaml_case.py::test_yaml_case[TC-C09-01_pwd05] - AssertionEr...
+FAILED tests/test_yaml_case.py::test_yaml_case[TC-C09-06_pwd21] - AssertionEr...
+============= 4 failed, 34 passed, 2 skipped in 67.54s (0:01:07) ==============
+Report successfully generated to E:\cpmputer_jobs\software_test_learning\Ruo_Yi\api_automation_period7\report
+当前结果：40条；失败索引：data/temps/failure_index.json；无reports历史归档。

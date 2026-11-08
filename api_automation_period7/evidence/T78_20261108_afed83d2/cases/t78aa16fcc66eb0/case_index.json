@@ -1,0 +1,94 @@
+{
+  "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+  "case_id": "reference_dept_role",
+  "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+  "source_tcs": [],
+  "known_issue": "",
+  "kind": "business",
+  "batch_tag": "t78aa16fcc66eb0",
+  "phases": [
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+      "case_id": "reference_dept_role",
+      "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+      "source_tcs": [],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "setup",
+      "batch_tag": "t78aa16fcc66eb0",
+      "outcome": "passed",
+      "duration": 0.414312,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+      "case_id": "reference_dept_role",
+      "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+      "source_tcs": [],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "call",
+      "batch_tag": "t78aa16fcc66eb0",
+      "outcome": "passed",
+      "duration": 0.018469,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    },
+    {
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[reference_dept_role]",
+      "case_id": "reference_dept_role",
+      "source": "tests/用户创建与授权/授权基础资料查询/01_查询配置部门和角色.yaml",
+      "source_tcs": [],
+      "known_issue": "",
+      "kind": "business",
+      "teaching_fault": false,
+      "phase": "teardown",
+      "batch_tag": "t78aa16fcc66eb0",
+      "outcome": "passed",
+      "duration": 0.022799,
+      "category": "phase_passed",
+      "error_type": null,
+      "message": "",
+      "location": null
+    }
+  ],
+  "last_step": {
+    "number": 4,
+    "action": "response"
+  },
+  "last_assertion": {
+    "expected_http": 200,
+    "actual_http": 200,
+    "expected_business_code": 200,
+    "actual_business_code": 200,
+    "checkpoints": []
+  },
+  "input_evidence": [],
+  "checkpoints": {},
+  "set_checks": [],
+  "cleanup_ok": true,
+  "cleanup": [],
+  "resource_cleanup": [],
+  "restorations": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "b399006e60aa3201"
+    }
+  ],
+  "http_evidence": "http.jsonl",
+  "cleanup_evidence": "run_summary.json",
+  "pending_requirement": null,
+  "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id reference_dept_role -v",
+  "current_report_evidence": "evidence/cases/t78aa16fcc66eb0"
+}

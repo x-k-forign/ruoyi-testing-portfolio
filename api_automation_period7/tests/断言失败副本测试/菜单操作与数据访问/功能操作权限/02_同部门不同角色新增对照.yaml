@@ -1,0 +1,129 @@
+# 原用例：TC-A02-01
+# 公共前置只准备专属数据；以下步骤执行目标业务并保留真实结果。
+name: 同部门权限对照：查询用户拒绝新增，维护用户新增成功
+mark:
+- menu_and_data
+
+steps:
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${before_token}
+      json:
+        userName: ${denied_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      checkpoint:
+        name: query_denied
+        code: 403
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${maintainer_token}
+      json:
+        userName: ${allowed_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_a}
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      checkpoint:
+        name: maintainer_allowed
+        code: 200
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${denied_username}
+        pageNum: 1
+        pageSize: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      denied_no_write_total:
+      - json
+      - $.total
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      checkpoint:
+        name: denied_no_write
+        values:
+        - actual: ${denied_no_write_total}
+          expected: 0
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${allowed_username}
+        pageNum: 1
+        pageSize: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 1
+        rows:
+        - userName: ${allowed_username}
+          remark: ${batch_tag}
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      created_target_id:
+      - json
+      - $.rows[0].userId
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${created_target_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${created_target_id}
+          userName: ${allowed_username}
+          deptId: ${dept_a}
+          status: '0'
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      checkpoints:
+      - query_denied
+      - maintainer_allowed
+      - denied_no_write

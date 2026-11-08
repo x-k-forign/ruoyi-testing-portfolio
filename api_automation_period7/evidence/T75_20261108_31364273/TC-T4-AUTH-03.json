@@ -1,0 +1,45 @@
+{
+  "tc": "TC-T4-AUTH-03",
+  "stage": "T7.5",
+  "status": "passed",
+  "executed_at": "2026-11-08T17:00:11.485000+08:00",
+  "case_id": "TC-T4-AUTH-03",
+  "test_name": "管理员登录后能查询身份，退出后原Token失效",
+  "test_source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+  "preparation": {
+    "profile": "none",
+    "status": "ready"
+  },
+  "scenario": {},
+  "input_evidence": [],
+  "cleanup": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true
+    }
+  ],
+  "cleanup_ok": true,
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "message": "",
+  "run_summary": "cases/t7574edcf9a284d/run_summary.json",
+  "allure_raw_archive": null,
+  "junit": null,
+  "tester": "x-k-forign（项目测试负责人）",
+  "cleanup_history": [],
+  "publication_scope": {
+    "excluded_references": [
+      "allure_raw_archive",
+      "junit"
+    ],
+    "reason": "完整历史报告、源码包、原始结果ZIP、JUnit及运行日志未随本次发布；业务结果和必要逐例证据保留"
+  }
+}

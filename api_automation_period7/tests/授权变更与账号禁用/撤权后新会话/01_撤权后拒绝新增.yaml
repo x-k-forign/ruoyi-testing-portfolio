@@ -1,0 +1,190 @@
+# 原用例：TC-M01-01、TC-M03-01
+# T7.5：公共前置由夹具maintainer_session提供；每例账号与会话独立，统一回查清理。
+name: 撤销新增角色后，新登录会话按新权限拒绝新增
+mark:
+  - auth
+
+steps:
+  # 业务动作：POST /system/user
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${before_token}
+      json:
+        userName: ${allowed_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_id}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：GET /system/user/list
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${allowed_username}
+        pageNum: 1
+        pageSize: 20
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 1
+        rows:
+          - userName: ${allowed_username}
+            remark: ${batch_tag}
+  # 业务动作：PUT /system/user
+  - request:
+      method: PUT
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${admin_token}
+      json:
+        userId: ${new_user_id}
+        userName: ${new_username}
+        nickName: ${new_nickname}
+        deptId: ${dept_id}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：GET /system/user/${new_user_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${new_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${new_user_id}
+          userName: ${new_username}
+          deptId: ${dept_id}
+          nickName: ${new_nickname}
+          status: '0'
+          remark: ${batch_tag}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+  # 业务动作：GET /captchaImage
+  - request:
+      method: GET
+      url: ${base_url}/captchaImage
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：POST /login
+  - request:
+      method: POST
+      url: ${base_url}/login
+      json:
+        username: ${new_username}
+        password: ${new_password}
+        code: ${captcha_code}
+        uuid: ${captcha_uuid}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      present:
+        - token
+  # 提取本次真实响应变量，后续请求动态关联
+  - extract:
+      after_token:
+        - json
+        - $.token
+  # 业务动作：GET /getInfo
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${after_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        user:
+          userName: ${new_username}
+          userId: ${new_user_id}
+          deptId: ${dept_id}
+      contains:
+        $.permissions:
+          - system:user:list
+          - system:user:query
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      not_contains:
+        $.permissions:
+          - system:user:add
+          - '*:*:*'
+  # 业务动作：POST /system/user
+  - request:
+      method: POST
+      url: ${base_url}/system/user
+      headers:
+        Authorization: Bearer ${after_token}
+      json:
+        userName: ${denied_username}
+        nickName: ${new_nickname}
+        password: ${new_password}
+        deptId: ${dept_id}
+        roleIds:
+          - ${role_id}
+        postIds: ${post_ids}
+        status: '0'
+        sex: '2'
+        remark: ${batch_tag}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 403
+        msg: 没有权限，请联系管理员授权
+      owned_users: 2
+  # 业务动作：GET /system/user/list
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${denied_username}
+        pageNum: 1
+        pageSize: 20
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 0
+        rows: []

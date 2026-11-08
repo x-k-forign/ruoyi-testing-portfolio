@@ -1,0 +1,65 @@
+# 原用例：TC-T75-CLEAN-01
+# T7.5：公共前置由夹具interrupted提供；每例账号与会话独立，统一回查清理。
+name: 创建用户后准备中断，账号和原会话仍能清理
+mark:
+  - user_create
+
+steps:
+  # 业务动作：GET /system/user/list
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      params:
+        userName: ${new_username}
+        pageNum: 1
+        pageSize: 20
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        total: 0
+        rows: []
+      owned_users: 0
+      preparation:
+        status: compensated
+        controlled: true
+        expected_interruption_observed: true
+        error_type: ControlledPreparationFailure
+        failure_point: after_account_and_session_ready
+        before_yield: true
+        created_user_ids:
+          - ${new_user_id}
+        deleted_user_count: 1
+        post_cleanup_matches: 0
+        original_sessions_invalidated: 2
+  # 业务动作：GET /getInfo
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${interrupted_user_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 401
+      absent:
+        - user
+        - token
+  # 业务动作：GET /getInfo
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${interrupted_admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 401
+      absent:
+        - user
+        - token

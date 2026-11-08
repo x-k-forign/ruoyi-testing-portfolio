@@ -1,0 +1,111 @@
+{
+  "batch_tag": "t77aa7616deabf2",
+  "case_name": "管理员登录后能查询身份，退出后原Token失效",
+  "stage": "T7.7",
+  "case_id": "TC-T4-AUTH-03",
+  "case_source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+  "source_tcs": [
+    "TC-T4-AUTH-03"
+  ],
+  "origin_source": "tests/新用户登录/登录与退出/02_管理员登录与退出.yaml",
+  "case_kind": "business",
+  "exercise": {},
+  "business_steps_completed": true,
+  "business_error_type": null,
+  "last_step": {
+    "number": 12,
+    "action": "response"
+  },
+  "cleanup_ok": true,
+  "preparation": {
+    "profile": "none",
+    "status": "ready"
+  },
+  "setup_error_type": null,
+  "scenario": {},
+  "cleanup": [],
+  "cleanup_history": [],
+  "session_cleanup": [
+    {
+      "actor": "管理员#1",
+      "phase": "teardown",
+      "logged_out": true,
+      "old_token_rejected": true,
+      "session_fingerprint": "d40256a1bd44c9cb"
+    }
+  ],
+  "cleanup_error_types": [],
+  "http_request_count": 6,
+  "http_events": [
+    {
+      "at": "2026-11-08T20:21:46.699695+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/captchaImage",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:21:46.736891+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:21:46.742390+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/login",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:21:47.058722+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:21:47.060432+08:00",
+      "actor": "管理员#1",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:21:47.065126+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:21:47.066619+08:00",
+      "actor": "管理员#1",
+      "method": "POST",
+      "path": "/logout",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:21:47.069747+08:00",
+      "business_code": 200
+    },
+    {
+      "at": "2026-11-08T20:21:47.071039+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:21:47.073304+08:00",
+      "business_code": 401
+    },
+    {
+      "at": "2026-11-08T20:21:47.075860+08:00",
+      "actor": "yaml_case",
+      "method": "GET",
+      "path": "/getInfo",
+      "http_status": 200,
+      "completed_at": "2026-11-08T20:21:47.078211+08:00",
+      "business_code": 401
+    }
+  ],
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "input_evidence": [],
+  "permission_matrix": {},
+  "collections": [],
+  "set_checks": [],
+  "checkpoints": {},
+  "pending_requirement": null,
+  "business_verdict": "passed",
+  "resource_cleanup": [],
+  "restorations": []
+}

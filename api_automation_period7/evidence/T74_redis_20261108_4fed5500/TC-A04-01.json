@@ -1,0 +1,29 @@
+{
+  "tc": "TC-A04-01",
+  "stage": "T7.4",
+  "executed_at": "2026-11-08T13:10:23.150058+08:00",
+  "status": "passed",
+  "test_name": "管理员可以通过动态用户ID查询本人资料",
+  "test_source": "tests/菜单操作与数据访问/用户详情查询/01_管理员查询本人资料.yaml",
+  "batch_tag": "t74f73527663401",
+  "captcha": {
+    "mode": "redis",
+    "enabled": true,
+    "answers_read": 1,
+    "refreshes": 0,
+    "login_retries": 0
+  },
+  "cleanup_ok": true,
+  "message": "",
+  "run_summary": "cases/t74f73527663401/run_summary.json",
+  "allure_raw_archive": null,
+  "junit": null,
+  "tester": "x-k-forign（项目测试负责人）",
+  "publication_scope": {
+    "excluded_references": [
+      "allure_raw_archive",
+      "junit"
+    ],
+    "reason": "完整历史报告、源码包、原始结果ZIP、JUnit及运行日志未随本次发布；业务结果和必要逐例证据保留"
+  }
+}

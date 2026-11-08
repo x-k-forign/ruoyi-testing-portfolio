@@ -1,0 +1,80 @@
+# 原用例：TC-T4-AUTH-03
+# T7.5：公共前置由夹具none提供；每例账号与会话独立，统一回查清理。
+name: 管理员登录后能查询身份，退出后原Token失效
+mark:
+  - user_access
+
+steps:
+  # 业务动作：GET /captchaImage
+  - request:
+      method: GET
+      url: ${base_url}/captchaImage
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：POST /login
+  - request:
+      method: POST
+      url: ${base_url}/login
+      json:
+        username: ${admin_username}
+        password: ${admin_password}
+        code: ${captcha_code}
+        uuid: ${captcha_uuid}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      present:
+        - token
+  # 提取本次真实响应变量，后续请求动态关联
+  - extract:
+      token:
+        - json
+        - $.token
+  # 业务动作：GET /getInfo
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        user:
+          userName: ${admin_username}
+  # 提取本次真实响应变量，后续请求动态关联
+  - extract:
+      user_id:
+        - json
+        - $.user.userId
+  # 业务动作：POST /logout
+  - request:
+      method: POST
+      url: ${base_url}/logout
+      headers:
+        Authorization: Bearer ${token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 业务动作：GET /getInfo
+  - request:
+      method: GET
+      url: ${base_url}/getInfo
+      headers:
+        Authorization: Bearer ${token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 200
+      json:
+        code: 401
+      absent:
+        - user
+        - token

@@ -1,0 +1,148 @@
+{
+  "tc": "TC-M06-01",
+  "stage": "T7.8",
+  "status": "待观察",
+  "tester": "x-k-forign（项目测试负责人）",
+  "contributions": [
+    {
+      "case_id": "TC-M06-01_t76",
+      "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+      "name": "禁用后旧A访问与新B登录拒绝的真实对照",
+      "status": "skipped",
+      "business_verdict": "pending_requirement",
+      "kind": "business",
+      "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+      "source_tcs": [
+        "TC-M06-01"
+      ],
+      "known_issue": "",
+      "batch_tag": "t788e0033fd3994",
+      "phase_events": [
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "setup",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "passed",
+          "duration": 1.327035,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "call",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "skipped",
+          "duration": 0.222055,
+          "category": "pending_requirement",
+          "error_type": "Skipped",
+          "message": "已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "location": {
+            "file": ".venv/Lib/site-packages/_pytest/outcomes.py",
+            "line": 138,
+            "function": "__call__"
+          }
+        },
+        {
+          "nodeid": "tests/test_yaml_case.py::test_yaml_case[TC-M06-01_t76]",
+          "case_id": "TC-M06-01_t76",
+          "source": "tests/授权变更与账号禁用/账号禁用/02_禁用后旧会话观察.yaml",
+          "source_tcs": [
+            "TC-M06-01"
+          ],
+          "known_issue": "",
+          "kind": "business",
+          "teaching_fault": false,
+          "phase": "teardown",
+          "batch_tag": "t788e0033fd3994",
+          "outcome": "passed",
+          "duration": 0.415026,
+          "category": "phase_passed",
+          "error_type": null,
+          "message": "",
+          "location": null
+        }
+      ],
+      "last_step": {
+        "number": 17,
+        "action": "response"
+      },
+      "expected_actual": {
+        "expected_http": null,
+        "actual_http": 200,
+        "expected_business_code": null,
+        "actual_business_code": 500,
+        "checkpoints": [
+          "disabled_old_a",
+          "disabled_new_b"
+        ]
+      },
+      "input_evidence": [],
+      "checkpoint_comparisons": {
+        "disabled_old_a": {
+          "name": "disabled_old_a",
+          "actor": "本例用户#2",
+          "at": "2026-11-08T21:43:09.664623+08:00",
+          "http_status": 200,
+          "actual_code": 200,
+          "checks": [],
+          "pending": true,
+          "rule_status": "待确认",
+          "reason": "用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+          "actual_ids": [
+            1574,
+            1576
+          ],
+          "passed": null
+        },
+        "disabled_new_b": {
+          "name": "disabled_new_b",
+          "actor": "本例用户#3",
+          "at": "2026-11-08T21:43:09.741142+08:00",
+          "http_status": 200,
+          "actual_code": 500,
+          "checks": [
+            true
+          ],
+          "pending": false,
+          "expected_code": 500,
+          "passed": true
+        }
+      },
+      "message": "Skipped: 已执行A/B请求并留证；业务规则待确认：用户确认禁用与旧会话下线时效尚未确定，保留真实A/B观察",
+      "cleanup_ok": true,
+      "case_index": "cases/t788e0033fd3994/case_index.json",
+      "http_evidence": "cases/t788e0033fd3994/http.jsonl",
+      "cleanup_evidence": "cases/t788e0033fd3994/run_summary.json",
+      "reproduce": ".\\.venv\\Scripts\\python.exe .\\main.py --business --case-id TC-M06-01_t76 -v",
+      "evidence_limitations": [
+        "当前证据为客户端请求与接口回查；需要额外服务端日志或SQL时另行限定对象与时间补证"
+      ],
+      "historical_correlations": {
+        "scope": "仅历史关联，不冒记为本次新采集的SQL或服务端日志",
+        "documents_relative_to_Ruo_Yi": []
+      }
+    }
+  ],
+  "environment_info": "environment_info.json",
+  "failure_index": "failure_index.json",
+  "cleanup_ok": true,
+  "evidence_scope": "阶段验收必要的白名单证据，不是每次运行的完整历史归档"
+}

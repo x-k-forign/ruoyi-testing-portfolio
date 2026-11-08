@@ -1,0 +1,40 @@
+# 原用例：TC-M07-01
+# 公共前置只准备专属数据；以下步骤执行目标业务并保留真实结果。
+name: 无修改权限用户不能改变账号状态及关联
+mark:
+- auth
+
+steps:
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: PUT
+      url: ${base_url}/system/user/changeStatus
+      headers:
+        Authorization: Bearer ${before_token}
+      json:
+        userId: ${target_user_id}
+        status: '1'
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 403
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${target_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+        data:
+          userId: ${target_user_id}
+          deptId: ${dept_a}
+          status: '0'
+          remark: ${batch_tag}
+        roleIds:
+        - ${role_id}
+        postIds: ${post_ids}

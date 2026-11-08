@@ -1,0 +1,43 @@
+# 原用例：TC-A09-01
+# 公共前置只准备专属数据；以下步骤执行目标业务并保留真实结果。
+name: 全部数据范围与管理员当前完整ID基准一致
+mark:
+- menu_and_data
+
+steps:
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${admin_token}
+      pagination:
+        page_size: 10
+        max_pages: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+  # 提取本次动态字段；pages表示已读完的真实分页结果
+  - extract:
+      baseline_rows:
+      - pages
+      - rows
+  # 发送本步骤真实请求；Authorization明确选择身份
+  - request:
+      method: GET
+      url: ${base_url}/system/user/list
+      headers:
+        Authorization: Bearer ${before_token}
+      pagination:
+        page_size: 2
+        max_pages: 100
+  # 核对响应、集合或已采集检查点，保留HTTP与业务结论的区别
+  - response:
+      status_code: 200
+      json:
+        code: 200
+      user_ids:
+        baseline: ${baseline_rows}
+        all: true

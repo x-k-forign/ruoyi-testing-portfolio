@@ -1,0 +1,32 @@
+# Local interpreters and installed packages.
+.venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Credentials, raw output and execution helpers remain local.
+.local/
+.private/
+.env
+.env.*
+!.env.example
+config.local.json
+backups/
+execution_build/
+raw_logs/
+reports/
+logs/
+temps/
+report/
+allure-report/
+data/config/*.local.yaml
+data/config/*.local.yml
+data/config/*.local.json
+.idea/
+*.log
+
+# Editor and operating-system temporary files.
+*.tmp
+*.swp
+Thumbs.db
+desktop.ini

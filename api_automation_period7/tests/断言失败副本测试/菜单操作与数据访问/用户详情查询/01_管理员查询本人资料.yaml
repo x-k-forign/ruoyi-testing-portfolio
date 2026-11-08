@@ -1,0 +1,22 @@
+# T7.7断言失败练习副本：原文件不改；200→999用于验证断言和失败收尾。
+# 原用例：TC-A04-01
+# T7.5：公共前置由夹具admin提供；每例账号与会话独立，统一回查清理。
+name: 管理员可以通过动态用户ID查询本人资料
+mark:
+  - menu_and_data
+
+steps:
+  # 业务动作：GET /system/user/${admin_user_id}
+  - request:
+      method: GET
+      url: ${base_url}/system/user/${admin_user_id}
+      headers:
+        Authorization: Bearer ${admin_token}
+  # 分别核对HTTP、业务字段及适用的写后状态
+  - response:
+      status_code: 999  # 人为错误：正式用例此处应为200，仅在副本中保留
+      json:
+        code: 200
+        data:
+          userId: ${admin_user_id}
+          userName: ${admin_username}

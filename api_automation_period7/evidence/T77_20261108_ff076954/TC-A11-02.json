@@ -1,0 +1,61 @@
+{
+  "tc": "TC-A11-02",
+  "stage": "T7.7",
+  "status": "通过",
+  "tester": "x-k-forign（项目测试负责人）",
+  "rounds": [
+    {
+      "round": "initial_round1",
+      "case_id": "TC-A11-02_t76",
+      "name": "附加角色停用后新登录仅保留有效角色范围与查询权限",
+      "status": "passed",
+      "batch_tag": "t7738eb587be9cc",
+      "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202224_business_2f608755/cases/t7738eb587be9cc/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "initial_round2",
+      "case_id": "TC-A11-02_t76",
+      "name": "附加角色停用后新登录仅保留有效角色范围与查询权限",
+      "status": "passed",
+      "batch_tag": "t779d30772c9775",
+      "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_202339_business_9c158d47/cases/t779d30772c9775/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round1",
+      "case_id": "TC-A11-02_t76",
+      "name": "附加角色停用后新登录仅保留有效角色范围与查询权限",
+      "status": "passed",
+      "batch_tag": "t7741394a2c0386",
+      "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204431_business_53d481f8/cases/t7741394a2c0386/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    },
+    {
+      "round": "round2",
+      "case_id": "TC-A11-02_t76",
+      "name": "附加角色停用后新登录仅保留有效角色范围与查询权限",
+      "status": "passed",
+      "batch_tag": "t775179d95467bc",
+      "source": "tests/菜单操作与数据访问/多角色权限/02_停用角色后新会话.yaml",
+      "cleanup_ok": true,
+      "run_summary": "retained_case_evidence/20261108_204557_business_2c9a620f/cases/t775179d95467bc/run_summary.json",
+      "message": "",
+      "checkpoints": {},
+      "input_evidence": []
+    }
+  ],
+  "round_comparison": "round_comparison.json"
+}
