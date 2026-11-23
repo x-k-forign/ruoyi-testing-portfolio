@@ -139,3 +139,24 @@ desktop.ini
 # Working notes remain local and are not portfolio deliverables.
 /项目笔记.md
 /笔记.md
+
+# T9 只发布回归源码、用例设计和公开运行说明。
+/web_automation_period9/**
+!/web_automation_period9/conftest.py
+!/web_automation_period9/main.py
+!/web_automation_period9/requirements.txt
+!/web_automation_period9/commons/
+!/web_automation_period9/commons/*.py
+!/web_automation_period9/examples/
+!/web_automation_period9/examples/browser_probe.py
+!/web_automation_period9/tests/
+!/web_automation_period9/tests/**/
+!/web_automation_period9/tests/**/*.py
+!/web_automation_period9/tests/**/*.md
+/web_automation_period9/**/.*
+/web_automation_period9/**/__pycache__/
+/web_automation_period9/**/docs/
+/web_automation_period9/**/report/
+/web_automation_period9/**/reports/
+/web_automation_period9/**/logs/
+/web_automation_period9/**/allure-results/

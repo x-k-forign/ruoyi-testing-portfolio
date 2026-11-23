@@ -2,7 +2,7 @@
 
 这是我基于若依项目整理的软件测试学习作品集，记录了测试设计、执行结果、缺陷分析和阶段验收，也保留了对应的前后端源码快照。日常开发和测试在本地工作目录完成，成果整理、脱敏后再发布到这里。
 
-作者：**x-k-forign**。最近更新：**2026-11-08｜T7接口自动化总验收**。主分支：`main`。
+作者：**x-k-forign**。最近更新：**2026-11-23｜T9 Web自动化回归测试**。主分支：`main`。
 
 ## 内容
 
@@ -16,6 +16,7 @@
 - [T3整体验收](functional_testing_period3/docs/T3_整体验收记录.md)与[阶段文档](functional_testing_period3/docs/)：执行、抽检、验收和风险边界。
 - [T6整体验收](linux_testing_period6/docs/T6_整体验收记录.md)与[排查恢复记录](linux_testing_period6/docs/T6.5_排查与恢复记录.md)：Linux练习、若依跨层调查及证据索引。
 - [T7执行结果](#t7执行结果)与[接口自动化框架](api_automation_period7/)：40条正式YAML、权限与会话回归、Allure及失败证据。
+- [T9web自动化执行结果](#t9web自动化执行结果)与[Web UI 回归用例](web_automation_period9/tests/)：页面创建、独立登录、角色和部门权限回归。
 - [共通用例台账](docs/)：95条设计用例、功能执行记录和跨阶段接口执行情况。
 
 ## 阶段状态
@@ -486,6 +487,49 @@ T7已经完成接口自动化环境、请求与断言、公共fixture、独立�
 目前保留3个已知缺陷对应的4条失败，以及2条规则待确认用例。后续规则确认或产品修复后，沿原TC复测并更新共通台账，原有执行证据继续按对应批次保留。
 
 框架和用例见[接口自动化目录](api_automation_period7/)，设计与执行状态统一查阅[共通用例台账](docs/)。
+
+## T9web自动化执行结果
+
+本阶段使用 Selenium、pytest 和 Allure 回归若依的用户创建、登录、角色权限和部门数据范围。执行入口为 [main.py](web_automation_period9/main.py)。
+
+### 公用模块
+
+| 模块 | 用途 |
+| --- | --- |
+| [浏览器公共模块](web_automation_period9/commons/browser.py) | 建立独立 Chrome 会话，设置窗口和等待，结束后释放浏览器及临时配置。 |
+| [页面对象](web_automation_period9/commons/ruoyi_ui.py) | 集中管理登录、用户搜索、新增、详情、分页、角色及数据范围等页面操作和显式等待。 |
+| [Allure 标签](web_automation_period9/commons/allure_labels.py) | 设置四级分组和原 TC 编号。 |
+| [浏览器夹具](web_automation_period9/conftest.py)和[用户数据夹具](web_automation_period9/tests/conftest.py) | 按例管理浏览器、失败取证、专用账号准备和回查清理。 |
+| [权限对照夹具](web_automation_period9/tests/菜单操作与数据访问/conftest.py) | 准备不同身份，比较普通用户与管理员基准的记录集合。 |
+
+### 回归用例
+
+| 原 TC | 页面检查 | 本地结果 |
+| --- | --- | --- |
+| [TC-C01-01](web_automation_period9/tests/用户创建与授权/创建授权/test_tc_c01_01.py) | 管理员新增用户，重新搜索并核对资料、部门和角色。 | 通过 |
+| [TC-L01-01](web_automation_period9/tests/新用户登录/登录与退出/test_tc_l01_01.py) | 新用户独立登录，核对身份和用户编号，查询后从页面退出。 | 通过 |
+| [TC-A02-01](web_automation_period9/tests/菜单操作与数据访问/功能操作权限/test_tc_a02_01.py) | 同部门查询角色无新增入口，维护角色能新增并回查。 | 通过 |
+| [TC-A05-01](web_automation_period9/tests/菜单操作与数据访问/部门数据范围/test_department_scope.py) | 部门 A 各页的 ID 集合与管理员基准一致，本轮共 25 条记录。 | 通过 |
+| [TC-A05-02](web_automation_period9/tests/菜单操作与数据访问/部门数据范围/test_department_scope.py) | 部门 B 各页的 ID 集合与管理员基准一致，本轮共 3 条记录。 | 通过 |
+| [TC-A10-02](web_automation_period9/tests/菜单操作与数据访问/部门数据范围/test_department_scope.py) | 管理员查得到范围外目标，部门 A 用户按同条件搜索为空。 | 通过 |
+
+### 本地执行汇总
+
+2026-11-23 使用有头 Chrome 全量复跑，**6 条全部通过**，失败、故障和跳过均为 0。pytest 与 Allure 退出码均为 `0`。本轮 11 个专用账号已删除并回查，12 个浏览器会话均已释放。
+
+JUnit 共记录约 **354.59 秒（5 分 55 秒）**，包含准备与收尾。Allure 中各用例主体耗时约 **13.38～65.88 秒**。测试设计沿用原 TC，回归证据已写入本地功能执行台账。
+
+### 公开版复跑
+
+在 Windows PowerShell 进入 `web_automation_period9`，准备项目 `.venv`、兼容的 Chrome 与根目录 `chromedriver.exe`，并将 Allure CLI 加入 PATH。安装 [requirements.txt](web_automation_period9/requirements.txt) 后，将 `RUOYI_UI_CONFIG` 指向自己的私有测试配置。配置需包含管理员账号和口令、部门及角色 ID，权限对照时还需核对第二部门与维护角色。前端默认访问 `http://127.0.0.1:5173/`，可用 `RUOYI_UI_BASE_URL` 指定本机测试前端。
+
+公开版在终端读入当次验证码答案，由 Selenium 填写表单并提交。上表是本地完整版本的历史实测结果。
+
+```powershell
+& '.\.venv\Scripts\python.exe' '.\main.py'
+& '.\.venv\Scripts\python.exe' '.\main.py' --case TC-L01-01
+allure open '.\report'
+```
 
 ## 前后端源码快照
 
